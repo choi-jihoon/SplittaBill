@@ -1,1 +1,1 @@
-# SPLITWISE CLONE
+# SplittaBill - SplitWise Clone
