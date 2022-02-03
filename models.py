@@ -1,10 +1,20 @@
+from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
-class User(db.Model):
-    __tablename__ = "users"
+db = SQLAlchemy()
+
+# friends = db.Table('friends',
+#     db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+#     db.Column('friend_id', db.Integer, db.ForeignKey('users.id'), primary_key=True))
+
+class User(db.Model, UserMixin):
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(255), nullable=False)
+    username = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
     @property
@@ -18,40 +28,40 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email
+            # "friends": [friend for friend in self.user_friends],
+            # "bills": [bill.to_dict() for bill in self.bills],
+            # "expenses": self.expenses,
+            # "comments": self.comments
+        }
 
     bills = db.relationship("Bill", back_populates="owner")
     expenses = db.relationship("Expense", back_populates="payer")
     comments = db.relationship("Comment", back_populates="user")
 
-    payer_transaction_records = db.relationship("TransactionRecord", back_populates="payer")
-    recipient_transaction_records = db.relationship("TransactionRecord", back_populates="recipient")
-
-    user_friends = db.relationship(
-        'User', secondary=friends,
-        primaryjoin=(friends.c.user_id == id),
-        secondaryjoin=(friends.c.friend_id == id),
-        backref=db.backref('friends', lazy='dynamic'), lazy='dynamic'
-    )
-
-friends = db.Table('friends',
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
-    db.Column('friend_id', db.Integer, db.ForeignKey('users.id'), primary_key=True))
 
 
+class Friend(db.Model):
+    __tablename__ = "friends"
 
-# update balance between me(1) and Viv(2)
-# Viv charges me $20
-# balance_tracker = BalanceBetweenFriends.query.filter(user_id == 1 and friend_id == 2)
-# balance_tracker.balance = -20
-# balance_tracker2 = BalanceBetweenFriends.query.filter(user_id == 2 and friend_id == 1)
-# balance_tracker.balance = 20
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    friend_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-class BalanceBetweenFriends(db.Model):
-    user_id = db.Column(db.Integer)
-    friend_id = db.Column(db.Integer)
     balance = db.Column(db.Numeric(10,2), default=0)
 
+    user = db.relationship("User", foreign_keys=[user_id])
+    friend = db.relationship("User", foreign_keys=[friend_id])
 
+    def to_dict(self):
+        return {
+            "friend_name": self.friend.username,
+            "balance": float(self.balance)
+        }
 
 
 class Bill(db.Model):
@@ -136,8 +146,8 @@ class TransactionRecord(db.Model):
     amount_paid = db.Column(db.Numeric(10,2), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
-    payer = db.relationship("User", back_populates="payer_transaction_records")
-    recipient = db.relationship("User", back_populates="recipient_transaction_records")
+    payer = db.relationship("User", foreign_keys=[payer_id])
+    recipient = db.relationship("User", foreign_keys=[recipient_id])
 
     expense = db.relationship("Expense", back_populates="transaction_records")
 
