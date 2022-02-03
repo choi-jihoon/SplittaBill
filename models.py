@@ -1,3 +1,4 @@
+
 class User(db.Model):
     __tablename__ = "users"
 
@@ -25,19 +26,32 @@ class User(db.Model):
     payer_transaction_records = db.relationship("TransactionRecord", back_populates="payer")
     recipient_transaction_records = db.relationship("TransactionRecord", back_populates="recipient")
 
-    user_friends = db.relationship("Friend")
+    user_friends = db.relationship(
+        'User', secondary=friends,
+        primaryjoin=(friends.c.user_id == id),
+        secondaryjoin=(friends.c.friend_id == id),
+        backref=db.backref('friends', lazy='dynamic'), lazy='dynamic'
+    )
+
+friends = db.Table('friends',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+    db.Column('friend_id', db.Integer, db.ForeignKey('users.id'), primary_key=True))
 
 
 
-class Friend(db.Model):
-    __tablename__ = "friends"
+# update balance between me(1) and Viv(2)
+# Viv charges me $20
+# balance_tracker = BalanceBetweenFriends.query.filter(user_id == 1 and friend_id == 2)
+# balance_tracker.balance = -20
+# balance_tracker2 = BalanceBetweenFriends.query.filter(user_id == 2 and friend_id == 1)
+# balance_tracker.balance = 20
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    friend_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+class BalanceBetweenFriends(db.Model):
+    user_id = db.Column(db.Integer)
+    friend_id = db.Column(db.Integer)
     balance = db.Column(db.Numeric(10,2), default=0)
 
-    user_friends = db.relationship("User", back_populates="user_friends")
+
 
 
 class Bill(db.Model):
@@ -54,6 +68,16 @@ class Bill(db.Model):
     comments = db.relationship("Comment", back_populates="bill")
     expenses = db.relationship("Expense", back_populates="bill")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'owner_id': self.owner_id,
+            'total_amount': self.total_amount,
+            'description': self.description,
+            'deadline': self.deadline,
+            'created_at': self.created_at,
+        }
+
 
 class Expense(db.Model):
     __tablename__ = "expenses"
@@ -69,6 +93,16 @@ class Expense(db.Model):
     bill = db.relationship("Bill", back_populates="expenses")
     transaction_records = db.relationship("TransactionRecord", back_populates="expense")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'payer_id': self.payer_id,
+            'bill_id': self.bill_id,
+            'initial_charge': self.initial_charge,
+            'amount_due': self.amount_due,
+            'settled': self.settled,
+        }
+
 
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -81,6 +115,15 @@ class Comment(db.Model):
 
     user = db.relationship("User", back_populates="comments")
     bill = db.relationship("Bill", back_populates="comments")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'bill_id': self.bill_id,
+            'message': self.message,
+            'created_at': self.created_at,
+        }
 
 
 class TransactionRecord(db.Model):
@@ -97,3 +140,13 @@ class TransactionRecord(db.Model):
     recipient = db.relationship("User", back_populates="recipient_transaction_records")
 
     expense = db.relationship("Expense", back_populates="transaction_records")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'payer_id': self.payer_id,
+            'recipient_id': self.recipient_id,
+            'expense_id': self.expense_id,
+            'amount_paid': self.amount_paid,
+            'created_at': self.created_at,
+        }
