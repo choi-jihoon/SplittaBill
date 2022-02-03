@@ -96,7 +96,7 @@ class Expense(db.Model):
     payer_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     bill_id = db.Column(db.Integer, db.ForeignKey("bills.id"), nullable=False)
     initial_charge = db.Column(db.Numeric(10,2), nullable=False)
-    amount_due = db.Column(db.Numeric(10,2), nullable=False, default=initial_charge)
+    amount_due = db.Column(db.Numeric(10,2), nullable=False)
     settled = db.Column(db.Boolean, default=False)
 
     payer = db.relationship("User", back_populates="expenses")
