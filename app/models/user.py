@@ -28,3 +28,7 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email
         }
+
+    bills = db.relationship("Bill", back_populates="owner")
+    expenses = db.relationship("Expense", back_populates="payer")
+    comments = db.relationship("Comment", back_populates="user")

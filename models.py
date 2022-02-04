@@ -93,7 +93,6 @@ def mydefault(context):
     return context.get_current_parameters()['initial_charge']
 
 
-
 class Expense(db.Model):
     __tablename__ = "expenses"
 
