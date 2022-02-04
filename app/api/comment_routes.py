@@ -1,5 +1,7 @@
-from email import message
+# from email import message
+from datetime import datetime
 from flask import Blueprint, jsonify, request, session
+
 from flask_login import current_user
 from app.models import db, Bill, Comment
 
@@ -16,17 +18,25 @@ def get_comments(billId):
 # post comment for bill
 @comment_routes.route("/bills/<int:billId>", methods=["POST"])
 def post_comment(billId):
-    print("current_user: ", current_user)
-    # user_id = request.body["user_id"]
-    # print(user_id)
-    print("<><><><><><><><>",session)
-    print("<><><><><><><><>",request.json["message"])
     message = request.json["message"]
-    comment = Comment(user_id=current_user, bill_id=billId, message=message)
+    user_id = request.json["user_id"]
+    # user_id = session["id"] to be used once front end is ready
+    comment = Comment(user_id=user_id, bill_id=billId, message=message)
     db.session.add(comment)
     db.session.commit()
+    return comment.to_dict()
 # update comment
-
+@comment_routes.route("/<int:id>", methods=["PUT"])
+def update_comment(id):
+    comment = Comment.query.get(id)
+    comment.message = request.json['message']
+    db.session.add(comment)
+    db.session.commit()
+    return comment.to_dict()
 # delete comment
-# <SecureCookieSession {'csrf_token': '14b06aafeee2ccf4a223453ebd19c8ab7e36179a', '_fresh': False}
-# <SecureCookieSession {'csrf_token': '14b06aafeee2ccf4a223453ebd19c8ab7e36179a', '_fresh': False}
+@comment_routes.route("/<int:id>", methods=["DELETE"])
+def delete_comment(id):
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return {"message": "destoyed"}
