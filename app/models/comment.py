@@ -9,7 +9,7 @@ class Comment(db.Model):
     bill_id = db.Column(db.Integer, db.ForeignKey("bills.id"), nullable=False)
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
-    updated_at = db.Column(db.DateTime, default=datetime.now())
+    # updated_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship("User", back_populates="comments")
     bill = db.relationship("Bill", back_populates="comments")
