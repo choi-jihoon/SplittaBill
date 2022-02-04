@@ -1,5 +1,7 @@
 # SplittaBill - SplitWise Clone
 
+TESTING TEST BRANCH TO DEV
+
 Friends
 - When a friend is added, find User with that email and create 2 records on the Friends table
 - When a friend is deleted, delete both records on the Friends table
