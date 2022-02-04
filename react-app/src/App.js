@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginFormModal from './components/auth/LoginFormModal';
-import SignUpFormModal from './components/auth/SignUpFormModal';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import { useDispatch, useSelector } from 'react-redux';
+// import NavBar from './components/NavBar';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
+// import UsersList from './components/UsersList';
+// import User from './components/User';
 import { authenticate } from './store/session';
+
+import Dashboard from './components/Dashboard';
+import SplashPage from './components/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async() => {
@@ -26,7 +29,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {sessionUser ?
+      <Dashboard /> : <SplashPage />}
+      {/* <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginFormModal />
@@ -43,7 +48,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-      </Switch>
+      </Switch> */}
     </BrowserRouter>
   );
 }
