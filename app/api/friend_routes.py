@@ -8,3 +8,8 @@ friend_routes = Blueprint('friend', __name__)
 def get_friends():
     friends = Friend.query.filter(Friend.user_id == current_user.get_id()).all()
     return { "friends": [friend.to_dict() for friend in friends] }
+
+
+@friend_routes.route('/friend', methods=["POST"])
+def add_friend(id):
+    pass
