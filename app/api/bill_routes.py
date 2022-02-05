@@ -11,7 +11,6 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            # errorMessages.append(f'{field} : {error}')
             errorMessages.append(f'{error}')
     return errorMessages
 
@@ -68,7 +67,7 @@ def add_bill():
 
         db.session.add(user_expense)
         db.session.commit()
-        # data["expenses"] = [user_expense.to_dict()]
+
 
         for friend_id in all_friend_ids:
             new_expense = Expense(
@@ -78,7 +77,13 @@ def add_bill():
             )
             db.session.add(new_expense)
             db.session.commit()
-            # data["expenses"].append(new_expense.to_dict())
+
+            friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == new_expense.payer_id).first()
+            friend2 = Friend.query.filter(Friend.user_id == new_expense.payer_id, Friend.friend_id == bill.owner_id).first()
+
+            friend1.balance += new_expense.initial_charge
+            friend2.balance -= new_expense.initial_charge
+            db.session.commit()
 
 
         data["bill"] = bill.to_dict()
