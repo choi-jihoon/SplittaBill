@@ -22,6 +22,6 @@ class TransactionRecord(db.Model):
             'payer_id': self.payer_id,
             'recipient_id': self.recipient_id,
             'expense_id': self.expense_id,
-            'amount_paid': self.amount_paid,
+            'amount_paid': str(self.amount_paid),
             'created_at': self.created_at,
         }

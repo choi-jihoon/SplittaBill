@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTransactionRecord } from "../../../store/transactionrecords";
 
 
-const SettleUpForm = ({ showModal }) => {
+const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
 
 	const [errors, setErrors] = useState([]);
-	const [total_amount, setTotal_Amount] = useState("");
+	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
 
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+        const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
+
+        if (data) {
+			setErrors(data);
+            return
+		}
 
         showModal(false)
 	};
 
-	const updateTotal = (e) => {
-		setTotal_Amount(e.target.value);
+	const updateAmountPaid = (e) => {
+		setAmountPaid(e.target.value);
 	};
 
 
@@ -29,17 +36,17 @@ const SettleUpForm = ({ showModal }) => {
 				))}
 			</div>
 			<div>
-				<label htmlFor="total_amount">Amount</label>
+				<label htmlFor="amount_paid">Pay</label>
 				<input
-					name="total_amount"
+					name="amount_paid"
 					type="number"
                     step="0.01"
 					placeholder="0"
-					value={total_amount}
-					onChange={updateTotal}
+					value={amount_paid}
+					onChange={updateAmountPaid}
 				/>
 			</div>
-			<button type="submit">Divvy Up</button>
+			<button type="submit">Settle Up</button>
 		</form>
 	);
 };

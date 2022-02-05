@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
+import { Modal } from '../../../context/Modal';
 import SettleUpForm from './SettleUpForm';
 
-function SettleUpModal() {
+function SettleUpModal({ expense }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -14,7 +14,7 @@ function SettleUpModal() {
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <SettleUpForm showModal={setShowModal} />
+            <SettleUpForm showModal={setShowModal} expense={expense} />
           </Modal>
         )}
       </>
