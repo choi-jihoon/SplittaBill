@@ -1,5 +1,7 @@
+
 const LOAD = 'bills/LOAD';
 const CREATE = 'bills/ADD';
+const DELETE = 'bills/DELETE';
 
 const load = (bills) => ({
     type: LOAD,
@@ -8,6 +10,11 @@ const load = (bills) => ({
 
 const create = (data) => ({
     type: CREATE,
+    data
+})
+
+const remove = (data) => ({
+    type: DELETE,
     data
 })
 
@@ -41,6 +48,29 @@ export const createBill = (total_amount, description, deadline, friends) => asyn
         const data = await response.json();
         dispatch(create(data));
         return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            console.log(data.errors)
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
+export const deleteBill = (billId) => async(dispatch) => {
+    const response = await fetch(`/api/bills/${billId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(remove(data))
+        return null
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -91,6 +121,15 @@ const billsReducer = (state = initialState, action) => {
                 }
             };
             return newState;
+        }
+
+        case DELETE: {
+            const newState = { ...state };
+            delete newState.bills[action.data.bill.id];
+            action.data.expenses.forEach(expense => {
+                delete newState.expenses[expense.id]
+            })
+            return newState
         }
 
         default:

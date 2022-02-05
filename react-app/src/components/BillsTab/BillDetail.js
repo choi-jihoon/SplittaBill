@@ -1,4 +1,4 @@
-
+import DeleteBillModal from "./DeleteBillModal";
 
 const BillDetail = ({ bill }) => {
     return (
@@ -15,6 +15,7 @@ const BillDetail = ({ bill }) => {
                     DESCRIPTION: { bill.description }
                 </li>
             </ul>
+            <DeleteBillModal billId={bill.id} />
         </div>
     )
 }

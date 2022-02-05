@@ -84,3 +84,14 @@ def add_bill():
         return data
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@bill_routes.route('/<int:billId>', methods=["DELETE"])
+def deleteBill(billId):
+    data = {}
+    bill = Bill.query.get(int(billId))
+    data["bill"] = bill.to_dict()
+    data["expenses"] = [expense.to_dict() for expense in bill.expenses]
+    db.session.delete(bill)
+    db.session.commit()
+    return data

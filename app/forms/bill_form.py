@@ -25,8 +25,6 @@ def check_friend_ids(form, field):
         if not is_friend:
             raise ValidationError("That user is not your friend.")
 
-
-
 class AddBillForm(FlaskForm):
     owner_id = IntegerField('owner_id')
     total_amount = DecimalField('total_amount', validators=[DataRequired()])
