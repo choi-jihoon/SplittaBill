@@ -11,7 +11,6 @@ comment_routes = Blueprint('comments', __name__)
 @comment_routes.route("/bills/<int:billId>")
 def get_comments(billId):
     comments = Comment.query.filter(Comment.bill_id == billId).all()
-    print("<><><><><><><>",{"comments": [comment.to_dict() for comment in comments]})
     return {"comments": [comment.to_frontend_dict() for comment in comments]}
     # return jsonify(comments)
 
