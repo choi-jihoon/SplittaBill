@@ -28,7 +28,7 @@ const deleteFriend = (id) => {
 
 // Thunk action creators
 export const getUsersFriends = () => async (dispatch) => {
-    const response = await fetch('/api/friends');
+    const response = await fetch('/api/friends/');
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {

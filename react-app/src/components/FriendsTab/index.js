@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Friend from "./Friend"
+import Friend from "../Friend"
 import { getUsersFriends } from "../../store/friends";
 
 const FriendsTab = (props) => {
@@ -15,13 +15,11 @@ const FriendsTab = (props) => {
 	return (
 		<div>
 			<div>FriendsTab</div>
-			<ul>
-				{friends.map(({friend_name, balance}, index) => (
-					<li key={`friend-${index}`}>
-						{friend_name} {balance}
-					</li>
-				))}
-			</ul>
+
+			{friends.map(({friend_name, balance}, index) => (
+				<Friend key={`friend${index}`} username={friend_name} balance={balance}/>
+			))}
+
 		</div>
 	);
 };
