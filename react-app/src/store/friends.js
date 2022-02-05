@@ -39,6 +39,24 @@ export const getUsersFriends = () => async (dispatch) => {
     }
 }
 
+export const addFriend = (username) => async (dispatch) => {
+    const response = await fetch('/api/friends/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+        dispatch(createFriend(data))
+    }
+}
+
 
 const initialState = { byId: {}, allIds: [] }
 
@@ -51,6 +69,14 @@ export default function reducer(state = initialState, action){
                 byId[friend.id] = friend;
                 return byId
             }, {});
+
+            return newState;
+
+        case CREATE_FRIEND:
+            newState = { ...state };
+
+            newState.byId = {...newState.byId, [action.friend.id]: action.friend}
+            newState.allIds = [...newState.allIds, action.friend]
 
             return newState;
         default:
