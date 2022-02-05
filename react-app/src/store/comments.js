@@ -1,5 +1,5 @@
 // constants
-const LOAD_COMMENTS = "comments/SET_USER";
+const LOAD_COMMENTS = "comments/LOAD_COMMENTS";
 const DELETE_COMMENT = "comments/REMOVE_COMMENT";
 const ADD_COMMENT = "comments/ADD_COMMENT";
 const UPDATE_COMMENT = "comments/UPDATE_COMMENT";

@@ -24,7 +24,13 @@ const Comments = (props) => {
 						</div>
 					);
 				})}
-			<form></form>
+			<form>
+				<textarea
+					className="comment-input"
+					placeholder="Add a Comment!"
+				></textarea>
+				<button>Post Comment</button>
+			</form>
 		</div>
 	);
 };
