@@ -1,12 +1,12 @@
 import React from "react";
 
 const Comment = (comment) => {
-	console.log(comment);
+	comment = comment?.comment;
 	return (
 		<div>
-			<div>{comment?.comment?.message}</div>
-			<div>{comment?.comment?.username}</div>
-			<div>{comment?.comment?.created_at}</div>
+			<div>{comment?.message}</div>
+			<div>{comment?.username}</div>
+			<div>{comment?.created_at}</div>
 		</div>
 	);
 };

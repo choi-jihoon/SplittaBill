@@ -10,16 +10,21 @@ const Comments = (props) => {
 
 	useEffect(() => {
 		dispatch(getComments(1));
+		// dispatch(getComments(billId)); TBD With bill integration
 	}, []);
 	return (
 		<div>
 			<div>COMMENTS</div>
 			{commentsArr.length > 0 &&
-				commentsArr.map((comment) => (
-					<div key={comment.id} className="comment-wrapper">
-						<Comment comment={comment} />
-					</div>
-				))}
+				commentsArr.map((comment) => {
+					// console.log(comment);
+					return (
+						<div key={comment.id} className="comment-wrapper">
+							<Comment comment={comment} />
+						</div>
+					);
+				})}
+			<form></form>
 		</div>
 	);
 };
