@@ -15,6 +15,7 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{error}')
     return errorMessages
 
+
 def get_friend_id(friend):
     user = User.query.filter(User.username == friend).first()
     return user.id
