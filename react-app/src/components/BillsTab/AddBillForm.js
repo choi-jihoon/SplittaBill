@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { createBill } from "../../store/bills";
 
+toast.configure()
 
 const AddBillForm = ({ showModal }) => {
 	const dispatch = useDispatch();
@@ -15,6 +19,12 @@ const AddBillForm = ({ showModal }) => {
     const [deadline, setDeadline] = useState("")
     const [friends, setFriends] = useState("")
 
+	const notify = () => {
+		toast(`Bill for ${description} added!`,
+			{position: toast.POSITION.TOP_CENTER,
+			autoClose:2000})
+	}
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -24,6 +34,8 @@ const AddBillForm = ({ showModal }) => {
 			setErrors(data);
             return
 		}
+
+		notify()
 
         showModal(false)
 	};

@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTransactionRecord } from "../../../store/bills";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
 
 	const [errors, setErrors] = useState([]);
 	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
+
+	const notify = () => {
+		toast.success(`You paid $${amount_paid}!`,
+			{position: toast.POSITION.TOP_CENTER,
+			autoClose:2000})
+	}
 
 
 	const handleSubmit = async (e) => {
@@ -19,6 +29,8 @@ const SettleUpForm = ({ showModal, expense }) => {
 			setErrors(data);
             return
 		}
+
+		notify()
 
         showModal(false)
 	};
