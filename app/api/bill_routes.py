@@ -11,7 +11,8 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
+            # errorMessages.append(f'{field} : {error}')
+            errorMessages.append(f'{error}')
     return errorMessages
 
 
@@ -77,7 +78,6 @@ def add_bill():
             db.session.add(new_expense)
             db.session.commit()
             data["expenses"].append(new_expense.to_dict())
-
 
         db.session.commit()
 

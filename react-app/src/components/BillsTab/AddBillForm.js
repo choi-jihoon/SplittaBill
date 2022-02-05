@@ -20,6 +20,7 @@ const AddBillForm = ({ showModal }) => {
 
 		if (data) {
 			setErrors(data);
+            return
 		}
 
         showModal(false)
