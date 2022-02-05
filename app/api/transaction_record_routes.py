@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, TransactionRecord
+from app.models import db, TransactionRecord, Expense
 from app.forms import TransactionForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -34,5 +34,15 @@ def create_transaction():
         db.session.add(transaction_record)
         db.session.commit()
 
-        return {'transaction_record': transaction_record.to_dict()}
+        expense_to_update = Expense.query.get(transaction_record.expense_id)
+
+        expense_to_update.amount_due -= transaction_record.amount_paid
+
+        db.session.commit()
+
+        if expense_to_update.amount_due == 0:
+            expense_to_update.settled = True
+            db.session.commit()
+
+        return {'transaction_record': transaction_record.to_dict(), 'expense_to_update': expense_to_update.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

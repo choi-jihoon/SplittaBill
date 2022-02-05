@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTransactionRecord } from "../../../store/transactionrecords";
+import { addTransactionRecord } from "../../../store/bills";
 
 
 const SettleUpForm = ({ showModal, expense }) => {
