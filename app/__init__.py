@@ -39,7 +39,7 @@ app.register_blueprint(friend_routes, url_prefix='/api/friends')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(bill_routes, url_prefix='/api/bills')
 app.register_blueprint(expense_routes, url_prefix='/api/expenses')
-app.register_bluprint(transaction_record_routes, url_prefix='/api/transaction_records')
+app.register_blueprint(transaction_record_routes, url_prefix='/api/transaction_records')
 db.init_app(app)
 Migrate(app, db)
 
