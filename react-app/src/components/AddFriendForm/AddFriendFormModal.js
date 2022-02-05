@@ -14,7 +14,7 @@ function AddFriendFormModal() {
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <AddFriendForm />
+            <AddFriendForm setShowModal={setShowModal}/>
           </Modal>
         )}
       </>

@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { } from "../../store/friends";
+import { addFriend } from "../../store/friends";
 
-const AddFriendForm = () => {
+const AddFriendForm = ({setShowModal}) => {
 	const [errors, setErrors] = useState([]);
 	const [username, setUsername] = useState("");
-	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 
 	const onAddFriend = async (e) => {
 		e.preventDefault();
         console.log("Clicked add new friend!");
-		// const data = await dispatch(login(email, password));
-		// if (data) {
-		// 	setErrors(data);
-		// }
+		const data = await dispatch(addFriend(username));
+		if (data && data.errors) {
+			setErrors(data.errors);
+		}
+        else {
+            setShowModal(false);
+            return <Redirect to="/friends" />;
+        }
+
 	};
 
 	const updateUsername = (e) => {
@@ -37,6 +41,7 @@ const AddFriendForm = () => {
 					placeholder="Username"
 					value={username}
 					onChange={updateUsername}
+                    required={true}
 				/>
 			</div>
 

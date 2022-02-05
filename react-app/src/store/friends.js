@@ -2,7 +2,7 @@
 // Action type constants
 const READ_FRIENDS = 'friends/READ_FRIENDS';
 const CREATE_FRIEND = 'friends/CREATE_FRIEND';
-const DELETE_FRIEND = 'friends/DELETE_FRIEND';
+// const DELETE_FRIEND = 'friends/DELETE_FRIEND';
 
 // Action creators
 const readFriends = (friends) => {
@@ -19,12 +19,12 @@ const createFriend = (friend) => {
     }
 }
 
-const deleteFriend = (id) => {
-    return {
-        type: DELETE_FRIEND,
-        id
-    }
-}
+// const deleteFriend = (id) => {
+//     return {
+//         type: DELETE_FRIEND,
+//         id
+//     }
+// }
 
 // Thunk action creators
 export const getUsersFriends = () => async (dispatch) => {
@@ -50,10 +50,14 @@ export const addFriend = (username) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
+        dispatch(createFriend(data["friend"]))
+    } else if (response.status < 500) {
+        const data = await response.json();
         if (data.errors) {
-            return data.errors;
+            return data;
         }
-        dispatch(createFriend(data))
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
