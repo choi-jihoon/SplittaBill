@@ -10,7 +10,7 @@ const AllBills = () => {
 
     const dispatch = useDispatch();
     const billsObject = useSelector(state => state.bills)
-    const bills = Object.values(billsObject)
+    const bills = Object.values(billsObject.bills)
 
     useEffect(() => {
         dispatch(getBills());

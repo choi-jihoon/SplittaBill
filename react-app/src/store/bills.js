@@ -6,9 +6,9 @@ const load = (bills) => ({
     bills
 })
 
-const create = (bill) => ({
+const create = (data) => ({
     type: CREATE,
-    bill
+    data
 })
 
 export const getBills = () => async (dispatch) => {
@@ -53,7 +53,10 @@ export const createBill = (total_amount, description, deadline, friends) => asyn
 }
 
 
-const initialState = {}
+const initialState = {
+    bills: {},
+    expenses: {}
+}
 
 
 const billsReducer = (state = initialState, action) => {
@@ -65,14 +68,27 @@ const billsReducer = (state = initialState, action) => {
             });
             return {
                 ...state,
-                ...loadBills
+                bills: {
+                    ...loadBills
+                }
             }
         }
 
         case CREATE: {
+            const loadExpenses = {}
+            action.data.expenses.forEach(expense => {
+                loadExpenses[expense.id] = expense
+            })
             const newState = {
                 ...state,
-                [action.bill.id]: action.bill
+                bills: {
+                    ...state.bills,
+                    [action.data.bill.id]: action.data.bill
+                },
+                expenses: {
+                    ...state.expenses,
+                    ...loadExpenses
+                }
             };
             return newState;
         }

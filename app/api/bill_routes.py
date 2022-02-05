@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import current_user
 
-from app.models import Bill, db
+from app.models import db, Bill, Expense, Friend, User
 from app.forms import AddBillForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -30,16 +30,57 @@ def add_bill():
     form = AddBillForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     friends = form['friends'].data
-    print(friends)
+    friends_list = friends.split(", ")
+
+    curr_user_id = current_user.get_id()
 
     if form.validate_on_submit():
+        data = {}
+
         bill = Bill(
-            owner_id = current_user.get_id(),
+            owner_id = curr_user_id,
             total_amount = form.data['total_amount'],
             description = form.data['description'],
             deadline=form.data['deadline']
         )
+
         db.session.add(bill)
         db.session.commit()
-        return bill.to_dict()
+        data["bill"] = bill.to_dict()
+
+        def get_friend_id(friend):
+            user = User.query.filter(User.username == friend).first()
+            return user.id
+
+        all_friend_ids = list(map(get_friend_id, friends_list))
+
+        divvyed_expense = form.data['total_amount'] / (len(all_friend_ids) + 1)
+
+        user_expense = Expense(
+            payer_id = curr_user_id,
+            bill_id = bill.id,
+            initial_charge = divvyed_expense,
+            amount_due = 0,
+            settled = True
+        )
+
+        db.session.add(user_expense)
+        db.session.commit()
+        data["expenses"] = [user_expense.to_dict()]
+
+        for friend_id in all_friend_ids:
+            new_expense = Expense(
+                payer_id = friend_id,
+                bill_id = bill.id,
+                initial_charge = divvyed_expense
+            )
+            db.session.add(new_expense)
+            db.session.commit()
+            data["expenses"].append(new_expense.to_dict())
+
+
+        db.session.commit()
+
+        return data
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
