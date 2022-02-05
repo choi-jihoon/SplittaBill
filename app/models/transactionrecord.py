@@ -20,7 +20,9 @@ class TransactionRecord(db.Model):
         return {
             'id': self.id,
             'payer_id': self.payer_id,
+            'payer_name': self.payer.username,
             'recipient_id': self.recipient_id,
+            'recipient_name': self.recipient.username,
             'expense_id': self.expense_id,
             'amount_paid': str(self.amount_paid),
             'created_at': self.created_at,

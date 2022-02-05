@@ -15,6 +15,14 @@ def validation_errors_to_error_messages(validation_errors):
 
 transaction_record_routes = Blueprint('transaction_records', __name__)
 
+
+@transaction_record_routes.route('/')
+def get_all_transaction_records():
+    curr_user_id = current_user.get_id()
+    transaction_records = TransactionRecord.query.filter((TransactionRecord.payer_id == curr_user_id) | (TransactionRecord.recipient_id == curr_user_id))
+    return {'transaction_records': [transaction_record.to_dict() for transaction_record in transaction_records]}
+
+
 @transaction_record_routes.route('/', methods=['POST'])
 def create_transaction():
     form = TransactionForm()

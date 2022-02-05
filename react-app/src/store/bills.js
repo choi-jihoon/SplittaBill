@@ -7,6 +7,12 @@ const LOAD_EXPENSES = 'bills/LOAD_EXPENSES'
 const EXPENSES_FOR_ONE_BILL = 'bills/EXPENSES_FOR_ONE_BILL'
 
 const CREATE_TRANSACTION = 'bills/CREATE_TRANSACTION'
+const LOAD_TRANSACTIONS = 'bills/LOAD_TRANSACTIONS'
+
+const loadTransactions = (data) => ({
+    type: LOAD_TRANSACTIONS,
+    data
+})
 
 const createTransaction = (data) => ({
     type: CREATE_TRANSACTION,
@@ -42,6 +48,18 @@ const load_expenses_for_one_bill = (data) => ({
     type: EXPENSES_FOR_ONE_BILL,
     data
 })
+
+export const getTransactionRecords = () => async (dispatch) => {
+    const response = await fetch(`/api/transaction_records/`)
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(loadTransactions(data.transaction_records))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
+    }
+}
 
 export const addTransactionRecord = (recipient_id, expense_id, amount_paid) => async (dispatch) => {
     const response = await fetch(`/api/transaction_records/`, {
@@ -261,6 +279,20 @@ const bills = (state = initialState, action) => {
             const newState = { ...state };
             newState.bills[action.data.bill.id] = action.data.bill;
             return newState;
+        }
+
+        case LOAD_TRANSACTIONS: {
+            const loadRecords = {}
+            action.data.forEach(record => {
+                loadRecords[record.id] = record
+            });
+            return {
+                ...state,
+                transaction_records: {
+                    ...state.transaction_records,
+                    ...loadRecords
+                }
+            }
         }
 
         case CREATE_TRANSACTION: {
