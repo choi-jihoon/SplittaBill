@@ -19,9 +19,7 @@ const AddBillForm = ({ showModal }) => {
         const data = await dispatch(createBill(total_amount, description, deadline, friends))
 
 		if (data) {
-            console.log("DATAAAAAAAAA", data)
 			setErrors(data);
-            console.log("ERRRRORSSSSSSS", errors)
 		}
 
         showModal(false)
