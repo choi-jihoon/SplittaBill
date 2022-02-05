@@ -20,8 +20,9 @@ class Bill(db.Model):
         return {
             'id': self.id,
             'owner_id': self.owner_id,
-            'total_amount': self.total_amount,
+            'total_amount': str(self.total_amount),
             'description': self.description,
-            'deadline': self.deadline,
-            'created_at': self.created_at,
+            'deadline': str(self.deadline),
+            'created_at': str(self.created_at),
+            'expenses': [expense.to_dict() for expense in self.expenses]
         }
