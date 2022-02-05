@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
+from decimal import Decimal
 
 from app.models import db, Bill, Expense, Friend, User
 from app.forms import AddBillForm
@@ -68,7 +69,6 @@ def add_bill():
         db.session.add(user_expense)
         db.session.commit()
 
-
         for friend_id in all_friend_ids:
             new_expense = Expense(
                 payer_id = friend_id,
@@ -100,7 +100,19 @@ def deleteBill(billId):
     data = {}
     bill = Bill.query.get(int(billId))
     data["bill"] = bill.to_dict()
-    data["expenses"] = [expense.to_dict() for expense in bill.expenses]
+    expenses_to_update_balances = data["bill"]["expenses"]
+
+    for expense in expenses_to_update_balances:
+        if bill.owner_id == expense["payer_id"]:
+            continue
+        friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == expense["payer_id"]).first()
+        friend2 = Friend.query.filter(Friend.user_id == expense["payer_id"], Friend.friend_id == bill.owner_id).first()
+
+        friend1.balance -= Decimal(expense["initial_charge"])
+        friend2.balance += Decimal(expense["initial_charge"])
+        db.session.commit()
+
+
     db.session.delete(bill)
     db.session.commit()
     return data
