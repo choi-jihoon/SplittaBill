@@ -28,7 +28,7 @@ class Comment(db.Model):
         user = User.query.get(self.user_id)
         username = user.username
         # strftime = datetime.strftime()
-        created_at = self.created_at.strftime("%b/%d/%Y at %I:%M:%S%p")
+        created_at = self.created_at.strftime("%m/%d/%Y at %I:%M:%S%p")
         return {
             "id": self.id,
             "username": username,

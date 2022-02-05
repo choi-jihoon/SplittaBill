@@ -1,12 +1,18 @@
 import React from "react";
 
-const Comment = (comment) => {
-	comment = comment?.comment;
+const Comment = ({ comment }) => {
 	return (
-		<div>
-			<div>{comment?.message}</div>
-			<div>{comment?.username}</div>
-			<div>{comment?.created_at}</div>
+		<div
+			style={{
+				border: "1px solid black",
+				margin: 10,
+				width: "fit-content",
+				padding: 8,
+			}}
+		>
+			<div>Message: {comment?.message}</div>
+			<div>Posted by: {comment?.username}</div>
+			<div>Posted at: {comment?.created_at}</div>
 		</div>
 	);
 };
