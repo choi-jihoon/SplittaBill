@@ -43,6 +43,7 @@ export const getUsersFriends = () => async (dispatch) => {
 const initialState = { byId: {}, allIds: [] }
 
 export default function reducer(state = initialState, action){
+    let newState;
     switch (action.type) {
         case READ_FRIENDS:
             newState = { ...state, allIds: action.friends };
