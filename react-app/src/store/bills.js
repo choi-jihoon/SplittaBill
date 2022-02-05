@@ -2,6 +2,7 @@
 const LOAD = 'bills/LOAD';
 const CREATE = 'bills/ADD';
 const DELETE = 'bills/DELETE';
+const EDIT = 'bills/EDIT'
 
 const load = (bills) => ({
     type: LOAD,
@@ -15,6 +16,11 @@ const create = (data) => ({
 
 const remove = (data) => ({
     type: DELETE,
+    data
+})
+
+const edit = (data) => ({
+    type: EDIT,
     data
 })
 
@@ -60,7 +66,7 @@ export const createBill = (owner_id, total_amount, description, deadline, friend
     }
 }
 
-export const deleteBill = (billId) => async(dispatch) => {
+export const deleteBill = (billId) => async (dispatch) => {
     const response = await fetch(`/api/bills/${billId}`, {
         method: 'DELETE',
         headers: {
@@ -72,6 +78,36 @@ export const deleteBill = (billId) => async(dispatch) => {
         const data = await response.json();
         dispatch(remove(data))
         return null
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            console.log(data.errors)
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
+export const editBill = (billId, owner_id, total_amount, description, deadline, friends) => async (dispatch) => {
+    const response = await fetch(`/api/bills/${billId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            owner_id,
+            total_amount,
+            description,
+            deadline,
+            friends
+        })
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(edit(data));
+        return null;
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -120,7 +156,13 @@ const billsReducer = (state = initialState, action) => {
             const newState = { ...state };
             delete newState.bills[action.data.bill.id];
 
-            return newState
+            return newState;
+        }
+
+        case EDIT: {
+            const newState = { ...state };
+            newState.bills[action.data.bill.id] = action.data.bill;
+            return newState;
         }
 
         default:

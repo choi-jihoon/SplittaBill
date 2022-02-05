@@ -1,3 +1,4 @@
+import EditBillFormModal from "./EditBillFormModal";
 import DeleteBillModal from "./DeleteBillModal";
 import BillExpenses from "./BillExpenses";
 
@@ -16,8 +17,9 @@ const BillDetail = ({ bill }) => {
                     DESCRIPTION: { bill.description }
                 </li>
             </ul>
-            <BillExpenses expenses={bill.expenses} />
+            <EditBillFormModal bill={bill} />
             <DeleteBillModal billId={bill.id} />
+            <BillExpenses expenses={bill.expenses} />
         </div>
     )
 }

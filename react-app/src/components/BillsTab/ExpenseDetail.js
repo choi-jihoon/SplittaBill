@@ -5,7 +5,7 @@ const ExpenseDetail = ({ expense }) => {
             <h3>Expense Detail</h3>
             <ul>
                 <li>
-                    PAYER ID: { expense.payer_id }
+                    PAYER: { expense.payer_name }
                 </li>
                 <li>
                     INITIAL CHARGE: { expense.initial_charge }
