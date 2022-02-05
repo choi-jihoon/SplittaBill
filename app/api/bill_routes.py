@@ -31,6 +31,13 @@ def get_bills():
     return {"all_bills": all_bills_list}
 
 
+@bill_routes.route('/<int:billId>/expenses')
+def get_expenses_for_bill(billId):
+    bill = Bill.query.filter(Bill.id == billId).first()
+    expenses = bill.expenses
+    return {"expenses": [expense.to_dict() for expense in expenses], "billId": billId}
+
+
 @bill_routes.route('/', methods=['POST'])
 def add_bill():
     form = AddBillForm()

@@ -3,6 +3,8 @@ const LOAD = 'bills/LOAD';
 const CREATE = 'bills/ADD';
 const DELETE = 'bills/DELETE';
 const EDIT = 'bills/EDIT'
+const LOAD_EXPENSES = 'bills/LOAD_EXPENSES'
+const EXPENSES_FOR_ONE_BILL = 'bills/EXPENSES_FOR_ONE_BILL'
 
 const load = (bills) => ({
     type: LOAD,
@@ -24,12 +26,44 @@ const edit = (data) => ({
     data
 })
 
+const load_user_expenses = (data) => ({
+    type: LOAD_EXPENSES,
+    data
+})
+
+const load_expenses_for_one_bill = (data) => ({
+    type: EXPENSES_FOR_ONE_BILL,
+    data
+})
+
 export const getBills = () => async (dispatch) => {
     const response = await fetch(`/api/bills/`);
 
     if (response.ok) {
         const bills = await response.json()
         dispatch(load(bills.all_bills))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
+    }
+}
+
+export const getUserExpenses = () => async (dispatch) => {
+    const response = await fetch(`/api/expenses/`);
+    if (response.ok) {
+        const user_expenses = await response.json()
+        dispatch(load_user_expenses(user_expenses.expenses))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
+    }
+}
+
+export const getExpensesForBill = (billId) => async (dispatch) => {
+    const response = await fetch(`/api/bills/${billId}/expenses`);
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(load_expenses_for_one_bill(data))
     } else {
         const errors = await response.json()
         console.log(errors.errors);
@@ -121,7 +155,9 @@ export const editBill = (billId, owner_id, total_amount, description, deadline, 
 
 
 const initialState = {
-    bills: {}
+    bills: {},
+    expenses: {},
+    expenses_by_bill: {}
 }
 
 
@@ -136,6 +172,32 @@ const bills = (state = initialState, action) => {
                 ...state,
                 bills: {
                     ...loadBills
+                }
+            }
+        }
+
+        case LOAD_EXPENSES: {
+            const loadExpenses = {}
+            action.data.forEach(expense => {
+                loadExpenses[expense.id] = expense
+            });
+            return {
+                ...state,
+                expenses: {
+                    ...loadExpenses
+                }
+            }
+        }
+
+        case EXPENSES_FOR_ONE_BILL: {
+            const loadExpenses = {}
+            action.data.expenses.forEach(expense => {
+                loadExpenses[expense.id] = expense
+            });
+            return {
+                ...state,
+                expenses_by_bill: {
+                    ...loadExpenses
                 }
             }
         }
