@@ -8,7 +8,7 @@ const BillDetail = ({ bill }) => {
             <h3>Bill Detail</h3>
             <ul>
                 <li>
-                    OWNER ID: { bill.owner_id }
+                    OWNER: { bill.owner_name }
                 </li>
                 <li>
                     TOTAL AMOUNT: { bill.total_amount }

@@ -163,8 +163,8 @@ def editBill(billId):
 
                 diff = divvyed_expense - prev_initial_charge
 
-                friend1.balance -= diff
-                friend2.balance += diff
+                friend1.balance += diff
+                friend2.balance -= diff
 
                 friend_expense.amount_due += diff
 

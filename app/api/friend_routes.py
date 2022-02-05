@@ -19,14 +19,20 @@ def add_friend():
     if form.validate_on_submit():
         friend_user = User.query.filter(User.username == form.data['username']).first()
 
-        new_friend = Friend(
+        new_friend1 = Friend(
             user_id=current_user.get_id(),
             friend_id=friend_user.id
         )
 
-        db.session.add(new_friend)
+        new_friend2 = Friend(
+            user_id=friend_user.id,
+            friend_id=current_user.get_id()
+        )
+
+        db.session.add(new_friend1)
+        db.session.add(new_friend2)
         db.session.commit()
-        return {"friend": new_friend.to_dict()}
+        return {"friend": new_friend1.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
