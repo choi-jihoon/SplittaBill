@@ -29,3 +29,11 @@ def add_friend():
         return {"friend": new_friend.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@friend_routes.route('/<int:id>', methods=["DELETE"])
+def remove_friend(id):
+    friend = Friend.query.get(id)
+    if friend:
+        db.session.delete(friend)
+        db.session.commit()
+        return {'message': 'successfully deleted'}

@@ -10,7 +10,6 @@ const AddFriendForm = ({setShowModal}) => {
 
 	const onAddFriend = async (e) => {
 		e.preventDefault();
-        console.log("Clicked add new friend!");
 		const data = await dispatch(addFriend(username));
 		if (data && data.errors) {
 			setErrors(data.errors);

@@ -2,7 +2,7 @@
 // Action type constants
 const READ_FRIENDS = 'friends/READ_FRIENDS';
 const CREATE_FRIEND = 'friends/CREATE_FRIEND';
-// const DELETE_FRIEND = 'friends/DELETE_FRIEND';
+const DELETE_FRIEND = 'friends/DELETE_FRIEND';
 
 // Action creators
 const readFriends = (friends) => {
@@ -19,12 +19,12 @@ const createFriend = (friend) => {
     }
 }
 
-// const deleteFriend = (id) => {
-//     return {
-//         type: DELETE_FRIEND,
-//         id
-//     }
-// }
+const deleteFriend = (id) => {
+    return {
+        type: DELETE_FRIEND,
+        id
+    }
+}
 
 // Thunk action creators
 export const getUsersFriends = () => async (dispatch) => {
@@ -50,14 +50,28 @@ export const addFriend = (username) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(createFriend(data["friend"]))
+        dispatch(createFriend(data["friend"]));
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
             return data;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return ['An error occurred. Please try again.'];
+    }
+}
+
+export const removeFriend = (id) => async (dispatch) => {
+    const response = await fetch(`/api/friends/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(deleteFriend(id));
+        if (data.errors) {
+            return data;
+        }
     }
 }
 
@@ -82,6 +96,18 @@ export default function reducer(state = initialState, action){
             newState.byId = {...newState.byId, [action.friend.id]: action.friend}
             newState.allIds = [...newState.allIds, action.friend]
 
+            return newState;
+
+        case DELETE_FRIEND:
+            // let index = state.allIds.indexOf(action.id)
+            newState = { ...state };
+            delete newState.byId[action.id];
+            newState.byId = { ...newState.byId };
+            // TODO: update allIds
+            // allIds : [
+            //     ...newState.allIds.slice(0, index),
+            //     ...newState.allIds.slice(index + 1)
+            // ]
             return newState;
         default:
             return state;

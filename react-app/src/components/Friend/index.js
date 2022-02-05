@@ -1,5 +1,16 @@
+import { useDispatch } from "react-redux";
+import { Redirect } from 'react-router-dom';
+import { removeFriend } from "../../store/friends";
 
-const Friend = ({username, balance}) => {
+const Friend = ({id, username, balance}) => {
+	const dispatch = useDispatch();
+
+	const onRemoveFriend = async (e) => {
+		e.preventDefault();
+		await dispatch(removeFriend(id));
+		return <Redirect to="/friends" />;
+	}
+
 	return (
 		<div>
 			{parseFloat(balance) > 0 ?
@@ -8,6 +19,10 @@ const Friend = ({username, balance}) => {
 				<p>you owe {username} ${balance}</p>
 				:  <p>All Even with {username}!</p>)
 			}
+
+			{parseFloat(balance) === 0 ? (
+				<button onClick={onRemoveFriend}>Delete Friend</button>
+			): null}
 		</div>
 	);
 };
