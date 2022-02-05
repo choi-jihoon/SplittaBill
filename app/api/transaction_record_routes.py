@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, TransactionRecord, Expense
+from app.models import db, TransactionRecord, Expense, Friend
 from app.forms import TransactionForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -43,6 +43,14 @@ def create_transaction():
         if expense_to_update.amount_due == 0:
             expense_to_update.settled = True
             db.session.commit()
+
+        friend1 = Friend.query.filter(Friend.user_id == transaction_record.recipient_id, Friend.friend_id == transaction_record.payer_id).first()
+        friend2 = Friend.query.filter(Friend.user_id == transaction_record.payer_id, Friend.friend_id == transaction_record.recipient_id).first()
+
+        friend1.balance -= transaction_record.amount_paid
+        friend2.balance += transaction_record.amount_paid
+
+        db.session.commit()
 
         return {'transaction_record': transaction_record.to_dict(), 'expense_to_update': expense_to_update.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
