@@ -26,6 +26,7 @@ def get_bills():
     return {"all_bills": all_bills_list}
 
 
+
 @bill_routes.route('/', methods=['POST'])
 def add_bill():
     form = AddBillForm()
@@ -47,7 +48,7 @@ def add_bill():
 
         db.session.add(bill)
         db.session.commit()
-        data["bill"] = bill.to_dict()
+
 
         def get_friend_id(friend):
             user = User.query.filter(User.username == friend).first()
@@ -67,7 +68,7 @@ def add_bill():
 
         db.session.add(user_expense)
         db.session.commit()
-        data["expenses"] = [user_expense.to_dict()]
+        # data["expenses"] = [user_expense.to_dict()]
 
         for friend_id in all_friend_ids:
             new_expense = Expense(
@@ -77,7 +78,10 @@ def add_bill():
             )
             db.session.add(new_expense)
             db.session.commit()
-            data["expenses"].append(new_expense.to_dict())
+            # data["expenses"].append(new_expense.to_dict())
+
+
+        data["bill"] = bill.to_dict()
 
         db.session.commit()
 

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { createBill } from "../../store/bills";
 
 
 const AddBillForm = ({ showModal }) => {
 	const dispatch = useDispatch();
+
+    const sessionUser = useSelector(state => state.session.user)
 
 	const [errors, setErrors] = useState([]);
 	const [total_amount, setTotal_Amount] = useState("");
@@ -16,7 +18,7 @@ const AddBillForm = ({ showModal }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-        const data = await dispatch(createBill(total_amount, description, deadline, friends))
+        const data = await dispatch(createBill(sessionUser.id, total_amount, description, deadline, friends))
 
 		if (data) {
 			setErrors(data);

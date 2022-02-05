@@ -30,13 +30,14 @@ export const getBills = () => async (dispatch) => {
     }
 }
 
-export const createBill = (total_amount, description, deadline, friends) => async (dispatch) => {
+export const createBill = (owner_id, total_amount, description, deadline, friends) => async (dispatch) => {
     const response = await fetch(`/api/bills/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+            owner_id,
             total_amount,
             description,
             deadline,
@@ -84,8 +85,7 @@ export const deleteBill = (billId) => async(dispatch) => {
 
 
 const initialState = {
-    bills: {},
-    expenses: {}
+    bills: {}
 }
 
 
@@ -105,19 +105,12 @@ const billsReducer = (state = initialState, action) => {
         }
 
         case CREATE: {
-            const loadExpenses = {}
-            action.data.expenses.forEach(expense => {
-                loadExpenses[expense.id] = expense
-            })
+
             const newState = {
                 ...state,
                 bills: {
                     ...state.bills,
                     [action.data.bill.id]: action.data.bill
-                },
-                expenses: {
-                    ...state.expenses,
-                    ...loadExpenses
                 }
             };
             return newState;
@@ -126,9 +119,7 @@ const billsReducer = (state = initialState, action) => {
         case DELETE: {
             const newState = { ...state };
             delete newState.bills[action.data.bill.id];
-            action.data.expenses.forEach(expense => {
-                delete newState.expenses[expense.id]
-            })
+
             return newState
         }
 

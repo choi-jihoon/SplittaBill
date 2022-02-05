@@ -6,6 +6,8 @@ import { getBills } from '../../store/bills';
 import AddBillFormModal from './AddBillFormModal';
 import BillDetail from "./BillDetail";
 
+
+
 const AllBills = () => {
 
     const dispatch = useDispatch();
