@@ -45,7 +45,9 @@ const ExpenseDetail = ({ expense }) => {
                                 See Bill Details
                             </Link>
                         </li>
-                        <SettleUpModal expense={expense} />
+                        { !expense.settled &&
+                            <SettleUpModal expense={expense} />
+                        }
                     </>
                 )
                 }
