@@ -125,7 +125,7 @@ const initialState = {
 }
 
 
-const billsReducer = (state = initialState, action) => {
+const bills = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
             const loadBills = {}
@@ -170,4 +170,4 @@ const billsReducer = (state = initialState, action) => {
     }
 }
 
-export default billsReducer;
+export default bills;
