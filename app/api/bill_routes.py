@@ -182,8 +182,8 @@ def editBill(billId):
                 friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == new_expense.payer_id).first()
                 friend2 = Friend.query.filter(Friend.user_id == new_expense.payer_id, Friend.friend_id == bill.owner_id).first()
 
-                friend1.balance -= new_expense.initial_charge
-                friend2.balance += new_expense.initial_charge
+                friend1.balance += new_expense.initial_charge
+                friend2.balance -= new_expense.initial_charge
                 db.session.commit()
 
 
@@ -194,8 +194,8 @@ def editBill(billId):
                 friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == expense_to_remove.payer_id).first()
                 friend2 = Friend.query.filter(Friend.user_id == expense_to_remove.payer_id, Friend.friend_id == bill.owner_id).first()
 
-                friend1.balance += Decimal(expense_to_remove.initial_charge)
-                friend2.balance -= Decimal(expense_to_remove.initial_charge)
+                friend1.balance -= Decimal(expense_to_remove.initial_charge)
+                friend2.balance += Decimal(expense_to_remove.initial_charge)
                 db.session.delete(expense_to_remove)
                 db.session.commit()
 
