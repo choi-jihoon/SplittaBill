@@ -1,9 +1,12 @@
 import React from "react";
 
-const Comment = (props) => {
+const Comment = (comment) => {
+	console.log(comment);
 	return (
 		<div>
-			<div>Single Comment</div>
+			<div>{comment?.comment?.message}</div>
+			<div>{comment?.comment?.username}</div>
+			<div>{comment?.comment?.created_at}</div>
 		</div>
 	);
 };

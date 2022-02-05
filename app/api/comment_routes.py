@@ -10,10 +10,11 @@ comment_routes = Blueprint('comments', __name__)
 # get comments for bill
 @comment_routes.route("/bills/<int:billId>")
 def get_comments(billId):
-    print("TEST")
     comments = Comment.query.filter(Comment.bill_id == billId).all()
-    print({"comments": [comment.to_dict() for comment in comments]})
-    return {"comments": [comment.to_dict() for comment in comments]}
+    print("<><><><><><><>",{"comments": [comment.to_dict() for comment in comments]})
+    return {"comments": [comment.to_frontend_dict() for comment in comments]}
+    # return jsonify(comments)
+
 
 # post comment for bill
 @comment_routes.route("/bills/<int:billId>", methods=["POST"])
@@ -25,6 +26,8 @@ def post_comment(billId):
     db.session.add(comment)
     db.session.commit()
     return comment.to_dict()
+
+
 # update comment
 @comment_routes.route("/<int:id>", methods=["PUT"])
 def update_comment(id):
@@ -33,6 +36,8 @@ def update_comment(id):
     db.session.add(comment)
     db.session.commit()
     return comment.to_dict()
+
+
 # delete comment
 @comment_routes.route("/<int:id>", methods=["DELETE"])
 def delete_comment(id):

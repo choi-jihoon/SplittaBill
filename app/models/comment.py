@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from app.models.user import User
 from .db import db
 
 class Comment(db.Model):
@@ -21,4 +23,16 @@ class Comment(db.Model):
             'bill_id': self.bill_id,
             'message': self.message,
             'created_at': self.created_at,
+        }
+    def to_frontend_dict(self):
+        user = User.query.get(self.user_id)
+        username = user.username
+        # strftime = datetime.strftime()
+        created_at = self.created_at.strftime("%b/%d/%Y at %I:%M:%S%p")
+        return {
+            "id": self.id,
+            "username": username,
+            "bill_id": self.bill_id,
+            "message": self.message,
+            "created_at": created_at
         }
