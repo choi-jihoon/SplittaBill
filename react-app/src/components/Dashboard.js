@@ -6,9 +6,11 @@ import FriendsTab from "./FriendsTab";
 import BillsTab from "./BillsTab";
 import ExpenseBill from "./BillsTab/ExpenseBill";
 
+import './Dashboard.css'
+
 const Dashboard = () => {
 	return (
-		<>
+		<div className='dashboard-container'>
 			<h1>USER DASHBOARD</h1>
 			<SidePanel />
 			<DashNav />
@@ -26,7 +28,7 @@ const Dashboard = () => {
 					<ExpenseBill />
 				</Route>
 			</Switch>
-		</>
+		</div>
 	);
 };
 
