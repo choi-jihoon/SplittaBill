@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editBill } from "../../store/bills";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 
 const EditBillForm = ({ showModal, bill }) => {
 	const dispatch = useDispatch();
@@ -23,6 +26,12 @@ const EditBillForm = ({ showModal, bill }) => {
     const [deadline, setDeadline] = useState(bill.deadline)
     const [friends, setFriends] = useState(payers.join(", "))
 
+	const notify = () => {
+		toast.success(`Bill successfully edited!`,
+			{position: toast.POSITION.TOP_CENTER,
+			autoClose:2000})
+	}
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -35,7 +44,9 @@ const EditBillForm = ({ showModal, bill }) => {
             return
 		}
 
-        showModal(false)
+		notify();
+
+        showModal(false);
 	};
 
 	const updateTotal = (e) => {
