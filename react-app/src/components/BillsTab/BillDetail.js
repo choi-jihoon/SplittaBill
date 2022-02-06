@@ -11,6 +11,9 @@ const BillDetail = ({ bill }) => {
 				<ul>
 					<li>OWNER: {bill.owner_name}</li>
 					<li>TOTAL AMOUNT: {bill.total_amount}</li>
+					{bill.deadline !== 'None' &&
+						<li>DEADLINE: {bill.deadline}</li>
+					}
 				</ul>
 			</div>
 			<div className='edit-delete-bill-buttons-container'>
