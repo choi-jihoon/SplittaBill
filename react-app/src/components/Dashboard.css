@@ -1,4 +1,35 @@
 .dashboard-container {
     display: grid;
     grid-template-columns: 20% 80%;
+    grid-template-rows: auto-fit;
+
+
+}
+
+.dash-and-main-container {
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+.dash-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-tabs-container {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.tab-container {
+    padding: 0 50px;
+}
+
+.main-container {
+    padding: 40px;
+
+    background-color: var(--main-container);
 }

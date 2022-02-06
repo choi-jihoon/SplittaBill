@@ -2,10 +2,18 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 const DashNav = (props) => {
 	return (
-		<div id='dash-nav-container'>
-			<NavLink to="/">Bills</NavLink>
-			<NavLink to="/friends">Friends</NavLink>
-			<NavLink to="/transaction-history">Transaction History</NavLink>
+		<div className='dash-nav-container'>
+			<div className='all-tabs-container'>
+				<div className='tab-container'>
+					<NavLink to="/">Bills</NavLink>
+				</div>
+				<div className='tab-container'>
+					<NavLink to="/friends">Friends</NavLink>
+				</div>
+				<div className='tab-container'>
+					<NavLink to="/transaction-history">Transactions</NavLink>
+				</div>
+			</div>
 		</div>
 	);
 };
