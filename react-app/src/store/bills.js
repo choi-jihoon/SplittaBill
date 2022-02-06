@@ -6,6 +6,19 @@ const EDIT = 'bills/EDIT'
 const LOAD_EXPENSES = 'bills/LOAD_EXPENSES'
 const EXPENSES_FOR_ONE_BILL = 'bills/EXPENSES_FOR_ONE_BILL'
 
+const CREATE_TRANSACTION = 'bills/CREATE_TRANSACTION'
+const LOAD_TRANSACTIONS = 'bills/LOAD_TRANSACTIONS'
+
+const loadTransactions = (data) => ({
+    type: LOAD_TRANSACTIONS,
+    data
+})
+
+const createTransaction = (data) => ({
+    type: CREATE_TRANSACTION,
+    data
+})
+
 const load = (bills) => ({
     type: LOAD,
     bills
@@ -35,6 +48,46 @@ const load_expenses_for_one_bill = (data) => ({
     type: EXPENSES_FOR_ONE_BILL,
     data
 })
+
+export const getTransactionRecords = () => async (dispatch) => {
+    const response = await fetch(`/api/transaction_records/`)
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(loadTransactions(data.transaction_records))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
+    }
+}
+
+export const addTransactionRecord = (recipient_id, expense_id, amount_paid) => async (dispatch) => {
+    const response = await fetch(`/api/transaction_records/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            recipient_id,
+            expense_id,
+            amount_paid
+        })
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(createTransaction(data));
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            console.log(data.errors)
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
 
 export const getBills = () => async (dispatch) => {
     const response = await fetch(`/api/bills/`);
@@ -157,7 +210,8 @@ export const editBill = (billId, owner_id, total_amount, description, deadline, 
 const initialState = {
     bills: {},
     expenses: {},
-    expenses_by_bill: {}
+    expenses_by_bill: {},
+    transaction_records: {}
 }
 
 
@@ -224,6 +278,30 @@ const bills = (state = initialState, action) => {
         case EDIT: {
             const newState = { ...state };
             newState.bills[action.data.bill.id] = action.data.bill;
+            return newState;
+        }
+
+        case LOAD_TRANSACTIONS: {
+            const loadRecords = {}
+            action.data.forEach(record => {
+                loadRecords[record.id] = record
+            });
+            return {
+                ...state,
+                transaction_records: {
+                    ...state.transaction_records,
+                    ...loadRecords
+                }
+            }
+        }
+
+        case CREATE_TRANSACTION: {
+            const newState = { ...state };
+            newState.transaction_records = {
+                ...newState.transaction_records,
+                [action.data.transaction_record.id]: action.data.transaction_record
+            }
+            newState.expenses[action.data.expense_to_update.id] = action.data.expense_to_update;
             return newState;
         }
 

@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
+import SettleUpModal from './SettleUp/SettleUpModal';
+
 
 const ExpenseDetail = ({ expense }) => {
     const location = useLocation();
@@ -43,6 +45,9 @@ const ExpenseDetail = ({ expense }) => {
                                 See Bill Details
                             </Link>
                         </li>
+                        { !expense.settled &&
+                            <SettleUpModal expense={expense} />
+                        }
                     </>
                 )
                 }

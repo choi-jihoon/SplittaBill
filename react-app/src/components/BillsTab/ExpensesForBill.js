@@ -13,7 +13,7 @@ const ExpensesForBill = ({ billId }) => {
 
     useEffect(() => {
         dispatch(getExpensesForBill(billId));
-    }, [dispatch])
+    }, [dispatch, billId])
 
     return (
         <div>

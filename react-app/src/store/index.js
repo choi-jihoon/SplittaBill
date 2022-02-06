@@ -7,7 +7,7 @@ import friends from './friends'
 const rootReducer = combineReducers({
   session,
   bills,
-  friends
+  friends,
 });
 
 

@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask_login import current_user
-from app.models import db, Expense, expense
+from app.models import Expense
 
 expense_routes = Blueprint('expenses', __name__)
 
