@@ -34,3 +34,7 @@
 
     background-color: var(--main-container);
 }
+
+.active-tab {
+    background-color: yellow;
+}
