@@ -7,6 +7,7 @@ import AddBillFormModal from './AddBillFormModal';
 import BillDetail from "./BillDetail";
 import ExpenseDetail from './ExpenseDetail';
 
+import './BillsTab.css';
 
 
 const AllBills = () => {
@@ -22,9 +23,10 @@ const AllBills = () => {
     }, [dispatch])
 
     return (
-        <div>
-            <h3>All Bills</h3>
-            <AddBillFormModal />
+        <div className='all-bills-container'>
+            <div className='add-bill-button-container'>
+                <AddBillFormModal />
+            </div>
             {bills?.map(bill => {
                 return <BillDetail
                     key={bill.id}
