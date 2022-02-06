@@ -4,6 +4,7 @@ import DashNav from "./DashNav";
 import HistoryTab from "./HistoryTab";
 import FriendsTab from "./FriendsTab";
 import BillsTab from "./BillsTab";
+import ExpenseBill from "./BillsTab/ExpenseBill";
 
 const Dashboard = () => {
 	return (
@@ -20,6 +21,9 @@ const Dashboard = () => {
 				</Route>
 				<Route path="/transaction-history">
 					<HistoryTab />
+				</Route>
+				<Route path='/expenses/:expenseId/bill'>
+					<ExpenseBill />
 				</Route>
 			</Switch>
 		</>

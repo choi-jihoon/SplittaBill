@@ -31,6 +31,13 @@ def get_bills():
     return {"all_bills": all_bills_list}
 
 
+@bill_routes.route('/<int:billId>/expenses')
+def get_expenses_for_bill(billId):
+    bill = Bill.query.filter(Bill.id == billId).first()
+    expenses = bill.expenses
+    return {"expenses": [expense.to_dict() for expense in expenses], "billId": billId}
+
+
 @bill_routes.route('/', methods=['POST'])
 def add_bill():
     form = AddBillForm()
@@ -156,8 +163,8 @@ def editBill(billId):
 
                 diff = divvyed_expense - prev_initial_charge
 
-                friend1.balance -= diff
-                friend2.balance += diff
+                friend1.balance += diff
+                friend2.balance -= diff
 
                 friend_expense.amount_due += diff
 
@@ -175,8 +182,8 @@ def editBill(billId):
                 friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == new_expense.payer_id).first()
                 friend2 = Friend.query.filter(Friend.user_id == new_expense.payer_id, Friend.friend_id == bill.owner_id).first()
 
-                friend1.balance -= new_expense.initial_charge
-                friend2.balance += new_expense.initial_charge
+                friend1.balance += new_expense.initial_charge
+                friend2.balance -= new_expense.initial_charge
                 db.session.commit()
 
 
@@ -187,8 +194,8 @@ def editBill(billId):
                 friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == expense_to_remove.payer_id).first()
                 friend2 = Friend.query.filter(Friend.user_id == expense_to_remove.payer_id, Friend.friend_id == bill.owner_id).first()
 
-                friend1.balance += Decimal(expense_to_remove.initial_charge)
-                friend2.balance -= Decimal(expense_to_remove.initial_charge)
+                friend1.balance -= Decimal(expense_to_remove.initial_charge)
+                friend2.balance += Decimal(expense_to_remove.initial_charge)
                 db.session.delete(expense_to_remove)
                 db.session.commit()
 

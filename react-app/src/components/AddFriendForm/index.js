@@ -3,10 +3,21 @@ import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { addFriend } from "../../store/friends";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
+
 const AddFriendForm = ({setShowModal}) => {
 	const [errors, setErrors] = useState([]);
 	const [username, setUsername] = useState("");
 	const dispatch = useDispatch();
+
+	const notify = () => {
+		toast.success(`You added ${username} as a friend!`,
+			{position: toast.POSITION.TOP_CENTER,
+			autoClose:2000})
+	}
 
 	const onAddFriend = async (e) => {
 		e.preventDefault();
@@ -16,6 +27,7 @@ const AddFriendForm = ({setShowModal}) => {
 		}
         else {
             setShowModal(false);
+			notify()
             return <Redirect to="/friends" />;
         }
 
