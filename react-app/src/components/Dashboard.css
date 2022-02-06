@@ -1,20 +1,17 @@
 .dashboard-container {
     display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: auto-fit;
-
-
+    grid-template-columns: 15% 85%;
 }
 
 .dash-and-main-container {
     display: grid;
-    grid-template-rows: 20% 80%;
 }
 
 .dash-nav-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 0;
 }
 
 .all-tabs-container {
