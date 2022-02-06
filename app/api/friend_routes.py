@@ -39,7 +39,9 @@ def add_friend():
 @friend_routes.route('/<int:id>', methods=["DELETE"])
 def remove_friend(id):
     friend = Friend.query.get(id)
+    friend2 = Friend.query.get(id+1)
     if friend:
         db.session.delete(friend)
+        db.session.delete(friend2)
         db.session.commit()
         return {'message': 'successfully deleted'}
