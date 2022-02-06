@@ -7,13 +7,13 @@ function EditCommentFormModal({ comment }) {
 
 	return (
 		<>
-			<button id="edit-bill" onClick={() => setShowModal(true)}>
+			<button id="edit-comment" onClick={() => setShowModal(true)}>
 				Edit
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<EditCommentForm
-						setShowModal={setShowModal}
+						showModal={setShowModal}
 						comment={comment}
 					/>
 				</Modal>

@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editComment } from "../../../store/comments";
+import { editComment, getComments } from "../../../store/comments";
 
-const EditCommentForm = ({ setShowModal, comment }) => {
+const EditCommentForm = ({ showModal, comment }) => {
 	const dispatch = useDispatch();
 	const [newComment, setNewComment] = useState(comment.message);
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault();
 		if (newComment.length) {
-			dispatch(editComment(comment.id, newComment));
+			await dispatch(editComment(comment.id, newComment));
+			await dispatch(getComments(comment.bill_id));
 		}
+		showModal(false);
 	};
 	const handleCancel = (e) => {
 		e.preventDefault();
-		setShowModal(false);
+		showModal(false);
 	};
 	return (
 		<div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../../context/Modal";
 import DeleteCommentForm from "./DeleteCommentForm";
 
-function DeleteCommentFormModal({ commentId }) {
+function DeleteCommentFormModal({ comment }) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
@@ -13,8 +13,8 @@ function DeleteCommentFormModal({ commentId }) {
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<DeleteCommentForm
-						setShowModal={setShowModal}
-						commentId={commentId}
+						showModal={setShowModal}
+						comment={comment}
 					/>
 				</Modal>
 			)}

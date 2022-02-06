@@ -8,8 +8,9 @@ const loadComments = (comments) => ({
 	comments,
 });
 
-const removeComment = () => ({
+const removeComment = (comment) => ({
 	type: DELETE_COMMENT,
+	comment,
 });
 
 const addComment = (comment) => ({
@@ -23,27 +24,31 @@ const updateComment = (comment) => ({
 });
 
 export const getComments = (billId) => async (dispatch) => {
-	console.log(billId);
 	const res = await fetch(`/api/comments/bills/${billId}`);
 	const data = await res.json();
-	console.log(data);
-	if (data.message) {
-		return;
-	} else {
-		dispatch(loadComments(data));
-	}
+
+	dispatch(loadComments(data));
 };
 export const deleteComment = (id) => async (dispatch) => {
 	const res = await fetch(`/api/comments/${id}`, { method: "DELETE" });
+	const data = await res.json();
+	if (res.ok) {
+		dispatch(removeComment(data.comment));
+		return null;
+	}
 };
 export const editComment = (id, message) => async (dispatch) => {
 	const res = await fetch(`/api/comments/${id}`, {
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(message),
+		body: JSON.stringify({ message }),
 	});
 	const data = await res.json();
-	console.log(data);
+	if (data.errors) {
+		return data.errors;
+	} else {
+		dispatch(updateComment(data));
+	}
 };
 export const createComment = (billId, message) => async (dispatch) => {
 	const res = await fetch(`/api/comments/bills/${billId}`, {
@@ -56,7 +61,6 @@ export const createComment = (billId, message) => async (dispatch) => {
 	});
 	const data = await res.json();
 	if (res.ok) {
-		console.log(data);
 		dispatch(addComment(data));
 		return;
 	} else if (res.status < 500) {
@@ -75,43 +79,27 @@ export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case ADD_COMMENT: {
 			const newState = { ...state };
-			console.log(action.comment.bill_id);
 			if (newState.comments[action.comment.bill_id]) {
-				newState.comments[action.comment.bill_id].push(action.comment);
+				newState.comments[action.comment.bill_id] += action.comment;
 			} else {
 				newState.comments[action.comment.bill_id] = action.comment;
 			}
-			console.log(
-				JSON.stringify(
-					newState.comments[action.comment.bill_id],
-					null,
-					4
-				)
-			);
 			return newState;
 		}
-		// case DELETE_COMMENT: {
-		// 	return;
-		// }
-		// case UPDATE_COMMENT: {
-		// 	return;
-		// }
+		case DELETE_COMMENT: {
+			const newState = { ...state };
+			delete newState.comments[action.comment.bill_id][action.comment.id];
+			return newState;
+		}
+		case UPDATE_COMMENT: {
+			const newState = { ...state };
+			newState.comments[action.comment.bill_id][action.comment.id] =
+				action.comment;
+			return newState;
+		}
 		case LOAD_COMMENTS: {
 			const newState = { ...state };
-			// console.log("ACTION", action);
-			// const billIds = Object.keys(action.comments);
-			// newState.comments = billIds.forEach((id) => {
-			// 	if (newState.comments[id]) {
-			// 		id += action.comments[id];
-			// 	} else id = action.comments[id];
-			// });
 			newState.comments = { ...newState.comments, ...action.comments };
-			// newState.comments = action.comments.reduce((comments, comment) => {
-			// 	console.log(comment);
-			// 	comments[comment.id] = comment;
-			// 	return comments;
-			// }, {});
-			console.log(newState.comments);
 			return newState;
 		}
 		default: {

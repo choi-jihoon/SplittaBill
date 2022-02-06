@@ -1,21 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteComment } from "../../../store/comments";
+import { deleteComment, getComments } from "../../../store/comments";
 
-function DeleteCommentForm({ setShowModal, commentId }) {
+function DeleteCommentForm({ showModal, comment }) {
 	const dispatch = useDispatch();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		dispatch(deleteComment(commentId));
-
-		setShowModal(false);
+		await dispatch(deleteComment(comment.id));
+		dispatch(getComments(comment.bill_id));
+		showModal(false);
 	};
 
 	const handleCancelClick = async (e) => {
 		e.preventDefault();
-		setShowModal(false);
+		showModal(false);
 	};
 
 	return (

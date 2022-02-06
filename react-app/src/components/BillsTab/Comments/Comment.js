@@ -20,7 +20,7 @@ const Comment = ({ comment }) => {
 			{curr_user.id === comment?.user_id && (
 				<>
 					<EditCommentFormModal comment={comment} />
-					<DeleteCommentFormModal commentId={comment.id} />
+					<DeleteCommentFormModal comment={comment} />
 				</>
 			)}
 		</div>
