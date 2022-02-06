@@ -22,7 +22,7 @@ const AllBills = () => {
     }, [dispatch])
 
     return (
-        <div className='main-container'>
+        <div>
             <h3>All Bills</h3>
             <AddBillFormModal />
             {bills?.map(bill => {

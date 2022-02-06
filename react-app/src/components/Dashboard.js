@@ -11,23 +11,24 @@ import './Dashboard.css'
 const Dashboard = () => {
 	return (
 		<div className='dashboard-container'>
-			<h1>USER DASHBOARD</h1>
 			<SidePanel />
+			<div className='dash-and-main-container'>
 			<DashNav />
-			<Switch>
-				<Route exact path="/">
-					<BillsTab />
-				</Route>
-				<Route path="/friends">
-					<FriendsTab />
-				</Route>
-				<Route path="/transaction-history">
-					<HistoryTab />
-				</Route>
-				<Route path='/expenses/:expenseId/bill'>
-					<ExpenseBill />
-				</Route>
-			</Switch>
+				<Switch>
+					<Route exact path="/">
+						<BillsTab />
+					</Route>
+					<Route path="/friends">
+						<FriendsTab />
+					</Route>
+					<Route path="/transaction-history">
+						<HistoryTab />
+					</Route>
+					<Route path='/expenses/:expenseId/bill'>
+						<ExpenseBill />
+					</Route>
+				</Switch>
+			</div>
 		</div>
 	);
 };

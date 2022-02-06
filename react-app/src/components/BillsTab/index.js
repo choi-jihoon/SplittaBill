@@ -4,8 +4,7 @@ import AllBills from "./AllBills";
 
 const BillsTab = (props) => {
 	return (
-		<div>
-			<div>Bills Tab</div>
+		<div className='main-container'>
 			<AllBills />
 			<Comments />
 		</div>
