@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import ExpensesForBill from "./ExpensesForBill";
+import Comments from "./Comments";
 
 const ExpenseBill = () => {
     const { expenseId } = useParams();
@@ -22,6 +23,7 @@ const ExpenseBill = () => {
                 </li>
             </ul>
             <ExpensesForBill billId={bill.id} />
+            <Comments billId={bill.id} />
         </div>
     )
 }
