@@ -27,12 +27,13 @@ const AllBills = () => {
             <div className='add-bill-button-container'>
                 <AddBillFormModal />
             </div>
+            <h3>Bills</h3>
             {bills?.map(bill => {
                 return <BillDetail
                     key={bill.id}
                     bill={bill} />
             })}
-            <h3>All Expenses (for bills that aren't yours)</h3>
+            <h3>Expenses</h3>
             {expenses?.map(expense => {
                 return <ExpenseDetail
                     key={expense.id}

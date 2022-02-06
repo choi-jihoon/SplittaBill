@@ -18,3 +18,12 @@
 .edit-delete-bill-buttons-container {
     display: flex;
 }
+
+
+.settled-true {
+    color: green;
+}
+
+.settled-false {
+    color: red;
+}

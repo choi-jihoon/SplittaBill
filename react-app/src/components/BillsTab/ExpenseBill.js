@@ -16,7 +16,7 @@ const ExpenseBill = () => {
             <h3>{bill.description}</h3>
             <ul>
                 <li>
-                    OWNER: { bill.owner_name }
+                    PAID BY: { bill.owner_name }
                 </li>
                 <li>
                     TOTAL AMOUNT: { bill.total_amount }
