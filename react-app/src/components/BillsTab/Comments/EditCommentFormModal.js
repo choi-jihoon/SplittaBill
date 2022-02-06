@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { Modal } from "../../context/Modal";
-import EditBillForm from "./EditBillForm";
+import { Modal } from "../../../context/Modal";
+import EditCommentForm from "./EditCommentForm";
 
-function EditBillFormModal({ bill }) {
+function EditCommentFormModal({ comment }) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<>
 			<button id="edit-bill" onClick={() => setShowModal(true)}>
-				Edit Bill
+				Edit
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<EditBillForm showModal={setShowModal} bill={bill} />
+					<EditCommentForm
+						setShowModal={setShowModal}
+						comment={comment}
+					/>
 				</Modal>
 			)}
 		</>
 	);
 }
 
-export default EditBillFormModal;
+export default EditCommentFormModal;

@@ -17,7 +17,10 @@ const addComment = (comment) => ({
 	comment,
 });
 
-const updateComment = (comment) => ({});
+const updateComment = (comment) => ({
+	type: UPDATE_COMMENT,
+	comment,
+});
 
 export const getComments = (billId) => async (dispatch) => {
 	console.log(billId);
@@ -30,8 +33,18 @@ export const getComments = (billId) => async (dispatch) => {
 		dispatch(loadComments(data));
 	}
 };
-// export const deleteComment = () => async (dispatch) => {};
-// export const editComment = () => async (dispatch) => {};
+export const deleteComment = (id) => async (dispatch) => {
+	const res = await fetch(`/api/comments/${id}`, { method: "DELETE" });
+};
+export const editComment = (id, message) => async (dispatch) => {
+	const res = await fetch(`/api/comments/${id}`, {
+		method: "PUT",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(message),
+	});
+	const data = await res.json();
+	console.log(data);
+};
 export const createComment = (billId, message) => async (dispatch) => {
 	const res = await fetch(`/api/comments/bills/${billId}`, {
 		method: "POST",

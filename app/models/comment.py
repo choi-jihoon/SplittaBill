@@ -32,6 +32,7 @@ class Comment(db.Model):
         return {
             "id": self.id,
             "username": username,
+            "user_id": self.user_id,
             "bill_id": self.bill_id,
             "message": self.message,
             "created_at": created_at
