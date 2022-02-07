@@ -7,13 +7,14 @@ import FriendDetailsModal from "../FriendDetailsModal";
 
 const Friend = ({id, friendId, username, balance}) => {
 	const dispatch = useDispatch();
-	const billsObject = useSelector(state => state.bills);
-    const records = Object.values(billsObject.transaction_records);
+	// const recordsObj = useSelector(state => state.bills.transaction_records);
 
-	// TODO: fetch for transaction records relating to current_user and this friend
-	useEffect(() => {
-		dispatch(getTransactionsForFriend(friendId))
-	}, [dispatch])
+    // const records = Object.values(recordsObj);
+
+	// // TODO: fetch for transaction records relating to current_user and this friend
+	// useEffect(() => {
+	// 	dispatch(getTransactionsForFriend(friendId))
+	// }, [dispatch])
 
 	const onRemoveFriend = async (e) => {
 		e.preventDefault();
@@ -30,7 +31,7 @@ const Friend = ({id, friendId, username, balance}) => {
 				:  <p>All Even with {username}!</p>)
 			}
 
-			<FriendDetailsModal username={username} balance={balance} records={records}/>
+			<FriendDetailsModal username={username} balance={balance} friendId={friendId} />
 
 			{parseFloat(balance) === 0 ? (
 				<button onClick={onRemoveFriend}>Delete Friend</button>

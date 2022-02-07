@@ -96,9 +96,10 @@ export const addTransactionRecord = (recipient_id, expense_id, amount_paid) => a
 }
 
 export const getTransactionsForFriend = (id) => async (dispatch) => {
-    const response = await fetch(`/api/users/${id}/transaction_records/`);
+    const response = await fetch(`/api/users/${id}/transaction_records`);
     if (response.ok) {
         const data = await response.json()
+        console.log("*****", data)
         dispatch(load_transactions_for_one_friend(data))
     } else {
         const errors = await response.json()
@@ -314,13 +315,12 @@ const bills = (state = initialState, action) => {
 
         case LOAD_TRANSACTIONS_FOR_ONE_FRIEND: {
             const loadRecords = {}
-            action.data.forEach(record => {
+            action.data["transaction_records"].forEach(record => {
                 loadRecords[record.id] = record
             });
             return {
                 ...state,
                 transaction_records: {
-                    ...state.transaction_records,
                     ...loadRecords
                 }
             }
