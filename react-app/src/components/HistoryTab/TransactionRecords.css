@@ -1,0 +1,16 @@
+.transaction-record-detail-container {
+    padding-bottom: 40px;
+}
+
+.record-date {
+    font-weight: bold;
+}
+
+
+.negative-payment {
+    color: red;
+}
+
+.positive-payment {
+    color: green;
+}

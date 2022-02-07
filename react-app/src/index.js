@@ -16,7 +16,9 @@ function Root() {
     <Provider store={store}>
       <ModalProvider>
         <BrowserRouter>
-          <App />
+          <div className='whole-page-container'>
+            <App />
+          </div>
         </BrowserRouter>
       </ModalProvider>
     </Provider>

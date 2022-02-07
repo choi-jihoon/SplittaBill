@@ -16,8 +16,7 @@ const TransactionRecords = () => {
 
 
     return (
-        <div>
-            <h3>All Transaction Records</h3>
+        <div className='transaction-records-container'>
             {records?.map(record => {
                 return <TransactionRecordDetail
                     key={record.id}

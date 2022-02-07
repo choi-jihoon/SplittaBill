@@ -1,0 +1,40 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+
+    min-height: 100%;
+}
+
+.dash-and-main-container {
+    display: grid;
+    grid-template-rows: 200px 1fr;
+}
+
+.dash-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    height: 200px;
+}
+
+.all-tabs-container {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.tab-container {
+    padding: 0 50px;
+}
+
+.main-container {
+    padding: 40px;
+
+    background-color: var(--main-container);
+}
+
+.active-tab {
+    background-color: yellow;
+}

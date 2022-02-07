@@ -35,23 +35,6 @@ function App() {
 				<Route path="/">
 					{sessionUser ? <Dashboard /> : <SplashPage />}
 				</Route>
-				{/* <NavBar />
-        <Route path='/login' exact={true}>
-          <LoginFormModal />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpFormModal />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
-       */}
 			</Switch>
 		</BrowserRouter>
 	);

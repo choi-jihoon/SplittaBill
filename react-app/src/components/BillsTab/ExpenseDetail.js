@@ -17,39 +17,33 @@ const ExpenseDetail = ({ expense }) => {
 
     return (
         <div>
-            <h3>Expense Detail</h3>
+            <h3>{expense.bill.description} Expense for {expense.payer_name}</h3>
             <ul>
                 <li>
-                    PAYER: { expense.payer_name }
+                    INITIAL CHARGE: {expense.initial_charge}
                 </li>
                 <li>
-                    INITIAL CHARGE: { expense.initial_charge }
+                    AMOUNT DUE: {expense.amount_due}
                 </li>
                 <li>
-                    AMOUNT DUE: { expense.amount_due }
+                    SETTLED?: {expense.settled ? <i className="fas fa-check settled-true"></i> : <i className="fas fa-times settled-false"></i>}
                 </li>
-                <li>
-                    SETTLED?: {expense.settled ? "YES" : "NO"}
-                </li>
+                {(!expense.settled && expense.payer_id === sessionUser.id) &&
+                    <SettleUpModal expense={expense} />
+                }
                 {(checkLocation() && expense.bill.owner_id !== sessionUser.id) &&
-                (
-                    <>
-                        <li>
-                            PAY TO: { expense.bill.owner_name }
-                        </li>
-                        <li>
-                            FOR: { expense.bill.description }
-                        </li>
-                        <li>
-                            <Link to={`/expenses/${expense.id}/bill`}>
-                                See Bill Details
-                            </Link>
-                        </li>
-                        { !expense.settled &&
-                            <SettleUpModal expense={expense} />
-                        }
-                    </>
-                )
+                    (
+                        <>
+                            <li>
+                                PAY TO: {expense.bill.owner_name}
+                            </li>
+                            <li>
+                                <Link to={`/expenses/${expense.id}/bill`}>
+                                    See Bill Details
+                                </Link>
+                            </li>
+                        </>
+                    )
                 }
             </ul>
 
