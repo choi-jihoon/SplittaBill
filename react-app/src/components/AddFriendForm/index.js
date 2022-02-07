@@ -37,7 +37,6 @@ const AddFriendForm = ({setShowModal}) => {
 			notify()
             return <Redirect to="/friends" />;
         }
-
 	};
 
 	const updateUsername = (e) => {
@@ -63,7 +62,6 @@ const AddFriendForm = ({setShowModal}) => {
 				/>
 			</div>
 
-            {/* <button>Cancel</button> */}
 			<button type="submit">Add Friend</button>
 		</form>
 	);
