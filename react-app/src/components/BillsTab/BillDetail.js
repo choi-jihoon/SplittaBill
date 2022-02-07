@@ -24,8 +24,8 @@ const BillDetail = ({ bill }) => {
 					<DeleteBillModal billId={bill.id} />
 				</div>
 			</div>
-			{/* <BillExpenses expenses={bill.expenses} /> */}
-			{/* <Comments billId={bill.id} /> */}
+			<BillExpenses expenses={bill.expenses} />
+			<Comments billId={bill.id} />
 		</div>
 	);
 };
