@@ -40,8 +40,9 @@ def add_friend():
 def remove_friend(id):
     friend = Friend.query.get(id)
     friend2 = Friend.query.filter(Friend.friend_id == friend.user_id, Friend.user_id == friend.friend_id).first()
-    if friend:
+    if friend and float(friend.balance) == 0:
         db.session.delete(friend)
         db.session.delete(friend2)
         db.session.commit()
         return {'message': 'successfully deleted'}
+    return {'errors': ["Failed to remove friend.  Settle up all expenses first."]}, 401
