@@ -16,7 +16,7 @@ const Friend = ({id, username, balance}) => {
 			{parseFloat(balance) > 0 ?
 				<p>{username} owes you ${balance}</p>
 				: (parseFloat(balance) < 0 ?
-				<p>you owe {username} ${balance}</p>
+				<p>you owe {username} ${Math.abs(balance)}</p>
 				:  <p>All Even with {username}!</p>)
 			}
 
