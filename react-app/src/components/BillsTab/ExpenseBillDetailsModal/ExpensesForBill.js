@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getExpensesForBill } from '../../store/bills';
+import { getExpensesForBill } from '../../../store/bills';
 import ExpenseDetail from './ExpenseDetail';
 
 const ExpensesForBill = ({ billId }) => {

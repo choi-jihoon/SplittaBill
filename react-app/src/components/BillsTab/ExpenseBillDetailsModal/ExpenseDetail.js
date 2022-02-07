@@ -1,19 +1,13 @@
 import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
 
-import SettleUpModal from './SettleUp/SettleUpModal';
+import SettleUpModal from '../SettleUp/SettleUpModal';
+import ExpenseBillDetailsModal from '.';
 
 
 const ExpenseDetail = ({ expense }) => {
-    const location = useLocation();
+
     const sessionUser = useSelector(state => state.session.user);
 
-    const checkLocation = () => {
-        if (location.pathname === '/') {
-            return true;
-        }
-        return false;
-    }
 
     return (
         <div>
@@ -31,16 +25,14 @@ const ExpenseDetail = ({ expense }) => {
                 {(!expense.settled && expense.payer_id === sessionUser.id) &&
                     <SettleUpModal expense={expense} />
                 }
-                {(checkLocation() && expense.bill.owner_id !== sessionUser.id) &&
+                {(expense.bill.owner_id !== sessionUser.id) &&
                     (
                         <>
                             <li>
                                 PAY TO: {expense.bill.owner_name}
                             </li>
                             <li>
-                                <Link to={`/expenses/${expense.id}/bill`}>
-                                    See Bill Details
-                                </Link>
+                                <ExpenseBillDetailsModal expense={expense} />
                             </li>
                         </>
                     )

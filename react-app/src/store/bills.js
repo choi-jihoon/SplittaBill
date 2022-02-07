@@ -302,6 +302,7 @@ const bills = (state = initialState, action) => {
                 [action.data.transaction_record.id]: action.data.transaction_record
             }
             newState.expenses[action.data.expense_to_update.id] = action.data.expense_to_update;
+            newState.expenses_by_bill[action.data.expense_to_update.id] = action.data.expense_to_update;
             return newState;
         }
 

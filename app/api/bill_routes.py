@@ -3,7 +3,7 @@ from flask_login import current_user
 from decimal import Decimal
 
 from app.models import db, Bill, Expense, Friend, User
-from app.forms import AddBillForm
+from app.forms import BillForm
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -40,7 +40,7 @@ def get_expenses_for_bill(billId):
 
 @bill_routes.route('/', methods=['POST'])
 def add_bill():
-    form = AddBillForm()
+    form = BillForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     friends = form['friends'].data
     friends_list = friends.split(", ")
@@ -49,6 +49,8 @@ def add_bill():
 
     if form.validate_on_submit():
         data = {}
+
+        print('VALIDATED DEADLINE', form.data['deadline'])
 
         bill = Bill(
             owner_id = curr_user_id,
@@ -98,6 +100,7 @@ def add_bill():
 
         return data
 
+    print('BLANK DEADLINE', form.data['deadline'])
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -126,7 +129,7 @@ def deleteBill(billId):
 
 @bill_routes.route('/<int:billId>', methods=["PUT"])
 def editBill(billId):
-    form = AddBillForm()
+    form = BillForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     friends = form['friends'].data
     friends_list = friends.split(", ")

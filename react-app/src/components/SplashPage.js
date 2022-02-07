@@ -3,8 +3,9 @@ import SignUpFormModal from "./auth/SignUpFormModal";
 import Footer from "./Footer";
 import { ReactComponent as Logo } from "../assets/white-split.svg";
 import { ReactComponent as Duck } from "../assets/white-geo.svg";
-import "./Splashpage.css";
 import { Link } from "react-router-dom";
+
+import "./Splashpage.css";
 const SplashPage = () => {
 	return (
 		<>

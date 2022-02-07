@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getBills, getUserExpenses } from '../../store/bills';
 
 import AddBillFormModal from './AddBillFormModal';
-import BillDetail from "./BillDetail";
-import ExpenseDetail from './ExpenseDetail';
+import Bill from "./Bill";
+import ExpenseDetail from './ExpenseBillDetailsModal/ExpenseDetail';
 
 import './BillsTab.css';
 
@@ -29,7 +29,7 @@ const AllBills = () => {
             </div>
             <h3>Bills</h3>
             {bills?.map(bill => {
-                return <BillDetail
+                return <Bill
                     key={bill.id}
                     bill={bill} />
             })}
