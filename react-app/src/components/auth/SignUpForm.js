@@ -10,19 +10,35 @@ const SignUpForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
+	const [image, setImage] = useState(null);
+	const [imageLoading, setImageLoading] = useState(false);
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 
 	const onSignUp = async (e) => {
 		e.preventDefault();
+		const formData = new FormData();
 		if (password === repeatPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			formData.append("username", username);
+			formData.append("email", email);
+			formData.append("password", password);
+			if (image) {
+				formData.append("image", image);
+				setImageLoading(true);
+			}
+			const data = await dispatch(signUp(formData));
+			setImageLoading(false);
 			if (data) {
+				console.log(data);
 				setErrors(data);
+				setImageLoading(false);
 			}
 		}
 	};
-
+	const updateImage = (e) => {
+		const file = e.target.files[0];
+		setImage(file);
+	};
 	const updateUsername = (e) => {
 		setUsername(e.target.value);
 	};
@@ -83,9 +99,14 @@ const SignUpForm = () => {
 				value={repeatPassword}
 				required={true}
 			></input>
+			<input type="file" accept="image/*" onChange={updateImage}></input>
 
 			<button type="submit">Sign Up</button>
+
+			{imageLoading && <p>Loading...</p>}
+
 			<DemoLogin />
+
 		</form>
 	);
 };
