@@ -8,3 +8,25 @@
     background-color: var(--side-panel);
 
 }
+
+.pic-and-name-div {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic-div {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile-pic {
+    height: 100%;
+    position: absolute;
+}
