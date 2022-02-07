@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editBill } from "../../store/bills";
 
@@ -10,44 +10,53 @@ toast.configure()
 const EditBillForm = ({ showModal, bill }) => {
 	const dispatch = useDispatch();
 
-    const sessionUser = useSelector(state => state.session.user)
+	const sessionUser = useSelector(state => state.session.user)
 
-    const expenses = bill.expenses;
-    const payers = []
-    expenses.forEach(expense => {
-        if (expense.payer_name !== sessionUser.username) {
-            payers.push(expense.payer_name)
-        }
-    })
+	const expenses = bill.expenses;
+	const payers = []
+	expenses.forEach(expense => {
+		if (expense.payer_name !== sessionUser.username) {
+			payers.push(expense.payer_name)
+		}
+	})
 
 	const [errors, setErrors] = useState([]);
 	const [total_amount, setTotal_Amount] = useState(bill.total_amount);
 	const [description, setDescription] = useState(bill.description);
-    const [deadline, setDeadline] = useState(bill.deadline)
-    const [friends, setFriends] = useState(payers.join(", "))
+	const [deadline, setDeadline] = useState(bill.deadline)
+	const [friends, setFriends] = useState(payers.join(", "))
 
 	const notify = () => {
 		toast.success(`Bill successfully edited!`,
-			{position: toast.POSITION.TOP_CENTER,
-			autoClose:2000})
+			{
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 2000
+			})
 	}
 
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-        const data = await dispatch(editBill(bill.id, sessionUser.id, total_amount, description, deadline, friends))
+		const data = await dispatch(editBill(bill.id, sessionUser.id, total_amount, description, deadline, friends))
 
 		if (data) {
 			setErrors(data);
-            console.log("ERRORS!!", errors)
-            return
+			console.log("ERRORS!!", errors)
+			return
 		}
 
 		notify();
 
-        showModal(false);
+		showModal(false);
 	};
+
+	useEffect(() => {
+		const errors = [];
+		if (description.length > 50) errors.push("Description must be less than 50 characters.")
+
+		setErrors(errors);
+	}, [description])
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);
@@ -57,28 +66,28 @@ const EditBillForm = ({ showModal, bill }) => {
 		setDescription(e.target.value);
 	};
 
-    const updateDeadline = (e) => {
+	const updateDeadline = (e) => {
 		setDeadline(e.target.value);
 	};
 
-    const updateFriends = (e) => {
-        setFriends(e.target.value)
-    }
+	const updateFriends = (e) => {
+		setFriends(e.target.value)
+	}
 
 
 	return (
 		<form onSubmit={handleSubmit}>
-			{/* <div>
+			<div>
 				{errors.map((error, ind) => (
 					<div key={ind}>{error}</div>
 				))}
-			</div> */}
+			</div>
 			<div>
 				<label htmlFor="total_amount">Amount</label>
 				<input
 					name="total_amount"
 					type="number"
-                    step="0.01"
+					step="0.01"
 					placeholder="0"
 					value={total_amount}
 					onChange={updateTotal}
@@ -94,7 +103,7 @@ const EditBillForm = ({ showModal, bill }) => {
 					onChange={updateDescription}
 				/>
 			</div>
-            <div>
+			<div>
 				<label htmlFor="deadline">Deadline</label>
 				<input
 					name="deadline"
@@ -103,16 +112,16 @@ const EditBillForm = ({ showModal, bill }) => {
 					onChange={updateDeadline}
 				/>
 			</div>
-            <div>
-                <label htmlFor="friends">Between Who?</label>
-                <input
-                    name="friends"
-                    type="text"
-                    value={friends}
-                    placeholder="Usernames of friends separated by commas."
-                    onChange={updateFriends}
-                />
-            </div>
+			<div>
+				<label htmlFor="friends">Between Who?</label>
+				<input
+					name="friends"
+					type="text"
+					value={friends}
+					placeholder="Usernames of friends separated by commas."
+					onChange={updateFriends}
+				/>
+			</div>
 			<button type="submit">Edit Bill</button>
 		</form>
 	);

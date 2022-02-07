@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toast } from 'react-toastify';
@@ -39,6 +39,15 @@ const AddBillForm = ({ showModal }) => {
 
         showModal(false)
 	};
+
+
+	useEffect(() => {
+		const errors = [];
+		if (description.length > 50) errors.push("Description must be less than 50 characters.")
+
+		setErrors(errors);
+	}, [description])
+
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);

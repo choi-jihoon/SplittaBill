@@ -38,6 +38,7 @@ def check_description_length(form, field):
     if len(description) > 50:
         raise ValidationError("Description must be less than 50 characters.")
 
+
 class BillForm(FlaskForm):
     owner_id = IntegerField('owner_id')
     total_amount = DecimalField('total_amount', validators=[DataRequired(), check_total_amount])
