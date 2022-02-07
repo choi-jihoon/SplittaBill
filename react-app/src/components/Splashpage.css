@@ -1,0 +1,51 @@
+nav {
+	background-color: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+	height: 10%;
+	min-height: 80px;
+}
+
+.splash-content {
+	background-color: #000;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	align-items: center;
+	height: 80%;
+	min-height: 400px;
+}
+
+.gif {
+	height: 200px;
+	width: 500px;
+	background-image: url("../assets/change_3.gif");
+}
+
+.user-actions {
+	display: flex;
+	justify-content: space-around;
+	width: 150px;
+}
+
+.login-signup:hover {
+	padding-top: -1px;
+	font-weight: bolder;
+	border-bottom: 1px solid #fff;
+	cursor: pointer;
+}
+
+footer {
+	min-height: 80px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+svg:hover {
+	cursor: pointer;
+}
