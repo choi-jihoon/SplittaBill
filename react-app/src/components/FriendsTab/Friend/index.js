@@ -15,9 +15,9 @@ const Friend = ({id, friendId, username, balance}) => {
 	return (
 		<div>
 			{balance > 0 ?
-				<p>{username} owes you ${balance}</p>
+				<p>{username} owes you <span className="positive-payment">${balance}</span></p>
 				: (balance < 0 ?
-				<p>you owe {username} ${Math.abs(balance).toFixed(2)}</p>
+				<p>you owe {username} <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></p>
 				:  <p>All Even with {username}!</p>)
 			}
 

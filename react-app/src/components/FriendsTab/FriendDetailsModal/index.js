@@ -10,7 +10,7 @@ function FriendDetailsModal({ friendId, username, balance}) {
         <button
           id='friend-details'
           onClick={() => setShowModal(true)}>
-          See Friend Details
+          See Friend Details<i className="fas fa-search-plus"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
