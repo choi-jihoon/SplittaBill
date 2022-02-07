@@ -10,7 +10,7 @@ function AddFriendFormModal() {
         <button
           id='add-friend'
           onClick={() => setShowModal(true)}>
-          Add Friend
+          <i className="fas fa-user-plus"></i> Add Friend
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
