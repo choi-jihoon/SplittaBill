@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +11,8 @@ toast.configure()
 
 const AddBillForm = ({ showModal }) => {
 	const dispatch = useDispatch();
+	const location = useLocation();
+	const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user)
 
@@ -39,6 +42,10 @@ const AddBillForm = ({ showModal }) => {
 		}
 
 		notify()
+
+		if (location.pathname !== "/") {
+			history.push("/")
+		}
 
         showModal(false)
 	};

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
 import AddFriendFormModal from "../AddFriendForm/AddFriendFormModal";
+import AddBillFormModal from "../BillsTab/AddBillFormModal";
 
 import "./SidePanel.css";
 
@@ -21,6 +22,9 @@ const SidePanel = (props) => {
 					loading="lazy"
 				></img>
 				<h2>{sessionUser.username}</h2>
+			</div>
+			<div id="add-bill-button-container">
+				<AddBillFormModal />
 			</div>
 			<div id="add-friend-button-container">
 				<AddFriendFormModal />
