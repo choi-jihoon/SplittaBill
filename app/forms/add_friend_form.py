@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
-from app.models import User
+from flask_login import current_user
+from app.models import User, Friend
 
 
 def user_exists(form, field):
@@ -11,6 +12,16 @@ def user_exists(form, field):
     if not user:
         raise ValidationError('Username provided not found.')
 
+def user_is_not_friend(form, field):
+    # Checking if user is already a friend
+    username = field.data
+    user = User.query.filter(User.username == username).first()
+    if user:
+        print("*******USER", user.to_dict())
+        friend = Friend.query.filter(Friend.user_id == current_user.get_id(), Friend.friend_id == user.id).first()
+        if friend:
+            print("********FRIEND", friend.to_dict())
+            raise ValidationError('Username provided already in friends list.')
 
 class AddFriendForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), user_exists])
+    username = StringField('Username', validators=[DataRequired(), user_exists, user_is_not_friend])
