@@ -10,7 +10,7 @@ function AddBillFormModal() {
         <button
           id='add-bill'
           onClick={() => setShowModal(true)}>
-          Add Bill
+          <i className="fas fa-money-check-alt"></i> Add Bill
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

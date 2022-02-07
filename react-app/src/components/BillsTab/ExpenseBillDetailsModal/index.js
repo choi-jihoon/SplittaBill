@@ -11,7 +11,7 @@ function ExpenseBillDetailsModal({ expense }) {
         <button
           id='bill-details'
           onClick={() => setShowModal(true)}>
-          See Bill Details
+          See Bill Details <i className="fas fa-search-dollar"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
