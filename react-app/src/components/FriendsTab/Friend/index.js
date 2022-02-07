@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Redirect } from 'react-router-dom';
-import { removeFriend } from "../../store/friends";
+import { removeFriend } from "../../../store/friends";
 
 const Friend = ({id, username, balance}) => {
 	const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { addFriend } from "../../store/friends";
+import { addFriend } from "../../../store/friends";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

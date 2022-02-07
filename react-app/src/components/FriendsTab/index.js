@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Friend from "../Friend";
+import Friend from "./Friend";
 import { getUsersFriends } from "../../store/friends";
 
 const FriendsTab = (props) => {
