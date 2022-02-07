@@ -11,7 +11,10 @@ const ExpenseDetail = ({ expense }) => {
 
     return (
         <div>
-            <h3>{expense.bill.description} Expense for {expense.payer_name}</h3>
+            <h3>
+                <span><i className="fas fa-receipt"></i></span>
+                {expense.bill.description} Expense for {expense.payer_name}
+            </h3>
             <ul>
                 <li>
                     INITIAL CHARGE: {expense.initial_charge}
