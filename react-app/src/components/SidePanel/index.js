@@ -14,14 +14,18 @@ const SidePanel = (props) => {
 
 	return (
 		<div className="side-panel">
-			<div id="curr-user">
-				<img
-					src={imageUrl}
-					style={{ width: 50, height: 50, borderRadius: "50%" }}
-					alt="user_photo"
-					loading="lazy"
-				></img>
-				<h2>{sessionUser.username}</h2>
+			<div className="pic-and-name-div">
+				<div className="profile-pic-div">
+					<img
+						src={imageUrl}
+						alt="user_photo"
+						loading="lazy"
+						className="profile-pic"
+					></img>
+				</div>
+				<div id="curr-user">
+					<h2>{sessionUser.username}</h2>
+				</div>
 			</div>
 			<div id="add-bill-button-container">
 				<AddBillFormModal />
