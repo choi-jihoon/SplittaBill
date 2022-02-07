@@ -12,7 +12,10 @@ const ExpenseBillDetails = ({ expense, showModal }) => {
 
     return (
         <>
-            <h3>{bill.description}</h3>
+            <h3>
+                <span><i className="fas fa-file-invoice-dollar"></i></span>
+                {bill.description}
+            </h3>
                 <ul>
                     <li>
                         PAID BY: { bill.owner_name }

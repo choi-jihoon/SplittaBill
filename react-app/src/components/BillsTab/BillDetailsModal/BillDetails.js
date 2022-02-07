@@ -10,6 +10,7 @@ const BillDetails = ({ bill, showModal }) => {
         <>
             <EditBillFormModal bill={bill} />
             <DeleteBillModal billId={bill.id} />
+            <span><i className="fas fa-file-invoice-dollar"></i></span>
             <h3>{bill.description}</h3>
                     <ul>
                         <li>
