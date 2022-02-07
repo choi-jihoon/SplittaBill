@@ -4,9 +4,14 @@ import LogoutButton from "../auth/LogoutButton";
 import AddFriendFormModal from "../FriendsTab/AddFriendForm/AddFriendFormModal";
 import AddBillFormModal from "../BillsTab/AddBillFormModal";
 
+import { getUserBalance } from "../../store/bills";
+
+import { ReactComponent as Logo } from "../../assets/white-split.svg";
+import { ReactComponent as Duck } from "../../assets/white-geo.svg";
+
 import "./SidePanel.css";
 
-const SidePanel = (props) => {
+const SidePanel = ({ balance }) => {
 	const sessionUser = useSelector((state) => state.session.user);
 	const imageUrl = sessionUser.image
 		? sessionUser.image
@@ -14,6 +19,10 @@ const SidePanel = (props) => {
 
 	return (
 		<div className="side-panel">
+			<div className="logo side-panel-logo">
+				<Logo />
+				<Duck />
+			</div>
 			<div className="pic-and-name-div">
 				<div className="profile-pic-div">
 					<img
@@ -27,14 +36,19 @@ const SidePanel = (props) => {
 					<h2>{sessionUser.username}</h2>
 				</div>
 			</div>
-			<div id="add-bill-button-container">
-				<AddBillFormModal />
+			<div className='user-balance'>
+				Balance: ${balance}
 			</div>
-			<div id="add-friend-button-container">
-				<AddFriendFormModal />
-			</div>
-			<div id="logout-button-container">
-				<LogoutButton />
+			<div className="side-panel-buttons">
+				<div id="add-bill-button-container">
+					<AddBillFormModal />
+				</div>
+				<div id="add-friend-button-container">
+					<AddFriendFormModal />
+				</div>
+				<div id="logout-button-container">
+					<LogoutButton />
+				</div>
 			</div>
 		</div>
 	);
