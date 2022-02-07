@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import ExpenseBillDetails from './ExpenseBillDetails'
 import { Modal } from '../../../context/Modal';
-import ExpenseBillDetails from './ExpenseBillDetails';
+
 
 function ExpenseBillDetailsModal({ expense }) {
     const [showModal, setShowModal] = useState(false);

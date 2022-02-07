@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import ExpensesForBill from "../ExpensesForBill";
+import ExpensesForBill from "./ExpensesForBill";
 import Comments from "../Comments";
 
 const ExpenseBillDetails = ({ expense, showModal }) => {

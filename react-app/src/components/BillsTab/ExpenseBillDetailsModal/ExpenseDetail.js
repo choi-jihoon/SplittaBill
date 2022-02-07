@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
-import SettleUpModal from './SettleUp/SettleUpModal';
-import ExpenseBillDetailsModal from './ExpenseBillDetailsModal';
+import SettleUpModal from '../SettleUp/SettleUpModal';
+import ExpenseBillDetailsModal from '.';
 
 
 const ExpenseDetail = ({ expense }) => {

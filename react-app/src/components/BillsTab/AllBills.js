@@ -5,7 +5,7 @@ import { getBills, getUserExpenses } from '../../store/bills';
 
 import AddBillFormModal from './AddBillFormModal';
 import Bill from "./Bill";
-import ExpenseDetail from './ExpenseDetail';
+import ExpenseDetail from './ExpenseBillDetailsModal/ExpenseDetail';
 
 import './BillsTab.css';
 
