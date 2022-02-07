@@ -101,12 +101,33 @@ const SignUpForm = () => {
 			></input>
 			<input type="file" accept="image/*" onChange={updateImage}></input>
 
+			{image && (
+				// <div
+				// 	style={{
+				// 		backgroundImage: `url(${URL.createObjectURL(image)}`,
+				// 		width: 100,
+				// 		height: 100,
+				// 		background: "no-repeat center",
+				// 		backgroundSize: "cover",
+				// 	}}
+				//     ></div>
+				<img
+					alt="preview"
+					src={URL.createObjectURL(image)}
+					style={{
+						width: 100,
+						// maxHeight: 75,
+						height: 100,
+						margin: 20,
+						borderRadius: "50%",
+						objectFit: "cover",
+					}}
+				></img>
+			)}
 			<button type="submit">Sign Up</button>
-
 			{imageLoading && <p>Loading...</p>}
 
 			<DemoLogin />
-
 		</form>
 	);
 };
