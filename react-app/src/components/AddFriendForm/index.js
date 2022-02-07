@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { addFriend } from "../../store/friends";
@@ -12,6 +12,13 @@ const AddFriendForm = ({setShowModal}) => {
 	const [errors, setErrors] = useState([]);
 	const [username, setUsername] = useState("");
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const errors = [];
+		if (username.length > 40) errors.push("Username must be less than 40 characters.")
+
+		setErrors(errors);
+	}, [username])
 
 	const notify = () => {
 		toast.success(`You added ${username} as a friend!`,
