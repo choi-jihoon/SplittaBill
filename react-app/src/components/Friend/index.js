@@ -20,9 +20,10 @@ const Friend = ({id, username, balance}) => {
 				:  <p>All Even with {username}!</p>)
 			}
 
-			{balance === 0 ? (
+			{parseFloat(balance) === 0 ? (
 				<button onClick={onRemoveFriend}>Delete Friend</button>
-			): null}
+				): null}
+
 		</div>
 	);
 };
