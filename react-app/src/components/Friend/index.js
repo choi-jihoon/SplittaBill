@@ -13,14 +13,14 @@ const Friend = ({id, username, balance}) => {
 
 	return (
 		<div>
-			{parseFloat(balance) > 0 ?
+			{balance > 0 ?
 				<p>{username} owes you ${balance}</p>
-				: (parseFloat(balance) < 0 ?
+				: (balance < 0 ?
 				<p>you owe {username} ${Math.abs(balance)}</p>
 				:  <p>All Even with {username}!</p>)
 			}
 
-			{parseFloat(balance) === 0 ? (
+			{balance === 0 ? (
 				<button onClick={onRemoveFriend}>Delete Friend</button>
 			): null}
 		</div>
