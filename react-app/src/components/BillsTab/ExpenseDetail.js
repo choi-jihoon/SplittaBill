@@ -28,7 +28,7 @@ const ExpenseDetail = ({ expense }) => {
                 <li>
                     SETTLED?: {expense.settled ? <i className="fas fa-check settled-true"></i> : <i className="fas fa-times settled-false"></i>}
                 </li>
-                {(!expense.settled && expense.payer_id == sessionUser.id) &&
+                {(!expense.settled && expense.payer_id === sessionUser.id) &&
                     <SettleUpModal expense={expense} />
                 }
                 {(checkLocation() && expense.bill.owner_id !== sessionUser.id) &&

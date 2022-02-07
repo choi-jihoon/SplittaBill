@@ -7,7 +7,7 @@ const TransactionRecordDetail = ({ record }) => {
     let recipient;
     let amountColor;
 
-    if (record.payer_name == sessionUser.username) {
+    if (record.payer_name === sessionUser.username) {
         payer = "You"
         amountColor = "negative-payment"
     } else {
@@ -15,7 +15,7 @@ const TransactionRecordDetail = ({ record }) => {
         amountColor = "positive-payment"
     }
 
-    if (record.recipient_name == sessionUser.username) {
+    if (record.recipient_name === sessionUser.username) {
         recipient = "you"
     } else {
         recipient = record.recipient_name
