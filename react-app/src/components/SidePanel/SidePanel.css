@@ -12,6 +12,7 @@
 .pic-and-name-div {
     display: flex;
     align-items: center;
+    padding: 20px;
 }
 
 .profile-pic-div {
@@ -29,4 +30,17 @@
 .profile-pic {
     height: 100%;
     position: absolute;
+}
+
+#curr-user {
+    padding-left: 20px;
+}
+
+.side-panel-buttons {
+    align-self: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
