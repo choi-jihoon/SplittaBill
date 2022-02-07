@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
-import AddFriendFormModal from "../AddFriendForm/AddFriendFormModal";
+import AddFriendFormModal from "../FriendsTab/AddFriendForm/AddFriendFormModal";
 import AddBillFormModal from "../BillsTab/AddBillFormModal";
 
 import { getUserBalance } from "../../store/bills";
