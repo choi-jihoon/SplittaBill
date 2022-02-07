@@ -11,6 +11,7 @@ def get_friend_id(friend):
     else:
         return 0
 
+
 def check_friend_ids(form, field):
     friends = field.data
     user_id = form.data['owner_id']
@@ -25,9 +26,22 @@ def check_friend_ids(form, field):
         if not is_friend:
             raise ValidationError("That user is not your friend.")
 
-class AddBillForm(FlaskForm):
+
+def check_total_amount(form, field):
+    total_amount = field.data
+    if total_amount <= 0:
+        raise ValidationError("Bill amount must be greater than $0.00.")
+
+
+def check_description_length(form, field):
+    description = field.data
+    if len(description) > 50:
+        raise ValidationError("Description must be less than 50 characters.")
+
+
+class BillForm(FlaskForm):
     owner_id = IntegerField('owner_id')
-    total_amount = DecimalField('total_amount', validators=[DataRequired()])
-    description = StringField('description', validators=[DataRequired()])
+    total_amount = DecimalField('total_amount', validators=[DataRequired(), check_total_amount])
+    description = StringField('description', validators=[DataRequired(), check_description_length])
     deadline = DateField('deadline')
     friends = StringField('friends', validators=[DataRequired(), check_friend_ids])
