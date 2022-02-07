@@ -50,9 +50,10 @@ const load_expenses_for_one_bill = (data) => ({
     data
 })
 
-const load_transactions_for_one_friend = (data) => ({
+const load_transactions_for_one_friend = (data, id) => ({
     type: LOAD_TRANSACTIONS_FOR_ONE_FRIEND,
-    data
+    data,
+    id
 })
 
 export const getTransactionRecords = () => async (dispatch) => {
@@ -99,8 +100,7 @@ export const getTransactionsForFriend = (id) => async (dispatch) => {
     const response = await fetch(`/api/users/${id}/transaction_records`);
     if (response.ok) {
         const data = await response.json()
-        console.log("*****", data)
-        dispatch(load_transactions_for_one_friend(data))
+        dispatch(load_transactions_for_one_friend(data, id))
     } else {
         const errors = await response.json()
         console.log(errors.errors);
@@ -229,7 +229,8 @@ const initialState = {
     bills: {},
     expenses: {},
     expenses_by_bill: {},
-    transaction_records: {}
+    transaction_records: {},
+    transaction_records_by_friend: {}
 }
 
 
@@ -320,7 +321,7 @@ const bills = (state = initialState, action) => {
             });
             return {
                 ...state,
-                transaction_records: {
+                transaction_records_by_friend: {
                     ...loadRecords
                 }
             }

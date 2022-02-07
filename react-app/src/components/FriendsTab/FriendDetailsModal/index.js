@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import FriendDetails from './FriendDetails';
 
-function FriendDetailsModal({ friendId, username, balance, records}) {
+function FriendDetailsModal({ friendId, username, balance}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
