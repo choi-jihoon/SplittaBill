@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, User, Friend, TransactionRecord
+from app.models import db, User, Friend
 from app.forms import AddFriendForm
 from .auth_routes import validation_errors_to_error_messages
 
@@ -46,16 +46,3 @@ def remove_friend(id):
         db.session.commit()
         return {'message': 'successfully deleted'}
     return {'errors': ["Failed to remove friend.  Settle up all expenses first."]}, 401
-
-
-@friend_routes.route('/<int:friend_id>/transaction_records')
-def get_relating_records(friend_id):
-    records1 = TransactionRecord.query.filter(TransactionRecord.payer_id == current_user.get_id(),
-        TransactionRecord.recipient_id == friend_id)
-
-    records2 = TransactionRecord.query.filter(TransactionRecord.payer_id == friend_id,
-        TransactionRecord.recipient_id == current_user.get_id())
-
-    records = records1.union(records2).all()
-
-    return {'transaction_records': [record.to_dict() for record in records]}
