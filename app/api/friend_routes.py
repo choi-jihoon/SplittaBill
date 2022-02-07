@@ -58,7 +58,4 @@ def get_relating_records(friend_id):
 
     records = records1.union(records2).all()
 
-    # records.append(TransactionRecord.query.filter(TransactionRecord.payer_id == friend_id,
-    #     TransactionRecord.recipient_id == current_user.id).all())
-
     return {'transaction_records': [record.to_dict() for record in records]}
