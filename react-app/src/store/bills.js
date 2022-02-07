@@ -8,6 +8,7 @@ const EXPENSES_FOR_ONE_BILL = 'bills/EXPENSES_FOR_ONE_BILL'
 
 const CREATE_TRANSACTION = 'bills/CREATE_TRANSACTION'
 const LOAD_TRANSACTIONS = 'bills/LOAD_TRANSACTIONS'
+const LOAD_TRANSACTIONS_FOR_ONE_FRIEND = 'bills/LOAD_TRANSACTIONS_FOR_ONE_FRIEND'
 
 const loadTransactions = (data) => ({
     type: LOAD_TRANSACTIONS,
@@ -49,6 +50,11 @@ const load_expenses_for_one_bill = (data) => ({
     data
 })
 
+const load_transactions_for_one_friend = (data) => ({
+    type: LOAD_TRANSACTIONS_FOR_ONE_FRIEND,
+    data
+})
+
 export const getTransactionRecords = () => async (dispatch) => {
     const response = await fetch(`/api/transaction_records/`)
 
@@ -86,6 +92,17 @@ export const addTransactionRecord = (recipient_id, expense_id, amount_paid) => a
         }
     } else {
         return ['An error occurred. Please try again.']
+    }
+}
+
+export const getTransactionsForFriend = (id) => async (dispatch) => {
+    const response = await fetch(`/api/users/${id}/transaction_records/`);
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(load_transactions_for_one_friend(data))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
     }
 }
 
@@ -282,6 +299,20 @@ const bills = (state = initialState, action) => {
         }
 
         case LOAD_TRANSACTIONS: {
+            const loadRecords = {}
+            action.data.forEach(record => {
+                loadRecords[record.id] = record
+            });
+            return {
+                ...state,
+                transaction_records: {
+                    ...state.transaction_records,
+                    ...loadRecords
+                }
+            }
+        }
+
+        case LOAD_TRANSACTIONS_FOR_ONE_FRIEND: {
             const loadRecords = {}
             action.data.forEach(record => {
                 loadRecords[record.id] = record
