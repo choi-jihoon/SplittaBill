@@ -1,0 +1,29 @@
+.all-bills-container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.add-bill-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.bill-container {
+    padding-bottom: 40px;
+}
+
+.edit-delete-bill-buttons-container {
+    display: flex;
+}
+
+
+.settled-true {
+    color: green;
+}
+
+.settled-false {
+    color: red;
+}

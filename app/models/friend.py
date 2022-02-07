@@ -15,6 +15,9 @@ class Friend(db.Model):
 
     def to_dict(self):
         return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "friend_id": self.friend_id,
             "friend_name": self.friend.username,
-            "balance": float(self.balance)
+            "balance": str(self.balance)
         }

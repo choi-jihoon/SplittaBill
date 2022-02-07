@@ -1,1 +1,30 @@
-/* TODO Add site wide styles */
+@import url('https://use.typekit.net/kyk0anv.css');
+
+:root {
+    --base-font: proxima-nova, sans-serif;
+    --side-panel: grey;
+    --main-container: lightblue;
+}
+
+*,
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: proxima-nova, sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.whole-page-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

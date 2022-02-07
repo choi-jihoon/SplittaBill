@@ -1,0 +1,38 @@
+.login-form,
+.signup-form {
+	width: 100%;
+	height: fit-content;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form > input,
+.signup-form > input {
+	width: 280px;
+	height: 35px;
+	margin: 5px;
+	font-size: 18px;
+	border: 1px solid #0f0f0f;
+	border-radius: 7px;
+	padding: 4px;
+}
+
+.login-form > button,
+.signup-form > button {
+	width: 200px;
+	height: 30px;
+	color: #fff;
+	background-color: #000;
+	border: none;
+	border-radius: 7px;
+	margin-top: 5px;
+}
+.login-form > button:hover,
+.signup-form > button:hover {
+	background-color: #fff;
+	color: #000;
+	border: 2px solid #000;
+}

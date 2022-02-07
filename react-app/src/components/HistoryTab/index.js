@@ -1,9 +1,12 @@
 import React from "react";
+import TransactionRecords from "./TransactionRecords";
+
+import './TransactionRecords.css'
 
 const HistoryTab = (props) => {
 	return (
-		<div>
-			<div>History Tab</div>
+		<div className='main-container'>
+			<TransactionRecords />
 		</div>
 	);
 };

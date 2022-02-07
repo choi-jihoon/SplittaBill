@@ -23,7 +23,9 @@ class Expense(db.Model):
             'id': self.id,
             'payer_id': self.payer_id,
             'bill_id': self.bill_id,
-            'initial_charge': self.initial_charge,
-            'amount_due': self.amount_due,
+            'initial_charge': str(self.initial_charge),
+            'amount_due': str(self.amount_due),
             'settled': self.settled,
+            'payer_name': self.payer.username,
+            'bill': self.bill.expense_to_dict()
         }
