@@ -1,4 +1,4 @@
-import ExpenseDetail from "./ExpenseDetail";
+import ExpenseDetail from "./ExpenseBillDetailsModal/ExpenseDetail";
 
 const BillExpenses = ({ expenses }) => {
     return (

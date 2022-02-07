@@ -1,9 +1,8 @@
 import EditBillFormModal from "./EditBillFormModal";
 import DeleteBillModal from "./DeleteBillModal";
-import BillExpenses from "./BillExpenses";
-import Comments from "./Comments";
+import BillDetailsModal from "./BillDetailsModal";
 
-const BillDetail = ({ bill }) => {
+const Bill = ({ bill }) => {
 	return (
 		<div className='bill-container'>
 			<div className='bill-info-container'>
@@ -24,10 +23,9 @@ const BillDetail = ({ bill }) => {
 					<DeleteBillModal billId={bill.id} />
 				</div>
 			</div>
-			{/* <BillExpenses expenses={bill.expenses} /> */}
-			{/* <Comments billId={bill.id} /> */}
+			<BillDetailsModal bill={bill} />
 		</div>
 	);
 };
 
-export default BillDetail;
+export default Bill;
