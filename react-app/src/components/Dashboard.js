@@ -1,16 +1,31 @@
+import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 import SidePanel from "./SidePanel";
 import DashNav from "./DashNav";
 import HistoryTab from "./HistoryTab";
 import FriendsTab from "./FriendsTab";
 import BillsTab from "./BillsTab";
 
+import { getUserBalance } from "../store/bills";
+
 import './Dashboard.css'
 
 const Dashboard = () => {
+	const dispatch = useDispatch()
+	const sessionUser = useSelector(state => state.session.user)
+	const billsObject = useSelector(state => state.bills);
+	const userBalance = billsObject.user_balance.balance;
+
+	useEffect(() => {
+		dispatch(getUserBalance(sessionUser.id));
+	}, [dispatch])
+
+
 	return (
 		<div className='dashboard-container'>
-			<SidePanel />
+			<SidePanel balance={userBalance} />
 			<div className='dash-and-main-container'>
 			<DashNav />
 				<Switch>
