@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
-import SettleUpModal from './SettleUp/SettleUpModal';
+import SettleUpModal from '../SettleUp/SettleUpModal';
+import ExpenseBillDetailsModal from '.';
 
 
 const ExpenseDetail = ({ expense }) => {
@@ -38,9 +39,10 @@ const ExpenseDetail = ({ expense }) => {
                                 PAY TO: {expense.bill.owner_name}
                             </li>
                             <li>
-                                <Link to={`/expenses/${expense.id}/bill`}>
+                                {/* <Link to={`/expenses/${expense.id}/bill`}>
                                     See Bill Details
-                                </Link>
+                                </Link> */}
+                                <ExpenseBillDetailsModal expense={expense} />
                             </li>
                         </>
                     )
