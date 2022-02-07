@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import FriendDetails from './FriendDetails';
 
-function FriendDetailsModal() {
+function FriendDetailsModal({ username, balance, records}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -14,7 +14,7 @@ function FriendDetailsModal() {
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <FriendDetails showModal={setShowModal} />
+            <FriendDetails showModal={setShowModal} username={username} balance={balance} records={records} />
           </Modal>
         )}
       </>
