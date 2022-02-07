@@ -13,10 +13,13 @@ const AddBillForm = ({ showModal }) => {
 
     const sessionUser = useSelector(state => state.session.user)
 
+	const today = new Date()
+	const todayString = today.toISOString().split('T')[0]
+
 	const [errors, setErrors] = useState([]);
 	const [total_amount, setTotal_Amount] = useState("");
 	const [description, setDescription] = useState("");
-    const [deadline, setDeadline] = useState("")
+    const [deadline, setDeadline] = useState(todayString)
     const [friends, setFriends] = useState("")
 
 	const notify = () => {

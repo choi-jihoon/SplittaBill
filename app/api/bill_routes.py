@@ -50,6 +50,8 @@ def add_bill():
     if form.validate_on_submit():
         data = {}
 
+        print('VALIDATED DEADLINE', form.data['deadline'])
+
         bill = Bill(
             owner_id = curr_user_id,
             total_amount = form.data['total_amount'],
@@ -98,6 +100,7 @@ def add_bill():
 
         return data
 
+    print('BLANK DEADLINE', form.data['deadline'])
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
