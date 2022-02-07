@@ -17,10 +17,8 @@ def user_is_not_friend(form, field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:
-        print("*******USER", user.to_dict())
         friend = Friend.query.filter(Friend.user_id == current_user.get_id(), Friend.friend_id == user.id).first()
         if friend:
-            print("********FRIEND", friend.to_dict())
             raise ValidationError('Username provided already in friends list.')
 
 class AddFriendForm(FlaskForm):
