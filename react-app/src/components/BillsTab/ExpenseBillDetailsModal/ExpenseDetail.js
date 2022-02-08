@@ -43,10 +43,8 @@ const ExpenseDetail = ({ expense }) => {
                         </div>
                     </div>
                     <div className='bill-total-amount'>
-                        ${expense.amount_due} still due
-                        <p>
-                            Initial: ${expense.initial_charge}
-                        </p>
+                        {expense.settled ? "" : "-"}
+                        ${expense.amount_due}
                     </div>
                 </div>
             </div>

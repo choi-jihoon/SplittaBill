@@ -1,0 +1,10 @@
+div.profile-pic-div#bill-detail-expense-profile-pic {
+    width: 25px;
+    height: 25px;
+}
+
+.bde-pic-payername-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

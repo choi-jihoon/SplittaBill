@@ -3,15 +3,21 @@ import Comments from "../Comments";
 import EditBillFormModal from "../EditBillFormModal";
 import DeleteBillModal from "../DeleteBillModal";
 
+import "./BillDetails.css";
 
-const BillDetails = ({ bill, showModal }) => {
+
+const BillDetails = ({ bill }) => {
 
     return (
-        <>
-            <EditBillFormModal bill={bill} />
-            <DeleteBillModal billId={bill.id} />
-            <span><i className="fas fa-file-invoice-dollar"></i></span>
-            <h3>{bill.description}</h3>
+        <div className='bill-details-modal-container'>
+            <div className='bd-edit-delete-btns-container'>
+                <EditBillFormModal bill={bill} />
+                <DeleteBillModal billId={bill.id} />
+            </div>
+            <div className='bd-title-container'>
+                <span><i className="fas fa-file-invoice-dollar"></i></span>
+                <h3>{bill.description}</h3>
+            </div>
                     <ul>
                         <li>
                             PAID BY: { bill.owner_name }
@@ -28,7 +34,7 @@ const BillDetails = ({ bill, showModal }) => {
                     </ul>
             <BillExpenses expenses={bill.expenses} />
             <Comments billId={bill.id} />
-        </>
+        </div>
     )
 }
 
