@@ -81,43 +81,51 @@ const EditBillForm = ({ showModal, bill }) => {
 
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div>
+		<form className='form-container' onSubmit={handleSubmit}>
+			<div className='errors-container'>
 				{errors.map((error, ind) => (
-					<div key={ind}>{error}</div>
+					<div className='error-msg' key={ind}>{error}</div>
 				))}
 			</div>
-			<div>
-				<label htmlFor="total_amount">Amount</label>
-				<input
-					name="total_amount"
-					type="number"
-					step="0.01"
-					placeholder="0"
-					value={total_amount}
-					onChange={updateTotal}
-				/>
+			<div className='form-input-container'>
+
+				<div className='form-element'>
+					<label className='form-label' htmlFor="total_amount">Amount</label>
+					<input
+						className='form-input'
+						name="total_amount"
+						type="number"
+						step="0.01"
+						placeholder="0"
+						value={total_amount}
+						onChange={updateTotal}
+					/>
+				</div>
+				<div className='form-element'>
+					<label className='form-label' htmlFor="description">Description</label>
+					<input
+						name="description"
+						type="text"
+						placeholder="Bill Description"
+						value={description}
+						onChange={updateDescription}
+					/>
+				</div>
+				<div className='form-element'>
+					<label className='form-label' htmlFor="deadline">Deadline</label>
+					<input
+						name="deadline"
+						type="date"
+						value={deadline}
+						onChange={updateDeadline}
+					/>
+				</div>
+				<button className='form-submit-btn' type="submit">Edit Bill</button>
 			</div>
-			<div>
-				<label htmlFor="description">Description</label>
-				<input
-					name="description"
-					type="text"
-					placeholder="Bill Description"
-					value={description}
-					onChange={updateDescription}
-				/>
-			</div>
-			<div>
-				<label htmlFor="deadline">Deadline</label>
-				<input
-					name="deadline"
-					type="date"
-					value={deadline}
-					onChange={updateDeadline}
-				/>
-			</div>
-			<div>
+            <div className='form-element form-friends-list'>
+				<div className='form-label'>
+					Split with:
+				</div>
 				{allFriends.map(friend => {
 					return (
 						<div className='friends-checkboxes' key={friend.id}>
@@ -128,14 +136,13 @@ const EditBillForm = ({ showModal, bill }) => {
 									defaultChecked={payers.includes(friend.friend_name)}
 									onChange={updateFriends}
 									 />
-							<label htmlFor="friendSelect">
+							<label className='form-label' htmlFor="friendSelect">
 								{friend.friend_name}
 							</label>
 						</div>
 					)
 				})}
 			</div>
-			<button type="submit">Edit Bill</button>
 		</form>
 	);
 };
