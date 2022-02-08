@@ -1,14 +1,39 @@
 .bill-details-modal-container {
     position: relative;
     padding: 50px;
+    width: 500px;
 }
 
 .bd-edit-delete-btns-container {
     position: absolute;
     top: 10px;
     right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bd-title-total-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.bd-title-icon,
+.bd-title-text {
+    font-size: 25px;
+}
+
+.bd-title-text {
+    padding-left: 10px;
+}
+
+.bd-total-amount {
+    position: absolute;
+    right: 20%;
+    font-size: 25px;
 }
 
 .bd-title-container {
     display: flex;
+    align-items: center;
 }

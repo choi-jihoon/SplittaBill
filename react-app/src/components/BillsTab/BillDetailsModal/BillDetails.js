@@ -14,24 +14,19 @@ const BillDetails = ({ bill }) => {
                 <EditBillFormModal bill={bill} />
                 <DeleteBillModal billId={bill.id} />
             </div>
-            <div className='bd-title-container'>
-                <span><i className="fas fa-file-invoice-dollar"></i></span>
-                <h3>{bill.description}</h3>
+            <div className='bd-title-total-container'>
+                <div className='bd-title-container'>
+                    <span className='bd-title-icon'><i className="fas fa-file-invoice-dollar"></i></span>
+                    <h2 className='bd-title-text'>{bill.description}</h2>
+                </div>
+                <div className='bd-total-amount'>${ bill.total_amount }</div>
             </div>
-                    <ul>
-                        <li>
-                            PAID BY: { bill.owner_name }
-                        </li>
-                        <li>
-                            TOTAL AMOUNT: { bill.total_amount }
-                        </li>
-                        <li>
-                            {bill.deadline !== 'None' &&
-                            <p>
-                                DEADLINE: {bill.deadline}
-                            </p>}
-                        </li>
-                    </ul>
+            {/* <div>
+                {bill.deadline !== 'None' &&
+                <p>
+                    DEADLINE: {bill.deadline}
+                </p>}
+            </div> */}
             <BillExpenses expenses={bill.expenses} />
             <Comments billId={bill.id} />
         </div>

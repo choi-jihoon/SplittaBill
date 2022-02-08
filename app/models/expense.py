@@ -27,5 +27,6 @@ class Expense(db.Model):
             'amount_due': str(self.amount_due),
             'settled': self.settled,
             'payer_name': self.payer.username,
+            'payer_image': self.payer.image,
             'bill': self.bill.expense_to_dict()
         }
