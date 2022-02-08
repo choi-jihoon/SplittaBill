@@ -10,8 +10,6 @@ const Comment = ({ comment }) => {
 	const [display, setDisplay] = useState(false);
 	const friendsById = useSelector((state) => state.friends.byId);
 	const friends = Object.values(friendsById);
-	console.log(friendsById);
-	console.log(friends);
 	const image = friendsById[comment.user_id]?.image
 		? friendsById[comment.user_id]?.image
 		: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
@@ -24,14 +22,13 @@ const Comment = ({ comment }) => {
 			onMouseEnter={() => setDisplay(true)}
 			onMouseLeave={() => setDisplay(false)}
 		>
+			{curr_user.id === comment?.user_id && (
+				<DeleteCommentFormModal comment={comment} display={display} />
+			)}
 			<div className="comment-container">
 				{curr_user.id === comment?.user_id && (
 					<div className="edit-delete-wrapper">
 						<EditCommentFormModal comment={comment} />
-						<DeleteCommentFormModal
-							comment={comment}
-							display={display}
-						/>
 					</div>
 				)}
 				<div className="comment-message">{comment?.message}</div>

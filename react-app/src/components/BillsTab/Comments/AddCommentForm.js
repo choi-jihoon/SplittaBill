@@ -6,11 +6,16 @@ const AddCommentForm = ({ billId }) => {
 	const dispatch = useDispatch();
 	const [comment, setComment] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [disabled, setDisabled] = useState(false);
 	useEffect(() => {
 		if (comment.length > 280) {
 			setErrors(["Please use 280 characters or less"]);
+			setDisabled(true);
+		} else if (comment.length === 0) {
+			setDisabled(true);
 		} else if (comment.length <= 280) {
 			setErrors([]);
+			setDisabled(false);
 		}
 	}, [comment]);
 	const onSubmit = async (e) => {
@@ -22,7 +27,7 @@ const AddCommentForm = ({ billId }) => {
 		}
 	};
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={onSubmit} className="comment-form">
 			<textarea
 				className="comment-input"
 				placeholder="Add a Comment!"
@@ -31,7 +36,9 @@ const AddCommentForm = ({ billId }) => {
 			></textarea>
 			{errors.length > 0 &&
 				errors.map((err, i) => <li key={i}>{err}</li>)}
-			<button>Post Comment</button>
+			<button className="add-comment-button" disabled={disabled}>
+				Post Comment
+			</button>
 		</form>
 	);
 };
