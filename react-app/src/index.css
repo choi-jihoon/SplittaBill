@@ -48,3 +48,16 @@ a:active {
 .bold {
 	font-weight: bold;
 }
+
+
+
+.form-container {
+	padding: 30px;
+	display: flex;
+}
+
+.form-element {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
