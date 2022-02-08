@@ -13,11 +13,28 @@
 
 .bill-container {
     padding: 40px;
-    border: 1px solid red;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-bottom: 1px solid gray;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.bill-container:hover {
+    background-color: rgb(230, 191, 94);
+    cursor: pointer;
+}
+
+.bill-left-side {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic-div.bill-pic {
+    width: 50px;
+    height: 50px;
 }
 
 .bill-info-container {
