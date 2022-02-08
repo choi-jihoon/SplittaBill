@@ -13,6 +13,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 
 	const onRemoveFriend = async (e) => {
 		e.preventDefault();
+		e.stopPropagation();
 		await dispatch(removeFriend(id));
 		return <Redirect to="/friends" />;
 	}
