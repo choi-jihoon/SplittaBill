@@ -1,10 +1,97 @@
 .side-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 40px;
+
+	background-color: var(--side-panel);
+}
+.edit-image-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
+.edit-image-form > form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.edit-image-form > form > input[type="file"] {
+	display: none;
+}
+.edit-image-form > form > label {
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	/* border: 1px solid black; */
+	color: #fff;
+	background-color: #000;
+	border-radius: 7px;
+	padding: 2px 4px;
+	margin: 10px;
+}
+.edit-image-form > form > label:hover {
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	border: 1px solid #000;
+}
+.edit-image-form > form > button {
+	width: 200px;
+	height: 30px;
+	margin: 10px;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	border-radius: 7px;
+	font-size: 16px;
+}
+
+.edit-image-form > form > button:hover {
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	border: 1px solid #000;
+}
+
+.pic-and-name-div {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-pic-div {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile-pic {
+    height: 100%;
+    position: absolute;
+}
+
+#curr-user {
+    padding-left: 20px;
+}
+
+.side-panel-buttons {
+    align-self: center;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
-    padding: 40px;
-
-    background-color: var(--side-panel);
-
 }

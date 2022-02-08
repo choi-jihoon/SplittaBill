@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
+import ExpenseBillDetails from './ExpenseBillDetails'
 import { Modal } from '../../../context/Modal';
-import SettleUpForm from './SettleUpForm';
 
-function SettleUpModal({ expense }) {
+
+function ExpenseBillDetailsModal({ expense }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
       <>
         <button
-          id='settle-up'
+          id='bill-details'
           onClick={() => setShowModal(true)}>
-          <i className="fas fa-money-bill-wave"></i>
-          Settle Up
+          See Bill Details <i className="fas fa-search-dollar"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <SettleUpForm showModal={setShowModal} expense={expense} />
+            <ExpenseBillDetails showModal={setShowModal} expense={expense} />
           </Modal>
         )}
       </>
     );
   }
 
-  export default SettleUpModal;
+  export default ExpenseBillDetailsModal;

@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import AddBillForm from './AddBillForm';
+import { Modal } from '../../../context/Modal';
+import AddFriendForm from '.';
 
-function AddBillFormModal() {
+function AddFriendFormModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (
       <>
         <button
-          id='add-bill'
+          id='add-friend'
           onClick={() => setShowModal(true)}>
-          <i className="fas fa-money-check-alt"></i> Add Bill
+          <i className="fas fa-user-plus"></i> Add Friend
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <AddBillForm showModal={setShowModal} />
+            <AddFriendForm setShowModal={setShowModal}/>
           </Modal>
         )}
       </>
     );
   }
 
-  export default AddBillFormModal;
+  export default AddFriendFormModal;

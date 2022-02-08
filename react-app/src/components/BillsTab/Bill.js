@@ -1,13 +1,15 @@
 import EditBillFormModal from "./EditBillFormModal";
 import DeleteBillModal from "./DeleteBillModal";
-import BillExpenses from "./BillExpenses";
-import Comments from "./Comments";
+import BillDetailsModal from "./BillDetailsModal";
 
-const BillDetail = ({ bill }) => {
+const Bill = ({ bill }) => {
 	return (
 		<div className='bill-container'>
 			<div className='bill-info-container'>
-				<h3>{bill.description}</h3>
+				<h3>
+					<span><i className="fas fa-file-invoice-dollar"></i></span>
+					{bill.description}
+				</h3>
 				<ul>
 					<li>OWNER: {bill.owner_name}</li>
 					<li>TOTAL AMOUNT: {bill.total_amount}</li>
@@ -24,10 +26,9 @@ const BillDetail = ({ bill }) => {
 					<DeleteBillModal billId={bill.id} />
 				</div>
 			</div>
-			<BillExpenses expenses={bill.expenses} />
-			<Comments billId={bill.id} />
+			<BillDetailsModal bill={bill} />
 		</div>
 	);
 };
 
-export default BillDetail;
+export default Bill;

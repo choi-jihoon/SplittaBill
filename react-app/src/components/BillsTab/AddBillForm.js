@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,13 +11,18 @@ toast.configure()
 
 const AddBillForm = ({ showModal }) => {
 	const dispatch = useDispatch();
+	const location = useLocation();
+	const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user)
+
+	const today = new Date()
+	const todayString = today.toISOString().split('T')[0]
 
 	const [errors, setErrors] = useState([]);
 	const [total_amount, setTotal_Amount] = useState("");
 	const [description, setDescription] = useState("");
-    const [deadline, setDeadline] = useState("")
+    const [deadline, setDeadline] = useState(todayString)
     const [friends, setFriends] = useState("")
 
 	const notify = () => {
@@ -37,8 +43,21 @@ const AddBillForm = ({ showModal }) => {
 
 		notify()
 
+		if (location.pathname !== "/") {
+			history.push("/")
+		}
+
         showModal(false)
 	};
+
+
+	useEffect(() => {
+		const errors = [];
+		if (description.length > 50) errors.push("Description must be less than 50 characters.")
+
+		setErrors(errors);
+	}, [description])
+
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);

@@ -2,12 +2,22 @@
 const LOAD = 'bills/LOAD';
 const CREATE = 'bills/ADD';
 const DELETE = 'bills/DELETE';
-const EDIT = 'bills/EDIT'
-const LOAD_EXPENSES = 'bills/LOAD_EXPENSES'
-const EXPENSES_FOR_ONE_BILL = 'bills/EXPENSES_FOR_ONE_BILL'
+const EDIT = 'bills/EDIT';
+const LOAD_EXPENSES = 'bills/LOAD_EXPENSES';
+const EXPENSES_FOR_ONE_BILL = 'bills/EXPENSES_FOR_ONE_BILL';
 
+const LOAD_USER_BALANCE = 'bills/LOAD_USER_BALANCE';
 const CREATE_TRANSACTION = 'bills/CREATE_TRANSACTION'
+
 const LOAD_TRANSACTIONS = 'bills/LOAD_TRANSACTIONS'
+const LOAD_TRANSACTIONS_FOR_ONE_FRIEND = 'bills/LOAD_TRANSACTIONS_FOR_ONE_FRIEND'
+
+
+const loadUserBalance = (data) => ({
+    type: LOAD_USER_BALANCE,
+    data
+})
+
 
 const loadTransactions = (data) => ({
     type: LOAD_TRANSACTIONS,
@@ -49,6 +59,26 @@ const load_expenses_for_one_bill = (data) => ({
     data
 })
 
+const load_transactions_for_one_friend = (data, id) => ({
+    type: LOAD_TRANSACTIONS_FOR_ONE_FRIEND,
+    data,
+    id
+})
+
+export const getUserBalance = (id) => async (dispatch) => {
+    const response = await fetch(`/api/users/${id}/balance`);
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(loadUserBalance(data))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
+    }
+}
+
+
+
 export const getTransactionRecords = () => async (dispatch) => {
     const response = await fetch(`/api/transaction_records/`)
 
@@ -86,6 +116,17 @@ export const addTransactionRecord = (recipient_id, expense_id, amount_paid) => a
         }
     } else {
         return ['An error occurred. Please try again.']
+    }
+}
+
+export const getTransactionsForFriend = (id) => async (dispatch) => {
+    const response = await fetch(`/api/users/${id}/transaction_records`);
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(load_transactions_for_one_friend(data, id))
+    } else {
+        const errors = await response.json()
+        console.log(errors.errors);
     }
 }
 
@@ -211,7 +252,9 @@ const initialState = {
     bills: {},
     expenses: {},
     expenses_by_bill: {},
-    transaction_records: {}
+    transaction_records: {},
+    user_balance: {},
+    transaction_records_by_friend: {}
 }
 
 
@@ -295,6 +338,19 @@ const bills = (state = initialState, action) => {
             }
         }
 
+        case LOAD_TRANSACTIONS_FOR_ONE_FRIEND: {
+            const loadRecords = {}
+            action.data["transaction_records"].forEach(record => {
+                loadRecords[record.id] = record
+            });
+            return {
+                ...state,
+                transaction_records_by_friend: {
+                    ...loadRecords
+                }
+            }
+        }
+
         case CREATE_TRANSACTION: {
             const newState = { ...state };
             newState.transaction_records = {
@@ -302,6 +358,13 @@ const bills = (state = initialState, action) => {
                 [action.data.transaction_record.id]: action.data.transaction_record
             }
             newState.expenses[action.data.expense_to_update.id] = action.data.expense_to_update;
+            newState.expenses_by_bill[action.data.expense_to_update.id] = action.data.expense_to_update;
+            return newState;
+        }
+
+        case LOAD_USER_BALANCE: {
+            const newState = { ...state };
+            newState.user_balance = {'balance': action.data.user_balance}
             return newState;
         }
 
