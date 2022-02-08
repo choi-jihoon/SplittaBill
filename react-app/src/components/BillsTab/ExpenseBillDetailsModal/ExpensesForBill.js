@@ -19,7 +19,7 @@ const ExpensesForBill = ({ bill }) => {
     return (
         <div>
             {expenses?.map(expense => {
-                if (expense.payer_id == bill.owner_id) {
+                if (expense.payer_id === bill.owner_id) {
                     return null;
                 }
                 return <BillDetailsExpenses

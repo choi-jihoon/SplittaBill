@@ -19,13 +19,13 @@ const Dashboard = () => {
 	const sessionUser = useSelector(state => state.session.user)
 	const billsObject = useSelector(state => state.bills);
 	const userBalance = billsObject.user_balance.balance;
-	const friendsById = useSelector(state => state.friends)
+	useSelector(state => state.friends)
 
 
 	useEffect(() => {
 		dispatch(getUserBalance(sessionUser.id));
 		dispatch(getUsersFriends());
-	}, [dispatch])
+	}, [dispatch, sessionUser.id])
 
 
 	return (

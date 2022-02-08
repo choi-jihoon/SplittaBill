@@ -9,7 +9,7 @@ const Comment = ({ comment }) => {
 	const curr_user = useSelector((state) => state.session.user);
 	const [display, setDisplay] = useState(false);
 	const friendsById = useSelector((state) => state.friends.byId);
-	const friends = Object.values(friendsById);
+
 
 	let image;
 	if (friendsById[comment.user_id]?.image) {

@@ -22,7 +22,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 		<>
 			<div className="friend-container" onClick={() => setShowModal(true)}>
 				<div className="profile-pic-div">
-					<img src={image} className="friends-profile-pic" ></img>
+					<img src={image} className="friends-profile-pic" alt={`${username} profile`} ></img>
 				</div>
 				<div className="friend-info">
 					{balance > 0 ?
