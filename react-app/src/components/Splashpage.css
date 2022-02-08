@@ -49,3 +49,14 @@ footer {
 svg:hover {
 	cursor: pointer;
 }
+
+.test {
+	font-size: 42px;
+	color: transparent;
+	background: linear-gradient(
+		to right,
+		var(--saffron-yellow),
+		var(--red-salsa)
+	);
+	background-clip: text;
+}

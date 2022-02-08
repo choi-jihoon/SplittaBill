@@ -123,7 +123,11 @@ const SignUpForm = () => {
 				></img>
 			)}
 			<button type="submit">Sign Up</button>
-			{imageLoading && <p>Loading...</p>}
+			{imageLoading && (
+				<p>
+					<i class="fas fa-spinner fa-pulse"></i>
+				</p>
+			)}
 
 			<DemoLogin />
 		</form>

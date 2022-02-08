@@ -71,7 +71,11 @@ const EditUser = ({ showModal, user }) => {
 				></input>
 				<button>Save</button>
 			</form>
-			{imageLoading && <p>Loading...</p>}
+			{imageLoading && (
+				<p>
+					<i class="fas fa-spinner fa-pulse"></i>
+				</p>
+			)}
 			{errors.map((err, i) => (
 				<li key={i}>{err}</li>
 			))}
