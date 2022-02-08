@@ -12,14 +12,12 @@ const BillDetailsExpenses = ({ expense }) => {
     const image = expense.payer_image ? expense.payer_image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
 
     return (
-        <div>
-
-            <div>
+        <div className='bde-container'>
+            <div className='bde-settle-up-modal-btn'>
                 {(!expense.settled && expense.payer_id === sessionUser.id) &&
                     <SettleUpModal expense={expense} />
                 }
             </div>
-
             <div className='bde-expense-payment-container'>
                 <div className="bde-pic-payer-name-container">
                     <div className="profile-pic-div" id="bill-detail-expense-profile-pic">

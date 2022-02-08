@@ -3,6 +3,10 @@ div.profile-pic-div#bill-detail-expense-profile-pic {
     height: 25px;
 }
 
+.bde-container {
+    position: relative;
+}
+
 .bde-expense-payment-container {
     display: flex;
     padding: 10px 0;
@@ -13,7 +17,7 @@ div.profile-pic-div#bill-detail-expense-profile-pic {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: fit-content;
 
 }
 
@@ -26,7 +30,11 @@ div.profile-pic-div#bill-detail-expense-profile-pic {
     display: flex;
     width: 100%;
     justify-content: center;
+}
 
+.bde-paid-text {
+    position: absolute;
+    right: 20px;
 }
 
 .bde-settled-true-or-false {
@@ -40,4 +48,13 @@ div.profile-pic-div#bill-detail-expense-profile-pic {
 
 .bde-settled-false {
     color: red;
+}
+
+
+.bde-settle-up-modal-btn > #settle-up {
+    font-size: 10px;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    z-index: 2;
 }
