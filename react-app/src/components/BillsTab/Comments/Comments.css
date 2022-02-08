@@ -1,0 +1,44 @@
+.comment-user-image-container,
+.comment-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: end;
+}
+
+.edit-delete-wrapper {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.comment-container {
+	border: 1px solid var(--dark-blue);
+	width: max-content;
+	margin: 4px;
+	border-radius: 20px;
+	padding: 4px 15px;
+	display: flex;
+	justify-content: space-between;
+	background-color: lightgray;
+}
+
+button#edit-comment,
+button#delete-comment {
+	margin: 0px 4px;
+}
+
+.comment-pic-div {
+	width: 58px;
+	height: 58px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.friend-pic {
+	height: 100%;
+	position: absolute;
+}

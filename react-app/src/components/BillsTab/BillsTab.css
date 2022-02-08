@@ -105,7 +105,9 @@
 }
 
 button#edit-bill,
-button#delete-bill {
+button#delete-bill,
+button#edit-comment,
+button#delete-comment {
 	border: none;
 	background-color: transparent;
 	font-size: 15px;

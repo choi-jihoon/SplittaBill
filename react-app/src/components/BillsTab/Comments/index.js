@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import { useSelector, useDispatch } from "react-redux";
 import { getComments } from "../../../store/comments";
 import AddCommentForm from "./AddCommentForm";
+import "./Comments.css";
 const Comments = ({ billId }) => {
 	const dispatch = useDispatch();
 	const commentsObj = useSelector((state) => state.comments.comments[billId]);
