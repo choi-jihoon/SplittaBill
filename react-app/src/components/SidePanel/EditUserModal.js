@@ -11,12 +11,9 @@ function EditUserModal({ user }) {
 				id="edit-user"
 				onClick={() => setShowModal(true)}
 				style={{
-					// position: "absolute",
-					// top: 60,
-					// left: 10,
-					// border: "1px solid red",
 					zIndex: 100,
 				}}
+				className="edit-user-pic-btn"
 			>
 				<i className="fas fa-edit"></i>
 			</button>
