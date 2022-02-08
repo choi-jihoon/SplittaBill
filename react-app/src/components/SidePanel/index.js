@@ -32,16 +32,13 @@ const SidePanel = ({ balance }) => {
 						loading="lazy"
 						className="profile-pic"
 					></img>
-        <EditUserModal user={sessionUser} />
 				</div>
-				<div id="curr-user">
+				<div id="curr-user" style={{ marginRight: 4 }}>
 					<h2>{sessionUser.username}</h2>
 				</div>
-
+				<EditUserModal user={sessionUser} />
 			</div>
-			<div className='user-balance'>
-				Balance: ${balance}
-			</div>
+			<div className="user-balance">Balance: ${balance}</div>
 			<div className="side-panel-buttons">
 				<div id="add-bill-button-container">
 					<AddBillFormModal />
