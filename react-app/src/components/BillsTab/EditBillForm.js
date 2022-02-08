@@ -11,6 +11,8 @@ const EditBillForm = ({ showModal, bill }) => {
 	const dispatch = useDispatch();
 
 	const sessionUser = useSelector(state => state.session.user)
+	const allFriendsObject = useSelector(state => state.friends.byId);
+	const allFriends = Object.values(allFriendsObject);
 
 	const expenses = bill.expenses;
 	const payers = []
@@ -24,7 +26,7 @@ const EditBillForm = ({ showModal, bill }) => {
 	const [total_amount, setTotal_Amount] = useState(bill.total_amount);
 	const [description, setDescription] = useState(bill.description);
 	const [deadline, setDeadline] = useState(bill.deadline)
-	const [friends, setFriends] = useState(payers.join(", "))
+	const [friends, setFriends] = useState(payers)
 
 	const notify = () => {
 		toast.success(`Bill successfully edited!`,
@@ -37,8 +39,9 @@ const EditBillForm = ({ showModal, bill }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		const data = await dispatch(editBill(bill.id, sessionUser.id, total_amount, description, deadline, friends))
+		const friendsString = friends.join(", ")
+		console.log(friendsString)
+		const data = await dispatch(editBill(bill.id, sessionUser.id, total_amount, description, deadline, friendsString))
 
 		if (data) {
 			setErrors(data);
@@ -71,8 +74,10 @@ const EditBillForm = ({ showModal, bill }) => {
 	};
 
 	const updateFriends = (e) => {
-		setFriends(e.target.value)
-	}
+		if (!friends.includes(e.target.value)) friends.push(e.target.value)
+		else if (friends.includes(e.target.value)) friends.splice(friends.indexOf(e.target.value), 1)
+        setFriends(friends)
+    }
 
 
 	return (
@@ -113,14 +118,22 @@ const EditBillForm = ({ showModal, bill }) => {
 				/>
 			</div>
 			<div>
-				<label htmlFor="friends">Between Who?</label>
-				<input
-					name="friends"
-					type="text"
-					value={friends}
-					placeholder="Usernames of friends separated by commas."
-					onChange={updateFriends}
-				/>
+				{allFriends.map(friend => {
+					return (
+						<div className='friends-checkboxes' key={friend.id}>
+							<input type="checkbox"
+									id="friendSelect"
+									name="friend"
+									value={friend.friend_name}
+									defaultChecked={payers.includes(friend.friend_name)}
+									onChange={updateFriends}
+									 />
+							<label htmlFor="friendSelect">
+								{friend.friend_name}
+							</label>
+						</div>
+					)
+				})}
 			</div>
 			<button type="submit">Edit Bill</button>
 		</form>
