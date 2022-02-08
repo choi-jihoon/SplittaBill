@@ -1,5 +1,15 @@
 .transaction-record-detail-container {
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
+    padding: 40px;
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+
+	border-bottom: 1px solid gray;
+	transition: background-color 0.2s ease-in-out;
+
+	height: 100px;
 }
 
 .record-date {
