@@ -4,7 +4,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	padding: 40px;
-
+	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 }
 .edit-image-form {
@@ -61,37 +61,36 @@
 }
 
 .pic-and-name-div {
-    display: flex;
-    align-items: center;
-    padding: 20px;
+	display: flex;
+	align-items: center;
+	padding: 20px;
 }
 
 .profile-pic-div {
-    width: 78px;
-    height: 78px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .profile-pic {
-    height: 100%;
-    position: absolute;
+	height: 100%;
+	position: absolute;
 }
 
 #curr-user {
-    padding-left: 20px;
+	padding-left: 20px;
 }
 
 .side-panel-buttons {
-    align-self: center;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+	align-self: center;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }

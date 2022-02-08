@@ -1,161 +1,160 @@
 .all-bills-container {
-    position: relative;
+	position: relative;
 
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .add-bill-button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .bill-container-and-buttons {
-    position: relative;
+	position: relative;
 }
 
 .bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
-    opacity: 1;
+	opacity: 1;
 }
 
 .bill-container {
-    padding: 40px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	padding: 40px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    border-bottom: 1px solid gray;
-    transition: background-color 0.2s ease-in-out;
+	border-bottom: 1px solid gray;
+	transition: background-color 0.2s ease-in-out;
 
-    height: 150px;
+	height: 150px;
 }
 
 .bill-container:hover {
-    background-color: rgb(230, 191, 94);
-    cursor: pointer;
+	/* background-color: rgb(230, 191, 94); */
+	background-color: var(--splittabill-yellow);
+	cursor: pointer;
 }
 
 .bill-info-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
 
-    min-width: 570px;
+	min-width: 570px;
 }
 
 .bill-left-side {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .profile-pic-div.bill-pic-div {
-    width: 50px;
-    height: 50px;
+	width: 50px;
+	height: 50px;
 
-    position: absolute;
-    left: 20%;
+	position: absolute;
+	left: 20%;
 }
 
 .bill-owner-description-container {
-    padding: 0 30px;
+	padding: 0 30px;
 
-    position: absolute;
-    left: 28%;
+	position: absolute;
+	left: 28%;
 }
 
 .bill-owner-name {
-    font-size: 12px;
+	font-size: 12px;
 }
 
 .invoice-icon {
-    padding-right: 10px;
+	padding-right: 10px;
 }
 
 .bill-description {
-    font-size: 25px;
+	font-size: 25px;
 }
 
 .bill-total-amount {
-    font-size: 25px;
+	font-size: 25px;
 
-    position: absolute;
-    left: 65%;
+	position: absolute;
+	left: 65%;
 }
 
 .edit-delete-bill-buttons-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    padding: 20px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	padding: 20px;
 
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
 }
 
 .edit-delete-bill-buttons-container:hover ~ .bill-container {
-    background-color: rgb(230, 191, 94);
-    cursor: pointer;
-
+	background-color: rgb(230, 191, 94);
+	cursor: pointer;
 }
 
 button#edit-bill,
 button#delete-bill {
-    border: none;
-    background-color: transparent;
-    font-size: 15px;
+	border: none;
+	background-color: transparent;
+	font-size: 15px;
 }
 
 button#edit-bill:hover,
 button#delete-bill:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .settle-up-container {
-    position: absolute;
-    right: 5%;
-    top: 35%;
-    z-index: 2;
+	position: absolute;
+	right: 5%;
+	top: 35%;
+	z-index: 2;
 }
 
 .settle-up-container:hover ~ .bill-container {
-    background-color: rgb(230, 191, 94);
-    cursor: pointer;
+	background-color: rgb(230, 191, 94);
+	cursor: pointer;
 }
 
 #settle-up {
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: transparent;
-    font-size: 20px;
-    padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: transparent;
+	font-size: 20px;
+	padding: 5px;
 }
 
 #settle-up:hover {
-    cursor: pointer;
-    color: green;
-    border: 1px solid green;
+	cursor: pointer;
+	color: green;
+	border: 1px solid green;
 }
 
 .fa-money-bill-wave {
-    padding-right: 5px;
+	padding-right: 5px;
 }
 
-
 .settled-true {
-    color: green;
+	color: green;
 }
 
 .settled-false {
-    color: red;
+	color: red;
 }
 
 .settled-true,
 .settled-false {
-    padding-left: 15px;
+	padding-left: 15px;
 }
