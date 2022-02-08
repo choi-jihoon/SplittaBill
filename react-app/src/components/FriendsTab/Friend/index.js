@@ -30,7 +30,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 					:  <h3>All Even with <span className="bold">{username}</span>!</h3>)
 				}
 				{parseFloat(balance) === 0 ? (
-					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-minus-square"></i></button>
+					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
 					): <p></p>}
 
 
