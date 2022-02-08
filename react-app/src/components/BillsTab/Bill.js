@@ -46,7 +46,7 @@ const Bill = ({ bill }) => {
 			<div>
 				{(showModal) && (
 					<Modal onClose={() => setShowModal(false)}>
-						<BillDetails bill={bill} />
+						<BillDetails bill={bill} showModal={setShowModal} />
 					</Modal>
 				)}
 			</div>

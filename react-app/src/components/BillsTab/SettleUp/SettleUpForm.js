@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addTransactionRecord } from "../../../store/bills";
 
@@ -35,6 +35,15 @@ const SettleUpForm = ({ showModal, expense }) => {
         showModal(false)
 	};
 
+	useEffect(() => {
+		const errors = [];
+		if (amount_paid > expense.amount_due) errors.push("You can't pay more than what's due!")
+		if (amount_paid <= 0) errors.push("Please enter a positive value.")
+		if (amount_paid.split(".")[1].length > 2) errors.push("Please round to the nearest cent.")
+		setErrors(errors);
+
+	}, [amount_paid])
+
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);
 	};
@@ -58,7 +67,9 @@ const SettleUpForm = ({ showModal, expense }) => {
 					onChange={updateAmountPaid}
 				/>
 			</div>
-			<button type="submit">Settle Up</button>
+			<button
+			type="submit"
+			disabled={errors.length > 0}>Settle Up</button>
 		</form>
 	);
 };
