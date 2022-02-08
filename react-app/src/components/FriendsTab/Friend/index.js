@@ -30,10 +30,10 @@ const Friend = ({id, friendId, image, username, balance}) => {
 						<h3>you owe <span className="bold">{username}</span> <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></h3>
 						:  <h3>All Even with <span className="bold">{username}</span>!</h3>)
 					}
-					{parseFloat(balance) === 0 ? (
-						<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
-						): <p></p>}
 				</div>
+				{parseFloat(balance) === 0 ? (
+					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
+					): <p></p>}
 
 
 			</div>

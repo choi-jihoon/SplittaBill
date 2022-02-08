@@ -37,13 +37,14 @@
 
 
 .remove-friend-btn {
+    position: absolute;
+    right: 3%;
     width: 30px;
     height: 30px;
     border: 1px solid gray;
     border-radius: 5px;
     background-color: lightcoral;
     transition: background-color 0.1s ease-in-out;
-
 }
 
 .remove-friend-btn:hover {
