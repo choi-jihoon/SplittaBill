@@ -11,6 +11,14 @@
     right: 0;
 }
 
+.bill-container-and-buttons {
+    position: relative;
+}
+
+.bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
+    opacity: 1;
+}
+
 .bill-container {
     padding: 40px;
     position: relative;
@@ -27,21 +35,44 @@
     cursor: pointer;
 }
 
-.bill-left-side {
-    display: flex;
-    align-items: center;
-}
-
-.profile-pic-div.bill-pic {
-    width: 50px;
-    height: 50px;
-}
-
 .bill-info-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+
+    min-width: 570px;
+}
+
+.bill-left-side {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic-div.bill-pic-div {
+    width: 50px;
+    height: 50px;
+}
+
+.bill-owner-description-container {
+    padding: 0 30px;
+}
+
+.bill-owner-name {
+    font-size: 12px;
+}
+
+.invoice-icon {
+    padding-right: 10px;
+}
+
+.bill-description {
+    font-size: 25px;
+}
+
+.bill-total-amount {
+    padding-right: 200px;
+    font-size: 25px;
 }
 
 .edit-delete-bill-buttons-container {
@@ -50,7 +81,32 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
+    padding: 10px;
+
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
 }
+
+.edit-delete-bill-buttons-container:hover ~ .bill-container {
+    background-color: rgb(230, 191, 94);
+    cursor: pointer;
+
+}
+
+button#edit-bill,
+button#delete-bill {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+}
+
+button#edit-bill:hover,
+button#delete-bill:hover {
+    cursor: pointer;
+}
+
+
 
 
 .settled-true {

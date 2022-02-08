@@ -8,7 +8,7 @@ function EditBillFormModal({ bill }) {
 	return (
 		<>
 			<button id="edit-bill" onClick={() => setShowModal(true)}>
-				<i className="fas fa-edit"></i>
+				<i className="fas fa-edit edit-bill-icon"></i>
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

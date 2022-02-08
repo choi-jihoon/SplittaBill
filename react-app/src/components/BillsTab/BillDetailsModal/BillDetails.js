@@ -19,6 +19,12 @@ const BillDetails = ({ bill, showModal }) => {
                         <li>
                             TOTAL AMOUNT: { bill.total_amount }
                         </li>
+                        <li>
+                            {bill.deadline !== 'None' &&
+                            <p>
+                                DEADLINE: {bill.deadline}
+                            </p>}
+                        </li>
                     </ul>
             <BillExpenses expenses={bill.expenses} />
             <Comments billId={bill.id} />
