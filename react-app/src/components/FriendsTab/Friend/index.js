@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { removeFriend } from "../../../store/friends";
 import FriendDetailsModal from "../FriendDetailsModal";
+import "./Friend.css";
 
 const Friend = ({id, friendId, image, username, balance}) => {
 	const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 	}
 
 	return (
-		<div>
+		<div className="friend-container">
 			<div className="profile-pic-div">
 				<img src={image} className="profile-pic" ></img>
 			</div>
@@ -23,12 +24,14 @@ const Friend = ({id, friendId, image, username, balance}) => {
 				<p>you owe {username} <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></p>
 				:  <p>All Even with {username}!</p>)
 			}
+			<div>
+				<FriendDetailsModal username={username} balance={balance} friendId={friendId} />
+				{parseFloat(balance) === 0 ? (
+					<button onClick={onRemoveFriend}>Delete Friend</button>
+					): <p></p>}
 
-			<FriendDetailsModal username={username} balance={balance} friendId={friendId} />
+			</div>
 
-			{parseFloat(balance) === 0 ? (
-				<button onClick={onRemoveFriend}>Delete Friend</button>
-				): null}
 
 		</div>
 	);

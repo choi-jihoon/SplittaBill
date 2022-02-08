@@ -1,0 +1,8 @@
+.friend-container {
+    /* background-color: aquamarine; */
+    padding: 35px 20px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
