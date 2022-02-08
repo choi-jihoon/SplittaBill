@@ -27,8 +27,13 @@ const TransactionRecordDetail = ({ record }) => {
                 {record.created_at.slice(0,16)}
             </div>
             <div className='record-text'>
-                <span><i className="fas fa-coins"></i></span>
-                {payer} paid {recipient} <span className={amountColor}>${record.amount_paid}</span>
+                <h3>
+                    <span><i className="fas fa-coins"></i> </span>
+                    {payer} paid {recipient}
+                    <span className={amountColor}> ${record.amount_paid} </span>
+                    for {record.transaction_description}
+
+                </h3>
             </div>
         </div>
     )

@@ -13,6 +13,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 
 	const onRemoveFriend = async (e) => {
 		e.preventDefault();
+		e.stopPropagation();
 		await dispatch(removeFriend(id));
 		return <Redirect to="/friends" />;
 	}
@@ -21,16 +22,18 @@ const Friend = ({id, friendId, image, username, balance}) => {
 		<>
 			<div className="friend-container" onClick={() => setShowModal(true)}>
 				<div className="profile-pic-div">
-					<img src={image} className="profile-pic" ></img>
+					<img src={image} className="friends-profile-pic" ></img>
 				</div>
-				{balance > 0 ?
-					<p><span className="bold">{username}</span> owes you <span className="positive-payment">${balance}</span></p>
-					: (balance < 0 ?
-					<p>you owe <span className="bold">{username}</span> <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></p>
-					:  <p>All Even with <span className="bold">{username}</span>!</p>)
-				}
+				<div className="friend-info">
+					{balance > 0 ?
+						<h3><span className="bold">{username}</span> owes you <span className="positive-payment ">${balance}</span></h3>
+						: (balance < 0 ?
+						<h3>you owe <span className="bold">{username}</span> <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></h3>
+						:  <h3>All Even with <span className="bold">{username}</span>!</h3>)
+					}
+				</div>
 				{parseFloat(balance) === 0 ? (
-					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-minus-square"></i></button>
+					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
 					): <p></p>}
 
 
@@ -38,7 +41,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 			<div>
 				{(showModal) && (
 				<Modal onClose={() => setShowModal(false)}>
-					<FriendDetails showModal={setShowModal} username={username} balance={balance} friendId={friendId} />
+					<FriendDetails showModal={setShowModal} username={username} balance={balance} friendId={friendId} image={image} />
 				</Modal>
 				)}
 
