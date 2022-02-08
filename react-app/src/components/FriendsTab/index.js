@@ -15,8 +15,8 @@ const FriendsTab = (props) => {
 	return (
 		<div className='main-container'>
 			<div>
-				{friends.map(({id, friend_id, friend_name, balance}, index) => (
-					<Friend key={`friend${index}`} username={friend_name} balance={balance} id={id} friendId={friend_id}/>
+				{friends.map(({id, friend_id, friend_image, friend_name, balance}, index) => (
+					<Friend key={`friend${index}`} username={friend_name} balance={balance} id={id} friendId={friend_id} image={friend_image}/>
 				))}
 			</div>
 		</div>
