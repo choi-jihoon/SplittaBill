@@ -36,3 +36,23 @@
 	color: #000;
 	border: 2px solid #000;
 }
+
+.signup-form > input[type="file"] {
+	display: none;
+}
+.signup-form > label {
+	/* border: 1px solid black; */
+	background-color: #000;
+	color: #fff;
+	width: 200px;
+	text-align: center;
+	height: 30px;
+	border-radius: 7px;
+	padding: 2px 4px;
+}
+.signup-form > label:hover {
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #000;
+	color: #000;
+}

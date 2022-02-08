@@ -10,6 +10,7 @@ import { ReactComponent as Logo } from "../../assets/white-split.svg";
 import { ReactComponent as Duck } from "../../assets/white-geo.svg";
 
 import "./SidePanel.css";
+import EditUserModal from "./EditUserModal";
 
 const SidePanel = ({ balance }) => {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -32,13 +33,12 @@ const SidePanel = ({ balance }) => {
 						className="profile-pic"
 					></img>
 				</div>
-				<div id="curr-user">
+				<div id="curr-user" style={{ marginRight: 4 }}>
 					<h2>{sessionUser.username}</h2>
 				</div>
+				<EditUserModal user={sessionUser} />
 			</div>
-			<div className='user-balance'>
-				Balance: ${balance}
-			</div>
+			<div className="user-balance">Balance: ${balance}</div>
 			<div className="side-panel-buttons">
 				<div id="add-bill-button-container">
 					<AddBillFormModal />
