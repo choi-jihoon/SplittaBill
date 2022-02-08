@@ -10,6 +10,7 @@ import { ReactComponent as Logo } from "../../assets/white-split.svg";
 import { ReactComponent as Duck } from "../../assets/white-geo.svg";
 
 import "./SidePanel.css";
+import EditUserModal from "./EditUserModal";
 
 const SidePanel = ({ balance }) => {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -31,10 +32,12 @@ const SidePanel = ({ balance }) => {
 						loading="lazy"
 						className="profile-pic"
 					></img>
+        <EditUserModal user={sessionUser} />
 				</div>
 				<div id="curr-user">
 					<h2>{sessionUser.username}</h2>
 				</div>
+
 			</div>
 			<div className='user-balance'>
 				Balance: ${balance}
