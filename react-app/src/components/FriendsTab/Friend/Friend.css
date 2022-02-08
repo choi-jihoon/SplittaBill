@@ -1,6 +1,5 @@
 .friend-container {
     padding: 20px 0px;
-    /* margin-left: 50px !important; */
     border-bottom: 1px solid gray;
     display: flex;
     justify-content: space-around;
@@ -9,7 +8,7 @@
 }
 
 .friend-container:hover {
-    background-color: aquamarine;
+    background-color: rgb(230, 191, 94);
     cursor: pointer;
 }
 
