@@ -42,7 +42,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 		if (amount_paid.split(".")[1].length > 2) errors.push("Please round to the nearest cent.")
 		setErrors(errors);
 
-	}, [amount_paid])
+	}, [amount_paid, expense.amount_due])
 
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);

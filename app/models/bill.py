@@ -26,7 +26,7 @@ class Bill(db.Model):
             'deadline': str(self.deadline),
             'created_at': str(self.created_at),
             'expenses': [expense.to_dict() for expense in self.expenses],
-            'owner_image': self.owner.image
+            'owner_image': self.owner.image,
         }
 
     def expense_to_dict(self):

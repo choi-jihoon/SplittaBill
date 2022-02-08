@@ -18,7 +18,7 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
         <div className="friend-details-container">
             <div className="friend-details-header">
                 <div className="profile-pic-div friends-details-profile-pic-div">
-                    <img src={image} className="friends-profile-pic" ></img>
+                    <img src={image} className="friends-profile-pic" alt={`${username} profile`} ></img>
                 </div>
                 <div>
                     <h3>{username}</h3>

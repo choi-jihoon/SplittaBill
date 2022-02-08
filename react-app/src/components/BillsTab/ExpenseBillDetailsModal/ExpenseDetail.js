@@ -27,7 +27,7 @@ const ExpenseDetail = ({ expense }) => {
                 <div className='bill-info-container'>
                     <div className='bill-left-side'>
                         <div className="profile-pic-div bill-pic-div">
-                            <img src={image} className="profile-pic" ></img>
+                            <img src={image} className="profile-pic" alt={`${expense.bill.owner_name} profile`} ></img>
                         </div>
                         <div className='bill-owner-description-container'>
                             <div className='bill-owner-name'>
