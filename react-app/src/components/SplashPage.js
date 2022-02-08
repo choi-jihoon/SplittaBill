@@ -21,7 +21,7 @@ const SplashPage = () => {
 			</nav>
 			<div className="splash-content">
 				<div className="gif"></div>
-				<div>Start Splitting!</div>
+				<h3>Start Splitting!</h3>
 				<div className="user-actions">
 					<LoginFormModal />
 					<SignUpFormModal />
