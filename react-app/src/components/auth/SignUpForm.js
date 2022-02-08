@@ -61,6 +61,7 @@ const SignUpForm = () => {
 
 	return (
 		<form onSubmit={onSignUp} className="signup-form">
+			<div className="modal-head">Signup</div>
 			<div>
 				{errors.map((error, ind) => (
 					<div key={ind}>{error}</div>
@@ -99,18 +100,15 @@ const SignUpForm = () => {
 				value={repeatPassword}
 				required={true}
 			></input>
-			<input type="file" accept="image/*" onChange={updateImage}></input>
+			<label htmlFor="file-upload">Add Profile Image</label>
+			<input
+				id="file-upload"
+				type="file"
+				accept="image/*"
+				onChange={updateImage}
+			></input>
 
 			{image && (
-				// <div
-				// 	style={{
-				// 		backgroundImage: `url(${URL.createObjectURL(image)}`,
-				// 		width: 100,
-				// 		height: 100,
-				// 		background: "no-repeat center",
-				// 		backgroundSize: "cover",
-				// 	}}
-				//     ></div>
 				<img
 					alt="preview"
 					src={URL.createObjectURL(image)}

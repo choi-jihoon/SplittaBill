@@ -4,6 +4,7 @@ import LogoutButton from "../auth/LogoutButton";
 import AddFriendFormModal from "../AddFriendForm/AddFriendFormModal";
 
 import "./SidePanel.css";
+import EditUserModal from "./EditUserModal";
 
 const SidePanel = (props) => {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -20,6 +21,7 @@ const SidePanel = (props) => {
 					alt="user_photo"
 					loading="lazy"
 				></img>
+				<EditUserModal user={sessionUser} />
 				<h2>{sessionUser.username}</h2>
 			</div>
 			<div id="add-friend-button-container">
