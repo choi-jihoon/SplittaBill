@@ -19,5 +19,6 @@ class Friend(db.Model):
             "user_id": self.user_id,
             "friend_id": self.friend_id,
             "friend_name": self.friend.username,
+            "friend_image": self.friend.image,
             "balance": str(self.balance)
         }
