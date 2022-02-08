@@ -8,9 +8,9 @@ const FriendsTab = (props) => {
 	const friendsById = useSelector((state) => state.friends.byId);
 	const friends = Object.values(friendsById);
 
-	useEffect(() => {
-		dispatch(getUsersFriends());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(getUsersFriends());
+	// }, [dispatch]);
 
 	return (
 		<div className='main-container'>
