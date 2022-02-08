@@ -16,6 +16,12 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
 
     return (
         <div className="friend-details-container">
+            <button
+                className="close-modal"
+                onClick={() => showModal(false)}
+            >
+                <i className="fas fa-minus"></i>
+            </button>
             <div className="friend-details-header">
                 <div className="profile-pic-div friends-details-profile-pic-div">
                     <img src={image} className="friends-profile-pic" alt={`${username} profile`} ></img>

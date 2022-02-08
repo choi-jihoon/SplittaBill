@@ -3,6 +3,12 @@
     padding: 40px;
 }
 
+.friend-details-container .close-modal {
+   position: absolute;
+   top: 5%;
+   right: 4%;
+}
+
 .friend-details-header {
     display: flex;
     align-items: center;
