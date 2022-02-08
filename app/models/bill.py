@@ -38,4 +38,5 @@ class Bill(db.Model):
             'deadline': str(self.deadline),
             'created_at': str(self.created_at),
             'owner_name': self.owner.username,
+            'owner_image': self.owner.image
         }

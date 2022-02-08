@@ -28,6 +28,8 @@
 
     border-bottom: 1px solid gray;
     transition: background-color 0.2s ease-in-out;
+
+    height: 150px;
 }
 
 .bill-container:hover {
@@ -52,10 +54,16 @@
 .profile-pic-div.bill-pic-div {
     width: 50px;
     height: 50px;
+
+    position: absolute;
+    left: 20%;
 }
 
 .bill-owner-description-container {
     padding: 0 30px;
+
+    position: absolute;
+    left: 28%;
 }
 
 .bill-owner-name {
@@ -71,8 +79,10 @@
 }
 
 .bill-total-amount {
-    padding-right: 200px;
     font-size: 25px;
+
+    position: absolute;
+    left: 65%;
 }
 
 .edit-delete-bill-buttons-container {
@@ -106,7 +116,17 @@ button#delete-bill:hover {
     cursor: pointer;
 }
 
+.settle-up-container {
+    position: absolute;
+    right: 8%;
+    top: 40%;
+    z-index: 2;
+}
 
+.settle-up-container:hover ~ .bill-container {
+    background-color: rgb(230, 191, 94);
+    cursor: pointer;
+}
 
 
 .settled-true {

@@ -1,47 +1,65 @@
 import { useSelector } from 'react-redux';
+import { useState } from "react";
+import { Modal } from '../../../context/Modal';
+import ExpenseBillDetails from './ExpenseBillDetails';
 
 import SettleUpModal from '../SettleUp/SettleUpModal';
-import ExpenseBillDetailsModal from '.';
+
 
 
 const ExpenseDetail = ({ expense }) => {
+    const [showModal, setShowModal] = useState(false);
 
     const sessionUser = useSelector(state => state.session.user);
 
+    const image = expense.bill.owner_image ? expense.bill.owner_image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
 
     return (
-        <div>
-            <h3>
-                <span><i className="fas fa-receipt"></i></span>
-                {expense.bill.description} Expense for {expense.payer_name}
-            </h3>
-            <ul>
-                <li>
-                    INITIAL CHARGE: {expense.initial_charge}
-                </li>
-                <li>
-                    AMOUNT DUE: {expense.amount_due}
-                </li>
-                <li>
-                    SETTLED?: {expense.settled ? <i className="fas fa-check settled-true"></i> : <i className="fas fa-times settled-false"></i>}
-                </li>
+        <div className='bill-container-and-buttons'>
+
+            <div className='settle-up-container'>
                 {(!expense.settled && expense.payer_id === sessionUser.id) &&
                     <SettleUpModal expense={expense} />
                 }
-                {(expense.bill.owner_id !== sessionUser.id) &&
-                    (
-                        <>
-                            <li>
-                                PAY TO: {expense.bill.owner_name}
-                            </li>
-                            <li>
-                                <ExpenseBillDetailsModal expense={expense} />
-                            </li>
-                        </>
-                    )
-                }
-            </ul>
+            </div>
 
+            <div className='bill-container' onClick={() => setShowModal(true)}>
+                <div className='bill-info-container'>
+                    <div className='bill-left-side'>
+                        <div className="profile-pic-div bill-pic-div">
+                            <img src={image} className="profile-pic" ></img>
+                        </div>
+                        <div className='bill-owner-description-container'>
+                            <div className='bill-owner-name'>
+                                You owe {expense.bill.owner_name} for
+                            </div>
+                            <h2 className='bill-description'>
+                                <span className='invoice-icon'><i className="fas fa-receipt"></i></span>
+                                {expense.bill.description} Expense
+                                <span>
+                                {expense.settled ? <i className="fas fa-check settled-true"></i> : <i className="fas fa-times settled-false"></i>}
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div className='bill-total-amount'>
+                        ${expense.amount_due} still due
+                        <p>
+                            Initial: ${expense.initial_charge}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div>
+				{(showModal) && (
+					<Modal onClose={() => setShowModal(false)}>
+						<ExpenseBillDetails showModal={setShowModal} expense={expense} />
+					</Modal>
+				)}
+			</div>
         </div>
     )
 }

@@ -28,7 +28,6 @@ const AllBills = () => {
                     key={bill.id}
                     bill={bill} />
             })}
-            <h3>Expenses</h3>
             {expenses?.map(expense => {
                 return <ExpenseDetail
                     key={expense.id}
