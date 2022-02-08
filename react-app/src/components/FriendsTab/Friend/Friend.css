@@ -41,17 +41,18 @@
 .remove-friend-btn {
     position: absolute;
     right: 3%;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border: 1px solid gray;
     border-radius: 5px;
-    background-color: lightcoral;
-    transition: background-color 0.1s ease-in-out;
+    background-color: rgba(251, 54, 64, 0.8);
+    color: var(--main-container);
+    transition: all 0.1s ease-in-out;
 }
 
 .remove-friend-btn:hover {
-    background-color: rgb(182, 98, 98);
-
+    background-color: rgba(251, 54, 64, 1);
+    cursor: pointer;
 }
 
 .remove-friend-btn  i {
