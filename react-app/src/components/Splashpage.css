@@ -1,5 +1,5 @@
 nav {
-	background-color: #000;
+	background-color: var(--dark-blue);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -9,12 +9,11 @@ nav {
 }
 
 .splash-content {
-	background-color: #000;
+	background: var(--dark-blue);
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
 	align-items: center;
 	height: 80%;
 	min-height: 400px;
@@ -23,7 +22,7 @@ nav {
 .gif {
 	height: 200px;
 	width: 500px;
-	background-image: url("../assets/change_3.gif");
+	background-image: url("../assets/blue-bg-gif.gif");
 }
 
 .user-actions {
@@ -44,7 +43,9 @@ footer {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	border-top: 1px solid var(--saffron-yellow);
 	align-items: center;
+	background-color: var(--dark-blue);
 }
 svg:hover {
 	cursor: pointer;
