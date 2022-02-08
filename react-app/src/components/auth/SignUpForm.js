@@ -61,6 +61,7 @@ const SignUpForm = () => {
 
 	return (
 		<form onSubmit={onSignUp} className="signup-form">
+			<div className="modal-head">Signup</div>
 			<div>
 				{errors.map((error, ind) => (
 					<div key={ind}>{error}</div>
@@ -99,14 +100,32 @@ const SignUpForm = () => {
 				value={repeatPassword}
 				required={true}
 			></input>
-			<input type="file" accept="image/*" onChange={updateImage}></input>
+			<label htmlFor="file-upload">Add Profile Image</label>
+			<input
+				id="file-upload"
+				type="file"
+				accept="image/*"
+				onChange={updateImage}
+			></input>
 
+			{image && (
+				<img
+					alt="preview"
+					src={URL.createObjectURL(image)}
+					style={{
+						width: 100,
+						// maxHeight: 75,
+						height: 100,
+						margin: 20,
+						borderRadius: "50%",
+						objectFit: "cover",
+					}}
+				></img>
+			)}
 			<button type="submit">Sign Up</button>
-
 			{imageLoading && <p>Loading...</p>}
 
 			<DemoLogin />
-
 		</form>
 	);
 };
