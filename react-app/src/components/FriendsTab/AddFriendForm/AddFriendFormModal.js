@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
+import { Modal } from '../../../context/Modal';
 import AddFriendForm from '.';
 
 function AddFriendFormModal() {
@@ -10,7 +10,7 @@ function AddFriendFormModal() {
         <button
           id='add-friend'
           onClick={() => setShowModal(true)}>
-          Add Friend
+          <i className="fas fa-user-plus"></i> Add Friend
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { getBills, getUserExpenses } from '../../store/bills';
 
-import AddBillFormModal from './AddBillFormModal';
 import Bill from "./Bill";
 import ExpenseDetail from './ExpenseBillDetailsModal/ExpenseDetail';
 
@@ -24,9 +23,6 @@ const AllBills = () => {
 
     return (
         <div className='all-bills-container'>
-            <div className='add-bill-button-container'>
-                <AddBillFormModal />
-            </div>
             <h3>Bills</h3>
             {bills?.map(bill => {
                 return <Bill
