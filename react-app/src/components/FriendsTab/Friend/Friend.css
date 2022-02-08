@@ -1,8 +1,29 @@
 .friend-container {
-    /* background-color: aquamarine; */
-    padding: 35px 20px;
+    padding: 20px 0px;
+    /* margin-left: 50px !important; */
     border-bottom: 1px solid gray;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.friend-container:hover {
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.remove-friend-btn {
+    width: 40px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 25px;
+    background-color: lightcoral;
+    transition: background-color 0.1s ease-in-out;
+
+}
+
+.remove-friend-btn:hover {
+    background-color: rgb(182, 98, 98);
+
 }
