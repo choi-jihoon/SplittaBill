@@ -4,24 +4,21 @@ const DashNav = (props) => {
 	return (
 		<div className="dash-nav-container">
 			<div className="all-tabs-container">
-				<div className="tab-container">
-					<NavLink activeClassName="active-tab" exact to="/">
+				<NavLink activeClassName="active-tab" exact to="/">
+					<div className="tab-container">
 						<i className="fas fa-user"></i>
-					</NavLink>
-				</div>
-				<div className="tab-container">
-					<NavLink activeClassName="active-tab" to="/friends">
+					</div>
+				</NavLink>
+				<NavLink activeClassName="active-tab" to="/friends">
+					<div className="tab-container">
 						<i className="fas fa-user-friends"></i>
-					</NavLink>
-				</div>
-				<div className="tab-container">
-					<NavLink
-						activeClassName="active-tab"
-						to="/transaction-history"
-					>
+					</div>
+				</NavLink>
+				<NavLink activeClassName="active-tab" to="/transaction-history">
+					<div className="tab-container">
 						<i className="fas fa-history"></i>
-					</NavLink>
-				</div>
+					</div>
+				</NavLink>
 			</div>
 		</div>
 	);

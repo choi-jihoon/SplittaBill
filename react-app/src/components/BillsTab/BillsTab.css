@@ -34,7 +34,7 @@
 
 .bill-container:hover {
 	/* background-color: rgb(230, 191, 94); */
-	background-color: var(--splittabill-yellow);
+	background-color: var(--transparent-hover);
 	cursor: pointer;
 }
 

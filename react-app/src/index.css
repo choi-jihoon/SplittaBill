@@ -6,7 +6,12 @@
 	--side-panel-font-color: #ebebd3;
 	--main-container: #ebebd3;
 	/* --splittabill-yellow: #eac33556; */
-	--splittabill-yellow: #3c3c3b16;
+	--transparent-hover: #3c3c3b16;
+	--red-salsa: #fb3640;
+	--dark-green: #1c6200;
+	--dark-blue: #1c6200;
+	--light-blue: #1c6200;
+	--saffron-yellow: #eac435;
 }
 
 *,
