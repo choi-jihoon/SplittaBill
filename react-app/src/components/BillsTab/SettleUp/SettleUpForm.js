@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addTransactionRecord } from "../../../store/bills";
+import { useDispatch, useSelector } from "react-redux";
+import { addTransactionRecord, getUserBalance } from "../../../store/bills";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,7 @@ toast.configure()
 
 const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
+	const sessionUser = useSelector(state => state.session.user)
 
 	const [errors, setErrors] = useState([]);
 	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
@@ -24,6 +25,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 		e.preventDefault();
 
         const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
+		dispatch(getUserBalance(sessionUser.id))
 
         if (data) {
 			setErrors(data);

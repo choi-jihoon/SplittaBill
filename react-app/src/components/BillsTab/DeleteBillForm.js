@@ -1,15 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { deleteBill } from "../../store/bills"
+import { useDispatch, useSelector } from "react-redux";
+import { deleteBill, getUserBalance } from "../../store/bills"
 
 
 function DeleteBillForm({ showModal, billId }) {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        dispatch(deleteBill(billId))
+        await dispatch(deleteBill(billId))
+        dispatch(getUserBalance(sessionUser.id))
 
         showModal(false);
     };

@@ -5,7 +5,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { createBill } from "../../store/bills";
+import { createBill, getUserBalance } from "../../store/bills";
 
 
 toast.configure()
@@ -42,6 +42,7 @@ const AddBillForm = ({ showModal }) => {
 		e.preventDefault();
 		const friendsString = friends.join(", ")
 		const data = await dispatch(createBill(sessionUser.id, total_amount, description, deadline, friendsString))
+		dispatch(getUserBalance(sessionUser.id));
 
 		if (data) {
 			setErrors(data);
