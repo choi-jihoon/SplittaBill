@@ -1,9 +1,28 @@
 .transaction-record-detail-container {
-    padding-bottom: 40px;
+	margin: 0 auto;
+    padding: 40px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 80%;
+	border-bottom: 1px solid gray;
+	transition: background-color 0.2s ease-in-out;
+
+	height: 100px;
 }
 
 .record-date {
-    font-weight: bold;
+	padding-left: 50px;
+}
+
+.record-text {
+	padding-left: 60px;
+	display: flex;
+	justify-content: center;
+}
+
+.record-text h3 {
+	font-weight: normal;
 }
 
 
