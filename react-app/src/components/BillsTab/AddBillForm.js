@@ -14,7 +14,9 @@ const AddBillForm = ({ showModal }) => {
 	const location = useLocation();
 	const history = useHistory();
 
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session.user);
+	const allFriendsObject = useSelector(state => state.friends.byId);
+	const allFriends = Object.values(allFriendsObject);
 
 	const today = new Date()
 	const todayString = today.toISOString().split('T')[0]
@@ -23,7 +25,7 @@ const AddBillForm = ({ showModal }) => {
 	const [total_amount, setTotal_Amount] = useState("");
 	const [description, setDescription] = useState("");
     const [deadline, setDeadline] = useState(todayString)
-    const [friends, setFriends] = useState("")
+    const [friends, setFriends] = useState([])
 
 	const notify = () => {
 		toast(`Bill for ${description} added!`,
@@ -34,7 +36,8 @@ const AddBillForm = ({ showModal }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-        const data = await dispatch(createBill(sessionUser.id, total_amount, description, deadline, friends))
+		const friendsString = friends.join(", ")
+        const data = await dispatch(createBill(sessionUser.id, total_amount, description, deadline, friendsString))
 
 		if (data) {
 			setErrors(data);
@@ -72,7 +75,9 @@ const AddBillForm = ({ showModal }) => {
 	};
 
     const updateFriends = (e) => {
-        setFriends(e.target.value)
+		if (!friends.includes(e.target.value)) friends.push(e.target.value)
+		else if (friends.includes(e.target.value)) friends.splice(friends.indexOf(e.target.value), 1)
+        setFriends(friends)
     }
 
 
@@ -114,28 +119,22 @@ const AddBillForm = ({ showModal }) => {
 				/>
 			</div>
             <div>
-                <label htmlFor="friends">Between Who?</label>
-                <input
-                    name="friends"
-                    type="text"
-                    value={friends}
-                    placeholder="Usernames of friends separated by commas."
-                    onChange={updateFriends}
-                />
-            </div>
-            {/* <div>
-				<label htmlFor="friends">Between Who?</label>
-				<select
-					name="friends"
-					type="date"
-                    onChange={updateFriends}
-                    multiple
-				>
-                    <option value="2">NickMiller</option>
-                    <option value="3">JessDay</option>
-                    <option value="4">Schmidtty</option>
-                </select>
-			</div> */}
+				{allFriends.map(friend => {
+					return (
+						<div className='friends-checkboxes' key={friend.id}>
+							<input type="checkbox"
+									id="friendSelect"
+									name="friend"
+									value={friend.friend_name}
+									onChange={updateFriends}
+									 />
+							<label htmlFor="friendSelect">
+								{friend.friend_name}
+							</label>
+						</div>
+					)
+				})}
+			</div>
 			<button type="submit">Divvy Up</button>
 		</form>
 	);
