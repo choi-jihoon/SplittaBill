@@ -23,7 +23,6 @@ const AllBills = () => {
 
     return (
         <div className='all-bills-container'>
-            <h3>Bills</h3>
             {bills?.map(bill => {
                 return <Bill
                     key={bill.id}
