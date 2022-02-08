@@ -23,15 +23,17 @@ const Friend = ({id, friendId, image, username, balance}) => {
 				<div className="profile-pic-div">
 					<img src={image} className="friends-profile-pic" ></img>
 				</div>
-				{balance > 0 ?
-					<h3><span className="bold">{username}</span> owes you <span className="positive-payment">${balance}</span></h3>
-					: (balance < 0 ?
-					<h3>you owe <span className="bold">{username}</span> <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></h3>
-					:  <h3>All Even with <span className="bold">{username}</span>!</h3>)
-				}
-				{parseFloat(balance) === 0 ? (
-					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
-					): <p></p>}
+				<div className="friend-info">
+					{balance > 0 ?
+						<h3><span className="bold">{username}</span> owes you <span className="positive-payment">${balance}</span></h3>
+						: (balance < 0 ?
+						<h3>you owe <span className="bold">{username}</span> <span className="negative-payment">${Math.abs(balance).toFixed(2)}</span></h3>
+						:  <h3>All Even with <span className="bold">{username}</span>!</h3>)
+					}
+					{parseFloat(balance) === 0 ? (
+						<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
+						): <p></p>}
+				</div>
 
 
 			</div>

@@ -1,9 +1,11 @@
 .friend-container {
     width: 100%;
     padding: 40px;
+    padding-left: 19%;
+    margin: 0 auto;
 	position: relative;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 	align-items: center;
 
 	border-bottom: 1px solid gray;
@@ -21,21 +23,24 @@
     font-weight: normal;
 }
 
+.friend-info {
+    margin-left: 8%;
+}
+
 .profile-pic-div .friends-profile-pic {
     width: 50px;
 	height: 50px;
 	border-radius: 50%;
     position: absolute;
-    left: 20%;
-
-
 }
 
+
+
 .remove-friend-btn {
-    width: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid gray;
     border-radius: 5px;
-    font-size: 25px;
     background-color: lightcoral;
     transition: background-color 0.1s ease-in-out;
 
@@ -44,4 +49,8 @@
 .remove-friend-btn:hover {
     background-color: rgb(182, 98, 98);
 
+}
+
+.remove-friend-btn  i {
+    font-size: 15px;
 }
