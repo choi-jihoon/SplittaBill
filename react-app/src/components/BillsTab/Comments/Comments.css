@@ -1,0 +1,98 @@
+.comment-user-image-container,
+.comment-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: end;
+}
+
+.edit-delete-wrapper {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.comment-container {
+	border: 1px solid var(--dark-blue);
+	max-width: 300px;
+	width: max-content;
+	overflow-wrap: break-word;
+	margin: 4px;
+	border-radius: 20px;
+	padding: 2px 10px 2px 5px;
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--transparent-hover);
+}
+
+button#edit-comment,
+button#delete-comment {
+	margin: 0px 4px;
+}
+
+.comment-pic-div {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.friend-pic {
+	height: 100%;
+	position: absolute;
+}
+.comment-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	margin-bottom: -30px;
+	border-top: 1px dashed var(--dark-blue);
+}
+.comment-input {
+	width: 100%;
+	height: 50px;
+	resize: none;
+	font-size: 15px;
+}
+
+.add-comment-button {
+	padding: 4px 8px;
+	margin: 10px 0 0 0;
+}
+.comment-wrapper {
+	padding: 2px;
+}
+
+.all-comments {
+	max-height: 300px;
+	overflow-y: scroll;
+	margin: 10px 0px;
+}
+.all-comments > h3 {
+	text-align: center;
+}
+.delete-comment-icon,
+.edit-comment-icon {
+	font-size: 12px;
+	margin: 4px;
+}
+.edit-comment-icon {
+	color: rgb(98, 98, 98);
+}
+.delete-comment-icon {
+	color: var(--red-salsa);
+	z-index: 900;
+}
+.delete-comment-icon:hover {
+	font-size: 14px;
+	cursor: pointer;
+}
+.edit-comment-icon:hover {
+	font-size: 14px;
+	cursor: pointer;
+}

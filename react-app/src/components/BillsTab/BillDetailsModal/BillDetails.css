@@ -1,51 +1,58 @@
 .bill-details-modal-container {
-    position: relative;
-    padding: 50px;
-    width: 500px;
+	position: relative;
+	padding: 50px;
+	width: 500px;
 }
 
 .bd-edit-delete-btns-container {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    flex-direction: column;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	display: flex;
+	flex-direction: column;
 }
 
 .close-modal {
-    border: none;
-    background-color: transparent;
-    /* position: absolute;
+	border: none;
+	background-color: transparent;
+	/* position: absolute;
     top: 10px;
     left: 10px; */
 }
 
 .close-modal:hover {
-    cursor:pointer;
+	cursor: pointer;
 }
 
 .bd-title-total-container {
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
+	display: flex;
+	align-items: center;
+	padding-bottom: 20px;
 }
 
 .bd-title-icon,
 .bd-title-text {
-    font-size: 25px;
+	font-size: 25px;
 }
 
 .bd-title-text {
-    padding-left: 10px;
+	padding-left: 10px;
 }
 
 .bd-total-amount {
-    position: absolute;
-    right: 20%;
-    font-size: 25px;
+	position: absolute;
+	right: 20%;
+	font-size: 25px;
 }
 
 .bd-title-container {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
+}
+.bd-bill-deadline {
+	font-size: 12px;
+	margin-top: -20px;
+}
+.bd-bill-deadline > .fa-calendar-alt {
+	padding-right: 8px;
 }

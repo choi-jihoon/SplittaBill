@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { editComment, getComments } from "../../../store/comments";
 
 const EditCommentForm = ({ showModal, comment }) => {
 	const dispatch = useDispatch();
 	const [newComment, setNewComment] = useState(comment.message);
+	const [errors, setErrors] = useState([]);
+	useEffect(() => {
+		if (newComment.length > 280) {
+			setErrors(["Please use 280 characters or less"]);
+		} else if (newComment.length <= 280) {
+			setErrors([]);
+		}
+	}, [newComment]);
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		if (newComment.length) {
+		if (newComment.length <= 280) {
 			await dispatch(editComment(comment.id, newComment));
 			await dispatch(getComments(comment.bill_id));
 		}
@@ -26,6 +34,8 @@ const EditCommentForm = ({ showModal, comment }) => {
 				></textarea>
 				<button>Submit Edit</button>
 				<button onClick={handleCancel}>Cancel</button>
+				{errors.length > 0 &&
+					errors.map((err, i) => <li key={i}>{err}</li>)}
 			</form>
 		</div>
 	);
