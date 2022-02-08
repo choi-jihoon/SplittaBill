@@ -1,0 +1,21 @@
+.friend-details-container {
+    width: 500px;
+    padding: 40px;
+}
+
+.friend-details-header {
+    display: flex;
+    align-items: center;
+}
+
+.friend-details-header .friends-details-profile-pic-div {
+    margin-right: 20px;
+}
+
+.friend-transactions-container {
+    margin-top: 20px;
+}
+
+.friend-details-container h4 {
+    margin-bottom: 5px;
+}

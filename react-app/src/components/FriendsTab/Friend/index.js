@@ -38,7 +38,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 			<div>
 				{(showModal) && (
 				<Modal onClose={() => setShowModal(false)}>
-					<FriendDetails showModal={setShowModal} username={username} balance={balance} friendId={friendId} />
+					<FriendDetails showModal={setShowModal} username={username} balance={balance} friendId={friendId} image={image} />
 				</Modal>
 				)}
 
