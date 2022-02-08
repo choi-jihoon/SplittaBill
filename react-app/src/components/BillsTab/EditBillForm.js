@@ -81,7 +81,7 @@ const EditBillForm = ({ showModal, bill }) => {
 
 
 	return (
-		<form className='form-container' onSubmit={handleSubmit}>
+		<form className='form-container bill-form' onSubmit={handleSubmit}>
 			<div className='errors-container'>
 				{errors.map((error, ind) => (
 					<div className='error-msg' key={ind}>{error}</div>
@@ -120,7 +120,6 @@ const EditBillForm = ({ showModal, bill }) => {
 						onChange={updateDeadline}
 					/>
 				</div>
-				<button className='form-submit-btn' type="submit">Edit Bill</button>
 			</div>
             <div className='form-element form-friends-list'>
 				<div className='form-label'>
@@ -142,6 +141,9 @@ const EditBillForm = ({ showModal, bill }) => {
 						</div>
 					)
 				})}
+				<div className='form-element'>
+					<button className='form-submit-btn' type="submit">Edit Bill</button>
+				</div>
 			</div>
 		</form>
 	);

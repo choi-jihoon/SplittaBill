@@ -49,15 +49,72 @@ a:active {
 	font-weight: bold;
 }
 
+.errors-container {
+	position: absolute;
+	top: 10%;
+	left: 10%;
 
+}
 
 .form-container {
+	position: relative;
 	padding: 30px;
+	display: grid;
+	grid-template-columns: 1fr 200px;
+}
+
+.form-container.bill-form {
+	width: 600px;
+	height: 500px;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.form-input-container {
+	padding-right: 30px;
+}
+
+.form-element.form-friends-list {
+	border-left: 1px solid gray;
+	padding-left: 20px;
+}
+
+
+.form-element {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.form-label {
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.dollar-sign-and-input {
+	display: flex;
+	align-items: center;
+}
+
+.dollar-sign {
+	padding-right: 10px;
+	font-size: 20px;
+}
+
+.form-label.form-label-friends {
+	padding-bottom: 20px;
+}
+
+.friend-name-checkbox-container {
 	display: flex;
 }
 
-.form-element {
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
+.friends-checkboxes {
+	padding-right: 20px;
+}
+
+.form-input {
+	height: 30px;
+	padding: 5px;
 }

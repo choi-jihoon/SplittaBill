@@ -20,24 +20,31 @@ function DeleteBillForm({ showModal, billId }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Are you sure you want to delete this bill? All associated expenses will also be deleted.
-            </label>
-            <div>
-                <button
-                    type="submit"
-                >
-                    Delete
-                </button>
-                <button
-                    type='button'
-                    onClick={handleCancelClick}
-                >
-                    Cancel
-                </button>
-            </div>
-        </form>
+        <div className='form-container'>
+            <form className='form-input-container' onSubmit={handleSubmit}>
+                <div className='form-label'>
+                    Are you sure you want to delete this bill?
+                </div>
+                <div className='form-label'>
+                    All associated expenses will also be deleted.
+                </div>
+                <div>
+                    <button
+                        type="submit"
+                        className='form-submit-btn'
+                    >
+                        Delete
+                    </button>
+                    <button
+                        type='button'
+                        onClick={handleCancelClick}
+                        className='form-cancel-btn'
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 }
 
