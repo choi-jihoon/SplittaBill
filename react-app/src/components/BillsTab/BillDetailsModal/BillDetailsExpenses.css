@@ -43,11 +43,11 @@ div.profile-pic-div#bill-detail-expense-profile-pic {
 }
 
 .bde-settled-true {
-    color: green;
+    color: var(--dark-green);
 }
 
 .bde-settled-false {
-    color: red;
+    color: var(--red-salsa);
 }
 
 

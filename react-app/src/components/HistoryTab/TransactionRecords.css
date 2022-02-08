@@ -8,9 +8,9 @@
 
 
 .negative-payment {
-    color: red;
+    color: var(--red-salsa);
 }
 
 .positive-payment {
-    color: green;
+    color: var(--dark-green);
 }

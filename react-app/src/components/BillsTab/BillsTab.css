@@ -100,7 +100,8 @@
 }
 
 .edit-delete-bill-buttons-container:hover ~ .bill-container {
-	background-color: rgb(230, 191, 94);
+	/* background-color: rgb(230, 191, 94); */
+	background-color: var(--transparent-hover);
 	cursor: pointer;
 }
 
@@ -124,13 +125,19 @@ button#delete-bill:hover {
 }
 
 .settle-up-container:hover ~ .bill-container {
-	background-color: rgb(230, 191, 94);
+	/* background-color: rgb(230, 191, 94); */
+	background-color: var(--transparent-hover);
 	cursor: pointer;
 }
 
+.fa-money-bill-wave {
+	color: var(--dark-green);
+}
+
 #settle-up {
-	border: 1px solid black;
-	border-radius: 5px;
+	/* border: 1px solid black; */
+	/* border-radius: 5px; */
+	border: none;
 	background-color: transparent;
 	font-size: 20px;
 	padding: 5px;
@@ -138,8 +145,8 @@ button#delete-bill:hover {
 
 #settle-up:hover {
 	cursor: pointer;
-	color: green;
-	border: 1px solid green;
+	color: var(--dark-green);
+	/* border: 1px solid var(--dark-green); */
 }
 
 .fa-money-bill-wave {
@@ -147,11 +154,11 @@ button#delete-bill:hover {
 }
 
 .settled-true {
-	color: green;
+	color: var(--dark-green);
 }
 
 .settled-false {
-	color: red;
+	color: var(--red-salsa);
 }
 
 .settled-true,
