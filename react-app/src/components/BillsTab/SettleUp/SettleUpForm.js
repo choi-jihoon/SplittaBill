@@ -57,7 +57,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 				))}
 			</div>
 			<div>
-				<label htmlFor="amount_paid">Pay</label>
+				<label htmlFor="amount_paid">Pay {expense.bill.owner_name} $</label>
 				<input
 					name="amount_paid"
 					type="number"
