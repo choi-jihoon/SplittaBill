@@ -12,9 +12,19 @@
 }
 
 .bill-container {
-    padding-bottom: 40px;
+    padding: 40px;
     border: 1px solid red;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bill-info-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 .edit-delete-bill-buttons-container {

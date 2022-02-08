@@ -6,17 +6,24 @@ const Bill = ({ bill }) => {
 	return (
 		<div className='bill-container'>
 			<div className='bill-info-container'>
-				<h3>
-					<span><i className="fas fa-file-invoice-dollar"></i></span>
-					{bill.description}
-				</h3>
-				<ul>
-					<li>OWNER: {bill.owner_name}</li>
-					<li>TOTAL AMOUNT: {bill.total_amount}</li>
-					{bill.deadline !== 'None' &&
-						<li>DEADLINE: {bill.deadline}</li>
-					}
-				</ul>
+				<div className='bill-owner-description-container'>
+					<div className='bill-owner-name'>
+						{bill.owner_name} paid for
+					</div>
+					<h2 className='bill-description'>
+						<span><i className="fas fa-file-invoice-dollar"></i></span>
+						{bill.description}
+					</h2>
+				</div>
+				<div className='bill-total-amount'>
+					TOTAL AMOUNT: {bill.total_amount}
+				</div>
+				{/* {bill.deadline !== 'None' &&
+					<p>
+						DEADLINE: {bill.deadline}
+					</p>
+				} */}
+
 			</div>
 			<div className='edit-delete-bill-buttons-container'>
 				<div className='edit-bill-button-container'>
@@ -26,7 +33,7 @@ const Bill = ({ bill }) => {
 					<DeleteBillModal billId={bill.id} />
 				</div>
 			</div>
-			<BillDetailsModal bill={bill} />
+			{/* <BillDetailsModal bill={bill} /> */}
 		</div>
 	);
 };
