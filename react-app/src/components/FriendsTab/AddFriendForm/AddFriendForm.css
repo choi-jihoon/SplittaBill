@@ -1,0 +1,50 @@
+.friend-form-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.friend-form-container h3 {
+    margin: 0 auto;
+    padding-bottom: 25px;
+}
+
+#friendly-duck{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.friend-username-input-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.friend-form-submit-btn {
+    margin-top: 30px;
+    width: 100%;
+	padding: 5px 0;
+	border-radius: 20px;
+	background-color: var(--saffron-yellow);
+	border: var(--saffron-yellow);
+	font-size: 18px;
+
+	transition: all 0.2s ease-in-out;
+}
+
+.friend-form-submit-btn:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+
+}
+
+.friend-form-submit-btn:disabled {
+	opacity: 50%;
+}
+
+.friend-form-submit-btn:disabled:hover {
+	cursor: not-allowed;
+	transform: none;
+}

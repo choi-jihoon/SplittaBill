@@ -5,6 +5,7 @@ import { addFriend } from "../../../store/friends";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './AddFriendForm.css'
 
 toast.configure()
 
@@ -44,14 +45,12 @@ const AddFriendForm = ({setShowModal}) => {
 	};
 
 	return (
-		<form onSubmit={onAddFriend}>
-			<div>
-				{errors.map((error, ind) => (
-					<div key={ind}>{error}</div>
-				))}
-			</div>
-			<div>
-				<label htmlFor="username">Username</label>
+		<form className="friend-form-container" onSubmit={onAddFriend}>
+			<h3>Add a Friend</h3>
+			<img id="friendly-duck" src="https://cdn4.iconfinder.com/data/icons/childhood-and-toys/53/26-512.png" />
+
+			<div className="friend-username-input-label">
+				<label htmlFor="username" className="form-label">Username</label>
 				<input
 					name="username"
 					type="text"
@@ -59,10 +58,16 @@ const AddFriendForm = ({setShowModal}) => {
 					value={username}
 					onChange={updateUsername}
                     required={true}
-				/>
+					className="form-input"
+					/>
 			</div>
 
-			<button type="submit">Add Friend</button>
+			<div className="errors-container">
+				{errors.map((error, ind) => (
+					<div key={ind}>{error}</div>
+				))}
+			</div>
+			<button type="submit" className="friend-form-submit-btn">Submit</button>
 		</form>
 	);
 };
