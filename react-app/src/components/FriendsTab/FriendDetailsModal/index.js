@@ -8,7 +8,9 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
     const dispatch = useDispatch();
     const recordsObj = useSelector(state => state.bills.transaction_records_by_friend);
 
-    const records = Object.values(recordsObj);
+    const records = Object.values(recordsObj).sort(function (a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+    });
 
 	useEffect(() => {
 		dispatch(getTransactionsForFriend(friendId))
