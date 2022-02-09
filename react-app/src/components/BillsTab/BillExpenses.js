@@ -1,11 +1,14 @@
-import ExpenseDetail from "./ExpenseBillDetailsModal/ExpenseDetail";
+import { useSelector } from "react-redux";
+
+import BillDetailsExpenses from "./BillDetailsModal/BillDetailsExpenses";
 
 const BillExpenses = ({ expenses }) => {
+    const sessionUser = useSelector(state => state.session.user)
     return (
         <div>
-            <h4>Expenses</h4>
             {expenses.map(expense => {
-                return <ExpenseDetail
+                if (expense.payer_id === sessionUser.id) return null;
+                return <BillDetailsExpenses
                         key={expense.id}
                         expense={expense} />
             })}

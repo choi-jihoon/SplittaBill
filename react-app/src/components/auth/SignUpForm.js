@@ -107,23 +107,21 @@ const SignUpForm = () => {
 				accept="image/*"
 				onChange={updateImage}
 			></input>
-
-			{image && (
-				<img
-					alt="preview"
-					src={URL.createObjectURL(image)}
-					style={{
-						width: 100,
-						// maxHeight: 75,
-						height: 100,
-						margin: 20,
-						borderRadius: "50%",
-						objectFit: "cover",
-					}}
-				></img>
-			)}
+			<div className="preview-container">
+				{image && (
+					<img
+						alt="preview"
+						src={URL.createObjectURL(image)}
+						className="preview-image"
+					></img>
+				)}
+			</div>
 			<button type="submit">Sign Up</button>
-			{imageLoading && <p>Loading...</p>}
+			{imageLoading && (
+				<p>
+					<i class="fas fa-spinner fa-pulse"></i>
+				</p>
+			)}
 
 			<DemoLogin />
 		</form>

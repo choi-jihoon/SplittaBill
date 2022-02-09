@@ -4,7 +4,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	padding: 40px;
-
+	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 }
 .edit-image-form {
@@ -61,37 +61,185 @@
 }
 
 .pic-and-name-div {
-    display: flex;
-    align-items: center;
-    padding: 20px;
+	display: flex;
+	align-items: center;
+	padding: 20px;
 }
 
 .profile-pic-div {
-    width: 78px;
-    height: 78px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .profile-pic {
-    height: 100%;
-    position: absolute;
+	height: 100%;
+	position: absolute;
+}
+
+
+.side-panel-buttons {
+	align-self: center;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+.side-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 40px;
+	color: var(--side-panel-font-color);
+	background-color: var(--side-panel);
+}
+.edit-image-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
+.edit-image-form > form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.edit-image-form > form > input[type="file"] {
+	display: none;
+}
+.edit-image-form > form > label {
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+	border-radius: 7px;
+	padding: 2px 4px;
+	margin: 10px;
+}
+.edit-image-form > form > label:hover {
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	border: 1px solid #000;
+}
+.edit-image-form > form > button {
+	width: 200px;
+	height: 30px;
+	margin: 10px;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	border-radius: 7px;
+	font-size: 16px;
+}
+
+.edit-image-form > form > button:hover {
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	border: 1px solid #000;
+}
+
+.pic-and-name-div {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 20px;
+}
+
+.profile-pic-div {
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.profile-pic-div:hover .edit-user-pic-btn {
+	display: block;
+	cursor: pointer;
+}
+
+.profile-pic-div img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.pic-and-name-div .profile-pic-div {
+	width: 100px;
+	height: 100px;
+}
+
+.pic-and-name-div .profile-pic-div img {
+	padding: 2px;
+	border-radius: 50%;
+	background-color: var(--side-panel-font-color);
+}
+
+.edit-user-pic-btn {
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+	background-color:  rgba(235, 235, 211, 0.3);
+	border: 2px solid var(--side-panel-font-color);
+	border-radius: 50%;
+	display: none;
+}
+
+.profile-pic {
+	height: 100%;
+	position: absolute;
 }
 
 #curr-user {
-    padding-left: 20px;
+	padding-top: 15px;
+	margin: 0 auto;
+}
+
+.user-balance {
+	margin: 10px 0;
 }
 
 .side-panel-buttons {
-    align-self: center;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+	align-self: center;
+	height: 100px;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin: 20px 0;
+}
+
+.side-panel-buttons button {
+	border: none;
+	width: 150px;
+	color: var(--side-panel-font-color);
+	background-color: var(--side-panel);
+	transition: all 0.2s ease-in-out;
+	font-size: 16px;
+	padding: 5px 0px;
+	margin: 5px 0px;
+
+}
+
+.side-panel-buttons button:hover {
+	background-color: white;
+	color: black;
+	cursor: pointer;
 }

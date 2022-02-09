@@ -8,7 +8,7 @@ function DeleteBillModal({ billId }) {
 	return (
 		<>
 			<button id="delete-bill" onClick={() => setShowModal(true)}>
-				<i className="fas fa-trash"></i>
+				<i className="fas fa-trash delete-bill-icon"></i>
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

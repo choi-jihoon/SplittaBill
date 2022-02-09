@@ -23,13 +23,11 @@ const AllBills = () => {
 
     return (
         <div className='all-bills-container'>
-            <h3>Bills</h3>
             {bills?.map(bill => {
                 return <Bill
                     key={bill.id}
                     bill={bill} />
             })}
-            <h3>Expenses</h3>
             {expenses?.map(expense => {
                 return <ExpenseDetail
                     key={expense.id}

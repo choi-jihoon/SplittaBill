@@ -1,0 +1,55 @@
+.friend-details-container {
+    width: 800px;
+    padding: 40px;
+}
+
+.friend-details-container .close-modal {
+   position: absolute;
+   top: 5%;
+   right: 4%;
+}
+
+.friend-details-header {
+    display: flex;
+    align-items: center;
+}
+
+.friend-details-header .friends-details-profile-pic-div {
+    margin-right: 20px;
+}
+
+.friend-transactions-container {
+    margin-top: 20px;
+}
+
+.friend-details-container h4 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.friend-detail-record .transaction-record-detail-container{
+    width: 100%;
+    display: flex;
+	position: relative;
+	align-items: center;
+	border-top: 1px solid gray;
+    border-bottom: none;
+	height: 100px;
+    font-size: 14px;
+
+}
+
+.friend-transactions-container {
+    max-height: 500px;
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
+}
+
+.friend-detail-record .record-date {
+	padding-left: 0;
+}
+
+.friend-detail-record .record-text {
+	padding-left: 25px;
+
+}

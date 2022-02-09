@@ -1,0 +1,60 @@
+div.profile-pic-div#bill-detail-expense-profile-pic {
+    width: 25px;
+    height: 25px;
+}
+
+.bde-container {
+    position: relative;
+}
+
+.bde-expense-payment-container {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px dashed gray;
+}
+
+.bde-pic-payer-name-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+
+}
+
+.bde-payer-name {
+    padding-left: 10px;
+}
+
+.bde-payment-settled-info {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.bde-paid-text {
+    position: absolute;
+    right: 20px;
+}
+
+.bde-settled-true-or-false {
+    position: absolute;
+    right: 0;
+}
+
+.bde-settled-true {
+    color: var(--dark-green);
+}
+
+.bde-settled-false {
+    color: var(--red-salsa);
+}
+
+
+.bde-settle-up-modal-btn > #settle-up {
+    font-size: 15px;
+    position: absolute;
+    right: 50%;
+    top: 20%;
+    z-index: 2;
+}

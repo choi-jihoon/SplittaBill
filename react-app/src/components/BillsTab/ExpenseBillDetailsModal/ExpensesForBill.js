@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getExpensesForBill } from '../../../store/bills';
-import ExpenseDetail from './ExpenseDetail';
+// import ExpenseDetail from './ExpenseDetail';
+import BillDetailsExpenses from '../BillDetailsModal/BillDetailsExpenses';
 
-const ExpensesForBill = ({ billId }) => {
+const ExpensesForBill = ({ bill }) => {
 
     const dispatch = useDispatch();
     const billsObject = useSelector(state => state.bills)
@@ -12,13 +13,16 @@ const ExpensesForBill = ({ billId }) => {
 
 
     useEffect(() => {
-        dispatch(getExpensesForBill(billId));
-    }, [dispatch, billId])
+        dispatch(getExpensesForBill(bill.id));
+    }, [dispatch, bill.id])
 
     return (
         <div>
             {expenses?.map(expense => {
-                return <ExpenseDetail
+                if (expense.payer_id === bill.owner_id) {
+                    return null;
+                }
+                return <BillDetailsExpenses
                     key={expense.id}
                     expense={expense} />
             })}

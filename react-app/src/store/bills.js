@@ -332,7 +332,6 @@ const bills = (state = initialState, action) => {
             return {
                 ...state,
                 transaction_records: {
-                    ...state.transaction_records,
                     ...loadRecords
                 }
             }

@@ -1,29 +1,163 @@
-.all-bills-container {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-}
 
 .add-bill-button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.bill-container-and-buttons {
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	border-bottom: 1px solid gray;
+	transition: background-color 0.2s ease-in-out;
+
+	width: 80%;
+	height: 150px;
+	min-width: 840px;
+}
+
+.bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
+	opacity: 1;
+}
+
+
+.bill-container-and-buttons:hover {
+	background-color: var(--transparent-hover);
+	cursor: pointer;
 }
 
 .bill-container {
-    padding-bottom: 40px;
+	width: 100%;
+	padding: 40px;
+	display: grid;
+	grid-template-columns: 150px 1fr 200px;
+}
+
+.bill-pic-div {
+	min-width: 78px;
+}
+
+.profile-pic-div .bill-profile-pic {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.bill-owner-description-container {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.bill-owner-name {
+	font-size: 12px;
+}
+
+.invoice-icon {
+	padding-right: 10px;
+}
+
+.bill-description {
+	font-size: 25px;
+	display: flex;
+}
+
+.bill-total-amount {
+	font-size: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 }
 
 .edit-delete-bill-buttons-container {
-    display: flex;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	padding: 20px;
+
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.edit-delete-bill-buttons-container:hover ~ .bill-container {
+	cursor: pointer;
+}
+
+button#edit-bill,
+button#delete-bill,
+button#edit-comment,
+button#delete-comment {
+	border: none;
+	background-color: transparent;
+	font-size: 15px;
+
+	transition: all 0.2s ease-in-out;
+}
+
+button#edit-bill:hover,
+button#delete-bill:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+button#edit-bill:hover {
+	color: var(--saffron-yellow);
+}
+
+button#delete-bill:hover {
+	color: var(--red-salsa);
+}
+
+.settle-up-container {
+	position: absolute;
+	z-index: 2;
+	bottom: 20px;
+	right: 75px;
+}
+
+.settle-up-container:hover ~ .bill-container {
+	cursor: pointer;
 }
 
 
+#settle-up {
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+
+	transition: all 0.2s ease-in-out;
+}
+
+#settle-up:hover {
+	cursor: pointer;
+	color: var(--dark-green);
+
+	transform: scale(1.05);
+}
+
+.fa-money-bill-wave {
+	padding-right: 5px;
+}
+
 .settled-true {
-    color: green;
+	color: var(--dark-green);
 }
 
 .settled-false {
-    color: red;
+	color: var(--red-salsa);
+}
+
+.settled-true,
+.settled-false {
+	padding-left: 15px;
 }

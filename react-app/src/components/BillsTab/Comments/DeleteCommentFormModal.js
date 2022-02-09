@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { Modal } from "../../../context/Modal";
 import DeleteCommentForm from "./DeleteCommentForm";
 
-function DeleteCommentFormModal({ comment }) {
+function DeleteCommentFormModal({ comment, display }) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<>
-			<button id="delete-comment" onClick={() => setShowModal(true)}>
-				Delete
+			<button
+				id="delete-comment"
+				style={{ display: display ? "block" : "none" }}
+				onClick={() => setShowModal(true)}
+			>
+				<i className="fas fa-trash delete-comment-icon"></i>
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

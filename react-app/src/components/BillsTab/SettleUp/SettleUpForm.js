@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTransactionRecord } from "../../../store/bills";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTransactionRecord, getUserBalance } from "../../../store/bills";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,7 @@ toast.configure()
 
 const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
+	const sessionUser = useSelector(state => state.session.user)
 
 	const [errors, setErrors] = useState([]);
 	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
@@ -24,6 +25,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 		e.preventDefault();
 
         const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
+		dispatch(getUserBalance(sessionUser.id))
 
         if (data) {
 			setErrors(data);
@@ -34,6 +36,17 @@ const SettleUpForm = ({ showModal, expense }) => {
 
         showModal(false)
 	};
+
+	useEffect(() => {
+		const errors = [];
+		if (amount_paid > Number(expense.amount_due)) errors.push(`You can't pay more than what's due!`)
+		if (amount_paid <= 0) errors.push("Please enter a positive value.")
+		if (amount_paid.split(".").length > 1) {
+			if (amount_paid.split(".")[1].length > 2) errors.push("Please round to the nearest cent.")
+		}
+		setErrors(errors);
+
+	}, [amount_paid, expense.amount_due])
 
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);
@@ -48,7 +61,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 				))}
 			</div>
 			<div>
-				<label htmlFor="amount_paid">Pay</label>
+				<label htmlFor="amount_paid">Pay {expense.bill.owner_name} $</label>
 				<input
 					name="amount_paid"
 					type="number"
@@ -58,7 +71,9 @@ const SettleUpForm = ({ showModal, expense }) => {
 					onChange={updateAmountPaid}
 				/>
 			</div>
-			<button type="submit">Settle Up</button>
+			<button
+			type="submit"
+			disabled={errors.length > 0}>Settle Up</button>
 		</form>
 	);
 };

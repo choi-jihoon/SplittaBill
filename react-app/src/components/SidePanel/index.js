@@ -4,8 +4,6 @@ import LogoutButton from "../auth/LogoutButton";
 import AddFriendFormModal from "../FriendsTab/AddFriendForm/AddFriendFormModal";
 import AddBillFormModal from "../BillsTab/AddBillFormModal";
 
-import { getUserBalance } from "../../store/bills";
-
 import { ReactComponent as Logo } from "../../assets/white-split.svg";
 import { ReactComponent as Duck } from "../../assets/white-geo.svg";
 
@@ -32,13 +30,13 @@ const SidePanel = ({ balance }) => {
 						loading="lazy"
 						className="profile-pic"
 					></img>
+					<EditUserModal user={sessionUser} />
 				</div>
 				<div id="curr-user" style={{ marginRight: 4 }}>
 					<h2>{sessionUser.username}</h2>
 				</div>
-				<EditUserModal user={sessionUser} />
 			</div>
-			<div className="user-balance">Balance: ${balance}</div>
+			<div className="user-balance">Balance: {balance > 0 ? `$${balance}` : `-$${Math.abs(balance)}`}</div>
 			<div className="side-panel-buttons">
 				<div id="add-bill-button-container">
 					<AddBillFormModal />

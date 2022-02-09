@@ -1,0 +1,65 @@
+.bill-details-modal-container {
+	position: relative;
+	padding: 75px;
+	min-width: fit-content;
+	width: 600px;
+}
+
+.bd-edit-delete-btns-container {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.close-modal {
+	border: none;
+	background-color: transparent;
+	position: absolute;
+    top: 15px;
+    left: 20px;
+
+	transition: all 0.2s ease-in-out;
+
+	width: fit-content;
+}
+
+.close-modal:hover {
+	cursor: pointer;
+	color: var(--saffron-yellow)
+}
+
+.bd-title-total-container {
+	display: flex;
+	align-items: center;
+	padding-bottom: 20px;
+	justify-content: space-between;
+}
+
+.bd-title-icon,
+.bd-title-text {
+	font-size: 25px;
+}
+
+.bd-title-text {
+	padding-left: 10px;
+}
+
+.bd-total-amount {
+	font-size: 25px;
+	padding-left: 20px;
+}
+
+.bd-title-container {
+	display: flex;
+	align-items: center;
+}
+.bd-bill-deadline {
+	font-size: 12px;
+	margin-top: -20px;
+	padding-bottom: 30px;
+}
+.bd-bill-deadline > .fa-calendar-alt {
+	padding-right: 8px;
+}

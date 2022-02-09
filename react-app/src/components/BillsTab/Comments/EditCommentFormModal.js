@@ -8,7 +8,7 @@ function EditCommentFormModal({ comment }) {
 	return (
 		<>
 			<button id="edit-comment" onClick={() => setShowModal(true)}>
-				Edit
+				<i className="fas fa-pen edit-comment-icon"></i>
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

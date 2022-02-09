@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editBill } from "../../store/bills";
+import { editBill, getUserBalance } from "../../store/bills";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +11,8 @@ const EditBillForm = ({ showModal, bill }) => {
 	const dispatch = useDispatch();
 
 	const sessionUser = useSelector(state => state.session.user)
+	const allFriendsObject = useSelector(state => state.friends.byId);
+	const allFriends = Object.values(allFriendsObject);
 
 	const expenses = bill.expenses;
 	const payers = []
@@ -24,7 +26,7 @@ const EditBillForm = ({ showModal, bill }) => {
 	const [total_amount, setTotal_Amount] = useState(bill.total_amount);
 	const [description, setDescription] = useState(bill.description);
 	const [deadline, setDeadline] = useState(bill.deadline)
-	const [friends, setFriends] = useState(payers.join(", "))
+	const [friends, setFriends] = useState(payers)
 
 	const notify = () => {
 		toast.success(`Bill successfully edited!`,
@@ -37,8 +39,10 @@ const EditBillForm = ({ showModal, bill }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		const data = await dispatch(editBill(bill.id, sessionUser.id, total_amount, description, deadline, friends))
+		const friendsString = friends.join(", ")
+		console.log(friendsString)
+		const data = await dispatch(editBill(bill.id, sessionUser.id, total_amount, description, deadline, friendsString))
+		dispatch(getUserBalance(sessionUser.id));
 
 		if (data) {
 			setErrors(data);
@@ -53,10 +57,11 @@ const EditBillForm = ({ showModal, bill }) => {
 
 	useEffect(() => {
 		const errors = [];
-		if (description.length > 50) errors.push("Description must be less than 50 characters.")
+		if (description.length > 36) errors.push("Description must be less than 36 characters.")
+		if (total_amount < 0) errors.push("Provide a positive value for the total amount.")
 
 		setErrors(errors);
-	}, [description])
+	}, [description, total_amount])
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);
@@ -71,58 +76,80 @@ const EditBillForm = ({ showModal, bill }) => {
 	};
 
 	const updateFriends = (e) => {
-		setFriends(e.target.value)
-	}
+		if (!friends.includes(e.target.value)) friends.push(e.target.value)
+		else if (friends.includes(e.target.value)) friends.splice(friends.indexOf(e.target.value), 1)
+        setFriends(friends)
+    }
 
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div>
+		<form className='form-container bill-form' onSubmit={handleSubmit}>
+			<div className='errors-container'>
 				{errors.map((error, ind) => (
-					<div key={ind}>{error}</div>
+					<div className='error-msg' key={ind}>{error}</div>
 				))}
 			</div>
-			<div>
-				<label htmlFor="total_amount">Amount</label>
-				<input
-					name="total_amount"
-					type="number"
-					step="0.01"
-					placeholder="0"
-					value={total_amount}
-					onChange={updateTotal}
-				/>
+			<div className='form-input-container'>
+
+				<div className='form-element'>
+					<label className='form-label' htmlFor="total_amount">Amount</label>
+					<input
+						className='form-input'
+						name="total_amount"
+						type="number"
+						step="0.01"
+						placeholder="0"
+						value={total_amount}
+						onChange={updateTotal}
+					/>
+				</div>
+				<div className='form-element'>
+					<label className='form-label' htmlFor="description">Description</label>
+					<input
+						name="description"
+						type="text"
+						placeholder="Bill Description"
+						value={description}
+						onChange={updateDescription}
+					/>
+				</div>
+				<div className='form-element'>
+					<label className='form-label' htmlFor="deadline">Deadline</label>
+					<input
+						name="deadline"
+						type="date"
+						value={deadline}
+						onChange={updateDeadline}
+					/>
+				</div>
 			</div>
-			<div>
-				<label htmlFor="description">Description</label>
-				<input
-					name="description"
-					type="text"
-					placeholder="Bill Description"
-					value={description}
-					onChange={updateDescription}
-				/>
+            <div className='form-element form-friends-list'>
+				<div className='form-label'>
+					Split with:
+				</div>
+				{allFriends.map(friend => {
+					return (
+						<div className='friends-checkboxes' key={friend.id}>
+							<input type="checkbox"
+									id={`${friend.friend_name}Select`}
+									name="friend"
+									value={friend.friend_name}
+									defaultChecked={payers.includes(friend.friend_name)}
+									onChange={updateFriends}
+									 />
+							<label className='form-label' htmlFor={`${friend.friend_name}Select`}>
+								{friend.friend_name}
+							</label>
+						</div>
+					)
+				})}
+				<div className='form-element'>
+					<button
+					disabled={errors.length > 0}
+					className='form-submit-btn'
+					type="submit">Edit Bill</button>
+				</div>
 			</div>
-			<div>
-				<label htmlFor="deadline">Deadline</label>
-				<input
-					name="deadline"
-					type="date"
-					value={deadline}
-					onChange={updateDeadline}
-				/>
-			</div>
-			<div>
-				<label htmlFor="friends">Between Who?</label>
-				<input
-					name="friends"
-					type="text"
-					value={friends}
-					placeholder="Usernames of friends separated by commas."
-					onChange={updateFriends}
-				/>
-			</div>
-			<button type="submit">Edit Bill</button>
 		</form>
 	);
 };

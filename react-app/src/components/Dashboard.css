@@ -1,40 +1,54 @@
 .dashboard-container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
+	display: grid;
+	grid-template-columns: 350px 1fr;
 
-    min-height: 100%;
+	min-height: 100%;
 }
 
 .dash-and-main-container {
-    display: grid;
-    grid-template-rows: 200px 1fr;
+	display: grid;
+	grid-template-rows: 100px 1fr;
+	background-color: var(--main-container);
+	padding: 50px 0;
+	/* padding-bottom: 50px; */
 }
 
 .dash-nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0;
-    height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* padding: 50px 0; */
+	/* height: 200px; */
 }
 
 .all-tabs-container {
-    display: flex;
-    border: 1px solid black;
-    border-radius: 25px;
-    padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--side-panel);
+	border-radius: 25px;
+
+	font-size: 24px;
+	color: var(--main-container);
+
+	background-color: var(--side-panel);
 }
 
 .tab-container {
-    padding: 0 50px;
+	padding: 0 50px;
+	border-radius: 25px;
 }
 
 .main-container {
-    padding: 40px;
-
-    background-color: var(--main-container);
+	padding: 0 40px 40px 40px;
 }
 
 .active-tab {
-    background-color: yellow;
+	font-weight: bold;
+	background-color: var(--main-container);
+	border-radius: 25px;
+}
+
+.active-tab > .tab-container > i {
+	color: var(--side-panel);
 }

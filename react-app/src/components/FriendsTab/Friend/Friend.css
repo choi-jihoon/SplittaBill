@@ -1,28 +1,61 @@
 .friend-container {
-    padding: 20px 0px;
-    border-bottom: 1px solid gray;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    transition: background-color 0.2s ease-in-out;
+    width: 80%;
+    padding: 40px;
+    /* padding-left: 19%; */
+    margin: 0 auto;
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	border-bottom: 1px solid gray;
+	transition: background-color 0.2s ease-in-out;
+
+	height: 150px;
+    min-width: 570px;
 }
 
 .friend-container:hover {
-    background-color: rgb(230, 191, 94);
+	background-color: var(--transparent-hover);
     cursor: pointer;
 }
 
+.friend-container h3 {
+    font-weight: normal;
+}
+
+.friend-info {
+    margin-left: 8%;
+    font-size: 20px;
+}
+
+
+.profile-pic-div .friends-profile-pic {
+    width: 50px;
+	height: 50px;
+	border-radius: 50%;
+    position: absolute;
+}
+
+
+
 .remove-friend-btn {
-    width: 40px;
+    position: absolute;
+    right: 3%;
+    width: 35px;
+    height: 35px;
     border: 1px solid gray;
     border-radius: 5px;
-    font-size: 25px;
-    background-color: lightcoral;
-    transition: background-color 0.1s ease-in-out;
-
+    background-color: rgba(251, 54, 64, 0.8);
+    color: var(--main-container);
+    transition: all 0.1s ease-in-out;
 }
 
 .remove-friend-btn:hover {
-    background-color: rgb(182, 98, 98);
+    background-color: rgba(251, 54, 64, 1);
+    cursor: pointer;
+}
 
+.remove-friend-btn  i {
+    font-size: 15px;
 }

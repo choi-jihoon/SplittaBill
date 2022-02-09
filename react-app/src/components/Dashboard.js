@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
+import { getUsersFriends } from "../store/friends";
+import { getTransactionRecords } from "../store/bills";
+
 import SidePanel from "./SidePanel";
 import DashNav from "./DashNav";
 import HistoryTab from "./HistoryTab";
@@ -17,10 +20,14 @@ const Dashboard = () => {
 	const sessionUser = useSelector(state => state.session.user)
 	const billsObject = useSelector(state => state.bills);
 	const userBalance = billsObject.user_balance.balance;
+	useSelector(state => state.friends)
+
 
 	useEffect(() => {
 		dispatch(getUserBalance(sessionUser.id));
-	}, [dispatch])
+		dispatch(getUsersFriends());
+		dispatch(getTransactionRecords());
+	}, [dispatch, sessionUser.id])
 
 
 	return (
