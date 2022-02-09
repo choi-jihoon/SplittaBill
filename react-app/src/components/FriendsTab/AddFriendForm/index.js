@@ -46,6 +46,12 @@ const AddFriendForm = ({setShowModal}) => {
 
 	return (
 		<form className="friend-form-container" onSubmit={onAddFriend}>
+			<button
+				className="close-modal"
+				onClick={() => setShowModal(false)}
+			>
+				<i className="fas fa-minus"></i>
+			</button>
 			<h3>Add a Friend</h3>
 			<img id="friendly-duck" src="https://cdn4.iconfinder.com/data/icons/childhood-and-toys/53/26-512.png" />
 
