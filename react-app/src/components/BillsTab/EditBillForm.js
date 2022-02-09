@@ -174,11 +174,11 @@ const EditBillForm = ({ showModal, bill }) => {
 						</div>
 					)
 				})}
-				<div className='form-element'>
+				<div className='bill-btn-container'>
 					<button
 						disabled={isEmpty || Object.keys(errors).length > 0}
-						className='form-submit-btn'
-						type="submit">Edit Bill</button>
+						className='bill-form-submit-btn'
+						type="submit">Save</button>
 				</div>
 			</div>
 		</form>

@@ -177,9 +177,9 @@ const AddBillForm = ({ showModal }) => {
 						</div>
 					)
 				})}
-				<div className='form-element'>
+				<div>
 					<button
-						className='form-submit-btn'
+						className='bill-form-submit-btn'
 						disabled={isEmpty || Object.keys(errors).length > 0}
 						type="submit">Divvy Up</button>
 				</div>
