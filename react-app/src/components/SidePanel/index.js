@@ -36,7 +36,7 @@ const SidePanel = ({ balance }) => {
 					<h2>{sessionUser.username}</h2>
 				</div>
 			</div>
-			<div className="user-balance">Balance: {balance > 0 ? `$${balance}` : `-$${Math.abs(balance)}`}</div>
+			<div className="user-balance">Balance: {balance >= 0 ? `$${balance}` : `-$${Math.abs(balance)}`}</div>
 			<div className="side-panel-buttons">
 				<div id="add-bill-button-container">
 					<AddBillFormModal />
