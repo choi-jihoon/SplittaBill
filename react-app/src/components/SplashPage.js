@@ -38,7 +38,7 @@ const SplashPage = () => {
 			</nav>
 			<div className="splash-content">
 				{/* <div className="gif"></div> */}
-				<div className="duck-div">{/* <Duck /> */}</div>
+				{/* <div className="duck-div"><Duck /></div> */}
 				<div className="words-wrapper">
 					<p>split</p>
 					<div>

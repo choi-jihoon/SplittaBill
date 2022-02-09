@@ -22,11 +22,12 @@ nav {
 	/* position: absolute;
 	top: 120px; */
 	margin-top: 80px;
+	margin-bottom: 132px;
 	background: var(--dark-blue);
-	/* background-image: url("../assets/white-geo.svg");
-	background-size: contain;
-	/* background-repeat: repeat-y; */
-	/* background-position: right; */
+	background-image: url("../assets/double.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -37,22 +38,18 @@ nav {
 	min-height: 300px;
 }
 
-.duck-div {
+/* .duck-div {
 	width: 400px;
 	left: 0;
 	object-fit: contain;
 	height: 400px;
-}
-.gif {
-	height: 200px;
-	width: 500px;
-	background-image: url("../assets/blue-bg-gif.gif");
-}
+} */
 
 .user-actions {
 	display: flex;
 	justify-content: space-around;
 	width: 150px;
+	font-size: 18px;
 }
 
 .login-signup:hover {
@@ -65,12 +62,11 @@ nav {
 }
 
 footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
 	left: 0;
 	height: fit-content;
-	min-height: 10vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -129,9 +125,21 @@ footer {
 .start-split-button:hover {
 	/* border: 1px solid var(--main-container);
 	background-color: var(--main-container); */
-	transform: scale(1.2);
+	/* transform: scale(1.2); */
 	cursor: pointer;
 	color: var(--dark-blue);
+	animation: bounce 0.5s ease-in-out infinite;
+}
+@keyframes bounce {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 .words-wrapper {
 	box-sizing: content-box;
@@ -144,16 +152,19 @@ footer {
 	margin-right: auto;
 	border-radius: 22px;
 	margin-bottom: 80px;
-	margin-top: -120px;
-	box-shadow: 0 50px 200px rgba(0, 0, 0, 0.5);
+	/* margin-top: -20%; */
+	box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
 	padding: 40px 0px;
 	height: 100px;
-	width: 40%;
+	width: 500px;
 	overflow: hidden;
 	font-size: 80px;
 }
-
+.words-wrapper > p {
+	/* font-family: Optima; */
+}
 .words-wrapper > div > span {
+	/* font-family: Optima; */
 	display: flex;
 	flex-direction: column;
 	height: 200%;
