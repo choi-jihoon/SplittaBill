@@ -11,38 +11,40 @@ const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user)
 
-	const [errors, setErrors] = useState([]);
+	const [errors, setErrors] = useState({});
 	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
 
 	const notify = () => {
 		toast.success(`You paid $${amount_paid}!`,
-			{position: toast.POSITION.TOP_CENTER,
-			autoClose:2000})
+			{
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 2000
+			})
 	}
 
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-        const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
+		const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
 		dispatch(getUserBalance(sessionUser.id))
 
-        if (data) {
+		if (data) {
 			setErrors(data);
-            return
+			return
 		}
 
 		notify()
 
-        showModal(false)
+		showModal(false)
 	};
 
 	useEffect(() => {
 		const errors = [];
-		if (amount_paid > Number(expense.amount_due)) errors.push(`You can't pay more than what's due!`)
-		if (amount_paid <= 0) errors.push("Please enter a positive value.")
+		if (amount_paid > Number(expense.amount_due)) errors["amount_paid"] = `You can't pay more than what's due!`
+		if (amount_paid <= 0) errors["amount_paid"] = "Please enter a positive value."
 		if (amount_paid.split(".").length > 1) {
-			if (amount_paid.split(".")[1].length > 2) errors.push("Please round to the nearest cent.")
+			if (amount_paid.split(".")[1].length > 2) errors["amount_paid"] = "Please round to the nearest cent."
 		}
 		setErrors(errors);
 
@@ -55,25 +57,28 @@ const SettleUpForm = ({ showModal, expense }) => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<div>
+			{/* <div>
 				{errors.map((error, ind) => (
 					<div key={ind}>{error}</div>
 				))}
-			</div>
+			</div> */}
 			<div>
 				<label htmlFor="amount_paid">Pay {expense.bill.owner_name} $</label>
 				<input
 					name="amount_paid"
 					type="number"
-                    step="0.01"
+					step="0.01"
 					placeholder="0"
 					value={amount_paid}
 					onChange={updateAmountPaid}
 				/>
+				<div className='errors-container'>
+					{errors.amount_paid ? `${errors.amount_paid}` : ""}
+				</div>
 			</div>
 			<button
-			type="submit"
-			disabled={errors.length > 0}>Settle Up</button>
+				type="submit"
+				disabled={Object.keys(errors).length > 0}>Settle Up</button>
 		</form>
 	);
 };

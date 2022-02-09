@@ -35,8 +35,8 @@ def check_total_amount(form, field):
 
 def check_description_length(form, field):
     description = field.data
-    if len(description) > 50:
-        raise ValidationError("Description must be less than 50 characters.")
+    if len(description) > 36:
+        raise ValidationError("Description must be less than 36 characters.")
 
 
 class BillForm(FlaskForm):

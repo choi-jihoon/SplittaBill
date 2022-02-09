@@ -1,6 +1,20 @@
-div.profile-pic-div#bill-detail-expense-profile-pic {
+
+
+.bill-expense-profile-pic {
     width: 25px;
-    height: 25px;
+	height: 25px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+img.bill-profile-pic {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .bde-container {

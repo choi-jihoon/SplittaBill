@@ -22,7 +22,7 @@ const AddBillForm = ({ showModal }) => {
 	const today = new Date()
 	const todayString = today.toISOString().split('T')[0]
 
-	const [errors, setErrors] = useState([]);
+	const [errors, setErrors] = useState({});
 	const [isEmpty, setIsEmpty] = useState(true)
 	const [total_amount, setTotal_Amount] = useState("");
 	const [description, setDescription] = useState("");
@@ -45,7 +45,8 @@ const AddBillForm = ({ showModal }) => {
 		dispatch(getUserBalance(sessionUser.id));
 
 		if (data) {
-			setErrors(data);
+			const dataArr = data[0].split(': ');
+			errors['deadline'] = dataArr[1];
 			return
 		}
 
@@ -61,8 +62,10 @@ const AddBillForm = ({ showModal }) => {
 
 	useEffect(() => {
 		const errors = [];
-		if (description.length > 36) errors.push("Description must be less than 36 characters.")
-		if (total_amount < 0) errors.push("Provide a positive value for the total amount.")
+
+		if (description.length > 36) errors['description'] = "Description must be less than 36 characters."
+		if (total_amount < 0) errors['total_amount'] = "Provide a positive value for the total amount."
+		if (total_amount === "0") errors['total_amount'] = "Provide a non-zero value for the total bill."
 
 		setErrors(errors);
 	}, [description, total_amount])
@@ -85,22 +88,25 @@ const AddBillForm = ({ showModal }) => {
 
 	const updateDeadline = (e) => {
 		setDeadline(e.target.value);
+		delete errors.deadline;
 	};
 
 	const updateFriends = (e) => {
-		if (!friends.includes(e.target.value)) friends.push(e.target.value)
-		else if (friends.includes(e.target.value)) friends.splice(friends.indexOf(e.target.value), 1)
-		setFriends(friends)
+		const currFriends = friends.slice();
+		if (!currFriends.includes(e.target.value)) currFriends.push(e.target.value);
+		else if (currFriends.includes(e.target.value)) currFriends.splice(currFriends.indexOf(e.target.value), 1);
+		setFriends((prev) => prev = currFriends);
 	}
 
 
 	return (
 		<form className='form-container bill-form' onSubmit={handleSubmit}>
-			<div className='errors-container'>
+			{/* <div className='errors-container'>
 				{errors.map((error, ind) => (
 					<div className='error-msg' key={ind}>{error}</div>
 				))}
-			</div>
+			</div> */}
+			<h3 className='create-a-bill'>Create a Bill</h3>
 			<button
 				className="close-modal"
 				onClick={() => showModal(false)}
@@ -122,6 +128,9 @@ const AddBillForm = ({ showModal }) => {
 							onChange={updateTotal}
 						/>
 					</div>
+					<div className='errors-container'>
+						{errors.total_amount ? `${errors.total_amount}` : ""}
+					</div>
 				</div>
 				<div className='form-element'>
 					<label className='form-label' htmlFor="description">Description</label>
@@ -133,6 +142,9 @@ const AddBillForm = ({ showModal }) => {
 						value={description}
 						onChange={updateDescription}
 					/>
+					<div className='errors-container'>
+						{errors.description ? `${errors.description}` : ""}
+					</div>
 				</div>
 				<div className='form-element'>
 					<label className='form-label' htmlFor="deadline">Deadline</label>
@@ -143,11 +155,14 @@ const AddBillForm = ({ showModal }) => {
 						value={deadline}
 						onChange={updateDeadline}
 					/>
+					<div className='errors-container'>
+						{errors.deadline ? `${errors.deadline}` : ""}
+					</div>
 				</div>
 			</div>
 			<div className='form-element form-friends-list'>
 				<div className='form-label form-label-friends'>
-					Split with:
+					Split between:
 				</div>
 				{allFriends.map(friend => {
 					return (
@@ -161,15 +176,20 @@ const AddBillForm = ({ showModal }) => {
 								/>
 							</div>
 							<label className='form-friend-name' htmlFor={`${friend.friend_name}Select`}>
-								{friend.friend_name}
+								<div className='friend-name'>
+									{friend.friend_name}
+								</div>
+								<div className='comment-pic-div split-with-pic'>
+									<img src={friend.friend_image} alt={friend.friend_name} className='friend-pic' />
+								</div>
 							</label>
 						</div>
 					)
 				})}
-				<div className='form-element'>
+				<div className='bill-btn-container'>
 					<button
-						className='form-submit-btn'
-						disabled={isEmpty || errors.length > 0}
+						className='bill-form-submit-btn'
+						disabled={isEmpty || Object.keys(errors).length > 0 || friends.length === 0}
 						type="submit">Divvy Up</button>
 				</div>
 			</div>

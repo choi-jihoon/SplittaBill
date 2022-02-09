@@ -20,7 +20,7 @@ const BillDetailsExpenses = ({ expense }) => {
             </div>
             <div className='bde-expense-payment-container'>
                 <div className="bde-pic-payer-name-container">
-                    <div className="profile-pic-div" id="bill-detail-expense-profile-pic">
+                    <div className="bill-expense-profile-pic" id="bill-detail-expense-profile-pic">
                         <img src={image} className="profile-pic bill-profile-pic" alt={`${expense.payer_name} profile`} ></img>
                     </div>
                     <div className='bde-payer-name bold'>
