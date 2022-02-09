@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserImage } from "../../store/session";
+import { getBills } from "../../store/bills";
 
 const EditUser = ({ showModal, user }) => {
 	const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const EditUser = ({ showModal, user }) => {
 		const formData = new FormData();
 		formData.append("image", image);
 		const data = await dispatch(updateUserImage(formData, sessionUser.id));
+		await dispatch(getBills());
 		if (!data) {
 			setTimeout(() => {
 				setImageLoading(false);
