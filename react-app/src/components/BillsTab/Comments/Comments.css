@@ -24,7 +24,10 @@
 	justify-content: space-between;
 	background-color: var(--transparent-hover);
 }
-
+/* .comment-container:hover #delete-comment {
+	display: inherit;
+	transition: display 0.2s ease-in-out;
+} */
 button#edit-comment,
 button#delete-comment {
 	margin: 0px 4px;
@@ -106,6 +109,7 @@ button#delete-comment {
 .delete-comment-icon {
 	color: var(--red-salsa);
 	z-index: 900;
+	transition: color 0.2s ease-in-out;
 }
 
 .delete-comment-icon:hover {

@@ -1,29 +1,42 @@
 nav {
-	background-color: #000;
+	/* background-color: rgba(var(--nav-yellow), 0.9); */
+	background-color: rgba(0, 0, 0, 0.25);
+
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 	display: flex;
 	justify-content: space-between;
+	padding-left: 30px;
+	padding-right: 30px;
 	align-items: center;
 	color: #fff;
-	height: 10%;
-	min-height: 80px;
+	/* height: 10vh; */
+	height: 80px;
+	/* z-index: 1000; */
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
 }
 
 .splash-content {
-	background-color: #000;
+	/* position: absolute;
+	top: 120px; */
+	margin-top: 80px;
+	background: var(--dark-blue);
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
 	align-items: center;
 	height: 80%;
-	min-height: 400px;
+	max-height: 79vh;
+	min-height: 300px;
 }
 
 .gif {
 	height: 200px;
 	width: 500px;
-	background-image: url("../assets/change_3.gif");
+	background-image: url("../assets/blue-bg-gif.gif");
 }
 
 .user-actions {
@@ -33,19 +46,80 @@ nav {
 }
 
 .login-signup:hover {
-	padding-top: -1px;
+	/* padding-top: -1px; */
 	font-weight: bolder;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid var(--saffron-yellow);
+	color: var(--saffron-yellow);
+	margin-bottom: -1px;
 	cursor: pointer;
 }
 
 footer {
-	min-height: 80px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: fit-content;
+	min-height: 10vh;
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: var(--main-container);
+	padding: 10px;
 }
-svg:hover {
+
+/* .test {
+	font-size: 42px;
+	color: transparent;
+	background: linear-gradient(
+		to right,
+		#97d2fb,
+		#e1eff6,
+		#83bcff,
+		#eccbd9,
+		#80ffe8
+	);
+	background-clip: text;
+} */
+
+.links-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 80%;
+}
+
+.individual-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.links > a > i {
+	font-size: 28px;
+	padding: 4px 8px;
+}
+.links > a > i:hover {
+	font-weight: bold;
+	border-bottom: 1px solid black;
+	margin-bottom: -1px;
+}
+
+.start-split-button {
+	color: var(--dark-blue);
+	border: 1px solid var(--saffron-yellow);
+	background-color: var(--saffron-yellow);
+	transition: all 0.2s ease-in-out;
+	padding: 8px 40px;
+	border-radius: 40px;
+}
+
+.start-split-button:hover {
+	/* border: 1px solid var(--main-container);
+	background-color: var(--main-container); */
+	transform: scale(1.2);
 	cursor: pointer;
+	color: var(--dark-blue);
 }

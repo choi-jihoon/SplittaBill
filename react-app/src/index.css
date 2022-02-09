@@ -12,6 +12,8 @@
 	--dark-blue: #1d3461;
 	--light-blue: #1f487e;
 	--saffron-yellow: #eac435;
+	--nav-yellow: 234, 196, 53;
+	--jet-grey: hsl(60, 1%, 23%);
 }
 
 *,
@@ -43,27 +45,18 @@ a:active {
 	position: absolute;
 	height: 100%;
 	width: 100%;
+	background-color: var(--dark-blue);
 }
 
 .bold {
 	font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
 .errors-container {
 	position: absolute;
 	padding: 45px;
 	top: 0;
 	left: 0;
-
 }
 
 .form-container {
@@ -90,12 +83,10 @@ a:active {
 	height: 264px;
 }
 
-
 .form-element {
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
-
 }
 
 .form-label {
