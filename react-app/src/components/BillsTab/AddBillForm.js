@@ -45,7 +45,8 @@ const AddBillForm = ({ showModal }) => {
 		dispatch(getUserBalance(sessionUser.id));
 
 		if (data) {
-			setErrors(data);
+			const dataArr = data[0].split(': ');
+			errors['deadline'] = dataArr[1];
 			return
 		}
 
@@ -86,6 +87,7 @@ const AddBillForm = ({ showModal }) => {
 
 	const updateDeadline = (e) => {
 		setDeadline(e.target.value);
+		delete errors.deadline;
 	};
 
 	const updateFriends = (e) => {
@@ -152,6 +154,9 @@ const AddBillForm = ({ showModal }) => {
 						value={deadline}
 						onChange={updateDeadline}
 					/>
+					<div className='errors-container'>
+						{errors.deadline ? `${errors.deadline}` : ""}
+					</div>
 				</div>
 			</div>
 			<div className='form-element form-friends-list'>
