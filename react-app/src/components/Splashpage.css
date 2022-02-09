@@ -2,6 +2,8 @@ nav {
 	background-color: var(--dark-blue);
 	display: flex;
 	justify-content: space-between;
+	padding-left: 30px;
+	padding-right: 30px;
 	align-items: center;
 	color: #fff;
 	height: 10vh;
@@ -34,9 +36,11 @@ nav {
 }
 
 .login-signup:hover {
-	padding-top: -1px;
+	/* padding-top: -1px; */
 	font-weight: bolder;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid var(--saffron-yellow);
+	color: var(--saffron-yellow);
+	margin-bottom: -1px;
 	cursor: pointer;
 }
 
@@ -86,4 +90,9 @@ footer {
 .links > a > i {
 	font-size: 28px;
 	padding: 4px 8px;
+}
+.links > a > i:hover {
+	font-weight: bold;
+	border-bottom: 1px solid black;
+	margin-bottom: -1px;
 }

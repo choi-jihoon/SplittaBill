@@ -12,15 +12,16 @@ import { Modal } from "../context/Modal";
 const SplashPage = () => {
 	const [showModal, setShowModal] = useState(false);
 	const modalHelper = () => {
-		setShowModal(true);
-		return (
-			<>
-				{showModal && (
-					<Modal onClose={() => setShowModal(false)}>
-						<SignUpForm />
-					</Modal>
-				)}
-			</>
+		const events = ["mousedown", "click", "mouseup"];
+		events.forEach((event) =>
+			document.querySelector("#signup").dispatchEvent(
+				new MouseEvent(event, {
+					view: window,
+					bubbles: true,
+					cancelable: true,
+					buttons: 1,
+				})
+			)
 		);
 	};
 	return (
