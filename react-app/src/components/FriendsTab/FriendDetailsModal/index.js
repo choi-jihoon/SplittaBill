@@ -8,7 +8,9 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
     const dispatch = useDispatch();
     const recordsObj = useSelector(state => state.bills.transaction_records_by_friend);
 
-    const records = Object.values(recordsObj);
+    const records = Object.values(recordsObj).sort(function (a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+    });
 
 	useEffect(() => {
 		dispatch(getTransactionsForFriend(friendId))
@@ -32,8 +34,8 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
                 </div>
             </div>
 
+            <h4>Transaction History with {username}</h4>
             <div className="friend-transactions-container">
-                <h4>Transaction History with {username}</h4>
                 {records.length === 0 ? <p>Nothing to see here yet!</p> : null}
                 {records?.map(record => {
                     return (<div className="friend-detail-record">

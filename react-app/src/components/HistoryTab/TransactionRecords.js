@@ -8,7 +8,9 @@ const TransactionRecords = () => {
 
     const dispatch = useDispatch();
     const billsObject = useSelector(state => state.bills);
-    const records = Object.values(billsObject.transaction_records);
+    const records = Object.values(billsObject.transaction_records).sort(function (a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+    });
 
     useEffect(() => {
         dispatch(getTransactionRecords());
