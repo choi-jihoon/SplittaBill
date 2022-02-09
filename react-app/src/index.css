@@ -173,3 +173,12 @@ a:active {
 	transform: scale(1.05);
 
 }
+
+.bill-form-submit-btn:disabled {
+	opacity: 50%;
+}
+
+.bill-form-submit-btn:disabled:hover {
+	cursor: not-allowed;
+	transform: none;
+}

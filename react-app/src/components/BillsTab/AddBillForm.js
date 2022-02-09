@@ -177,7 +177,7 @@ const AddBillForm = ({ showModal }) => {
 						</div>
 					)
 				})}
-				<div>
+				<div className='bill-btn-container'>
 					<button
 						className='bill-form-submit-btn'
 						disabled={isEmpty || Object.keys(errors).length > 0}
