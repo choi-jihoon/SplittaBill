@@ -106,6 +106,12 @@ a:active {
 	flex-direction: column;
 }
 
+.form-element > input {
+	border-radius: 5px;
+	border: 0.5px solid black;
+	padding-left: 10px;
+}
+
 .form-label {
 	font-weight: bold;
 	padding-bottom: 5px;
@@ -121,6 +127,8 @@ a:active {
 .dollar-sign-and-input > input {
 	width: 100%;
 	padding-left: 25px;
+	border-radius: 5px;
+	border: 0.5px solid black;
 }
 
 .dollar-sign {
@@ -172,23 +180,42 @@ a:active {
 	/* width: 170px; */
 	width: 100%;
 	display: flex;
-	justify-content: center;
-	align-items: flex-end;
+	justify-content: flex-end;
+	align-items: center;
 	padding-top: 20px;
+	flex-direction: column;
 }
 
-.bill-form-submit-btn {
+.btn-container {
+	width: 100%;
+	padding: 5px 0;
+}
+
+.bill-form-submit-btn,
+.bill-form-delete-btn {
 	width: 100%;
 	padding: 5px 0;
 	border-radius: 20px;
-	background-color: var(--saffron-yellow);
 	border: var(--saffron-yellow);
 	font-size: 18px;
-
 	transition: all 0.2s ease-in-out;
 }
 
-.bill-form-submit-btn:hover {
+.bill-form-submit-btn {
+	color: var(--dark-blue);
+	background-color: var(--saffron-yellow);
+	/* color: var(--main-container); */
+	/* background-color: var(--dark-green); */
+}
+
+.bill-form-delete-btn {
+	background-color: var(--red-salsa);
+	color: var(--main-container)
+}
+
+
+.bill-form-submit-btn:hover,
+.bill-form-delete-btn:hover {
 	cursor: pointer;
 	transform: scale(1.05);
 
