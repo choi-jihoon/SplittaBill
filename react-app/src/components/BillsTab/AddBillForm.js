@@ -62,9 +62,10 @@ const AddBillForm = ({ showModal }) => {
 	useEffect(() => {
 		const errors = [];
 		if (description.length > 50) errors.push("Description must be less than 50 characters.")
+		if (total_amount <= 0) errors.push("Provide a positive value for the total amount.")
 
 		setErrors(errors);
-	}, [description])
+	}, [description, total_amount])
 
 	useEffect(() => {
 		const notEmpty = [];
@@ -162,7 +163,7 @@ const AddBillForm = ({ showModal }) => {
 				<div className='form-element'>
 					<button
 						className='form-submit-btn'
-						disabled={isEmpty}
+						disabled={isEmpty || errors.length > 0}
 						type="submit">Divvy Up</button>
 				</div>
 			</div>

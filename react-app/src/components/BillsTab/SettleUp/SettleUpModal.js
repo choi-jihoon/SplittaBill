@@ -11,7 +11,7 @@ function SettleUpModal({ expense }) {
           id='settle-up'
           onClick={() => setShowModal(true)}>
           <i className="fas fa-money-bill-wave"></i>
-          Settle Up
+          Settle Up!
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

@@ -49,10 +49,20 @@ a:active {
 	font-weight: bold;
 }
 
+
+
+
+
+
+
+
+
+
 .errors-container {
 	position: absolute;
-	top: 10%;
-	left: 10%;
+	padding: 45px;
+	top: 0;
+	left: 0;
 
 }
 
@@ -95,6 +105,11 @@ a:active {
 .dollar-sign-and-input {
 	display: flex;
 	align-items: center;
+	width: 280px;
+}
+
+.dollar-sign-and-input > input {
+	width: 100%
 }
 
 .dollar-sign {
