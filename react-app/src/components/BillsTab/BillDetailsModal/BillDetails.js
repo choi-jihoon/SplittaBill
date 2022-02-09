@@ -44,4 +44,3 @@ const BillDetails = ({ bill, showModal }) => {
 };
 
 export default BillDetails;
-//2022-02-09

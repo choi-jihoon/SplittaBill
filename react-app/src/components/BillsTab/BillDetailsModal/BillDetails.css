@@ -47,8 +47,6 @@
 }
 
 .bd-total-amount {
-	/* position: absolute;
-	right: 25%; */
 	font-size: 25px;
 	padding-left: 20px;
 }
@@ -65,7 +63,3 @@
 .bd-bill-deadline > .fa-calendar-alt {
 	padding-right: 8px;
 }
-
-/* .bd-expenses-container {
-	padding-bottom: 20px;
-} */

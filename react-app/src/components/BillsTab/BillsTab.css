@@ -1,11 +1,3 @@
-/* .all-bills-container {
-	position: relative;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-} */
 
 .add-bill-button-container {
 	position: absolute;
@@ -14,9 +6,7 @@
 }
 
 .bill-container-and-buttons {
-	/* position: relative; */
 	margin: 0 auto;
-	/* padding: 40px; */
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
@@ -24,7 +14,6 @@
 
 	border-bottom: 1px solid gray;
 	transition: background-color 0.2s ease-in-out;
-
 
 	width: 80%;
 	height: 150px;
@@ -44,32 +33,9 @@
 .bill-container {
 	width: 100%;
 	padding: 40px;
-	/* display: flex;
-	align-items: center;
-	justify-content: center; */
-
 	display: grid;
 	grid-template-columns: 100px 1fr 200px;
 }
-
-/* .bill-info-container { */
-	/* display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	width: 100%; */
-	/* min-width: 570px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center; */
-/* } */
-/*
-.bill-left-side {
-	display: flex;
-	align-items: center;
-	width: 100%;
-
-} */
 
 .bill-pic-div {
 	min-width: 78px;
@@ -88,8 +54,6 @@
 	flex-direction: column;
 	justify-content: center;
 }
-
-
 
 .bill-owner-name {
 	font-size: 12px;
@@ -126,8 +90,6 @@
 }
 
 .edit-delete-bill-buttons-container:hover ~ .bill-container {
-	/* background-color: rgb(230, 191, 94); */
-	/* background-color: var(--transparent-hover); */
 	cursor: pointer;
 }
 
@@ -167,9 +129,6 @@ button#delete-bill:hover {
 	cursor: pointer;
 }
 
-/* .fa-money-bill-wave {
-	color: var(--dark-green);
-} */
 
 #settle-up {
 	border: none;

@@ -7,17 +7,17 @@
 
 .dash-and-main-container {
 	display: grid;
-	grid-template-rows: 200px 1fr;
+	grid-template-rows: 100px 1fr;
 	background-color: var(--main-container);
+	padding: 50px 0;
 }
 
 .dash-nav-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background-color: var(--main-container); */
-	padding: 50px 0;
-	height: 200px;
+	/* padding: 50px 0; */
+	/* height: 200px; */
 }
 
 .all-tabs-container {
@@ -26,12 +26,10 @@
 	align-items: center;
 	border: 1px solid var(--side-panel);
 	border-radius: 25px;
-	/* padding: 10px 0px; */
-	/* height: 50px; */
-	/* width: 50%; */
+
 	font-size: 24px;
 	color: var(--main-container);
-	/* background-color: var(--main-container); */
+
 	background-color: var(--side-panel);
 }
 
@@ -41,15 +39,10 @@
 }
 
 .main-container {
-	padding: 40px;
-
-	/* background-color: var(--main-container); */
-	/* background-color: ; */
+	padding: 0 40px 40px 40px;
 }
 
 .active-tab {
-	/* background-color: yellow;
-     */
 	font-weight: bold;
 	background-color: var(--main-container);
 	border-radius: 25px;
