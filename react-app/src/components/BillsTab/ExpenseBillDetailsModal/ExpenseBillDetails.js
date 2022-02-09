@@ -14,6 +14,14 @@ const ExpenseBillDetails = ({ expense, showModal }) => {
 
     return (
         <div className='bill-details-modal-container'>
+            <div className="bd-edit-delete-btns-container">
+                <button
+                    className="close-modal"
+                    onClick={() => showModal(false)}
+                >
+                    <i className="fas fa-minus"></i>
+                </button>
+            </div>
             <div className='bd-title-total-container'>
                 <div className='bd-paid-for-bill'>
                     <div className='bd-paid-by-text'>
