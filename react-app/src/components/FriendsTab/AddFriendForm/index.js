@@ -60,7 +60,7 @@ const AddFriendForm = ({setShowModal}) => {
 				<input
 					name="username"
 					type="text"
-					placeholder="Username"
+					placeholder="FriendlyDuck200"
 					value={username}
 					onChange={updateUsername}
                     required={true}
