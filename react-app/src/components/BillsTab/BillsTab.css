@@ -28,7 +28,7 @@
 
 	width: 80%;
 	height: 150px;
-	/* min-width: 828px; */
+	min-width: 840px;
 }
 
 .bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
@@ -49,7 +49,7 @@
 	justify-content: center; */
 
 	display: grid;
-	grid-template-columns: 100px 1fr 100px;
+	grid-template-columns: 100px 1fr 200px;
 }
 
 /* .bill-info-container { */

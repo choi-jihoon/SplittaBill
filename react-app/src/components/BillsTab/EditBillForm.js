@@ -57,10 +57,11 @@ const EditBillForm = ({ showModal, bill }) => {
 
 	useEffect(() => {
 		const errors = [];
-		if (description.length > 50) errors.push("Description must be less than 50 characters.")
+		if (description.length > 36) errors.push("Description must be less than 36 characters.")
+		if (total_amount < 0) errors.push("Provide a positive value for the total amount.")
 
 		setErrors(errors);
-	}, [description])
+	}, [description, total_amount])
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);
@@ -143,7 +144,10 @@ const EditBillForm = ({ showModal, bill }) => {
 					)
 				})}
 				<div className='form-element'>
-					<button className='form-submit-btn' type="submit">Edit Bill</button>
+					<button
+					disabled={errors.length > 0}
+					className='form-submit-btn'
+					type="submit">Edit Bill</button>
 				</div>
 			</div>
 		</form>
