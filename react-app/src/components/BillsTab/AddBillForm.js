@@ -102,6 +102,7 @@ const AddBillForm = ({ showModal }) => {
 					<div className='error-msg' key={ind}>{error}</div>
 				))}
 			</div> */}
+			<h3 className='create-a-bill'>Create a Bill</h3>
 			<button
 				className="close-modal"
 				onClick={() => showModal(false)}
@@ -169,6 +170,9 @@ const AddBillForm = ({ showModal }) => {
 							</div>
 							<label className='form-friend-name' htmlFor={`${friend.friend_name}Select`}>
 								{friend.friend_name}
+								<div className='comment-pic-div'>
+									<img src={friend.friend_image} alt={friend.friend_name} className='friend-pic' />
+								</div>
 							</label>
 						</div>
 					)

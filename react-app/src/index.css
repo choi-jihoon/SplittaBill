@@ -52,12 +52,17 @@ a:active {
 	font-weight: bold;
 }
 
-/* .errors-container {
+.errors-container {
+	color: var(--red-salsa);
+	font-size: 12px;
+	padding-left: 3px;
+}
+
+.form-container > h3 {
 	position: absolute;
-	padding: 45px;
-	top: 0;
-	left: 0;
-} */
+	top: 10%;
+	left: 23%;
+}
 
 .form-container {
 	position: relative;
@@ -71,6 +76,7 @@ a:active {
 	height: 400px;
 	justify-content: space-evenly;
 	align-items: center;
+	min-height: fit-content;
 }
 
 .form-input-container {
@@ -117,8 +123,18 @@ a:active {
 	padding-bottom: 20px;
 }
 
+
 .friend-name-checkbox-container {
 	display: flex;
+	align-items: center;
+	padding-bottom: 10px;
+}
+
+.form-friend-name {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .friends-checkboxes {
