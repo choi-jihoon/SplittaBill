@@ -39,7 +39,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 
 	useEffect(() => {
 		const errors = [];
-		if (amount_paid > Number(expense.amount_due)) errors.push(`You can't pay more than what's due! ${amount_paid}, ${expense.amount_due}`)
+		if (amount_paid > Number(expense.amount_due)) errors.push(`You can't pay more than what's due!`)
 		if (amount_paid <= 0) errors.push("Please enter a positive value.")
 		if (amount_paid.split(".").length > 1) {
 			if (amount_paid.split(".")[1].length > 2) errors.push("Please round to the nearest cent.")
