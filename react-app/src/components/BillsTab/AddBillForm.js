@@ -89,9 +89,10 @@ const AddBillForm = ({ showModal }) => {
 	};
 
 	const updateFriends = (e) => {
-		if (!friends.includes(e.target.value)) friends.push(e.target.value)
-		else if (friends.includes(e.target.value)) friends.splice(friends.indexOf(e.target.value), 1)
-		setFriends(friends)
+		const currFriends = friends.slice();
+		if (!currFriends.includes(e.target.value)) currFriends.push(e.target.value);
+		else if (currFriends.includes(e.target.value)) currFriends.splice(currFriends.indexOf(e.target.value), 1);
+		setFriends((prev) => prev = currFriends);
 	}
 
 
@@ -180,7 +181,7 @@ const AddBillForm = ({ showModal }) => {
 				<div className='bill-btn-container'>
 					<button
 						className='bill-form-submit-btn'
-						disabled={isEmpty || Object.keys(errors).length > 0}
+						disabled={isEmpty || Object.keys(errors).length > 0 || friends.length === 0}
 						type="submit">Divvy Up</button>
 				</div>
 			</div>
