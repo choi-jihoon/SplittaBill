@@ -5,7 +5,7 @@ nav {
 	align-items: center;
 	color: #fff;
 	height: 10%;
-	min-height: 80px;
+	min-height: 100px;
 }
 
 .splash-content {
@@ -16,7 +16,7 @@ nav {
 	justify-content: center;
 	align-items: center;
 	height: 80%;
-	min-height: 400px;
+	min-height: 300px;
 }
 
 .gif {
@@ -39,7 +39,7 @@ nav {
 }
 
 footer {
-	min-height: 80px;
+	min-height: 100px;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -50,13 +50,34 @@ svg:hover {
 	cursor: pointer;
 }
 
-.test {
+/* .test {
 	font-size: 42px;
 	color: transparent;
 	background: linear-gradient(
 		to right,
-		var(--saffron-yellow),
-		var(--red-salsa)
+		#97d2fb,
+		#e1eff6,
+		#83bcff,
+		#eccbd9,
+		#80ffe8
 	);
 	background-clip: text;
+} */
+
+.links-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 80%;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+}
+
+.individual-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

@@ -20,8 +20,8 @@ const SplashPage = () => {
 				</div>
 			</nav>
 			<div className="splash-content">
-				{/* <div className="gif"></div> */}
-				<div className="test">TEST</div>
+				<div className="gif"></div>
+				{/* <div className="test">TEST</div> */}
 				<h3>Start Splitting!</h3>
 				<div className="user-actions">
 					<LoginFormModal />

@@ -12,6 +12,7 @@
 	--dark-blue: #1d3461;
 	--light-blue: #1f487e;
 	--saffron-yellow: #eac435;
+	--jet-grey: #3c3c3b;
 }
 
 *,
@@ -53,7 +54,6 @@ a:active {
 	position: absolute;
 	top: 10%;
 	left: 10%;
-
 }
 
 .form-container {
@@ -79,12 +79,10 @@ a:active {
 	padding-left: 20px;
 }
 
-
 .form-element {
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
-
 }
 
 .form-label {
