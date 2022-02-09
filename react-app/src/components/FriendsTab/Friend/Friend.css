@@ -1,7 +1,7 @@
 .friend-container {
-    width: 100%;
+    width: 80%;
     padding: 40px;
-    padding-left: 19%;
+    /* padding-left: 19%; */
     margin: 0 auto;
 	position: relative;
 	display: flex;
