@@ -59,7 +59,7 @@ const EditBillForm = ({ showModal, bill }) => {
 	useEffect(() => {
 		const errors = [];
 		if (description.length > 36) errors['description'] = "Description must be less than 36 characters."
-		if (total_amount < 0) errors['total_amount'] = "Please provide a positive value for the total amount."
+		if (total_amount <= 0) errors['total_amount'] = "Please provide a positive value for the total amount."
 
 		setErrors(errors);
 	}, [description, total_amount])
