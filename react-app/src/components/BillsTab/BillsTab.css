@@ -34,7 +34,7 @@
 	width: 100%;
 	padding: 40px;
 	display: grid;
-	grid-template-columns: 100px 1fr 200px;
+	grid-template-columns: 150px 1fr 200px;
 }
 
 .bill-pic-div {

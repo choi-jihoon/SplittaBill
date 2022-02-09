@@ -228,7 +228,7 @@
 
 .side-panel-buttons button {
 	border: none;
-	/* width: 150px; */
+	width: 150px;
 	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 	transition: all 0.2s ease-in-out;

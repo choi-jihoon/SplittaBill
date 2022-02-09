@@ -34,3 +34,7 @@
 .positive-payment {
     color: var(--dark-green);
 }
+
+h2#nothing-to-see {
+	padding: 50px 100px;
+}

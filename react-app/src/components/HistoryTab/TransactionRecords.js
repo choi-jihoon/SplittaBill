@@ -19,6 +19,9 @@ const TransactionRecords = () => {
 
     return (
         <div className='transaction-records-container'>
+            {records.length === 0 && (
+                <h2 id='nothing-to-see'>No transQUACKtions have been made yet. 🦆</h2>
+            )}
             {records?.map(record => {
                 return <TransactionRecordDetail
                     key={record.id}
