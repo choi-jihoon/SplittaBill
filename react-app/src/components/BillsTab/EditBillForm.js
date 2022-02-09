@@ -156,7 +156,7 @@ const EditBillForm = ({ showModal, bill }) => {
 			</div>
 			<div className='form-element form-friends-list'>
 				<div className='form-label'>
-					Split with:
+					Split between:
 				</div>
 				{allFriends.map(friend => {
 					return (
