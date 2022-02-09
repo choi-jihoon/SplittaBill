@@ -22,7 +22,7 @@ const AddBillForm = ({ showModal }) => {
 	const today = new Date()
 	const todayString = today.toISOString().split('T')[0]
 
-	const [errors, setErrors] = useState([]);
+	const [errors, setErrors] = useState({});
 	const [isEmpty, setIsEmpty] = useState(true)
 	const [total_amount, setTotal_Amount] = useState("");
 	const [description, setDescription] = useState("");
@@ -61,8 +61,9 @@ const AddBillForm = ({ showModal }) => {
 
 	useEffect(() => {
 		const errors = [];
-		if (description.length > 36) errors.push("Description must be less than 36 characters.")
-		if (total_amount < 0) errors.push("Provide a positive value for the total amount.")
+
+		if (description.length > 36) errors['description'] = "Description must be less than 36 characters."
+		if (total_amount < 0) errors['total_amount'] = "Please provide a positive value for the total amount."
 
 		setErrors(errors);
 	}, [description, total_amount])
@@ -96,11 +97,11 @@ const AddBillForm = ({ showModal }) => {
 
 	return (
 		<form className='form-container bill-form' onSubmit={handleSubmit}>
-			<div className='errors-container'>
+			{/* <div className='errors-container'>
 				{errors.map((error, ind) => (
 					<div className='error-msg' key={ind}>{error}</div>
 				))}
-			</div>
+			</div> */}
 			<button
 				className="close-modal"
 				onClick={() => showModal(false)}
@@ -122,6 +123,9 @@ const AddBillForm = ({ showModal }) => {
 							onChange={updateTotal}
 						/>
 					</div>
+					<div className='errors-container'>
+						{errors.total_amount ? `${errors.total_amount}` : ""}
+					</div>
 				</div>
 				<div className='form-element'>
 					<label className='form-label' htmlFor="description">Description</label>
@@ -133,6 +137,9 @@ const AddBillForm = ({ showModal }) => {
 						value={description}
 						onChange={updateDescription}
 					/>
+					<div className='errors-container'>
+						{errors.description ? `${errors.description}` : ""}
+					</div>
 				</div>
 				<div className='form-element'>
 					<label className='form-label' htmlFor="deadline">Deadline</label>
@@ -169,7 +176,7 @@ const AddBillForm = ({ showModal }) => {
 				<div className='form-element'>
 					<button
 						className='form-submit-btn'
-						disabled={isEmpty || errors.length > 0}
+						disabled={isEmpty || Object.keys(errors).length > 0}
 						type="submit">Divvy Up</button>
 				</div>
 			</div>

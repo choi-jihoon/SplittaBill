@@ -52,12 +52,12 @@ a:active {
 	font-weight: bold;
 }
 
-.errors-container {
+/* .errors-container {
 	position: absolute;
 	padding: 45px;
 	top: 0;
 	left: 0;
-}
+} */
 
 .form-container {
 	position: relative;
