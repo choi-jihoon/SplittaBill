@@ -35,7 +35,9 @@ const BillDetails = ({ bill, showModal }) => {
 					}/${bill.deadline.split("-")[0]}`}</span>
 				</div>
 			)}
-			<BillExpenses expenses={bill.expenses} />
+			<div className='bd-expenses-container'>
+				<BillExpenses expenses={bill.expenses} />
+			</div>
 			<Comments billId={bill.id} />
 		</div>
 	);

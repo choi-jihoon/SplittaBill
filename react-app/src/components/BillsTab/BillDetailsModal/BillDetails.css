@@ -1,6 +1,7 @@
 .bill-details-modal-container {
 	position: relative;
-	padding: 50px;
+	padding: 75px;
+	min-width: fit-content;
 	width: 600px;
 }
 
@@ -33,6 +34,7 @@
 	display: flex;
 	align-items: center;
 	padding-bottom: 20px;
+	justify-content: space-between;
 }
 
 .bd-title-icon,
@@ -45,9 +47,10 @@
 }
 
 .bd-total-amount {
-	position: absolute;
-	right: 25%;
+	/* position: absolute;
+	right: 25%; */
 	font-size: 25px;
+	padding-left: 20px;
 }
 
 .bd-title-container {
@@ -57,7 +60,12 @@
 .bd-bill-deadline {
 	font-size: 12px;
 	margin-top: -20px;
+	padding-bottom: 30px;
 }
 .bd-bill-deadline > .fa-calendar-alt {
 	padding-right: 8px;
 }
+
+/* .bd-expenses-container {
+	padding-bottom: 20px;
+} */
