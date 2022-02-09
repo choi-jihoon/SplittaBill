@@ -20,6 +20,15 @@
     cursor: pointer;
 }
 
+#remove-friend {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.friend-container:hover #remove-friend {
+    opacity: 1;
+}
+
 .friend-container h3 {
     font-weight: normal;
 }
@@ -41,21 +50,16 @@
 
 .remove-friend-btn {
     position: absolute;
-    right: 3%;
-    width: 35px;
-    height: 35px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: rgba(251, 54, 64, 0.8);
-    color: var(--main-container);
+    top: 0;
+    right: 0;
+    border: none;
     transition: all 0.1s ease-in-out;
+    background-color: transparent;
+    padding: 20px;
 }
+
 
 .remove-friend-btn:hover {
-    background-color: rgba(251, 54, 64, 1);
+    color: var(--red-salsa);
     cursor: pointer;
-}
-
-.remove-friend-btn  i {
-    font-size: 15px;
 }

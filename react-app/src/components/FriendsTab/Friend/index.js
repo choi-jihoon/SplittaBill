@@ -33,7 +33,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 					}
 				</div>
 				{parseFloat(balance) === 0 ? (
-					<button onClick={onRemoveFriend} className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
+					<button onClick={onRemoveFriend} id="remove-friend"className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
 					): <p></p>}
 
 
