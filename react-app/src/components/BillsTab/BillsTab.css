@@ -1,9 +1,11 @@
-.all-bills-container {
+/* .all-bills-container {
 	position: relative;
 
 	display: flex;
 	flex-direction: column;
-}
+	align-items: center;
+
+} */
 
 .add-bill-button-container {
 	position: absolute;
@@ -12,14 +14,8 @@
 }
 
 .bill-container-and-buttons {
-	position: relative;
-}
-
-.bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
-	opacity: 1;
-}
-
-.bill-container {
+	/* position: relative; */
+	margin: 0 auto;
 	padding: 40px;
 	position: relative;
 	display: flex;
@@ -29,9 +25,31 @@
 	border-bottom: 1px solid gray;
 	transition: background-color 0.2s ease-in-out;
 
+
+	width: 80%;
 	height: 150px;
 	min-width: 828px;
 }
+
+.bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
+	opacity: 1;
+}
+
+/* .bill-container {
+	padding: 40px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-bottom: 1px solid gray;
+	transition: background-color 0.2s ease-in-out;
+
+
+	width: 80%;
+	height: 150px;
+	min-width: 828px;
+} */
 
 .bill-container:hover {
 	/* background-color: rgb(230, 191, 94); */
