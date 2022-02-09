@@ -101,6 +101,12 @@ const AddBillForm = ({ showModal }) => {
 					<div className='error-msg' key={ind}>{error}</div>
 				))}
 			</div>
+			<button
+				className="close-modal"
+				onClick={() => showModal(false)}
+			>
+				<i className="fas fa-minus"></i>
+			</button>
 			<div className='form-input-container'>
 				<div className='form-element'>
 					<label className='form-label' htmlFor="total_amount">Total Bill</label>

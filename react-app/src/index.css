@@ -75,7 +75,7 @@ a:active {
 
 .form-container.bill-form {
 	width: 600px;
-	height: 500px;
+	height: 400px;
 	justify-content: space-evenly;
 	align-items: center;
 }
@@ -87,6 +87,7 @@ a:active {
 .form-element.form-friends-list {
 	border-left: 1px solid gray;
 	padding-left: 20px;
+	height: 264px;
 }
 
 
@@ -106,15 +107,20 @@ a:active {
 	display: flex;
 	align-items: center;
 	width: 280px;
+	position: relative;
 }
 
 .dollar-sign-and-input > input {
-	width: 100%
+	width: 100%;
+	padding-left: 25px;
 }
 
 .dollar-sign {
-	padding-right: 10px;
+	/* padding-right: 10px; */
 	font-size: 20px;
+	position: absolute;
+	z-index: 200;
+	left: 10px;
 }
 
 .form-label.form-label-friends {
@@ -132,4 +138,5 @@ a:active {
 .form-input {
 	height: 30px;
 	padding: 5px;
+	font-size: 18px;
 }
