@@ -39,7 +39,9 @@ const SplashPage = () => {
 			<div className="splash-content">
 				<div className="gif"></div>
 				{/* <div className="test">TEST</div> */}
-				<div onClick={modalHelper}>Start Splitting!</div>
+				<div className="start-split-button" onClick={modalHelper}>
+					Start Splitting!
+				</div>
 				{/* <div className="user-actions">
 					<LoginFormModal />
 					<SignUpFormModal />

@@ -96,3 +96,20 @@ footer {
 	border-bottom: 1px solid black;
 	margin-bottom: -1px;
 }
+
+.start-split-button {
+	border: 1px solid var(--main-container);
+	background-color: var(--main-container);
+	color: var(--dark-blue);
+	transition: background-color 0.2s ease-in-out;
+	transition: color 0.1s ease-in-out;
+	padding: 8px 40px;
+	border-radius: 40px;
+}
+
+.start-split-button:hover {
+	cursor: pointer;
+	border: 1px solid var(--main-container);
+	background-color: var(--dark-blue);
+	color: var(--main-container);
+}
