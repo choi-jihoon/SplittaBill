@@ -76,7 +76,7 @@ const AddFriendForm = ({setShowModal}) => {
 			<button
 				type="submit"
 				className="friend-form-submit-btn"
-				disabled={Object.keys(errors).length > 0}>Submit</button>
+				disabled={Object.keys(errors).length > 0 || username.length == 0}>Submit</button>
 		</form>
 	);
 };
