@@ -4,9 +4,9 @@ nav {
 
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 	display: flex;
-	justify-content: space-between;
-	padding-left: 30px;
-	padding-right: 30px;
+	justify-content: space-around;
+	/* padding-left: 30px;
+	padding-right: 30px; */
 	align-items: center;
 	color: #fff;
 	/* height: 10vh; */
@@ -23,6 +23,10 @@ nav {
 	top: 120px; */
 	margin-top: 80px;
 	background: var(--dark-blue);
+	/* background-image: url("../assets/white-geo.svg");
+	background-size: contain;
+	/* background-repeat: repeat-y; */
+	/* background-position: right; */
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -33,6 +37,12 @@ nav {
 	min-height: 300px;
 }
 
+.duck-div {
+	width: 400px;
+	left: 0;
+	object-fit: contain;
+	height: 400px;
+}
 .gif {
 	height: 200px;
 	width: 500px;
@@ -122,4 +132,84 @@ footer {
 	transform: scale(1.2);
 	cursor: pointer;
 	color: var(--dark-blue);
+}
+.words-wrapper {
+	box-sizing: content-box;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: var(--main-container);
+	color: var(--dark-blue);
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 22px;
+	margin-bottom: 80px;
+	margin-top: -120px;
+	box-shadow: 0 50px 200px rgba(0, 0, 0, 0.5);
+	padding: 40px 0px;
+	height: 100px;
+	width: 40%;
+	overflow: hidden;
+	font-size: 80px;
+}
+
+.words-wrapper > div > span {
+	display: flex;
+	flex-direction: column;
+	height: 200%;
+	width: fit-content;
+	text-align: left;
+	padding-left: 18px;
+	margin-right: auto;
+	color: var(--saffron-yellow);
+	font-size: 80px;
+	animation: spin_words 10s infinite;
+}
+
+@keyframes spin_words {
+	0% {
+		transform: translateY(-100%);
+	}
+	7.15% {
+		transform: translateY(-100%);
+	} /* rent*/
+	14.3% {
+		transform: translateY(-100%);
+	}
+	21.5% {
+		transform: translateY(-201%);
+	} /* meal*/
+	28.6% {
+		transform: translateY(-200%);
+	}
+	35.8% {
+		transform: translateY(-301%);
+	} /* tab*/
+	43% {
+		transform: translateY(-300%);
+	}
+	50% {
+		transform: translateY(-401%);
+	} /* trip*/
+	57% {
+		transform: translateY(-400%);
+	}
+	65% {
+		transform: translateY(-501%);
+	} /* ride*/
+	72% {
+		transform: translateY(-500%);
+	}
+	80% {
+		transform: translateY(-601%);
+	} /* bill*/
+	87% {
+		transform: translateY(-600%);
+	}
+	93% {
+		transform: translateY(-101%);
+	} /* rent*/
+	100% {
+		transform: translateY(-100%);
+	}
 }

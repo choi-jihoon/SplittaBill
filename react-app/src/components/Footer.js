@@ -61,6 +61,9 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
+			<div>
+				<i className="far fa-copyright"></i> 2022 | Codiviona
+			</div>
 		</footer>
 	);
 };
