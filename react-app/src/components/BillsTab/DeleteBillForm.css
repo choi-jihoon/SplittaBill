@@ -1,0 +1,44 @@
+.delete-confirmation-container {
+    padding: 40px;
+    width: 400px;
+}
+
+.dc-text-container {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dc-btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-delete-btn,
+.form-cancel-btn {
+    padding: 5px 30px;
+    border-radius: 25px;
+    color: var(--side-panel-font-color);
+    transition: all 0.2s ease-in-out;
+
+}
+
+.form-delete-btn {
+    background-color: var(--red-salsa);
+    border: 1px solid var(--red-salsa);
+    box-shadow: 2px 2px 2px #c92b33;
+}
+
+.form-cancel-btn {
+    background-color: var(--side-panel);
+    border: 1px solid var(--side-panel);
+    box-shadow: 2px 2px 2px #111e38;
+}
+
+.form-delete-btn:hover,
+.form-cancel-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}

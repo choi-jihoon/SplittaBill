@@ -120,3 +120,8 @@ button#delete-comment {
 	font-size: 14px;
 	cursor: pointer;
 }
+
+.delete-confirmation-container-comment {
+	width: 410px;
+	padding: 40px;
+}
