@@ -12,7 +12,8 @@
 	--dark-blue: #1d3461;
 	--light-blue: #1f487e;
 	--saffron-yellow: #eac435;
-	--jet-grey: #3c3c3b;
+	--nav-yellow: 234, 196, 53;
+	--jet-grey: hsl(60, 1%, 23%);
 }
 
 *,
@@ -44,6 +45,7 @@ a:active {
 	position: absolute;
 	height: 100%;
 	width: 100%;
+	background-color: var(--dark-blue);
 }
 
 .bold {

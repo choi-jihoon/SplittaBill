@@ -1,23 +1,33 @@
 nav {
-	background-color: var(--dark-blue);
+	/* background-color: rgba(var(--nav-yellow), 0.9); */
+	background-color: rgba(0, 0, 0, 0.25);
+
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 	display: flex;
 	justify-content: space-between;
 	padding-left: 30px;
 	padding-right: 30px;
 	align-items: center;
 	color: #fff;
-	height: 10vh;
-	min-height: 80px;
+	/* height: 10vh; */
+	height: 80px;
+	/* z-index: 1000; */
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
 }
 
 .splash-content {
+	/* position: absolute;
+	top: 120px; */
+	margin-top: 80px;
 	background: var(--dark-blue);
 	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 	height: 80%;
 	max-height: 79vh;
 	min-height: 300px;
@@ -98,18 +108,18 @@ footer {
 }
 
 .start-split-button {
-	border: 1px solid var(--main-container);
-	background-color: var(--main-container);
 	color: var(--dark-blue);
-	transition: background-color 0.2s ease-in-out;
-	transition: color 0.1s ease-in-out;
+	border: 1px solid var(--saffron-yellow);
+	background-color: var(--saffron-yellow);
+	transition: all 0.2s ease-in-out;
 	padding: 8px 40px;
 	border-radius: 40px;
 }
 
 .start-split-button:hover {
+	/* border: 1px solid var(--main-container);
+	background-color: var(--main-container); */
+	transform: scale(1.2);
 	cursor: pointer;
-	border: 1px solid var(--main-container);
-	background-color: var(--dark-blue);
-	color: var(--main-container);
+	color: var(--dark-blue);
 }
