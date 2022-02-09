@@ -52,9 +52,9 @@ div.profile-pic-div#bill-detail-expense-profile-pic {
 
 
 .bde-settle-up-modal-btn > #settle-up {
-    font-size: 10px;
+    font-size: 15px;
     position: absolute;
-    left: 30%;
+    right: 50%;
     top: 20%;
     z-index: 2;
 }

@@ -15,6 +15,7 @@
 .close-modal {
 	border: none;
 	background-color: transparent;
+	padding-bottom: 13px;
 	/* position: absolute;
     top: 10px;
     left: 10px; */
@@ -41,7 +42,7 @@
 
 .bd-total-amount {
 	position: absolute;
-	right: 20%;
+	right: 25%;
 	font-size: 25px;
 }
 
