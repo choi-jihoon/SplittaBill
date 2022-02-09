@@ -29,7 +29,6 @@
 	width: 200px;
 	height: 30px;
 	text-align: center;
-	/* border: 1px solid black; */
 	color: #fff;
 	background-color: #000;
 	border-radius: 7px;
@@ -59,29 +58,6 @@
 	cursor: pointer;
 	border: 1px solid #000;
 }
-
-.pic-and-name-div {
-	display: flex;
-	align-items: center;
-	padding: 20px;
-}
-
-.profile-pic-div {
-	width: 78px;
-	height: 78px;
-	border-radius: 50%;
-	overflow: hidden;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.profile-pic {
-	height: 100%;
-	position: absolute;
-}
-
 
 .side-panel-buttons {
 	align-self: center;
@@ -154,9 +130,8 @@
 
 .pic-and-name-div {
 	display: flex;
-	align-items: center;
-	flex-direction: column;
 	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .profile-pic-div {
@@ -206,40 +181,63 @@
 	position: absolute;
 }
 
-#curr-user {
-	padding-top: 15px;
-	margin: 0 auto;
-}
-
-.user-balance {
-	margin: 10px 0;
-}
-
-.side-panel-buttons {
-	align-self: center;
-	height: 100px;
-	width: 60%;
+.username-balance-div {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	margin: 20px 0;
+	justify-content: center;
+	padding-left: 15px;
+}
+
+.username-balance-div h3 {
+	padding-bottom: 5px;
+}
+
+
+.side-panel-buttons {
+	height: 100px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* margin: 10px 0; */
+	padding: 0 10px;
 }
 
 .side-panel-buttons button {
 	border: none;
-	width: 150px;
+	display: inline-block;
+	width: 250px;
 	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 	transition: all 0.2s ease-in-out;
 	font-size: 16px;
-	padding: 5px 0px;
-	margin: 5px 0px;
-
+	text-align: start;
+	padding: 5px;
+	margin: 5px 0;
 }
 
 .side-panel-buttons button:hover {
 	background-color: white;
 	color: black;
+	cursor: pointer;
+}
+
+
+#add-bill-button-container  #add-bill{
+	margin: 20px 0px;
+	border: none;
+	width: 250px;
+	background-color: var(--saffron-yellow);
+	color: var(--side-panel);
+	border-radius: 40px;
+	padding: 8px 0;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+	font-size: 18px;
+
+}
+
+#add-bill-button-container button#add-bill:hover {
+	transform: scale(1.1);
 	cursor: pointer;
 }
