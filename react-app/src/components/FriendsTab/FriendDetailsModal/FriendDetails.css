@@ -41,7 +41,8 @@
 
 .friend-transactions-container {
     max-height: 500px;
-    overflow-y: auto;
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
 }
 
 .friend-detail-record .record-date {
