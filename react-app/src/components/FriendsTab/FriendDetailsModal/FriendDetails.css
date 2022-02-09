@@ -23,6 +23,7 @@
 }
 
 .friend-details-container h4 {
+    margin-top: 25px;
     margin-bottom: 25px;
 }
 
@@ -36,6 +37,11 @@
 	height: 100px;
     font-size: 14px;
 
+}
+
+.friend-transactions-container {
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .friend-detail-record .record-date {
