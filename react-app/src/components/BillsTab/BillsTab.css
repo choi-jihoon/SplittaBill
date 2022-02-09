@@ -138,11 +138,22 @@ button#delete-comment {
 	border: none;
 	background-color: transparent;
 	font-size: 15px;
+
+	transition: all 0.2s ease-in-out;
 }
 
 button#edit-bill:hover,
 button#delete-bill:hover {
 	cursor: pointer;
+	transform: scale(1.1);
+}
+
+button#edit-bill:hover {
+	color: var(--saffron-yellow);
+}
+
+button#delete-bill:hover {
+	color: var(--red-salsa);
 }
 
 .settle-up-container {

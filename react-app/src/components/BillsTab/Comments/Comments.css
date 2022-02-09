@@ -83,10 +83,14 @@ button#delete-comment {
 }
 .edit-comment-icon {
 	color: rgb(98, 98, 98);
+
+	transition: all 0.2s ease-in-out;
 }
 .delete-comment-icon {
 	color: var(--red-salsa);
 	z-index: 900;
+
+	transition: all 0.2s ease-in-out;
 }
 .delete-comment-icon:hover {
 	font-size: 14px;

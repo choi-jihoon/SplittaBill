@@ -8,13 +8,13 @@ import "./BillDetails.css";
 const BillDetails = ({ bill, showModal }) => {
 	return (
 		<div className="bill-details-modal-container">
+			<button
+				className="close-modal"
+				onClick={() => showModal(false)}
+			>
+				<i className="fas fa-minus"></i>
+			</button>
 			<div className="bd-edit-delete-btns-container">
-				<button
-					className="close-modal"
-					onClick={() => showModal(false)}
-				>
-					<i className="fas fa-minus"></i>
-				</button>
 				<EditBillFormModal bill={bill} />
 				<DeleteBillModal billId={bill.id} />
 			</div>

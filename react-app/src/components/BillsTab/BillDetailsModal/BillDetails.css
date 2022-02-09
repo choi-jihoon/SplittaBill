@@ -15,14 +15,18 @@
 .close-modal {
 	border: none;
 	background-color: transparent;
-	padding-bottom: 13px;
-	/* position: absolute;
-    top: 10px;
-    left: 10px; */
+	position: absolute;
+    top: 15px;
+    left: 20px;
+
+	transition: all 0.2s ease-in-out;
+
+	width: fit-content;
 }
 
 .close-modal:hover {
 	cursor: pointer;
+	color: var(--saffron-yellow)
 }
 
 .bd-title-total-container {
