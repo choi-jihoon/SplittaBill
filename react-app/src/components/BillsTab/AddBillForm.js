@@ -176,8 +176,10 @@ const AddBillForm = ({ showModal }) => {
 								/>
 							</div>
 							<label className='form-friend-name' htmlFor={`${friend.friend_name}Select`}>
-								{friend.friend_name}
-								<div className='comment-pic-div'>
+								<div className='friend-name'>
+									{friend.friend_name}
+								</div>
+								<div className='comment-pic-div split-with-pic'>
 									<img src={friend.friend_image} alt={friend.friend_name} className='friend-pic' />
 								</div>
 							</label>
