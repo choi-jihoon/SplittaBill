@@ -154,13 +154,13 @@ const AddBillForm = ({ showModal }) => {
 						<div className='friend-name-checkbox-container'>
 							<div className='friends-checkboxes' key={friend.id}>
 								<input type="checkbox"
-									id="friendSelect"
+									id={`${friend.friend_name}Select`}
 									name="friend"
 									value={friend.friend_name}
 									onChange={updateFriends}
 								/>
 							</div>
-							<label className='form-friend-name' htmlFor="friendSelect">
+							<label className='form-friend-name' htmlFor={`${friend.friend_name}Select`}>
 								{friend.friend_name}
 							</label>
 						</div>

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getUsersFriends } from "../store/friends";
+import { getTransactionRecords } from "../store/bills";
 
 import SidePanel from "./SidePanel";
 import DashNav from "./DashNav";
@@ -25,6 +26,7 @@ const Dashboard = () => {
 	useEffect(() => {
 		dispatch(getUserBalance(sessionUser.id));
 		dispatch(getUsersFriends());
+		dispatch(getTransactionRecords());
 	}, [dispatch, sessionUser.id])
 
 
