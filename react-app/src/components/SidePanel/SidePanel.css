@@ -194,28 +194,49 @@
 
 .side-panel-buttons {
 	height: 100px;
-	width: 60%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	margin: 20px 0;
+	align-items: flex-start;
+	margin: 30px 0;
+	padding: 0 10px;
 }
 
 .side-panel-buttons button {
 	border: none;
-	width: 150px;
+	display: inline-block;
+	width: 250px;
 	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 	transition: all 0.2s ease-in-out;
 	font-size: 16px;
-	padding: 5px 0px;
-	margin: 5px 0px;
-
+	text-align: start;
+	padding: 5px;
+	margin: 5px 0;
 }
 
 .side-panel-buttons button:hover {
 	background-color: white;
 	color: black;
+	cursor: pointer;
+}
+
+
+#add-bill-button-container  #add-bill{
+	margin-top: 40px;
+	border: none;
+	width: 200px;
+	background-color: var(--saffron-yellow);
+	color: var(--side-panel);
+	border-radius: 40px;
+	padding: 8px 0;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+
+
+}
+
+#add-bill-button-container button#add-bill:hover {
+	transform: scale(1.1);
 	cursor: pointer;
 }

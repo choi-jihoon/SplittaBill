@@ -37,10 +37,10 @@ const SidePanel = ({ balance }) => {
 					<h4>Balance: {balance > 0 ? `$${balance}` : `-$${Math.abs(balance)}`} </h4>
 				</div>
 			</div>
+			<div id="add-bill-button-container">
+				<AddBillFormModal />
+			</div>
 			<div className="side-panel-buttons">
-				<div id="add-bill-button-container">
-					<AddBillFormModal />
-				</div>
 				<div id="add-friend-button-container">
 					<AddFriendFormModal />
 				</div>
