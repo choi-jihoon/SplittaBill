@@ -6,7 +6,23 @@ import { ReactComponent as Duck } from "../assets/white-geo.svg";
 import { Link } from "react-router-dom";
 
 import "./Splashpage.css";
+import { useState } from "react";
+import SignUpForm from "./auth/SignUpForm";
+import { Modal } from "../context/Modal";
 const SplashPage = () => {
+	const [showModal, setShowModal] = useState(false);
+	const modalHelper = () => {
+		setShowModal(true);
+		return (
+			<>
+				{showModal && (
+					<Modal onClose={() => setShowModal(false)}>
+						<SignUpForm />
+					</Modal>
+				)}
+			</>
+		);
+	};
 	return (
 		<>
 			<nav>
@@ -22,11 +38,11 @@ const SplashPage = () => {
 			<div className="splash-content">
 				<div className="gif"></div>
 				{/* <div className="test">TEST</div> */}
-				<h3>Start Splitting!</h3>
-				<div className="user-actions">
+				<div onClick={modalHelper}>Start Splitting!</div>
+				{/* <div className="user-actions">
 					<LoginFormModal />
 					<SignUpFormModal />
-				</div>
+				</div> */}
 			</div>
 			<Footer />
 		</>

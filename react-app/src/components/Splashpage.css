@@ -4,8 +4,8 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	color: #fff;
-	height: 10%;
-	min-height: 100px;
+	height: 10vh;
+	min-height: 80px;
 }
 
 .splash-content {
@@ -15,7 +15,9 @@ nav {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 	height: 80%;
+	max-height: 79vh;
 	min-height: 300px;
 }
 
@@ -39,15 +41,19 @@ nav {
 }
 
 footer {
-	min-height: 100px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: fit-content;
+	min-height: 10vh;
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--main-container);
-}
-svg:hover {
-	cursor: pointer;
+	padding: 10px;
 }
 
 /* .test {
@@ -71,13 +77,13 @@ svg:hover {
 	width: 80%;
 }
 
-footer {
-	display: flex;
-	flex-direction: column;
-}
-
 .individual-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.links > a > i {
+	font-size: 28px;
+	padding: 4px 8px;
 }

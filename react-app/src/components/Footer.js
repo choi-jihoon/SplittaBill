@@ -1,7 +1,7 @@
 const Footer = () => {
 	return (
 		<footer>
-			<h2>Connect with us!</h2>
+			<h3>Connect with us!</h3>
 			<div className="links-container">
 				<div className="individual-container">
 					FIONA
