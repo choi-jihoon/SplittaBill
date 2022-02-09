@@ -29,7 +29,6 @@
 	width: 200px;
 	height: 30px;
 	text-align: center;
-	/* border: 1px solid black; */
 	color: #fff;
 	background-color: #000;
 	border-radius: 7px;
@@ -59,29 +58,6 @@
 	cursor: pointer;
 	border: 1px solid #000;
 }
-
-.pic-and-name-div {
-	display: flex;
-	align-items: center;
-	padding: 20px;
-}
-
-.profile-pic-div {
-	width: 78px;
-	height: 78px;
-	border-radius: 50%;
-	overflow: hidden;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.profile-pic {
-	height: 100%;
-	position: absolute;
-}
-
 
 .side-panel-buttons {
 	align-self: center;
@@ -154,8 +130,6 @@
 
 .pic-and-name-div {
 	display: flex;
-	align-items: center;
-	flex-direction: column;
 	padding-top: 20px;
 }
 
@@ -206,17 +180,19 @@
 	position: absolute;
 }
 
-#curr-user {
-	padding-top: 15px;
-	margin: 0 auto;
+.username-balance-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 15px;
 }
 
-.user-balance {
-	margin: 10px 0;
+.username-balance-div h3 {
+	padding-bottom: 5px;
 }
+
 
 .side-panel-buttons {
-	align-self: center;
 	height: 100px;
 	width: 60%;
 	display: flex;

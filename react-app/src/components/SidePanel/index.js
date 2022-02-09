@@ -32,11 +32,11 @@ const SidePanel = ({ balance }) => {
 					></img>
 					<EditUserModal user={sessionUser} />
 				</div>
-				<div id="curr-user" style={{ marginRight: 4 }}>
-					<h2>{sessionUser.username}</h2>
+				<div className="username-balance-div" >
+					<h3>{sessionUser.username}</h3>
+					<h4>Balance: {balance > 0 ? `$${balance}` : `-$${Math.abs(balance)}`} </h4>
 				</div>
 			</div>
-			<div className="user-balance">Balance: {balance > 0 ? `$${balance}` : `-$${Math.abs(balance)}`}</div>
 			<div className="side-panel-buttons">
 				<div id="add-bill-button-container">
 					<AddBillFormModal />
