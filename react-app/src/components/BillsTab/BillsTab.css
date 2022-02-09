@@ -30,6 +30,7 @@
 	transition: background-color 0.2s ease-in-out;
 
 	height: 150px;
+	min-width: 828px;
 }
 
 .bill-container:hover {
