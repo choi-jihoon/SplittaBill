@@ -132,6 +132,8 @@ a:active {
 
 	width: fit-content;
 	height: fit-content;
+
+	position: relative;
 }
 
 .form-input-container {

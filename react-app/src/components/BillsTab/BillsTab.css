@@ -163,3 +163,11 @@ button#delete-bill:hover {
 .settled-false {
 	padding-left: 15px;
 }
+
+.edit-form > .edit-delete-bill-buttons-container {
+	opacity: 1;
+}
+
+#delete-bill-on-edit-form > #delete-bill > .delete-bill-icon {
+	z-index: 20;
+}
