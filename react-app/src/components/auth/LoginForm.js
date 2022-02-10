@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
@@ -16,20 +16,17 @@ const LoginForm = () => {
 		e.preventDefault();
 		const data = await dispatch(login(email, password));
 		if (data) {
-
-			const dataArr = data.map(error => {
-				return error.split(":")
-			})
+			const errors = {};
+			const dataArr = data.map(error => error.split(":"));
 
 			for (let i = 0; i < dataArr.length; i++) {
 				errors[dataArr[i][0]] = dataArr[i][1]
 			}
 
+			setErrors(errors);
 			return
 		}
 	};
-
-
 
 
 	const updateEmail = (e) => {
@@ -39,6 +36,11 @@ const LoginForm = () => {
 	const updatePassword = (e) => {
 		setPassword(e.target.value);
 	};
+
+
+	useEffect(() => {
+		setErrors(errors)
+	}, [errors])
 
 	if (user) {
 		return <Redirect to="/" />;

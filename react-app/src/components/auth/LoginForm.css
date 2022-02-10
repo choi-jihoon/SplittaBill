@@ -13,8 +13,12 @@
 	padding: 10px 0;
 }
 
+.signup-element-container {
+	padding: 5px 0;
+}
+
 .login-form > .login-element-container > input,
-.signup-form > input {
+.signup-form > .signup-element-container > input {
 	width: 280px;
 	height: 35px;
 	/* margin: 5px; */
