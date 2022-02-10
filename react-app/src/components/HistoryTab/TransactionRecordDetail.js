@@ -6,11 +6,17 @@ const TransactionRecordDetail = ({ record }) => {
     let payer;
     let recipient;
     let amountColor;
+    let imageBubble = "";
+    let imageAlt = ""
 
     if (record.payer_name === sessionUser.username) {
+        imageBubble = record.recipient_image;
+        imageAlt = record.recipient_name + "-pic";
         payer = "You"
         amountColor = "negative-payment"
     } else {
+        imageBubble = record.payer_image;
+        imageAlt = record.payer_name + "-pic";
         payer = record.payer_name
         amountColor = "positive-payment"
     }
@@ -23,17 +29,19 @@ const TransactionRecordDetail = ({ record }) => {
 
     return (
         <div className='transaction-record-detail-container'>
-            <div className='record-date'>
-                {record.created_at.slice(0,16)}
-            </div>
-            <div className='record-text'>
-                <h3>
-                    <span><i className="fas fa-coins"></i> </span>
-                    <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
-                    <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
-                    for <span className="bold">{record.transaction_description}</span>
+            <div className="record-image-text">
+                <img src={imageBubble} alt={imageAlt} />
+                <div className='record-text'>
+                    <h3>
+                        <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
+                        <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
+                        for <span className="bold">{record.transaction_description}</span>
 
-                </h3>
+                    </h3>
+                </div>
+                <div className='record-date'>
+                    <p>{record.created_at.slice(0,16)}</p>
+                </div>
             </div>
         </div>
     )
