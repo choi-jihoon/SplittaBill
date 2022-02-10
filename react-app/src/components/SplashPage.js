@@ -55,7 +55,7 @@ const SplashPage = () => {
 						<span> a meal</span>
 					</div>
 				</div>
-				<div className="start-split-button" onClick={modalHelper}>
+				<div className="start-split-button bold" onClick={modalHelper}>
 					Start Splitting!
 				</div>
 				{/* <div className="user-actions">

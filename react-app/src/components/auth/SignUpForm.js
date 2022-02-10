@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
 import DemoLogin from "./DemoLogin";
-import "./LoginForm.css";
+import "./SignupForm.css";
 const SignUpForm = () => {
 	const [errors, setErrors] = useState({});
 	const [username, setUsername] = useState("");
@@ -77,86 +77,89 @@ const SignUpForm = () => {
 
 	return (
 		<form onSubmit={onSignUp} className="signup-form">
-			<div className="modal-head">Signup</div>
-			{/* <div>
-				{errors.map((error, ind) => (
-					<div key={ind}>{error}</div>
-				))}
-			</div> */}
-			<div className='signup-element-container'>
-				<input
-					type="text"
-					name="username"
-					onChange={updateUsername}
-					placeholder="Username"
-					value={username}
-				></input>
-				<div className='errors-container'>
-					{errors.username ? `${errors.username}` : ""}
+			<div className="modal-head sign-up-modal-head">Sign Up for SplitaBill</div>
+			<div className='signup-form-elements-container'>
+				<div className='sf-form-inputs-container'>
+					<div className='signup-element-container'>
+						<input
+							type="text"
+							name="username"
+							onChange={updateUsername}
+							placeholder="Username"
+							value={username}
+						></input>
+						<div className='errors-container'>
+							{errors.username ? `${errors.username}` : ""}
+						</div>
+					</div>
+
+					<div className='signup-element-container'>
+						<input
+							type="text"
+							name="email"
+							placeholder="Email"
+							onChange={updateEmail}
+							value={email}
+						></input>
+						<div className='errors-container'>
+							{errors.email ? `${errors.email}` : ""}
+						</div>
+					</div>
+
+					<div className='signup-element-container'>
+						<input
+							type="password"
+							name="password"
+							placeholder="Password"
+							onChange={updatePassword}
+							value={password}
+						></input>
+					</div>
+
+					<div className='signup-element-container'>
+						<input
+							type="password"
+							name="repeat_password"
+							placeholder="Confirm Password"
+							onChange={updateRepeatPassword}
+							value={repeatPassword}
+							required={true}
+						></input>
+						<div className='errors-container'>
+							{errors.password ? `${errors.password}` : ""}
+						</div>
+					</div>
+				</div>
+
+				<div className='sf-add-image-container'>
+					<input
+						id="file-upload"
+						type="file"
+						accept="image/*"
+						onChange={updateImage}
+					></input>
+					<div className="preview-container">
+						{image && (
+							<img
+							alt="preview"
+							src={URL.createObjectURL(image)}
+							className="preview-image"
+							></img>
+							)}
+					</div>
+					<label htmlFor="file-upload">Add Profile Image</label>
+					{imageLoading && (
+						<p>
+							<i class="fas fa-spinner fa-pulse"></i>
+						</p>
+					)}
 				</div>
 			</div>
 
-			<div className='signup-element-container'>
-				<input
-					type="text"
-					name="email"
-					placeholder="Email"
-					onChange={updateEmail}
-					value={email}
-				></input>
-				<div className='errors-container'>
-					{errors.email ? `${errors.email}` : ""}
-				</div>
+			<div className='sf-btn-container'>
+				<button type="submit">Sign Up</button>
+				<DemoLogin />
 			</div>
-
-			<div className='signup-element-container'>
-				<input
-					type="password"
-					name="password"
-					placeholder="Password"
-					onChange={updatePassword}
-					value={password}
-				></input>
-			</div>
-
-			<div className='signup-element-container'>
-				<input
-					type="password"
-					name="repeat_password"
-					placeholder="Confirm Password"
-					onChange={updateRepeatPassword}
-					value={repeatPassword}
-					required={true}
-				></input>
-				<div className='errors-container'>
-					{errors.password ? `${errors.password}` : ""}
-				</div>
-			</div>
-
-			<label htmlFor="file-upload">Add Profile Image</label>
-			<input
-				id="file-upload"
-				type="file"
-				accept="image/*"
-				onChange={updateImage}
-			></input>
-			<div className="preview-container">
-				{image && (
-					<img
-						alt="preview"
-						src={URL.createObjectURL(image)}
-						className="preview-image"
-					></img>
-				)}
-			</div>
-			<button type="submit">Sign Up</button>
-			{imageLoading && (
-				<p>
-					<i class="fas fa-spinner fa-pulse"></i>
-				</p>
-			)}
-
-			<DemoLogin />
 		</form>
 	);
 };

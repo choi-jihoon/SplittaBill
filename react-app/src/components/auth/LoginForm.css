@@ -1,5 +1,12 @@
-.login-form,
-.signup-form {
+.modal-head {
+	font-family: var(--brand-font);
+	font-weight: 700;
+	font-size: 25px;
+	color: var(--dark-blue);
+	padding-bottom: 10px;
+}
+
+.login-form {
 	width: 100%;
 	height: fit-content;
 	padding: 30px;
@@ -13,12 +20,8 @@
 	padding: 10px 0;
 }
 
-.signup-element-container {
-	padding: 5px 0;
-}
 
-.login-form > .login-element-container > input,
-.signup-form > .signup-element-container > input {
+.login-form > .login-element-container > input {
 	width: 280px;
 	height: 35px;
 	/* margin: 5px; */
@@ -27,70 +30,28 @@
 	border-radius: 7px;
 	padding: 4px;
 }
-.login-form > button,
-.signup-form > button {
+
+.login-form > button {
 	width: 200px;
-	height: 30px;
+	/* height: 30px; */
 	color: var(--dark-blue);
+	padding: 5px 30px;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 17px;
 	background-color: var(--saffron-yellow);
 	/* border: 1px solid var(--jet-grey); */
 	border: none;
 	border-radius: 40px;
-	margin: 20px auto 0px auto;
+	/* margin: 20px auto 0px auto; */
+	margin: 5px 0;
 	transition: all 0.2s ease-in-out;
 }
-.login-form > button:hover,
-.signup-form > button:hover {
+
+.login-form > button:hover {
 	transform: scale(1.1);
 	cursor: pointer;
 	background-color: var(--dark-blue);
 	color: var(--main-container);
 	/* border: 2px solid var(--dark-blue); */
 	/* transition: background-color 0.2s ease-in-out; */
-}
-
-.signup-form > input[type="file"] {
-	display: none;
-}
-.signup-form > label {
-	/* border: 1px solid black; */
-	background-color: var(--saffron-yellow);
-	color: var(--dark-blue);
-	font-weight: bold;
-	font-size: 14px;
-	/* border: 1px solid var(--jet-grey); */
-	width: 200px;
-	text-align: center;
-	height: 30px;
-	border-radius: 40px;
-	padding: 4px 4px;
-	transition: all 0.2s ease-in-out;
-	margin-top: 14px;
-}
-.signup-form > label:hover {
-	cursor: pointer;
-	transform: scale(1.1);
-	/* border: 1px solid var(--dark-blue); */
-	background-color: var(--dark-blue);
-	color: var(--main-container);
-}
-.preview-container {
-	margin-top: 20px;
-	width: 100px;
-	height: 100px;
-	max-height: 100px;
-	border-radius: 50%;
-	object-fit: cover;
-	background-color: var(--transparent-hover);
-}
-
-.preview-image,
-.preview-container {
-	width: 100px;
-	height: 100px;
-	max-height: 100px;
-	border-radius: 50%;
-	object-fit: cover;
 }

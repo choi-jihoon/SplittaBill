@@ -9,7 +9,7 @@
 	transition: background-color 0.2s ease-in-out;
 
 	height: 100px;
-	min-width: 642px;
+	min-width: 760px;
 }
 
 .transaction-record-detail-container:hover {
