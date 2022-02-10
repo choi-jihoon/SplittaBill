@@ -202,11 +202,12 @@ a:active {
 .friend-name-checkbox-container {
 	display: flex;
 	align-items: center;
-	padding-bottom: 10px;
+	margin-bottom: 5px;
+	padding-left: 10px;
 }
 
 .friend-name-checkbox-container:hover {
-	background-color: var(--transparent-hover);
+	background-color: rgba(0, 0, 0, 0.151);
 }
 
 .form-friend-name {
