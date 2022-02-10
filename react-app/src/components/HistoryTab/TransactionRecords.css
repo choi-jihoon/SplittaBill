@@ -1,21 +1,28 @@
 .transaction-record-detail-container {
+	border-bottom: 1px solid gray;
 	margin: 0 auto;
-    padding: 40px;
+	display: flex;
+	justify-content: space-between;
+	width: 75%;
+	min-width: 760px;
+
+}
+
+.record-image-text {
+	margin: 0 auto;
+	padding: 40px;
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 75%;
-	border-bottom: 1px solid gray;
-	transition: background-color 0.2s ease-in-out;
-
 	height: 100px;
 	min-width: 760px;
 }
 
-.transaction-record-detail-container:hover {
-	cursor: default;
-}
 
+.record-date {
+	margin: auto ;
+	margin-right: 0px;
+}
 .transaction-record-detail-container img {
 	width: 50px;
 	height: 50px;
@@ -23,12 +30,7 @@
 	object-fit: cover;
 }
 
-.record-date {
-	margin: auto;
-	position: relative;
-	left: 20%;
 
-}
 
 .record-text {
 	padding-left: 60px;

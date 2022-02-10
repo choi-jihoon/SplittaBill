@@ -29,14 +29,16 @@ const TransactionRecordDetail = ({ record }) => {
 
     return (
         <div className='transaction-record-detail-container'>
-            <img src={imageBubble} alt={imageAlt} />
-            <div className='record-text'>
-                <h3>
-                    <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
-                    <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
-                    for <span className="bold">{record.transaction_description}</span>
+            <div className="record-image-text">
+                <img src={imageBubble} alt={imageAlt} />
+                <div className='record-text'>
+                    <h3>
+                        <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
+                        <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
+                        for <span className="bold">{record.transaction_description}</span>
 
-                </h3>
+                    </h3>
+                </div>
                 <div className='record-date'>
                     <p>{record.created_at.slice(0,16)}</p>
                 </div>
