@@ -69,6 +69,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+
 }
 .side-panel {
 	display: flex;
@@ -215,7 +216,7 @@
 	transition: all 0.2s ease-in-out;
 	font-size: 16px;
 	text-align: start;
-	padding: 5px;
+	padding: 5px 5px 5px 15px;
 	margin: 5px 0;
 }
 
