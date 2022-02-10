@@ -38,7 +38,7 @@ const BillDetailsExpenses = ({ expense }) => {
                     </div>
                 </div>
                 <div className='bde-payment-settled-info'>
-                    <div className='bde-paid-text'>
+                    <div className={expense.settled ? 'bde-paid-text' : 'bde-paid-text bde-not-paid'}>
                         paid ${amount_paid} out of ${expense.initial_charge}
                     </div>
                     <div className='bde-settled-true-or-false'>

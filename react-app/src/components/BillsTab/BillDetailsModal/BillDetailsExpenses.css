@@ -51,6 +51,10 @@ img.bill-profile-pic {
     right: 20px;
 }
 
+.bde-not-paid {
+    color: var(--red-salsa);
+}
+
 .bde-settled-true-or-false {
     position: absolute;
     right: 0;
@@ -62,4 +66,5 @@ img.bill-profile-pic {
 
 .bde-settled-false {
     color: var(--red-salsa);
+    visibility: hidden;
 }
