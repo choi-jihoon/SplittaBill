@@ -33,7 +33,7 @@ const EditBillForm = ({ showModal, bill }) => {
 
 	const notify = () => {
 		toast.success(`Bill successfully edited!`, {
-			position: toast.POSITION.TOP_CENTER,
+			position: toast.POSITION.TOP_RIGHT,
 			autoClose: 2000,
 		});
 	};

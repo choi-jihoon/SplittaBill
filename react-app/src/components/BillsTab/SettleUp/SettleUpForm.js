@@ -20,7 +20,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 	const notify = () => {
 		toast.success(`You paid $${amount_paid}!`,
 			{
-				position: toast.POSITION.TOP_CENTER,
+				position: toast.POSITION.TOP_RIGHT,
 				autoClose: 2000
 			})
 	}

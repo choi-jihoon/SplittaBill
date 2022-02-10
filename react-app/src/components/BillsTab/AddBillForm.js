@@ -30,9 +30,9 @@ const AddBillForm = ({ showModal }) => {
 	const [friends, setFriends] = useState([])
 
 	const notify = () => {
-		toast(`Bill for ${description} added!`,
+		toast.success(`Bill for ${description} added!`,
 			{
-				position: toast.POSITION.TOP_CENTER,
+				position: toast.POSITION.TOP_RIGHT,
 				autoClose: 2000
 			})
 	}

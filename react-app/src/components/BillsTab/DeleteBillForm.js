@@ -17,7 +17,7 @@ function DeleteBillForm({ showModal, billId }) {
     const notify = () => {
 		toast.error(`Bill deleted.`,
 			{
-				position: toast.POSITION.TOP_CENTER,
+				position: toast.POSITION.TOP_RIGHT,
 				autoClose: 2000
 			})
 	}
