@@ -161,10 +161,10 @@ footer {
 	font-size: 80px;
 }
 .words-wrapper > p {
-	/* font-family: Optima; */
+	font-family: var(--brand-font);
 }
 .words-wrapper > div > span {
-	/* font-family: Optima; */
+	font-family: var(--brand-font);
 	display: flex;
 	flex-direction: column;
 	height: 200%;
@@ -174,7 +174,7 @@ footer {
 	margin-right: auto;
 	color: var(--saffron-yellow);
 	font-size: 80px;
-	animation: spin_words 10s infinite;
+	animation: spin_words 20s infinite;
 }
 
 @keyframes spin_words {
