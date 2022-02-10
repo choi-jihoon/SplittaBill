@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
 import AddFriendFormModal from "../FriendsTab/AddFriendForm/AddFriendFormModal";
 import AddBillFormModal from "../BillsTab/AddBillFormModal";
+import EditUserModal from "./EditUserModal";
+import AboutLinks from "./AboutLinks";
 
 import { ReactComponent as Logo } from "../../assets/white-split.svg";
 import { ReactComponent as Duck } from "../../assets/white-geo.svg";
 
 import "./SidePanel.css";
-import EditUserModal from "./EditUserModal";
 
 const SidePanel = ({ balance }) => {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -48,6 +49,7 @@ const SidePanel = ({ balance }) => {
 					<LogoutButton />
 				</div>
 			</div>
+			<AboutLinks />
 		</div>
 	);
 };

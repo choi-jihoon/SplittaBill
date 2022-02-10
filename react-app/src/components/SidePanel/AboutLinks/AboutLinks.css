@@ -1,0 +1,8 @@
+.side-panel-about-container {
+    align-self: flex-start;
+    margin-top: 50%;
+}
+
+.side-panel-about-container h4 {
+    padding-bottom: 10px;
+}
