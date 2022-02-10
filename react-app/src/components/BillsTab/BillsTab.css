@@ -39,9 +39,7 @@
 
 }
 
-.bill-pic-div {
-	/* min-width: 78px; */
-}
+
 
 .profile-pic-div .bill-profile-pic {
 	width: 50px;
@@ -71,22 +69,15 @@
 	font-family: 'Mukta', sans-serif;
 }
 
-.bill-description > p {
-	overflow: hidden;
-	white-space: nowrap;
-	max-width: 300px;
-}
 
 .testing-ellipses {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	max-width: 300px;
 
 }
 
-/* .testing-ellipses:hover {
-	overflow:visible;
-} */
 
 
 .bill-total-amount {
