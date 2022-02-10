@@ -37,6 +37,7 @@ font-family: 'Mukta', sans-serif
 
 :root {
 	--base-font: proxima-nova, sans-serif;
+	/* --base-font: mixta-pro, serif; */
 	--side-panel: #1d3461;
 	--side-panel-font-color: #ebebd3;
 	--main-container: #ebebd3;
@@ -132,6 +133,8 @@ a:active {
 
 	width: fit-content;
 	height: fit-content;
+
+	position: relative;
 }
 
 .form-input-container {

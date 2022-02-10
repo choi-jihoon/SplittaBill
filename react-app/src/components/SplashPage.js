@@ -29,7 +29,7 @@ const SplashPage = () => {
 			<nav>
 				<div className="logo">
 					<Logo />
-					<Duck />
+					{/* <Duck /> */}
 				</div>
 				<div className="user-actions">
 					<LoginFormModal />
@@ -37,8 +37,24 @@ const SplashPage = () => {
 				</div>
 			</nav>
 			<div className="splash-content">
-				<div className="gif"></div>
-				{/* <div className="test">TEST</div> */}
+				{/* <div className="gif"></div> */}
+				{/* <div className="duck-div"><Duck /></div> */}
+				<div className="words-wrapper">
+					<p>split</p>
+					<div>
+						<span> a meal</span>
+						<span style={{ color: "var(--dark-blue)" }}>
+							{" "}
+							a bill
+						</span>
+						<span> a tab</span>
+						<span> a trip</span>
+						<span> a ride</span>
+						<span> rent</span>
+						{/* <span> a bill</span> */}
+						<span> a meal</span>
+					</div>
+				</div>
 				<div className="start-split-button" onClick={modalHelper}>
 					Start Splitting!
 				</div>
