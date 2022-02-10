@@ -49,18 +49,14 @@ const LoginForm = () => {
 	return (
 		<form onSubmit={onLogin} className="login-form">
 			<div className="modal-head">Login</div>
-			{/* <div>
-				{errors.map((error, ind) => (
-					<div key={ind}>{error}</div>
-				))}
-			</div> */}
 			<div className='login-element-container'>
 				<input
 					name="email"
-					type="text"
+					type="email"
 					placeholder="Email"
 					value={email}
 					onChange={updateEmail}
+					required={true}
 				/>
 				<div className='errors-container'>
 					{errors.email ? `${errors.email}` : ""}
@@ -74,6 +70,7 @@ const LoginForm = () => {
 					placeholder="Password"
 					value={password}
 					onChange={updatePassword}
+					required={true}
 				/>
 				<div className='errors-container'>
 					{errors.password ? `${errors.password}` : ""}

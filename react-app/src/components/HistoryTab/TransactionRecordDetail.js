@@ -32,7 +32,7 @@ const TransactionRecordDetail = ({ record }) => {
             <div className="record-image-text">
                 <img src={imageBubble} alt={imageAlt} />
                 <div className='record-text'>
-                    <h3>
+                    <h3 className="testing-ellipses">
                         <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
                         <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
                         for <span className="bold">{record.transaction_description}</span>
