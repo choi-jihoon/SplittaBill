@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Friend from "./Friend";
 import { getUsersFriends } from "../../store/friends";
+import EmptyFriendsTab from "./EmptyFriendsTab";
 
-const FriendsTab = (props) => {
+const FriendsTab = () => {
 	const dispatch = useDispatch();
 	const friendsById = useSelector((state) => state.friends.byId);
 	const friends = Object.values(friendsById);
@@ -19,6 +20,7 @@ const FriendsTab = (props) => {
 					<Friend key={`friend${index}`} username={friend_name} balance={balance} id={id} friendId={friend_id} image={friend_image}/>
 				))}
 			</div>
+			{!friends.length && <EmptyFriendsTab />}
 		</div>
 	);
 };
