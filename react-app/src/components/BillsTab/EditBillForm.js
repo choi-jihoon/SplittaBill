@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { editBill, getUserBalance } from "../../store/bills";
 
 
+
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import DeleteBillModal from "./DeleteBillModal";
 
 toast.configure()
 
@@ -107,9 +111,19 @@ const EditBillForm = ({ showModal, bill }) => {
 		setFriends((prev) => prev = currFriends);
 	}
 
+	const handleClick = (e) => {
+		e.preventDefault()
+		e.stopPropagation()
+	}
+
 
 	return (
-		<form className='form-container bill-form' onSubmit={handleSubmit}>
+		<form className='form-container bill-form edit-form' onSubmit={handleSubmit}>
+			<div className='edit-delete-bill-buttons-container'>
+				<div className='delete-bill-button-container' id='delete-bill-on-edit-form'>
+					<DeleteBillModal handleClick={handleClick} billId={bill.id} />
+				</div>
+			</div>
 			{/* <div className='errors-container'>
 				{errors.map((error, ind) => (
 					<div className='error-msg' key={ind}>{error}</div>
@@ -203,13 +217,13 @@ const EditBillForm = ({ showModal, bill }) => {
 							className='bill-form-submit-btn'
 							type="submit">Save</button>
 					</div>
-					<div className='btn-container'>
+					{/* <div className='btn-container'>
 						<button
 							className='bill-form-delete-btn'
 							onClick={modalHelper}
 							type='button'
 							>Delete</button>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</form>
