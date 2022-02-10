@@ -1,22 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect } from 'react-router-dom';
-import { removeFriend } from "../../../store/friends";
 import { Modal } from "../../../context/Modal";
 import FriendDetails from '../FriendDetailsModal/';
+import DeleteFriendModal from '../DeleteFriendModal';
 import "./Friend.css";
 
 const Friend = ({id, friendId, image, username, balance}) => {
-	const dispatch = useDispatch();
 	const [showModal, setShowModal] = useState(false);
 	image = image ? image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
-
-	const onRemoveFriend = async (e) => {
-		e.preventDefault();
-		e.stopPropagation();
-		await dispatch(removeFriend(id));
-		return <Redirect to="/friends" />;
-	}
 
 	return (
 		<>
@@ -33,7 +24,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 					}
 				</div>
 				{parseFloat(balance) === 0 ? (
-					<button onClick={onRemoveFriend} id="remove-friend"className="remove-friend-btn"><i className="fas fa-user-times"></i></button>
+					<DeleteFriendModal id={id} onClick={(e) => {e.stopPropagation(); setShowModal(false)}}/>
 					): <p></p>}
 
 
