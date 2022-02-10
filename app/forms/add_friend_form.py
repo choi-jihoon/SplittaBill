@@ -27,5 +27,10 @@ def user_is_not_yourself(form, field):
     if current_user.username == username:
         raise ValidationError("You cannot add yourself as a friend.")
 
+def user_is_not_demo_user(form, field):
+    username = field.data
+    if username == "Demouser" and current_user.username != "Demouser":
+        raise ValidationError("Sorry, you can't add the Demouser as a friend!")
+
 class AddFriendForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), user_exists, user_is_not_friend, user_is_not_yourself])
+    username = StringField('Username', validators=[DataRequired(), user_exists, user_is_not_friend, user_is_not_yourself, user_is_not_demo_user])

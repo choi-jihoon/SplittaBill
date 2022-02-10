@@ -29,6 +29,10 @@
     opacity: 1;
 }
 
+.friend-container span {
+    font-family: var(--brand-font);
+}
+
 .friend-container h3 {
     font-weight: normal;
 }
