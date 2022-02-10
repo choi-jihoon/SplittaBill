@@ -73,6 +73,7 @@ export const getUserBalance = (id) => async (dispatch) => {
         dispatch(loadUserBalance(data))
     } else {
         const errors = await response.json()
+        return errors;
         // console.log(errors.errors);
     }
 }
@@ -87,6 +88,7 @@ export const getTransactionRecords = () => async (dispatch) => {
         dispatch(loadTransactions(data.transaction_records))
     } else {
         const errors = await response.json()
+        return errors;
         // console.log(errors.errors);
     }
 }
@@ -125,7 +127,8 @@ export const getTransactionsForFriend = (id) => async (dispatch) => {
         const data = await response.json()
         dispatch(load_transactions_for_one_friend(data, id))
     } else {
-        const errors = await response.json()
+        const errors = await response.json();
+        return errors;
         // console.log(errors.errors);
     }
 }
@@ -138,6 +141,7 @@ export const getBills = () => async (dispatch) => {
         dispatch(load(bills.all_bills))
     } else {
         const errors = await response.json()
+        return errors;
         // console.log(errors.errors);
     }
 }
@@ -148,7 +152,8 @@ export const getUserExpenses = () => async (dispatch) => {
         const user_expenses = await response.json()
         dispatch(load_user_expenses(user_expenses.expenses))
     } else {
-        const errors = await response.json()
+        const errors = await response.json();
+        return errors;
         // console.log(errors.errors);
     }
 }
@@ -159,7 +164,8 @@ export const getExpensesForBill = (billId) => async (dispatch) => {
         const data = await response.json()
         dispatch(load_expenses_for_one_bill(data))
     } else {
-        const errors = await response.json()
+        const errors = await response.json();
+        return errors;
         // console.log(errors.errors);
     }
 }
