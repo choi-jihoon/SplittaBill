@@ -18,6 +18,10 @@
 	min-width: 760px;
 }
 
+.record-text > h3.testing-ellipses {
+	max-width: 400px;
+}
+
 
 .record-date {
 	margin: auto ;

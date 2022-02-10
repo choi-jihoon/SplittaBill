@@ -87,6 +87,8 @@ const SignUpForm = () => {
 							onChange={updateUsername}
 							placeholder="Username"
 							value={username}
+							required={true}
+
 						></input>
 						<div className='errors-container'>
 							{errors.username ? `${errors.username}` : ""}
@@ -95,11 +97,13 @@ const SignUpForm = () => {
 
 					<div className='signup-element-container'>
 						<input
-							type="text"
+							type="email"
 							name="email"
 							placeholder="Email"
 							onChange={updateEmail}
 							value={email}
+							required={true}
+
 						></input>
 						<div className='errors-container'>
 							{errors.email ? `${errors.email}` : ""}
@@ -113,6 +117,8 @@ const SignUpForm = () => {
 							placeholder="Password"
 							onChange={updatePassword}
 							value={password}
+							required={true}
+
 						></input>
 					</div>
 
