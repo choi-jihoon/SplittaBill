@@ -9,6 +9,7 @@
 	padding: 40px;
 	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
+	height: 100vh;
 }
 .edit-image-form {
 	display: flex;
@@ -69,7 +70,6 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-
 }
 .side-panel {
 	display: flex;
@@ -174,7 +174,7 @@
 	width: 100%;
 	height: 100%;
 	font-size: 20px;
-	background-color:  rgba(235, 235, 211, 0.3);
+	background-color: rgba(235, 235, 211, 0.3);
 	border: 2px solid var(--side-panel-font-color);
 	border-radius: 50%;
 	display: none;
@@ -195,7 +195,6 @@
 .username-balance-div h3 {
 	padding-bottom: 5px;
 }
-
 
 .side-panel-buttons {
 	height: 100px;
@@ -226,8 +225,7 @@
 	cursor: pointer;
 }
 
-
-#add-bill-button-container  #add-bill{
+#add-bill-button-container #add-bill {
 	margin: 20px 0px;
 	border: none;
 	width: 250px;
@@ -238,7 +236,6 @@
 	text-align: center;
 	transition: all 0.2s ease-in-out;
 	font-size: 18px;
-
 }
 
 #add-bill-button-container button#add-bill:hover {

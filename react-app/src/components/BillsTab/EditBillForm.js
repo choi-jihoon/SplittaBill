@@ -108,7 +108,6 @@ const EditBillForm = ({ showModal, bill }) => {
 		setFriends((prev) => (prev = currFriends));
 	};
 
-
 	return (
 		<form
 			className="form-container bill-form edit-form"
@@ -185,10 +184,15 @@ const EditBillForm = ({ showModal, bill }) => {
 				</div>
 			</div>
 			<div className="form-element form-friends-list">
-				<div className="form-label form-label-friends">Split between:</div>
+				<div className="form-label form-label-friends">
+					Split between:
+				</div>
 				{allFriends.map((friend) => {
 					return (
-						<div className="friend-name-checkbox-container">
+						<div
+							className="friend-name-checkbox-container"
+							key={friend.id}
+						>
 							<div className="friends-checkboxes" key={friend.id}>
 								<input
 									type="checkbox"
