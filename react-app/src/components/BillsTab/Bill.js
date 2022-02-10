@@ -31,7 +31,7 @@ const Bill = ({ bill }) => {
 						</div>
 						<h2 className='bill-description'>
 							<span className='invoice-icon'><i className="fas fa-file-invoice-dollar"></i></span>
-							{bill.description}
+							<p class='testing-ellipses'>{bill.description}</p>
 						</h2>
 					</div>
 					<div className='bill-total-amount brand-font positive-payment'>

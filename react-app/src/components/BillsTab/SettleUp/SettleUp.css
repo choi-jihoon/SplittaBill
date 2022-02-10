@@ -1,7 +1,7 @@
 .settle-up-container {
 	position: absolute;
 	z-index: 2;
-	right: 3%;
+	right: 15%;
 
 }
 
@@ -40,7 +40,15 @@
 
 
 
+.duck-gif-container {
+    background-image: url("../../../assets/duckmoney.gif");
+    width: 226px;
+    height: 226px;
+    background-size:contain;
+    border-radius: 15px;
 
+
+}
 
 .bde-settle-up-modal-btn > #settle-up {
     font-size: 25px;
@@ -51,47 +59,76 @@
 
 .settle-up-form-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: space-between;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    align-items: center;
     padding: 40px;
-    height: 300px;
+
+    height: fit-content;
+    width: auto;
+
 }
 
 .settle-up-input-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 30px;
+
+    height: 250px;
+
 }
 
+
+
 .settle-up-dollar-sign {
-    font-size: 70px;
+    font-size: 45px;
+    color: var(--jet-grey);
+    left: 50px;
 }
 
 input#settle-up-input {
-    border-radius: 5px;
-	border: 0.5px solid black;
+
+	border: 0.5px solid var(--jet-grey);
 	padding: 5px 5px 5px 55px;
-    height: 100px;
-    font-size: 70px;
-    width: 400px;
+    height: 70px;
+    font-size: 40px;
+    width: 100%;
+    border-radius: 10px;
+
+    color: var(--jet-grey);
 
 }
 
-.settle-up-submit-btn {
+.su-btn-container {
+    width: 100%;
+}
+
+.settle-up-submit-btn,
+#settle-up-cancel {
     background-color: var(--dark-green);
     border: var(--dark-green);
     color: var(--main-container);
     border-radius: 30px;
     padding: 10px 0;
-    font-size: 18px;
+    font-size: 15px;
+
+    width: 100%;
 
     transition: all 0.2s ease-in-out;
+}
 
+.settle-up-submit-btn {
+    margin-bottom: 10px;
 }
 
 .settle-up-submit-btn:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+#settle-up-cancel {
+    width: 100%;
+    background-color: var(--dark-blue);
 }
