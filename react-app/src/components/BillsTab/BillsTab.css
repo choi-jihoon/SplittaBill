@@ -17,7 +17,7 @@
 
 	width: 75%;
 	height: 150px;
-	min-width: 840px;
+	min-width: 760px;
 }
 
 .bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
@@ -40,7 +40,7 @@
 }
 
 .bill-pic-div {
-	min-width: 78px;
+	/* min-width: 78px; */
 }
 
 .profile-pic-div .bill-profile-pic {
