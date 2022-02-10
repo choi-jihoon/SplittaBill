@@ -1,0 +1,116 @@
+.signup-form {
+	width: 500px;
+	height: fit-content;
+	padding: 30px;
+	display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.sign-up-modal-head {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.signup-form-elements-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.signup-element-container {
+	padding: 5px 0;
+}
+
+.signup-element-container > input {
+	height: 35px;
+	font-size: 18px;
+	border: 1px solid var(--jet-grey);
+	border-radius: 7px;
+	padding: 4px;
+}
+
+.sf-add-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sf-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.sf-btn-container > button {
+	width: 200px;
+	padding: 5px 30px;
+	color: var(--dark-blue);
+	font-weight: bold;
+	font-size: 17px;
+	background-color: var(--saffron-yellow);
+	border: none;
+	border-radius: 40px;
+    margin: 5px 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.sf-add-image-container > label {
+    background-color: var(--dark-blue);
+    color: var(--main-container);
+    /* font-weight: bold; */
+    font-size: 16px;
+    width: 200px;
+    text-align: center;
+    height: 30px;
+    border-radius: 40px;
+    padding: 4px 4px;
+    transition: all 0.2s ease-in-out;
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sf-btn-container > button:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+
+.sf-add-image-container > label:hover {
+    cursor: pointer;
+	transform: scale(1.1);
+	background-color: var(--dark-blue);
+	color: var(--main-container);
+}
+
+
+
+
+
+
+.sf-add-image-container > input[type="file"] {
+    display: none;
+}
+
+.preview-container {
+	margin-top: 20px;
+	width: 100px;
+	height: 100px;
+	max-height: 100px;
+	border-radius: 50%;
+	object-fit: cover;
+	background-color: rgba(128, 128, 128, 0.363);
+}
+
+.preview-image,
+.preview-container {
+	width: 100px;
+	height: 100px;
+	max-height: 100px;
+	border-radius: 50%;
+	object-fit: cover;
+}
