@@ -1,0 +1,14 @@
+/* .whole-page-container {
+	background-color: var(--main-container);
+} */
+
+.error-page-container {
+	background-color: var(--main-container);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 100px;
+}

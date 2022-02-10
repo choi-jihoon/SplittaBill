@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-
 // import NavBar from './components/NavBar';
 // import ProtectedRoute from './components/auth/ProtectedRoute';
 // import UsersList from './components/UsersList';
@@ -11,6 +10,8 @@ import { authenticate } from "./store/session";
 
 import Dashboard from "./components/Dashboard";
 import SplashPage from "./components/SplashPage";
+import ErrorPage from "./components/ErrorPage";
+import FriendsTab from "./components/FriendsTab";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -32,8 +33,17 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path="/">
+				<Route exact path="/">
 					{sessionUser ? <Dashboard /> : <SplashPage />}
+				</Route>
+				<Route exact path="/friends">
+					{sessionUser ? <Dashboard /> : <SplashPage />}
+				</Route>
+				<Route exact path="/transaction-history">
+					{sessionUser ? <Dashboard /> : <SplashPage />}
+				</Route>
+				<Route>
+					<ErrorPage />
 				</Route>
 			</Switch>
 		</BrowserRouter>
