@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Modal } from "../../../context/Modal";
 import FriendDetails from '../FriendDetailsModal/';
 import DeleteFriendModal from '../DeleteFriendModal';

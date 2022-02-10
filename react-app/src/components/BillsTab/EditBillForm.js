@@ -65,19 +65,6 @@ const EditBillForm = ({ showModal, bill }) => {
 		showModal(false);
 	};
 
-	const modalHelper = () => {
-		const events = ["mousedown", "click", "mouseup"];
-		events.forEach((event) =>
-			document.querySelector("#delete-bill").dispatchEvent(
-				new MouseEvent(event, {
-					view: window,
-					bubbles: true,
-					cancelable: true,
-					buttons: 1,
-				})
-			)
-		);
-	};
 
 	useEffect(() => {
 		const errors = [];

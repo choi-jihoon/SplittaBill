@@ -53,7 +53,7 @@ const AddFriendForm = ({setShowModal}) => {
 				<i className="fas fa-minus"></i>
 			</button>
 			<h3>Add a Friend</h3>
-			<img id="friendly-duck" src="https://cdn4.iconfinder.com/data/icons/childhood-and-toys/53/26-512.png" />
+			<img alt="rubber ducky" id="friendly-duck" src="https://cdn4.iconfinder.com/data/icons/childhood-and-toys/53/26-512.png" />
 
 			<div className="friend-username-input-label">
 				<label htmlFor="username" className="form-label">Username</label>
@@ -76,7 +76,7 @@ const AddFriendForm = ({setShowModal}) => {
 			<button
 				type="submit"
 				className="friend-form-submit-btn"
-				disabled={Object.keys(errors).length > 0 || username.length == 0}>Submit</button>
+				disabled={Object.keys(errors).length > 0 || username.length === 0}>Submit</button>
 		</form>
 	);
 };
