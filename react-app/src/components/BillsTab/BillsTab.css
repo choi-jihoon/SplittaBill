@@ -66,6 +66,8 @@
 .bill-description {
 	font-size: 25px;
 	display: flex;
+	font-family: 'Mukta', sans-serif;
+
 }
 
 .bill-total-amount {

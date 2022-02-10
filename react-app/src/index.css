@@ -1,4 +1,39 @@
-@import url("https://use.typekit.net/kyk0anv.css");
+@import url("https://use.typekit.net/kyk0anv.css"); /* proxima */
+
+@import url("https://use.typekit.net/yoq5jqy.css");
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Bubblegum+Sans&family=Francois+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Redressed&family=Satisfy&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Lexend+Deca&family=Mukta&display=swap');
+
+
+
+/*
+font-family: 'Oleo Script', cursive;
+font-family: 'Redressed', cursive;
+font-family: 'Satisfy', cursive;
+
+font-family: 'Boogaloo', cursive;
+font-family: 'Bubblegum Sans', cursive;
+font-family: 'Francois One', sans-serif;
+
+font-family: "utopia-std",serif;
+font-family: "abril-text",serif;
+font-family: "abril-fatface",serif;
+font-family: "utopia-std-headline",serif;
+font-family: "utopia-std-subhead",serif;
+font-family: "mixta-pro",serif;
+font-family: "mixta-didone",serif;
+
+
+font-family: 'ABeeZee', sans-serif;
+font-family: 'Lexend Deca', sans-serif;
+font-family: 'Mukta', sans-serif
+
+
+*/
+
+
 
 :root {
 	--base-font: proxima-nova, sans-serif;
@@ -14,6 +49,8 @@
 	--saffron-yellow: #eac435;
 	--nav-yellow: 234, 196, 53;
 	--jet-grey: hsl(60, 1%, 23%);
+
+	--brand-font: 'Mukta', sans-serif;
 }
 
 *,
@@ -25,6 +62,7 @@ html {
 	text-decoration: none;
 	list-style-type: none;
 	font-family: proxima-nova, sans-serif;
+	/* font-family: 'Mukta', sans-serif; */
 }
 
 body,
@@ -32,6 +70,20 @@ html {
 	height: 100%;
 	width: 100%;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--brand-font);
+}
+
+.brand-font {
+	font-family: var(--brand-font);
+}
+
 
 a,
 a:hover,
@@ -150,6 +202,10 @@ a:active {
 	padding-bottom: 10px;
 }
 
+.friend-name-checkbox-container:hover {
+	background-color: var(--transparent-hover);
+}
+
 .form-friend-name {
 	display: flex;
 	align-items: center;
@@ -204,8 +260,8 @@ a:active {
 .bill-form-submit-btn {
 	color: var(--dark-blue);
 	background-color: var(--saffron-yellow);
-	/* color: var(--main-container); */
-	/* background-color: var(--dark-green); */
+	/* color: var(--main-container);
+	background-color: var(--dark-green); */
 }
 
 .bill-form-delete-btn {

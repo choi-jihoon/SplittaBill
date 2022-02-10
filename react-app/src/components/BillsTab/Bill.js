@@ -34,7 +34,7 @@ const Bill = ({ bill }) => {
 							{bill.description}
 						</h2>
 					</div>
-					<div className='bill-total-amount'>
+					<div className='bill-total-amount brand-font'>
 						${bill.total_amount}
 					</div>
 				</div>

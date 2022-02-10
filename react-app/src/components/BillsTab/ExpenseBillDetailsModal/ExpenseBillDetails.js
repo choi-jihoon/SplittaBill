@@ -32,7 +32,7 @@ const ExpenseBillDetails = ({ expense, showModal }) => {
                         </h2>
                     </div>
                 </div>
-                <div className='bd-total-amount'>${bill.total_amount}</div>
+                <div className='bd-total-amount brand-font'>${bill.total_amount}</div>
             </div>
             <ExpensesForBill bill={bill} />
             <Comments billId={bill.id} />
