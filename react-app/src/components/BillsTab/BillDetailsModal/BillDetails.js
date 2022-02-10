@@ -25,7 +25,7 @@ const BillDetails = ({ bill, showModal }) => {
 					</span>
 					<h2 className="bd-title-text">{bill.description}</h2>
 				</div>
-				<div className="bd-total-amount">${bill.total_amount}</div>
+				<div className="bd-total-amount brand-font">${bill.total_amount}</div>
 			</div>
 			{bill.deadline !== "None" && (
 				<div className="bd-bill-deadline">

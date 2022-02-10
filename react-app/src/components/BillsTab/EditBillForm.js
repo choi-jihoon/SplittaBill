@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editBill, getUserBalance } from "../../store/bills";
 
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -54,6 +55,20 @@ const EditBillForm = ({ showModal, bill }) => {
 		notify();
 
 		showModal(false);
+	};
+
+	const modalHelper = () => {
+		const events = ["mousedown", "click", "mouseup"];
+		events.forEach((event) =>
+			document.querySelector("#delete-bill").dispatchEvent(
+				new MouseEvent(event, {
+					view: window,
+					bubbles: true,
+					cancelable: true,
+					buttons: 1,
+				})
+			)
+		);
 	};
 
 	useEffect(() => {
@@ -182,10 +197,19 @@ const EditBillForm = ({ showModal, bill }) => {
 					)
 				})}
 				<div className='bill-btn-container'>
-					<button
-						disabled={isEmpty || Object.keys(errors).length > 0 || friends.length === 0}
-						className='bill-form-submit-btn'
-						type="submit">Save</button>
+					<div className='btn-container'>
+						<button
+							disabled={isEmpty || Object.keys(errors).length > 0 || friends.length === 0}
+							className='bill-form-submit-btn'
+							type="submit">Save</button>
+					</div>
+					<div className='btn-container'>
+						<button
+							className='bill-form-delete-btn'
+							onClick={modalHelper}
+							type='button'
+							>Delete</button>
+					</div>
 				</div>
 			</div>
 		</form>

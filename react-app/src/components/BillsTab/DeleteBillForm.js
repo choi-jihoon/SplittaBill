@@ -2,18 +2,33 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBill, getUserBalance } from "../../store/bills";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './DeleteBillForm.css'
+
+toast.configure()
 
 
 function DeleteBillForm({ showModal, billId }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
+    const notify = () => {
+		toast.error(`Bill deleted.`,
+			{
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 2000
+			})
+	}
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await dispatch(deleteBill(billId))
-        dispatch(getUserBalance(sessionUser.id))
+        await dispatch(deleteBill(billId));
+        dispatch(getUserBalance(sessionUser.id));
+
+        notify();
 
         showModal(false);
     };
