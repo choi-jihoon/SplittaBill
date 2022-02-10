@@ -27,7 +27,8 @@
 	font-weight: bold;
 	font-size: 14px;
 	background-color: var(--saffron-yellow);
-	border: 1px solid var(--jet-grey);
+	/* border: 1px solid var(--jet-grey); */
+	border: none;
 	border-radius: 40px;
 	margin: 20px auto 0px auto;
 	transition: all 0.2s ease-in-out;
@@ -38,7 +39,7 @@
 	cursor: pointer;
 	background-color: var(--dark-blue);
 	color: var(--main-container);
-	border: 2px solid var(--dark-blue);
+	/* border: 2px solid var(--dark-blue); */
 	/* transition: background-color 0.2s ease-in-out; */
 }
 
@@ -51,7 +52,7 @@
 	color: var(--dark-blue);
 	font-weight: bold;
 	font-size: 14px;
-	border: 1px solid var(--jet-grey);
+	/* border: 1px solid var(--jet-grey); */
 	width: 200px;
 	text-align: center;
 	height: 30px;
@@ -63,7 +64,7 @@
 .signup-form > label:hover {
 	cursor: pointer;
 	transform: scale(1.1);
-	border: 1px solid var(--dark-blue);
+	/* border: 1px solid var(--dark-blue); */
 	background-color: var(--dark-blue);
 	color: var(--main-container);
 }

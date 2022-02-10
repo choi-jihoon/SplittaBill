@@ -61,8 +61,15 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<div>
-				<i className="far fa-copyright"></i> 2022 | Codiviona
+			<div style={{ borderTop: "1px solid black" }}>
+				<i className="far fa-copyright"></i> 2022 |{" "}
+				<a
+					href="https://github.com/choi-jihoon/SplittaBill"
+					rel="noreferrer"
+					target="_blank"
+				>
+					SplitaBill
+				</a>
 			</div>
 		</footer>
 	);
