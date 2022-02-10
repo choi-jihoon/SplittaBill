@@ -30,21 +30,19 @@ const SignUpForm = () => {
 			setImageLoading(false);
 			if (data) {
 				const errors = {};
-				const dataArr = data.map(error => error.split(":"));
+				const dataArr = data.map((error) => error.split(":"));
 
 				for (let i = 0; i < dataArr.length; i++) {
-					errors[dataArr[i][0]] = dataArr[i][1]
+					errors[dataArr[i][0]] = dataArr[i][1];
 				}
 
 				setErrors(errors);
 				setImageLoading(false);
-				return
+				return;
 			}
-		}
-
-		else {
+		} else {
 			const errors = {};
-			errors['password'] = "Passwords do not match."
+			errors["password"] = "Passwords do not match.";
 			setErrors(errors);
 			return;
 		}
@@ -69,18 +67,18 @@ const SignUpForm = () => {
 		setRepeatPassword(e.target.value);
 	};
 
-
-
 	if (user) {
 		return <Redirect to="/" />;
 	}
 
 	return (
 		<form onSubmit={onSignUp} className="signup-form">
-			<div className="modal-head sign-up-modal-head">Sign Up for SplitaBill</div>
-			<div className='signup-form-elements-container'>
-				<div className='sf-form-inputs-container'>
-					<div className='signup-element-container'>
+			<div className="modal-head sign-up-modal-head">
+				Sign Up for SplitaBill
+			</div>
+			<div className="signup-form-elements-container">
+				<div className="sf-form-inputs-container">
+					<div className="signup-element-container">
 						<input
 							type="text"
 							name="username"
@@ -90,12 +88,12 @@ const SignUpForm = () => {
 							required={true}
 
 						></input>
-						<div className='errors-container'>
+						<div className="errors-container">
 							{errors.username ? `${errors.username}` : ""}
 						</div>
 					</div>
 
-					<div className='signup-element-container'>
+					<div className="signup-element-container">
 						<input
 							type="email"
 							name="email"
@@ -105,12 +103,12 @@ const SignUpForm = () => {
 							required={true}
 
 						></input>
-						<div className='errors-container'>
+						<div className="errors-container">
 							{errors.email ? `${errors.email}` : ""}
 						</div>
 					</div>
 
-					<div className='signup-element-container'>
+					<div className="signup-element-container">
 						<input
 							type="password"
 							name="password"
@@ -122,7 +120,7 @@ const SignUpForm = () => {
 						></input>
 					</div>
 
-					<div className='signup-element-container'>
+					<div className="signup-element-container">
 						<input
 							type="password"
 							name="repeat_password"
@@ -131,13 +129,13 @@ const SignUpForm = () => {
 							value={repeatPassword}
 							required={true}
 						></input>
-						<div className='errors-container'>
+						<div className="errors-container">
 							{errors.password ? `${errors.password}` : ""}
 						</div>
 					</div>
 				</div>
 
-				<div className='sf-add-image-container'>
+				<div className="sf-add-image-container">
 					<input
 						id="file-upload"
 						type="file"
@@ -147,22 +145,22 @@ const SignUpForm = () => {
 					<div className="preview-container">
 						{image && (
 							<img
-							alt="preview"
-							src={URL.createObjectURL(image)}
-							className="preview-image"
+								alt="preview"
+								src={URL.createObjectURL(image)}
+								className="preview-image"
 							></img>
-							)}
+						)}
 					</div>
 					<label htmlFor="file-upload">Add Profile Image</label>
 					{imageLoading && (
 						<p>
-							<i class="fas fa-spinner fa-pulse"></i>
+							<i className="fas fa-spinner fa-pulse"></i>
 						</p>
 					)}
 				</div>
 			</div>
 
-			<div className='sf-btn-container'>
+			<div className="sf-btn-container">
 				<button type="submit">Sign Up</button>
 				<DemoLogin />
 			</div>

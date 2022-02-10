@@ -23,7 +23,7 @@ const AddFriendForm = ({setShowModal}) => {
 
 	const notify = () => {
 		toast.success(`You added ${username} as a friend!`,
-			{position: toast.POSITION.TOP_CENTER,
+			{position: toast.POSITION.TOP_RIGHT,
 			autoClose:2000})
 	}
 

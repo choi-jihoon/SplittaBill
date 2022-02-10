@@ -14,7 +14,7 @@ function DeleteFriendForm({ showModal, id }) {
     const notify = () => {
         toast.error(`Friend deleted.`,
             {
-                position: toast.POSITION.TOP_CENTER,
+                position: toast.POSITION.TOP_RIGHT,
                 autoClose: 2000
             })
     }
