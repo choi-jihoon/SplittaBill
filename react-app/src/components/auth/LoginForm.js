@@ -6,7 +6,7 @@ import DemoLogin from "./DemoLogin";
 import "./LoginForm.css";
 
 const LoginForm = () => {
-	const [errors, setErrors] = useState([]);
+	const [errors, setErrors] = useState({});
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const user = useSelector((state) => state.session.user);
@@ -16,9 +16,21 @@ const LoginForm = () => {
 		e.preventDefault();
 		const data = await dispatch(login(email, password));
 		if (data) {
-			setErrors(data);
+
+			const dataArr = data.map(error => {
+				return error.split(":")
+			})
+
+			for (let i = 0; i < dataArr.length; i++) {
+				errors[dataArr[i][0]] = dataArr[i][1]
+			}
+
+			return
 		}
 	};
+
+
+
 
 	const updateEmail = (e) => {
 		setEmail(e.target.value);
@@ -35,27 +47,36 @@ const LoginForm = () => {
 	return (
 		<form onSubmit={onLogin} className="login-form">
 			<div className="modal-head">Login</div>
-			<div>
+			{/* <div>
 				{errors.map((error, ind) => (
 					<div key={ind}>{error}</div>
 				))}
+			</div> */}
+			<div className='login-element-container'>
+				<input
+					name="email"
+					type="text"
+					placeholder="Email"
+					value={email}
+					onChange={updateEmail}
+				/>
+				<div className='errors-container'>
+					{errors.email ? `${errors.email}` : ""}
+				</div>
 			</div>
 
-			<input
-				name="email"
-				type="text"
-				placeholder="Email"
-				value={email}
-				onChange={updateEmail}
-			/>
-
-			<input
-				name="password"
-				type="password"
-				placeholder="Password"
-				value={password}
-				onChange={updatePassword}
-			/>
+			<div className='login-element-container'>
+				<input
+					name="password"
+					type="password"
+					placeholder="Password"
+					value={password}
+					onChange={updatePassword}
+				/>
+				<div className='errors-container'>
+					{errors.password ? `${errors.password}` : ""}
+				</div>
+			</div>
 			<button type="submit">Login</button>
 			<DemoLogin />
 		</form>

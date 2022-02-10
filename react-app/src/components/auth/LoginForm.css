@@ -9,11 +9,15 @@
 	align-items: center;
 }
 
-.login-form > input,
+.login-element-container {
+	padding: 10px 0;
+}
+
+.login-form > .login-element-container > input,
 .signup-form > input {
 	width: 280px;
 	height: 35px;
-	margin: 5px;
+	/* margin: 5px; */
 	font-size: 18px;
 	border: 1px solid var(--jet-grey);
 	border-radius: 7px;
