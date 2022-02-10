@@ -1,8 +1,8 @@
 .settle-up-container {
 	position: absolute;
 	z-index: 2;
-	bottom: 20px;
-	right: 75px;
+	right: 3%;
+
 }
 
 .settle-up-container:hover ~ .bill-container {
@@ -10,19 +10,22 @@
 }
 
 #settle-up {
-	border: none;
+    color: var(--dark-green);
 	background-color: transparent;
-	font-size: 20px;
-    border: 1px solid var(--dark-green);
-
+	font-size: 30px;
+    border: none;
+    /* border: 1px solid var(--dark-green);
+    border-radius: 30px;
+    padding: 0 15px; */
 	transition: all 0.2s ease-in-out;
+
 }
 
 #settle-up:hover {
 	cursor: pointer;
 	color: var(--dark-green);
 
-	transform: scale(1.05);
+	transform: scale(1.2);
 }
 
 .fa-money-bill-wave {
@@ -31,11 +34,18 @@
 
 
 
+
+
+
+
+
+
+
+
 .bde-settle-up-modal-btn > #settle-up {
-    font-size: 15px;
+    font-size: 25px;
     position: absolute;
-    right: 50%;
-    top: 20%;
+    right: -10%;
     z-index: 2;
 }
 

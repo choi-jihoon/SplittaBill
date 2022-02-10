@@ -29,7 +29,7 @@ const BillDetails = ({ bill, showModal }) => {
 			</div>
 			{bill.deadline !== "None" && (
 				<div className="bd-bill-deadline">
-					<i class="fas fa-calendar-alt"></i>
+					<i className="fas fa-calendar-alt"></i>
 					<span>{`${bill.deadline.split("-")[1]}/${
 						bill.deadline.split("-")[2]
 					}/${bill.deadline.split("-")[0]}`}</span>

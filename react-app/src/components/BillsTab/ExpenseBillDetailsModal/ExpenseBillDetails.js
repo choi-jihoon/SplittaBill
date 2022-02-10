@@ -15,11 +15,11 @@ const ExpenseBillDetails = ({ expense, showModal }) => {
     return (
         <div className='bill-details-modal-container'>
             <button
-				className="close-modal"
-				onClick={() => showModal(false)}
-			>
-				<i className="fas fa-minus"></i>
-			</button>
+                className="close-modal"
+                onClick={() => showModal(false)}
+            >
+                <i className="fas fa-minus"></i>
+            </button>
             <div className='bd-title-total-container'>
                 <div className='bd-paid-for-bill'>
                     <div className='bd-paid-by-text'>
@@ -33,6 +33,11 @@ const ExpenseBillDetails = ({ expense, showModal }) => {
                     </div>
                 </div>
                 <div className='bd-total-amount brand-font'>${bill.total_amount}</div>
+            </div>
+            <div className="bd-bill-deadline">
+                <i className="fas fa-calendar-alt"></i>
+                <span>{`${expense.bill.deadline.split("-")[1]}/${expense.bill.deadline.split("-")[2]
+                    }/${expense.bill.deadline.split("-")[0]}`}</span>
             </div>
             <ExpensesForBill bill={bill} />
             <Comments billId={bill.id} />

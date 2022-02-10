@@ -16,6 +16,9 @@ def seed_friends():
     friend43 = Friend(user_id=4, friend_id=3)
     friend34 = Friend(user_id=3, friend_id=4)
 
+    friend23 = Friend(user_id=2, friend_id=3)
+    friend32 = Friend(user_id=3, friend_id=2)
+
 
     db.session.add(friend12)
     db.session.add(friend21)
@@ -27,6 +30,8 @@ def seed_friends():
     db.session.add(friend24)
     db.session.add(friend43)
     db.session.add(friend34)
+    db.session.add(friend23)
+    db.session.add(friend32)
 
     db.session.commit()
 
