@@ -1,17 +1,11 @@
 nav {
-	/* background-color: rgba(var(--nav-yellow), 0.9); */
 	background-color: rgba(0, 0, 0, 0.25);
-
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 	display: flex;
 	justify-content: space-around;
-	/* padding-left: 30px;
-	padding-right: 30px; */
 	align-items: center;
 	color: #fff;
-	/* height: 10vh; */
 	height: 80px;
-	/* z-index: 1000; */
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -19,8 +13,6 @@ nav {
 }
 
 .splash-content {
-	/* position: absolute;
-	top: 120px; */
 	margin-top: 80px;
 	margin-bottom: 132px;
 	background: var(--dark-blue);
@@ -37,13 +29,6 @@ nav {
 	max-height: 79vh;
 	min-height: 300px;
 }
-
-/* .duck-div {
-	width: 400px;
-	left: 0;
-	object-fit: contain;
-	height: 400px;
-} */
 
 .user-actions {
 	display: flex;
@@ -76,25 +61,13 @@ footer {
 	padding: 10px;
 }
 
-/* .test {
-	font-size: 42px;
-	color: transparent;
-	background: linear-gradient(
-		to right,
-		#97d2fb,
-		#e1eff6,
-		#83bcff,
-		#eccbd9,
-		#80ffe8
-	);
-	background-clip: text;
-} */
-
 .links-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	width: 80%;
+	align-items: center;
+	width: 75%;
+	max-width: 1800px;
 }
 
 .individual-container {
@@ -102,9 +75,28 @@ footer {
 	flex-direction: column;
 	align-items: center;
 }
+.copyright,
+.individual-container {
+	width: 100%;
+	height: 90%;
+	padding: 10px 0px;
+}
+.copyright > i {
+	font-size: 13px;
+	padding-right: 4px;
+}
+.copyright > a {
+	padding-left: 4px;
+	font-weight: normal;
+}
+.copyright {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .links > a > i {
-	font-size: 28px;
+	font-size: 20px;
 	padding: 4px 8px;
 }
 .links > a > i:hover {
@@ -123,9 +115,6 @@ footer {
 }
 
 .start-split-button:hover {
-	/* border: 1px solid var(--main-container);
-	background-color: var(--main-container); */
-	/* transform: scale(1.2); */
 	cursor: pointer;
 	color: var(--dark-blue);
 	animation: bounce 0.5s ease-in-out infinite;
@@ -152,7 +141,6 @@ footer {
 	margin-right: auto;
 	border-radius: 22px;
 	margin-bottom: 80px;
-	/* margin-top: -20%; */
 	box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
 	padding: 40px 0px;
 	height: 100px;
