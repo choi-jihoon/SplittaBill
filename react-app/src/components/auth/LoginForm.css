@@ -1,3 +1,10 @@
+.modal-head {
+	font-family: var(--brand-font);
+	font-weight: 700;
+	font-size: 25px;
+	color: var(--dark-blue);
+}
+
 .login-form,
 .signup-form {
 	width: 100%;
@@ -83,7 +90,7 @@
 	max-height: 100px;
 	border-radius: 50%;
 	object-fit: cover;
-	background-color: var(--transparent-hover);
+	background-color: rgba(128, 128, 128, 0.363);
 }
 
 .preview-image,
