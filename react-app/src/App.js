@@ -33,13 +33,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path="/">
-					{sessionUser ? <Dashboard /> : <SplashPage />}
-				</Route>
-				<Route exact path="/friends">
-					{sessionUser ? <Dashboard /> : <SplashPage />}
-				</Route>
-				<Route exact path="/transaction-history">
+				<Route exact path={["/", "/friends", "/transaction-history"]}>
 					{sessionUser ? <Dashboard /> : <SplashPage />}
 				</Route>
 				<Route>

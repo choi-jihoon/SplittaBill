@@ -1,12 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ErrorPage.css";
 const ErrorPage = (props) => {
 	return (
 		<div className="error-page-container">
 			<div className="error-code-message">
-				<h2>-- 404 --</h2>
-				<h2>You Quacked the code!</h2>
-				<h3>Just kidding though, this page does not exist</h3>
+				<h2 className="error-code">404</h2>
+				<h2 className="error-message">
+					You slipped through the Quacks!
+				</h2>
+				<Link to="/">
+					<h2 className="home-link">Return to Home</h2>
+				</Link>
 			</div>
 		</div>
 	);
