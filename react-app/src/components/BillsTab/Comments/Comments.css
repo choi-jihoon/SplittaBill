@@ -148,6 +148,12 @@ button#delete-comment {
 	align-items: center;
 }
 
+.edit-comment-header {
+	align-self: flex-start;
+	padding: 0 0 10px 5px;
+	font-size: 18px;
+}
+
 .ef-input-container {
 	padding-bottom: 20px;
 }
@@ -155,7 +161,7 @@ button#delete-comment {
 .ef-comment-input {
 	width: 340px;
 	height: 80px;
-	padding: 5px;
+	padding: 10px 15px;
 	border-radius: 10px;
 	font-size: 14px;
 }
