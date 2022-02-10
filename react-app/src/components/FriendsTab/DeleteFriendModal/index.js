@@ -7,7 +7,7 @@ function DeleteFriendModal({ id }) {
 
 	return (
 		<>
-			<button  onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowModal(true);}} id="remove-friend"className="remove-friend-btn">
+			<button  onClick={(e) => { e.stopPropagation(); setShowModal(true);}} id="remove-friend"className="remove-friend-btn">
                 <i className="fas fa-user-times"></i>
             </button>
 			{showModal && (

@@ -24,7 +24,7 @@ const Friend = ({id, friendId, image, username, balance}) => {
 					}
 				</div>
 				{parseFloat(balance) === 0 ? (
-					<DeleteFriendModal id={id}/>
+					<DeleteFriendModal id={id} onClick={(e) => {e.stopPropagation(); setShowModal(false)}}/>
 					): <p></p>}
 
 
