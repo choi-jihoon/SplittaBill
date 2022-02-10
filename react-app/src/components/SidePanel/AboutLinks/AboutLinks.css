@@ -47,5 +47,5 @@
 
 .side-panel-about-profile .links a i:hover {
     color: var(--saffron-yellow);
-    border-bottom: 1px solid var(--side-panel-font-color)
+    border-bottom: 1px solid var(--side-panel-font-color);
 }
