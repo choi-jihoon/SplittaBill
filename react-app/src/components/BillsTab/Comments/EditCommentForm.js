@@ -28,6 +28,7 @@ const EditCommentForm = ({ showModal, comment }) => {
 	return (
 		<div>
 			<form className='form-container edit-form-container' onSubmit={onSubmit}>
+				<h4 className='edit-comment-header'>Edit Comment</h4>
 				<div className='ef-input-container'>
 					<textarea
 						value={newComment}

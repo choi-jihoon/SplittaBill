@@ -21,7 +21,6 @@ const Comments = ({ billId }) => {
 	return (
 		<>
 			<div className="all-comments">
-				<h3>COMMENTS</h3>
 				{comments.length > 0 &&
 					comments.map((comment) => {
 						return (

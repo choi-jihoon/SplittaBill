@@ -146,6 +146,7 @@ button#delete-bill:hover {
 
 .settled-false {
 	color: var(--red-salsa);
+	visibility: hidden;
 }
 
 .settled-true,
