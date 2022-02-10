@@ -1,0 +1,51 @@
+.side-panel-about-container {
+    align-self: center;
+    height: 100%;
+    width: 270px;
+    margin-top: 35%;
+    padding: 0 5px;
+    border-top: 1px solid gray;
+}
+
+.side-panel-about-container h3 {
+    padding-top: 35px;
+    padding-bottom: 15px;
+}
+
+.side-panel-about-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.side-panel-about-profile {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+
+.side-panel-about-profile .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+}
+
+.side-panel-about-profile p {
+    font-size: 14px;
+}
+
+.side-panel-about-profile .links a i {
+    padding: 0 3px;
+    margin: 0 5px;
+    border-bottom: 1px solid var(--side-panel);
+    transition: all 0.2s ease-in-out;
+}
+
+.side-panel-about-profile .links a i:hover {
+    color: var(--saffron-yellow);
+    border-bottom: 1px solid var(--side-panel-font-color)
+}
