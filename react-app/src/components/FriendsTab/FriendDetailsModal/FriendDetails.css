@@ -27,11 +27,25 @@
     margin-bottom: 25px;
 }
 
-.friend-detail-record .transaction-record-detail-container{
-    width: 100%;
-    display: flex;
-	position: relative;
-	align-items: center;
+
+.friend-detail-record .record-date {
+	margin: auto ;
+	margin-right: 0px;
+}
+
+.friend-detail-record .transaction-record-detail-container {
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.friend-detail-record .transaction-record-detail-container .record-image-text{
+    min-width: 650px;
+    margin: 0 0;
+    padding: 0;
+
 	border-top: 1px solid gray;
     border-bottom: none;
 	height: 100px;
@@ -39,10 +53,13 @@
 
 }
 
+.friend-detail-record img {
+    display: none;
+}
+
 .friend-transactions-container {
     max-height: 500px;
     overflow-y: scroll;
-    /* overflow-x: hidden; */
 }
 
 .friend-detail-record .record-date {
