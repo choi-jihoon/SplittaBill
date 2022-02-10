@@ -122,10 +122,6 @@ const EditBillForm = ({ showModal, bill }) => {
 		setFriends((prev) => (prev = currFriends));
 	};
 
-	// const handleClick = (e) => {
-	// 	e.preventDefault()
-	// 	e.stopPropagation()
-	// }
 
 	return (
 		<form

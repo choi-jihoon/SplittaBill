@@ -24,6 +24,7 @@ function DeleteBillForm({ showModal, billId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        e.stopPropagation();
 
         await dispatch(deleteBill(billId));
         dispatch(getUserBalance(sessionUser.id));
