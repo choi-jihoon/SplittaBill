@@ -6,13 +6,13 @@ const EditCommentForm = ({ showModal, comment }) => {
 	const dispatch = useDispatch();
 	const [newComment, setNewComment] = useState(comment.message);
 	const [errors, setErrors] = useState([]);
+
 	useEffect(() => {
-		if (newComment.length > 280) {
-			setErrors(["Please use 280 characters or less"]);
-		} else if (newComment.length <= 280) {
-			setErrors([]);
-		}
+		const errors = [];
+		if (newComment.length > 280) errors.push("Please use 280 characters or less.");
+		setErrors(errors);
 	}, [newComment]);
+
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		if (newComment.length <= 280) {
@@ -27,15 +27,25 @@ const EditCommentForm = ({ showModal, comment }) => {
 	};
 	return (
 		<div>
-			<form onSubmit={onSubmit}>
-				<textarea
-					value={newComment}
-					onChange={(e) => setNewComment(e.target.value)}
-				></textarea>
-				<button>Submit Edit</button>
-				<button onClick={handleCancel}>Cancel</button>
-				{errors.length > 0 &&
-					errors.map((err, i) => <li key={i}>{err}</li>)}
+			<form className='form-container edit-form-container' onSubmit={onSubmit}>
+				<div className='ef-input-container'>
+					<textarea
+						value={newComment}
+						onChange={(e) => setNewComment(e.target.value)}
+						className='ef-comment-input'
+					></textarea>
+					<div className='errors-container'>
+						{errors.length > 0 &&
+							errors.map((err, i) => <li key={i}>{err}</li>)}
+					</div>
+				</div>
+				<div className='ef-btn-container'>
+					<button
+					disabled={errors.length > 0}
+					className='form-delete-btn' id='ef-submit-btn'>Submit Edit</button>
+					<button onClick={handleCancel}
+					className='form-cancel-btn'>Cancel</button>
+				</div>
 			</form>
 		</div>
 	);

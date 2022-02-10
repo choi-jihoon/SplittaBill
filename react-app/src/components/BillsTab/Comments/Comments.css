@@ -130,3 +130,43 @@ button#delete-comment {
 #delete-comment {
 	transition: all 0.2s ease-in-out;
 }
+
+
+
+
+.edit-form-container {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	align-items: center;
+}
+
+.ef-input-container {
+	padding-bottom: 20px;
+}
+
+.ef-comment-input {
+	width: 340px;
+	height: 80px;
+	padding: 5px;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.ef-btn-container {
+	display: flex;
+	justify-content: space-around;
+	width: 320px;
+}
+
+.form-delete-btn#ef-submit-btn {
+	background-color: var(--saffron-yellow);
+	border: var(--saffron-yellow);
+	color: var(--dark-blue);
+}
+
+.ef-submit-btn:hover,
+.ef-cancel-btn:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}

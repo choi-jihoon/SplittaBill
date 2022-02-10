@@ -256,7 +256,6 @@ a:active {
 	width: 100%;
 	padding: 5px 0;
 	border-radius: 20px;
-	border: var(--saffron-yellow);
 	font-size: 18px;
 	transition: all 0.2s ease-in-out;
 }
@@ -264,8 +263,8 @@ a:active {
 .bill-form-submit-btn {
 	color: var(--dark-blue);
 	background-color: var(--saffron-yellow);
-	/* color: var(--main-container);
-	background-color: var(--dark-green); */
+	border: var(--saffron-yellow);
+
 }
 
 .bill-form-delete-btn {
