@@ -12,6 +12,10 @@
 	min-width: 642px;
 }
 
+.transaction-record-detail-container:hover {
+	cursor: default;
+}
+
 .record-date {
 	padding-left: 50px;
 }

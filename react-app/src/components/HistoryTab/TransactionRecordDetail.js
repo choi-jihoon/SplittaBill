@@ -29,9 +29,9 @@ const TransactionRecordDetail = ({ record }) => {
             <div className='record-text'>
                 <h3>
                     <span><i className="fas fa-coins"></i> </span>
-                    {payer} paid {recipient}
-                    <span className={amountColor}> ${record.amount_paid} </span>
-                    for {record.transaction_description}
+                    <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
+                    <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
+                    for <span className="bold">{record.transaction_description}</span>
 
                 </h3>
             </div>
