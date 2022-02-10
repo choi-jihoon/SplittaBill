@@ -120,36 +120,6 @@ button#delete-bill:hover {
 	color: var(--red-salsa);
 }
 
-.settle-up-container {
-	position: absolute;
-	z-index: 2;
-	bottom: 20px;
-	right: 75px;
-}
-
-.settle-up-container:hover ~ .bill-container {
-	cursor: pointer;
-}
-
-
-#settle-up {
-	border: none;
-	background-color: transparent;
-	font-size: 20px;
-
-	transition: all 0.2s ease-in-out;
-}
-
-#settle-up:hover {
-	cursor: pointer;
-	color: var(--dark-green);
-
-	transform: scale(1.05);
-}
-
-.fa-money-bill-wave {
-	padding-right: 5px;
-}
 
 .settled-true {
 	color: var(--dark-green);

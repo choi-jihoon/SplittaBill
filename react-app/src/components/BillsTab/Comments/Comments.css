@@ -57,12 +57,14 @@ button#delete-comment {
 .comment-form {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	/* padding: 10px; */
 	padding-top: 10px;
 	margin-bottom: -30px;
 	border-top: 1px dashed var(--dark-blue);
+
+	position: relative;
 
 }
 .comment-input {
@@ -166,7 +168,26 @@ button#delete-comment {
 }
 
 .ef-submit-btn:hover,
-.ef-cancel-btn:hover {
+.ef-cancel-btn:hover,
+.add-comment-button:hover {
 	cursor: pointer;
 	transform: scale(1.1);
+}
+
+.add-comment-button {
+	border-radius: 20px;
+	padding: 5px 15px;
+	background-color: var(--saffron-yellow);
+	border: var(--saffron-yellow);
+	color: var(--dark-blue);
+	transition: all 0.2s ease-in-out;
+}
+
+.add-comment-button:disabled {
+	opacity: 50%;
+}
+
+.add-comment-button:disabled:hover {
+	cursor: not-allowed;
+	transform: none;
 }

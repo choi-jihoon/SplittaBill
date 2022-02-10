@@ -56,14 +56,15 @@ const SettleUpForm = ({ showModal, expense }) => {
 
 
 	return (
-		<form onSubmit={handleSubmit}>
-			{/* <div>
-				{errors.map((error, ind) => (
-					<div key={ind}>{error}</div>
-				))}
-			</div> */}
-			<div>
-				<label htmlFor="amount_paid">Pay {expense.bill.owner_name} $</label>
+		<form className='settle-up-form-container' onSubmit={handleSubmit}>
+			<button
+				className="close-modal"
+				onClick={() => showModal(false)}
+			>
+				<i className="fas fa-minus"></i>
+			</button>
+			<div className='dollar-sign-and-input settle-up-input-container'>
+				<label htmlFor="amount_paid" className='dollar-sign settle-up-dollar-sign'>$</label>
 				<input
 					name="amount_paid"
 					type="number"
@@ -71,14 +72,18 @@ const SettleUpForm = ({ showModal, expense }) => {
 					placeholder="0"
 					value={amount_paid}
 					onChange={updateAmountPaid}
+					id='settle-up-input'
 				/>
 				<div className='errors-container'>
 					{errors.amount_paid ? `${errors.amount_paid}` : ""}
 				</div>
 			</div>
 			<button
+				className='settle-up-submit-btn'
 				type="submit"
-				disabled={Object.keys(errors).length > 0}>Settle Up</button>
+				disabled={Object.keys(errors).length > 0}>
+					{`Pay ${expense.bill.owner_name} for ${expense.bill.description}`}
+				</button>
 		</form>
 	);
 };

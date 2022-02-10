@@ -25,6 +25,7 @@ const Comment = ({ comment }) => {
 	// 		? curr_user.image
 	// 		: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
 	// }
+
 	useEffect(() => {
 		dispatch(getUsersFriends());
 	}, [dispatch]);

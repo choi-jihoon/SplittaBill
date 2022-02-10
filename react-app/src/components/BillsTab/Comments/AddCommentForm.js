@@ -34,8 +34,10 @@ const AddCommentForm = ({ billId }) => {
 				value={comment}
 				onChange={(e) => setComment(e.target.value)}
 			></textarea>
-			{errors.length > 0 &&
-				errors.map((err, i) => <li key={i}>{err}</li>)}
+			<div className='errors-container'>
+				{errors.length > 0 &&
+					errors.map((err, i) => <li key={i}>{err}</li>)}
+			</div>
 			<button className="add-comment-button" disabled={disabled}>
 				Post Comment
 			</button>
