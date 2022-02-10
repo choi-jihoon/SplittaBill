@@ -1,10 +1,19 @@
 const Footer = () => {
 	return (
 		<footer>
-			<h3>Connect with us!</h3>
 			<div className="links-container">
+				<div className="copyright">
+					<i className="far fa-copyright"></i> 2022
+					<a
+						href="https://github.com/choi-jihoon/SplittaBill"
+						rel="noreferrer"
+						target="_blank"
+					>
+						SplitaBill
+					</a>
+				</div>
 				<div className="individual-container">
-					FIONA
+					Jihoon (Fiona) Choi
 					<div className="links">
 						<a
 							href="https://github.com/choi-jihoon"
@@ -23,7 +32,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className="individual-container">
-					VIVIAN
+					Vivian Thach
 					<div className="links">
 						<a
 							href="https://github.com/bobaguardian"
@@ -42,7 +51,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className="individual-container">
-					CODY
+					Cody Lavene
 					<div className="links">
 						<a
 							href="https://github.com/codylavene"
@@ -60,16 +69,6 @@ const Footer = () => {
 						</a>
 					</div>
 				</div>
-			</div>
-			<div style={{ borderTop: "1px solid black" }}>
-				<i className="far fa-copyright"></i> 2022 |{" "}
-				<a
-					href="https://github.com/choi-jihoon/SplittaBill"
-					rel="noreferrer"
-					target="_blank"
-				>
-					SplitaBill
-				</a>
 			</div>
 		</footer>
 	);
