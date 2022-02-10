@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "../../context/Modal";
 import DeleteBillForm from "./DeleteBillForm";
 
@@ -8,6 +8,11 @@ function DeleteBillModal({ billId }) {
 		e.preventDefault();
 		e.stopPropagation();
 	};
+
+	useEffect(() => {
+		return () => setShowModal(false);
+	}, []);
+
 	return (
 		<>
 			<button
