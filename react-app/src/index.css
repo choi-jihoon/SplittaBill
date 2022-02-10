@@ -1,12 +1,10 @@
 @import url("https://use.typekit.net/kyk0anv.css"); /* proxima */
 
 @import url("https://use.typekit.net/yoq5jqy.css");
-@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Bubblegum+Sans&family=Francois+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Redressed&family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Bubblegum+Sans&family=Francois+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&family=Redressed&family=Satisfy&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Lexend+Deca&family=Mukta&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lexend+Deca&family=Mukta&display=swap");
 
 /*
 font-family: 'Oleo Script', cursive;
@@ -33,8 +31,6 @@ font-family: 'Mukta', sans-serif
 
 */
 
-
-
 :root {
 	--base-font: proxima-nova, sans-serif;
 	/* --base-font: mixta-pro, serif; */
@@ -51,7 +47,7 @@ font-family: 'Mukta', sans-serif
 	--nav-yellow: 234, 196, 53;
 	--jet-grey: hsl(60, 1%, 23%);
 
-	--brand-font: 'Mukta', sans-serif;
+	--brand-font: "Mukta", sans-serif;
 }
 
 *,
@@ -84,7 +80,6 @@ h6 {
 .brand-font {
 	font-family: var(--brand-font);
 }
-
 
 a,
 a:hover,
@@ -141,12 +136,10 @@ a:active {
 	padding-right: 30px;
 }
 
-
-
 .form-element.form-friends-list {
 	border-left: 1px solid gray;
 	padding-left: 20px;
-	padding-bottom:10px;
+	padding-bottom: 10px;
 
 	position: relative;
 	height: fit-content;
@@ -198,7 +191,6 @@ a:active {
 	width: 100%;
 }
 
-
 .friend-name-checkbox-container {
 	display: flex;
 	align-items: center;
@@ -221,7 +213,6 @@ a:active {
 	padding-right: 20px;
 }
 
-
 .friends-checkboxes {
 	padding-right: 20px;
 }
@@ -231,7 +222,6 @@ a:active {
 	padding: 5px;
 	font-size: 18px;
 }
-
 
 .bill-btn-container {
 	/* width: 170px; */
@@ -261,20 +251,17 @@ a:active {
 	color: var(--dark-blue);
 	background-color: var(--saffron-yellow);
 	border: var(--saffron-yellow);
-
 }
 
 .bill-form-delete-btn {
 	background-color: var(--red-salsa);
-	color: var(--main-container)
+	color: var(--main-container);
 }
-
 
 .bill-form-submit-btn:hover,
 .bill-form-delete-btn:hover {
 	cursor: pointer;
 	transform: scale(1.05);
-
 }
 
 .bill-form-submit-btn:disabled {
@@ -285,3 +272,19 @@ a:active {
 	cursor: not-allowed;
 	transform: none;
 }
+
+/* @media screen and (max-width: 1190px) {
+	div.dashboard-container {
+		display: flex;
+	}
+	div.side-panel {
+		display: none;
+	}
+	div.dash-and-main-container {
+		width: 100%;
+		margin-left: -350px;
+	}
+	#settle-up {
+		float: right;
+	}
+} */

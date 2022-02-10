@@ -1,10 +1,10 @@
 .transaction-record-detail-container {
 	margin: 0 auto;
-    padding: 40px;
+	padding: 40px;
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 75%;
+	width: 100%;
 	border-bottom: 1px solid gray;
 	transition: background-color 0.2s ease-in-out;
 
@@ -30,13 +30,12 @@
 	font-weight: normal;
 }
 
-
 .negative-payment {
-    color: var(--red-salsa);
+	color: var(--red-salsa);
 }
 
 .positive-payment {
-    color: var(--dark-green);
+	color: var(--dark-green);
 }
 
 h2#nothing-to-see {

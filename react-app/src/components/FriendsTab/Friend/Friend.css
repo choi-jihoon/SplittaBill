@@ -1,8 +1,8 @@
 .friend-container {
-    width: 75%;
-    padding: 40px;
-    /* padding-left: 19%; */
-    margin: 0 auto;
+	width: 100%;
+	padding: 40px;
+	/* padding-left: 19%; */
+	margin: 0 auto;
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
@@ -12,59 +12,55 @@
 	transition: background-color 0.2s ease-in-out;
 
 	height: 150px;
-    min-width: 760px;
+	min-width: 760px;
 }
 
 .friend-container:hover {
 	background-color: var(--transparent-hover);
-    cursor: pointer;
+	cursor: pointer;
 }
 
 #remove-friend {
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
 }
 
 .friend-container:hover #remove-friend {
-    opacity: 1;
+	opacity: 1;
 }
 
 .friend-container span {
-    font-family: var(--brand-font);
+	font-family: var(--brand-font);
 }
 
 .friend-container h3 {
-    font-weight: normal;
+	font-weight: normal;
 }
 
 .friend-info {
-    margin-left: 8%;
-    font-size: 20px;
+	margin-left: 8%;
+	font-size: 20px;
 }
-
 
 .profile-pic-div .friends-profile-pic {
-    width: 50px;
+	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-    position: absolute;
+	position: absolute;
 }
-
-
 
 .remove-friend-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    transition: all 0.1s ease-in-out;
-    background-color: transparent;
-    margin: 20px;
-    font-size: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	transition: all 0.1s ease-in-out;
+	background-color: transparent;
+	margin: 20px;
+	font-size: 20px;
 }
 
-
 .remove-friend-btn:hover {
-    color: var(--red-salsa);
-    cursor: pointer;
+	color: var(--red-salsa);
+	cursor: pointer;
 }

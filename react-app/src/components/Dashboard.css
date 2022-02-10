@@ -7,17 +7,28 @@
 }
 
 .dash-and-main-container {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 350px;
 	display: grid;
 	grid-template-rows: 100px 1fr;
 	background-color: var(--main-container);
 	padding: 50px 0;
 	grid-area: main;
+	overflow-x: scroll;
+
+	/* max-width: 1350px; */
 }
 
 .dash-nav-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 1350px;
 }
 
 .all-tabs-container {
@@ -40,6 +51,11 @@
 
 .main-container {
 	padding: 0 40px 40px 40px;
+	width: 80%;
+	max-width: 1350px;
+	/* display: flex;
+	justify-content: center; */
+	margin: 0 auto;
 }
 
 .active-tab {
