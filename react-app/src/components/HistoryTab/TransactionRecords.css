@@ -16,8 +16,18 @@
 	cursor: default;
 }
 
+.transaction-record-detail-container img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
 .record-date {
-	padding-left: 50px;
+	margin: auto;
+	position: relative;
+	left: 20%;
+
 }
 
 .record-text {
