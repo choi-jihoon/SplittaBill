@@ -34,7 +34,7 @@ function DeleteFriendForm({ showModal, id }) {
 
 
     return (
-        <div>
+        <div className="delete-friend-div" onClick={(e) => e.stopPropagation()}>
             <form className='delete-confirmation-container'>
                 <div className='dc-text-container'>
                     <div className='dc-text'>
