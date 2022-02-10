@@ -26,7 +26,8 @@ const ExpenseDetail = ({ expense }) => {
                     </div>
                     <h2 className='bill-description'>
                         <span className='invoice-icon'><i className="fas fa-receipt"></i></span>
-                        {expense.bill.description} Expense
+                        {/* {expense.bill.description} Expense */}
+                        <p class='testing-ellipses'>{expense.bill.description}</p>
                         <span>
                             {expense.settled ? <i className="fas fa-check settled-true"></i> : <i className="fas fa-times settled-false"></i>}
                         </span>

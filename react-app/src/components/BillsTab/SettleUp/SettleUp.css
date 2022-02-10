@@ -80,6 +80,11 @@
 
 }
 
+.su-btn-container > p {
+    overflow: hidden;
+	white-space: nowrap;
+}
+
 
 
 .settle-up-dollar-sign {
@@ -121,6 +126,8 @@ input#settle-up-input {
 
 .settle-up-submit-btn {
     margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .settle-up-submit-btn:hover {

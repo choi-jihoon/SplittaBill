@@ -93,7 +93,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 						className='settle-up-submit-btn'
 						type="submit"
 						disabled={Object.keys(errors).length > 0}>
-						{`Pay ${expense.bill.owner_name} for ${expense.bill.description}`}
+						<p className='testing-ellipses'>{`Pay ${expense.bill.owner_name} for ${expense.bill.description}`}</p>
 					</button>
 					<button onClick={handleCancel}
 						className='form-cancel-btn'
