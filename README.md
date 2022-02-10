@@ -1,134 +1,109 @@
-# Flask React Project
+# SplitaBill
 
-This is the starter for the Flask React project.
+SplitaBill, inspired by the functionality of [Splitwise](https://www.splitwise.com) and the clean design of [Venmo](https://www.venmo.com), is an app where users can keep track of and pay bills/expenses shared between friends.
 
-## Getting started
+- [Live Site](https://split-a-bill.herokuapp.com)
+- [MVP Feature List](https://github.com/choi-jihoon/SplittaBill/wiki/MVP-Features-List)
+- [Database Schema](https://github.com/choi-jihoon/SplittaBill/wiki/Database-Schema)
+- [Frontend Routes](https://github.com/choi-jihoon/SplittaBill/wiki/Frontend-Routes)
+- [API Documentation](https://github.com/choi-jihoon/SplittaBill/wiki/API-Documentation)
+- [User Stories](https://github.com/choi-jihoon/SplittaBill/wiki/User-Stories)
 
-1. Clone this repository (only this branch)
+# Technologies Used
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/>
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+# Getting started
 
-2. Install dependencies
+1. Clone this repository
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+   ```git@github.com:choi-jihoon/SplittaBill.git```
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+2. CD into the /app directory and install dependencies
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+    ```pipenv install```
 
-   ```bash
-   pipenv shell
-   ```
+3. CD into the /react-app directory and install dependencies
 
-   ```bash
-   flask db upgrade
-   ```
+    ```npm install```
 
-   ```bash
-   flask seed all
-   ```
+4.  Create a .env file based on the .env.example given (An AWS S3 account is required for adding/editing user profile pictures!)
 
-   ```bash
-   flask run
-   ```
+5.  Create a user in psql based on your .env DATABASE_URL app_name
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+    ```psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"```
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+6.  Create a databse in psql based on your.env DATABASE_URL app_db_name
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+7. Start your shell, migrate your database, seed your database, and run the flask app
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+   ```pipenv shell```
 
-## Deploy to Heroku
+   ```flask db upgrade```
 
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
+    ```flask seed all```
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+    ```flask run```
 
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
+8. Open another terminal and change directory into /react-app and run the React app
 
-   ```bash
-   heroku login
-   ```
+	```npm start```
 
-6. Login to the heroku container registry
 
-   ```bash
-   heroku container:login
-   ```
+# Features
 
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
+## Splash Page & User Authentication
 
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
+Users can log into an existing account or sign up and create a new account. Alternatively, users can test the site with the Demo Login feature.
 
-9. Release your docker container to heroku
+(Insert Screenshots Here)
 
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
 
-10. set up your database
+## User Dashboard
 
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
+The logged in user's dashboard displays all the bills and expenses related to the user, as well as a side panel where the user can edit their profile picture, create a bill, add a friend, or log out.
 
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
+(Insert Screenshots Here)
 
-12. profit
 
-### For M1 Mac users
+## Bills & Expenses Tab
 
-(Replaces **Step 8**)
+Clicking on a specific bill or expense will display a modal with the details for that bill or expense (people involved, how much each person still needs to pay for their individual expense, and comments made on the bill).
 
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
+(Insert Screenshots Here)
 
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
+The user has the option to edit/delete bills they own, and pay back their expenses.
 
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
+(Insert Screenshots Here)
 
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
 
-3. Use docker to push the image to the Heroku container registry:
+## Comments
 
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+The user can add comments on the bill detail modal, and edit/delete comments that they own.
+
+(Insert Screenshots Here)
+
+
+## Friends Tab
+
+Navigating to the friends tab will display a list of the user's friends and current balances. Clicking on a friend will display transaction records between the user and the friend.
+
+The user can delete friends as long as all expenses between the user and the friend has been settled (balance is zero).
+
+(Insert Screenshots Here)
+
+
+## Transaction History Tab
+
+Navigating to the transaction history tab will display all the transactions the user has been involved in, with the most recent on top.
+
+(Insert Screenshots Here)
+
+
+## Page Not Found
+
+Trying to access a path that does not exist will render a 404 Page component.
+
+(Insert Screenshots Here)
+
+# Database Schema
+![Database Schema](./images/splittabilldbschema.JPG)
