@@ -41,7 +41,6 @@ const EditBillForm = ({ showModal, bill }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const friendsString = friends.join(", ");
-		console.log(friendsString);
 		const data = await dispatch(
 			editBill(
 				bill.id,

@@ -73,7 +73,7 @@ export const getUserBalance = (id) => async (dispatch) => {
         dispatch(loadUserBalance(data))
     } else {
         const errors = await response.json()
-        console.log(errors.errors);
+        // console.log(errors.errors);
     }
 }
 
@@ -87,7 +87,7 @@ export const getTransactionRecords = () => async (dispatch) => {
         dispatch(loadTransactions(data.transaction_records))
     } else {
         const errors = await response.json()
-        console.log(errors.errors);
+        // console.log(errors.errors);
     }
 }
 
@@ -111,7 +111,7 @@ export const addTransactionRecord = (recipient_id, expense_id, amount_paid) => a
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-            console.log(data.errors)
+            // console.log(data.errors)
             return data.errors;
         }
     } else {
@@ -126,7 +126,7 @@ export const getTransactionsForFriend = (id) => async (dispatch) => {
         dispatch(load_transactions_for_one_friend(data, id))
     } else {
         const errors = await response.json()
-        console.log(errors.errors);
+        // console.log(errors.errors);
     }
 }
 
@@ -138,7 +138,7 @@ export const getBills = () => async (dispatch) => {
         dispatch(load(bills.all_bills))
     } else {
         const errors = await response.json()
-        console.log(errors.errors);
+        // console.log(errors.errors);
     }
 }
 
@@ -149,7 +149,7 @@ export const getUserExpenses = () => async (dispatch) => {
         dispatch(load_user_expenses(user_expenses.expenses))
     } else {
         const errors = await response.json()
-        console.log(errors.errors);
+        // console.log(errors.errors);
     }
 }
 
@@ -160,7 +160,7 @@ export const getExpensesForBill = (billId) => async (dispatch) => {
         dispatch(load_expenses_for_one_bill(data))
     } else {
         const errors = await response.json()
-        console.log(errors.errors);
+        // console.log(errors.errors);
     }
 }
 
@@ -186,7 +186,7 @@ export const createBill = (owner_id, total_amount, description, deadline, friend
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-            console.log(data.errors)
+            // console.log(data.errors)
             return data.errors;
         }
     } else {
@@ -209,7 +209,7 @@ export const deleteBill = (billId) => async (dispatch) => {
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-            console.log(data.errors)
+            // console.log(data.errors)
             return data.errors;
         }
     } else {
@@ -239,7 +239,7 @@ export const editBill = (billId, owner_id, total_amount, description, deadline, 
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-            console.log(data.errors)
+            // console.log(data.errors)
             return data.errors;
         }
     } else {
