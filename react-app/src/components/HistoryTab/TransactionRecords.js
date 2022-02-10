@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTransactionRecords } from '../../store/bills';
 
 import TransactionRecordDetail from './TransactionRecordDetail';
+import EmptyTransactionsTab from './EmptyTransactions';
 
 const TransactionRecords = () => {
 
@@ -18,16 +19,18 @@ const TransactionRecords = () => {
 
 
     return (
-        <div className='transaction-records-container'>
+        <>
             {records.length === 0 && (
-                <h2 id='nothing-to-see'>No transQUACKtions have been made yet. 🦆</h2>
+                <EmptyTransactionsTab />
             )}
-            {records?.map(record => {
-                return <TransactionRecordDetail
-                    key={record.id}
-                    record={record} />
-            })}
-        </div>
+            <div className='transaction-records-container'>
+                {records?.map(record => {
+                    return <TransactionRecordDetail
+                        key={record.id}
+                        record={record} />
+                })}
+            </div>
+        </>
     )
 }
 

@@ -5,6 +5,7 @@ import { getBills, getUserExpenses } from '../../store/bills';
 
 import Bill from "./Bill";
 import ExpenseDetail from './ExpenseBillDetailsModal/ExpenseDetail';
+import EmptyBillsTab from './EmptyBillsTab';
 
 import './BillsTab.css';
 
@@ -22,18 +23,28 @@ const AllBills = () => {
     }, [dispatch])
 
     return (
-        <div className='all-bills-container'>
-            {bills?.map(bill => {
-                return <Bill
-                    key={bill.id}
-                    bill={bill} />
-            })}
-            {expenses?.map(expense => {
-                return <ExpenseDetail
-                    key={expense.id}
-                    expense={expense} />
-            })}
-        </div>
+        <>
+            <div className='all-bills-container'>
+                {bills &&
+                    bills?.map(bill => {
+                        return <Bill
+                            key={bill.id}
+                            bill={bill} />
+                    })}
+
+                {expenses &&
+                    expenses?.map(expense => {
+                        return <ExpenseDetail
+                            key={expense.id}
+                            expense={expense} />
+                    })
+                }
+
+
+            </div>
+            {(!bills.length && !expenses.length) && <EmptyBillsTab />}
+        </>
+
     )
 }
 
