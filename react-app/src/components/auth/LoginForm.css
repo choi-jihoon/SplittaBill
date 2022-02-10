@@ -33,15 +33,17 @@
 
 .login-form > button {
 	width: 200px;
-	height: 30px;
+	/* height: 30px; */
 	color: var(--dark-blue);
+	padding: 5px 30px;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 17px;
 	background-color: var(--saffron-yellow);
 	/* border: 1px solid var(--jet-grey); */
 	border: none;
 	border-radius: 40px;
-	margin: 20px auto 0px auto;
+	/* margin: 20px auto 0px auto; */
+	margin: 5px 0;
 	transition: all 0.2s ease-in-out;
 }
 

@@ -1,5 +1,5 @@
 .signup-form {
-	width: 500px;
+	width: 600px;
 	height: fit-content;
 	padding: 30px;
 	display: grid;
@@ -15,6 +15,7 @@
 .signup-form-elements-container {
     display: grid;
     grid-template-columns: 50% 50%;
+
 }
 
 .signup-element-container {
@@ -29,12 +30,20 @@
 	padding: 4px;
 }
 
+.sf-form-inputs-container {
+    padding: 0 30px;
+}
+
 .sf-add-image-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    border-left: 1px solid gray;
+    padding-left: 20px;
 }
+
 
 .sf-btn-container {
     display: flex;
@@ -97,7 +106,7 @@
 }
 
 .preview-container {
-	margin-top: 20px;
+	/* margin-top: 20px; */
 	width: 100px;
 	height: 100px;
 	max-height: 100px;
