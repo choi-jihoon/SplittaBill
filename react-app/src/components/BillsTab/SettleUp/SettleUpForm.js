@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTransactionRecord, getUserBalance } from "../../../store/bills";
 
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
+
+
 
 const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
@@ -54,6 +57,10 @@ const SettleUpForm = ({ showModal, expense }) => {
 		setAmountPaid(e.target.value);
 	};
 
+	const handleCancel = (e) => {
+		e.preventDefault();
+		showModal(false);
+	};
 
 	return (
 		<form className='settle-up-form-container' onSubmit={handleSubmit}>
@@ -63,27 +70,36 @@ const SettleUpForm = ({ showModal, expense }) => {
 			>
 				<i className="fas fa-minus"></i>
 			</button>
+			<div className='duck-gif-container'>
+			</div>
 			<div className='dollar-sign-and-input settle-up-input-container'>
-				<label htmlFor="amount_paid" className='dollar-sign settle-up-dollar-sign'>$</label>
-				<input
-					name="amount_paid"
-					type="number"
-					step="0.01"
-					placeholder="0"
-					value={amount_paid}
-					onChange={updateAmountPaid}
-					id='settle-up-input'
-				/>
-				<div className='errors-container'>
-					{errors.amount_paid ? `${errors.amount_paid}` : ""}
+				<div className='payment-input-container'>
+					<label htmlFor="amount_paid" className='dollar-sign settle-up-dollar-sign'>$</label>
+					<input
+						name="amount_paid"
+						type="number"
+						step="0.01"
+						placeholder="0"
+						value={amount_paid}
+						onChange={updateAmountPaid}
+						id='settle-up-input'
+					/>
+					<div className='errors-container'>
+						{errors.amount_paid ? `${errors.amount_paid}` : ""}
+					</div>
+				</div>
+				<div className='su-btn-container'>
+					<button
+						className='settle-up-submit-btn'
+						type="submit"
+						disabled={Object.keys(errors).length > 0}>
+						<p className='testing-ellipses'>{`Pay ${expense.bill.owner_name} for ${expense.bill.description}`}</p>
+					</button>
+					<button onClick={handleCancel}
+						className='form-cancel-btn'
+						id='settle-up-cancel'>Cancel</button>
 				</div>
 			</div>
-			<button
-				className='settle-up-submit-btn'
-				type="submit"
-				disabled={Object.keys(errors).length > 0}>
-					{`Pay ${expense.bill.owner_name} for ${expense.bill.description}`}
-				</button>
 		</form>
 	);
 };

@@ -11,6 +11,16 @@ const BillDetailsExpenses = ({ expense }) => {
 
     const image = expense.payer_image ? expense.payer_image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
 
+    let amount_paid = (expense.initial_charge - expense.amount_due).toString();
+    let amount_paid_arr = amount_paid.split(".")
+    if (amount_paid_arr.length > 1) {
+        let cents = amount_paid_arr[1].slice(0,2);
+        amount_paid_arr[1] = cents;
+    }
+
+    amount_paid = amount_paid_arr.join(".");
+
+
     return (
         <div className='bde-container'>
             <div className='bde-settle-up-modal-btn'>
@@ -28,8 +38,8 @@ const BillDetailsExpenses = ({ expense }) => {
                     </div>
                 </div>
                 <div className='bde-payment-settled-info'>
-                    <div className='bde-paid-text'>
-                        paid ${expense.initial_charge - expense.amount_due} out of ${expense.initial_charge}
+                    <div className={expense.settled ? 'bde-paid-text' : 'bde-paid-text bde-not-paid'}>
+                        paid ${amount_paid} out of ${expense.initial_charge}
                     </div>
                     <div className='bde-settled-true-or-false'>
                         {expense.settled ? <i className="fas fa-check bde-settled-true"></i> : <i className="fas fa-times bde-settled-false"></i>}

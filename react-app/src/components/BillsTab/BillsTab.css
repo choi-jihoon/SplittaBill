@@ -28,13 +28,15 @@
 .bill-container-and-buttons:hover {
 	background-color: var(--transparent-hover);
 	cursor: pointer;
+
 }
 
 .bill-container {
 	width: 100%;
 	padding: 40px;
 	display: grid;
-	grid-template-columns: 150px 1fr 200px;
+	grid-template-columns: 150px 50% auto;
+
 }
 
 .bill-pic-div {
@@ -67,14 +69,31 @@
 	font-size: 25px;
 	display: flex;
 	font-family: 'Mukta', sans-serif;
+}
+
+.bill-description > p {
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 300px;
+}
+
+.testing-ellipses {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 
 }
+
+/* .testing-ellipses:hover {
+	overflow:visible;
+} */
+
 
 .bill-total-amount {
 	font-size: 25px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 
 }
 
@@ -127,6 +146,7 @@ button#delete-bill:hover {
 
 .settled-false {
 	color: var(--red-salsa);
+	visibility: hidden;
 }
 
 .settled-true,
