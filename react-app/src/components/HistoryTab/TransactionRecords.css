@@ -4,7 +4,7 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 80%;
+	width: 75%;
 	border-bottom: 1px solid gray;
 	transition: background-color 0.2s ease-in-out;
 
