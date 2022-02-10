@@ -12,13 +12,19 @@ const Comment = ({ comment }) => {
 
 
 	let image;
-	if (friendsById[comment.user_id]?.image) {
-		image = friendsById[comment.user_id]?.image;
-	} else if (comment.user_id === curr_user.id) {
-		image = curr_user.image
-			? curr_user.image
-			: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
-	}
+
+	if (comment.user_image) image = comment.user_image;
+	else image = "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
+
+	image = comment.user_image;
+
+	// if (friendsById[comment.user_id]?.image) {
+	// 	image = friendsById[comment.user_id]?.image;
+	// } else if (comment.user_id === curr_user.id) {
+	// 	image = curr_user.image
+	// 		? curr_user.image
+	// 		: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
+	// }
 	useEffect(() => {
 		dispatch(getUsersFriends());
 	}, [dispatch]);

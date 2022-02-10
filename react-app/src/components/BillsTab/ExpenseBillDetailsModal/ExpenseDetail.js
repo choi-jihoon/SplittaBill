@@ -32,9 +32,8 @@ const ExpenseDetail = ({ expense }) => {
                         </span>
                     </h2>
                 </div>
-                <div className='bill-total-amount brand-font'>
-                    {expense.settled ? "" : "-"}
-                    ${expense.amount_due}
+                <div className={!expense.settled ? "negative-payment bill-total-amount brand-font" : "bill-total-amount brand-font"}>
+                    {expense.settled ? "All Settled Up!" : `-$${expense.amount_due}`}
                 </div>
 
             </div>

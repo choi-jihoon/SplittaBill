@@ -35,5 +35,6 @@ class Comment(db.Model):
                 "user_id": self.user_id,
                 "bill_id": self.bill_id,
                 "message": self.message,
-                "created_at": created_at
+                "created_at": created_at,
+                "user_image": self.user.image
         }
