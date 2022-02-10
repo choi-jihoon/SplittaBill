@@ -30,7 +30,7 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
                 </div>
                 <div>
                     <h3>{username}</h3>
-                    {balance !== 0 ? <p>Current Balance: {balance}</p> : <p>All settled up!</p>}
+                    {Number(balance) !== 0 ? <p>Current Balance: {balance > 0 ? `$${balance}` : `-$${Math.abs(balance)}`}</p> : <p>All settled up!</p>}
                 </div>
             </div>
 
