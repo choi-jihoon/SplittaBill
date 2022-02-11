@@ -6,6 +6,8 @@ import { addTransactionRecord, getUserBalance } from "../../../../../../../store
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import "./SettleUp.css";
+
 toast.configure()
 
 

@@ -73,8 +73,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 30px 30px;
+    justify-content: space-evenly;
+    padding-left: 30px;
 
     height: 250px;
 
@@ -87,7 +87,7 @@
 
 
 
-.settle-up-dollar-sign {
+label.dollar-sign.settle-up-dollar-sign {
     font-size: 45px;
     color: var(--jet-grey);
     left: 50px;
