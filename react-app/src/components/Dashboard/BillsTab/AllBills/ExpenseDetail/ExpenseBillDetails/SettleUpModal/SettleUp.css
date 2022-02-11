@@ -1,0 +1,141 @@
+.settle-up-container {
+	position: absolute;
+	z-index: 2;
+	right: 10%;
+
+}
+
+.settle-up-container:hover ~ .bill-container {
+	cursor: pointer;
+}
+
+#settle-up {
+    color: var(--dark-green);
+	background-color: transparent;
+	font-size: 30px;
+    border: none;
+    /* border: 1px solid var(--dark-green);
+    border-radius: 30px;
+    padding: 0 15px; */
+	transition: all 0.2s ease-in-out;
+
+}
+
+#settle-up:hover {
+	cursor: pointer;
+	color: var(--dark-green);
+
+	transform: scale(1.2);
+}
+
+.fa-money-bill-wave {
+	padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+.duck-gif-container {
+    background-image: url("../../../../../../../assets/duckmoney.gif");
+    width: 226px;
+    height: 226px;
+    background-size:contain;
+    border-radius: 15px;
+
+
+}
+
+.bde-settle-up-modal-btn > #settle-up {
+    font-size: 25px;
+    position: absolute;
+    right: -10%;
+    z-index: 2;
+}
+
+.settle-up-form-container {
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    align-items: center;
+    padding: 40px;
+
+    height: fit-content;
+    width: auto;
+
+}
+
+.settle-up-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 30px;
+
+    height: 250px;
+
+}
+
+.su-btn-container > p {
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+
+
+.settle-up-dollar-sign {
+    font-size: 45px;
+    color: var(--jet-grey);
+    left: 50px;
+}
+
+input#settle-up-input {
+
+	border: 0.5px solid var(--jet-grey);
+	padding: 5px 5px 5px 55px;
+    height: 70px;
+    font-size: 40px;
+    width: 100%;
+    border-radius: 10px;
+
+    color: var(--jet-grey);
+
+}
+
+.su-btn-container {
+    width: 100%;
+}
+
+.settle-up-submit-btn,
+#settle-up-cancel {
+    background-color: var(--dark-green);
+    border: var(--dark-green);
+    color: var(--main-container);
+    border-radius: 30px;
+    padding: 10px 0;
+    font-size: 15px;
+
+    width: 100%;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.settle-up-submit-btn {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.settle-up-submit-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#settle-up-cancel {
+    width: 100%;
+    background-color: var(--dark-blue);
+}
