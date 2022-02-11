@@ -25,7 +25,6 @@ const EditBillForm = ({ showModal, bill }) => {
 	});
 
 	const [errors, setErrors] = useState({});
-	const [isEmpty, setIsEmpty] = useState(false);
 	const [total_amount, setTotal_Amount] = useState(bill.total_amount);
 	const [description, setDescription] = useState(bill.description);
 	const [deadline, setDeadline] = useState(bill.deadline);
@@ -54,8 +53,12 @@ const EditBillForm = ({ showModal, bill }) => {
 		dispatch(getUserBalance(sessionUser.id));
 
 		if (data) {
-			const dataArr = data[0].split(": ");
-			errors["deadline"] = dataArr[1];
+			const errors = {}
+			for (let i = 0; i < data.length; i++) {
+				const error = data[i].split(": ");
+				errors[error[0]] = error[1]
+			}
+			setErrors(errors)
 			return;
 		}
 
@@ -79,12 +82,6 @@ const EditBillForm = ({ showModal, bill }) => {
 		setErrors(errors);
 	}, [description, total_amount]);
 
-	useEffect(() => {
-		const notEmpty = [];
-		if (!total_amount) notEmpty.push("total amount is empty");
-		if (!description) notEmpty.push("description is empty");
-		setIsEmpty(notEmpty.length > 0);
-	}, [total_amount, description]);
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);
@@ -223,27 +220,18 @@ const EditBillForm = ({ showModal, bill }) => {
 						</div>
 					);
 				})}
+				<div className="errors-container">
+						{errors.friends ? `${errors.friends}` : ""}
+					</div>
 				<div className="bill-btn-container">
 					<div className="btn-container">
 						<button
-							disabled={
-								isEmpty ||
-								Object.keys(errors).length > 0 ||
-								friends.length === 0
-							}
 							className="bill-form-submit-btn"
 							type="submit"
 						>
 							Save
 						</button>
 					</div>
-					{/* <div className='btn-container'>
-						<button
-							className='bill-form-delete-btn'
-							onClick={modalHelper}
-							type='button'
-							>Delete</button>
-					</div> */}
 				</div>
 			</div>
 		</form>

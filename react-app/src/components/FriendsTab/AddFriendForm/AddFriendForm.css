@@ -40,12 +40,3 @@
 	transform: scale(1.05);
 
 }
-
-.friend-form-submit-btn:disabled {
-	opacity: 50%;
-}
-
-.friend-form-submit-btn:disabled:hover {
-	cursor: not-allowed;
-	transform: none;
-}

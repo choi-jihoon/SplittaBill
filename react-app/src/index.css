@@ -252,14 +252,14 @@ a:active {
 	transform: scale(1.05);
 }
 
-.bill-form-submit-btn:disabled {
+/* .bill-form-submit-btn:disabled {
 	opacity: 50%;
 }
 
 .bill-form-submit-btn:disabled:hover {
 	cursor: not-allowed;
 	transform: none;
-}
+} */
 
 /* @media screen and (max-width: 1190px) {
 	div.dashboard-container {

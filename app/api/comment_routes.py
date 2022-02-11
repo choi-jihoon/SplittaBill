@@ -5,6 +5,16 @@ from flask_login import current_user
 from app.models import db, Bill, Comment
 from app.forms import CommentForm
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field}: {error}')
+    return errorMessages
+
 comment_routes = Blueprint('comments', __name__)
 
 # get comments for bill
@@ -27,7 +37,7 @@ def post_comment(bill_id):
         db.session.add(comment)
         db.session.commit()
         return {comment.id: comment.to_frontend_dict()}
-    return {'errors': form.errors}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 # update comment
@@ -41,7 +51,7 @@ def update_comment(id):
         db.session.add(comment)
         db.session.commit()
         return comment.to_frontend_dict()
-    return {'errors': form.errors}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 # delete comment

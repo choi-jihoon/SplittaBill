@@ -21,7 +21,7 @@
 }
 
 .bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
-	opacity: 1;
+	opacity: 100%;
 }
 
 .bill-container-and-buttons:hover {
@@ -135,7 +135,7 @@ button#delete-bill:hover {
 }
 
 .edit-form > .edit-delete-bill-buttons-container {
-	opacity: 1;
+	opacity: 100%;
 }
 
 #delete-bill-on-edit-form > #delete-bill > .delete-bill-icon {
