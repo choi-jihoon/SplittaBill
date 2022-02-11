@@ -141,33 +141,59 @@ input#settle-up-input {
 
 .payment-modal-container {
 	display: flex;
-	/* justify-content: flex-start; */
+	/* display: inline-block; */
+	/* display: inline-flex; */
+	justify-content: flex-start;
 	align-items: center;
 	width: 500px;
-	overflow-x: hidden;
 	margin: auto;
 }
+
 .payment-modal-container.show-card {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	/* display: flex; */
+	/* justify-content: flex-end; */
+	/* align-items: center; */
 	width: 500px;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 	margin: auto;
-	/* transition: all 2s ease-in-out;
-	animation: slide 2s linear;
-	animation-iteration-count: 1; */
+
+	/* transition: all 2s ease-in-out; */
+	animation: slide-in 0.5s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
-/* @keyframes slide {
+
+.payment-modal-container.hide-card {
+
+	width: 500px;
+	margin: auto;
+
+	/* transition: all 2s ease-in-out; */
+	animation: slide-out 0.5s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide-out {
 	0% {
-		transform: translateX(100%);
-		opacity: 0;
+		transform: translateX(-100%);
 	}
 	100% {
-		transform: translateX(-100%);
-		opacity: 1;
+		transform: translateX(0%);
 	}
-} */
+}
+
+
+@keyframes slide-in {
+	/* 0% {
+		transform: translateX(100%);
+		opacity: 0;
+	} */
+	100% {
+		transform: translateX(-100%);
+		/* opacity: 1; */
+	}
+}
 
 form#payment-form {
 	width: 500px;

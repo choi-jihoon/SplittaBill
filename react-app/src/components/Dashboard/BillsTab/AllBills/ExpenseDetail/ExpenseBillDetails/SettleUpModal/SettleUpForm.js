@@ -91,18 +91,51 @@ const SettleUpForm = ({ showModal, expense }) => {
 		}
 		setErrors(errors);
 	}, [amount_paid, expense.amount_due]);
+
 	useEffect(() => {
 		if (showCard) {
 			document
 				.querySelector(".payment-modal-container")
-				.classList.add("show-card");
+				.classList.remove("hide-card")
+			document
+				.querySelector(".payment-modal-container")
+				.classList.add("show-card")
 		} else {
 			document
 				.querySelector(".payment-modal-container")
-				.classList.remove("show-card");
+				.classList.remove("show-card")
+			// document
+			// 	.querySelector(".payment-modal-container")
+			// 	.classList.add("hide-card");
 			setShowCard(false);
 		}
 	}, [showCard]);
+
+	const backToCash = (e) => {
+		e.preventDefault();
+		// document
+		// .querySelector(".payment-modal-container")
+		// .classList.remove("show-card")
+		document
+		.querySelector(".payment-modal-container")
+		.classList.add("hide-card");
+		setShowCard(false)
+	}
+
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		if (showStripe) {
+	// 			document.querySelector(".payment-modal-container").classList.add("show-stripe")
+
+	// 		} else {
+	// 			document
+	// 			.querySelector(".payment-modal-container")
+	// 			.classList.remove("show-stripe");
+	// 			setShowStripe(false);
+	// 		}
+	// 	}, 2000)
+	// }, [showStripe])
+
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);
 	};
@@ -116,10 +149,15 @@ const SettleUpForm = ({ showModal, expense }) => {
 		e.preventDefault();
 		setShowCard(true);
 	};
-	const handleShowCash = (e) => {
-		e.preventDefault();
-		setShowCash(true);
-	};
+	// const handleShowCash = (e) => {
+	// 	e.preventDefault();
+	// 	setShowCash(true);
+	// };
+
+	// const handleShowStripe = (e) => {
+	// 	e.preventDefault();
+	// 	setShowStripe(true);
+	// };
 
 	return (
 		<div className="payment-modal-container">
@@ -211,10 +249,13 @@ const SettleUpForm = ({ showModal, expense }) => {
 			<div className="payment-card payment-card-last">
 				<button
 					id="back"
-					onClick={(e) => {
-						e.preventDefault();
-						return setShowCard(false);
-					}}
+				// 	onClick={
+				// 		(e) => {
+				// 		e.preventDefault();
+				// 		return setShowCard(false);
+				// 	}
+				// }
+				onClick={backToCash}
 				>
 					<i className="fas fa-arrow-left"></i>
 				</button>
