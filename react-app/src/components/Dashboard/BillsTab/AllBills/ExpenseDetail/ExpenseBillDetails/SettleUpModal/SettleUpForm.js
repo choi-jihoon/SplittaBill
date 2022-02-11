@@ -102,11 +102,6 @@ const SettleUpForm = ({ showModal, expense }) => {
 				.classList.remove("show-card");
 			setShowCard(false);
 		}
-		return () => {
-			document
-				.querySelector(".payment-modal-container")
-				.classList.remove("show-card");
-		};
 	}, [showCard]);
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);
