@@ -29,17 +29,20 @@ const SettleUpForm = ({ showModal, expense }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
-		dispatch(getUserBalance(sessionUser.id))
+		if (Object.keys(errors).length === 0) {
+			const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
+			dispatch(getUserBalance(sessionUser.id))
+			notify()
 
-		if (data) {
-			setErrors(data);
-			return
+			showModal(false)
+
+			if (data) {
+				setErrors(data);
+				return
+			}
 		}
 
-		notify()
 
-		showModal(false)
 	};
 
 	useEffect(() => {

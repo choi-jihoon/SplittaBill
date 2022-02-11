@@ -126,6 +126,7 @@ const AddBillForm = ({ showModal }) => {
 							placeholder="0"
 							value={total_amount}
 							onChange={updateTotal}
+							required
 						/>
 					</div>
 					<div className="errors-container">
@@ -141,6 +142,7 @@ const AddBillForm = ({ showModal }) => {
 						name="description"
 						type="text"
 						placeholder="What is this bill for?"
+						required
 						value={description}
 						onChange={updateDescription}
 					/>
