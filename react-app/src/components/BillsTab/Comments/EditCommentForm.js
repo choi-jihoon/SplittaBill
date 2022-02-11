@@ -18,8 +18,8 @@ const EditCommentForm = ({ showModal, comment }) => {
 		if (newComment.length <= 280) {
 			await dispatch(editComment(comment.id, newComment));
 			await dispatch(getComments(comment.bill_id));
+			showModal(false);
 		}
-		showModal(false);
 	};
 	const handleCancel = (e) => {
 		e.preventDefault();
@@ -42,7 +42,6 @@ const EditCommentForm = ({ showModal, comment }) => {
 				</div>
 				<div className='ef-btn-container'>
 					<button
-					disabled={errors.length > 0}
 					className='form-delete-btn' id='ef-submit-btn'>Submit Edit</button>
 					<button onClick={handleCancel}
 					className='form-cancel-btn'>Cancel</button>

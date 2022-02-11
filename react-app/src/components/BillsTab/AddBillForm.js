@@ -22,7 +22,6 @@ const AddBillForm = ({ showModal }) => {
 	const todayString = today.toISOString().split("T")[0];
 
 	const [errors, setErrors] = useState({});
-	const [isEmpty, setIsEmpty] = useState(true);
 	const [total_amount, setTotal_Amount] = useState("");
 	const [description, setDescription] = useState("");
 	const [deadline, setDeadline] = useState(todayString);
@@ -50,8 +49,12 @@ const AddBillForm = ({ showModal }) => {
 		dispatch(getUserBalance(sessionUser.id));
 
 		if (data) {
-			const dataArr = data[0].split(": ");
-			errors["deadline"] = dataArr[1];
+			const errors = {}
+			for (let i = 0; i < data.length; i++) {
+				const error = data[i].split(": ");
+				errors[error[0]] = error[1]
+			}
+			setErrors(errors)
 			return;
 		}
 
@@ -79,13 +82,6 @@ const AddBillForm = ({ showModal }) => {
 
 		setErrors(errors);
 	}, [description, total_amount]);
-
-	useEffect(() => {
-		const notEmpty = [];
-		if (!total_amount) notEmpty.push("total amount is empty");
-		if (!description) notEmpty.push("description is empty");
-		setIsEmpty(notEmpty.length > 0);
-	}, [total_amount, description]);
 
 	const updateTotal = (e) => {
 		setTotal_Amount(e.target.value);
@@ -206,15 +202,13 @@ const AddBillForm = ({ showModal }) => {
 							</div>
 						);
 					})}
+					<div className="errors-container">
+						{errors.friends ? `${errors.friends}` : ""}
+					</div>
 				</div>
 				<div className="bill-btn-container">
 					<button
 						className="bill-form-submit-btn"
-						disabled={
-							isEmpty ||
-							Object.keys(errors).length > 0 ||
-							friends.length === 0
-						}
 						type="submit"
 					>
 						Divvy Up
