@@ -17,7 +17,7 @@
 }
 
 .login-element-container {
-	padding: 10px 0;
+	padding: 10px;
 }
 
 
@@ -28,7 +28,7 @@
 	font-size: 18px;
 	border: 1px solid var(--jet-grey);
 	border-radius: 7px;
-	padding: 4px;
+	padding: 4px 10px;
 }
 
 .login-form > button {

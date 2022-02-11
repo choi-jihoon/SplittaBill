@@ -3,6 +3,8 @@
 	padding: 75px;
 	min-width: fit-content;
 	width: 600px;
+
+	cursor: default;
 }
 
 .bd-edit-delete-btns-container {

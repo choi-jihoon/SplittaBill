@@ -27,7 +27,7 @@
 	font-size: 18px;
 	border: 1px solid var(--jet-grey);
 	border-radius: 7px;
-	padding: 4px;
+	padding: 4px 0 4px 10px;
 }
 
 .sf-form-inputs-container {

@@ -10,6 +10,8 @@
 	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 	height: 100vh;
+
+	cursor: default;
 }
 .edit-image-form {
 	display: flex;

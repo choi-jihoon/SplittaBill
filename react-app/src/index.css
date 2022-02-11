@@ -32,6 +32,7 @@ html {
 	text-decoration: none;
 	list-style-type: none;
 	font-family: proxima-nova, sans-serif;
+
 }
 
 body,
@@ -47,6 +48,7 @@ h4,
 h5,
 h6 {
 	font-family: var(--brand-font);
+	cursor: default;
 }
 
 .brand-font {
@@ -128,7 +130,7 @@ a:active {
 	overflow: hidden;
 }
 
-.form-friends-list-container {
+div.form-friends-list-container {
 	max-height: 200px;
 	overflow-y: scroll;
 
@@ -151,6 +153,7 @@ a:active {
 .form-label {
 	font-weight: bold;
 	padding-bottom: 5px;
+	cursor: default;
 }
 
 .dollar-sign-and-input {
@@ -184,6 +187,8 @@ a:active {
 	align-items: center;
 	margin-bottom: 5px;
 	padding-left: 10px;
+
+
 }
 
 .friend-name-checkbox-container:hover {
@@ -252,14 +257,7 @@ a:active {
 	transform: scale(1.05);
 }
 
-/* .bill-form-submit-btn:disabled {
-	opacity: 50%;
-}
 
-.bill-form-submit-btn:disabled:hover {
-	cursor: not-allowed;
-	transform: none;
-} */
 
 /* @media screen and (max-width: 1190px) {
 	div.dashboard-container {

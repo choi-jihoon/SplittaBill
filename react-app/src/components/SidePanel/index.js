@@ -15,8 +15,6 @@ import "./SidePanel.css";
 const SidePanel = ({ balance }) => {
 	const sessionUser = useSelector((state) => state.session.user);
 	const imageUrl = sessionUser.image
-		? sessionUser.image
-		: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
 
 	return (
 		<div className="side-panel">
