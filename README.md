@@ -55,32 +55,34 @@ SplitaBill, inspired by the functionality of [Splitwise](https://www.splitwise.c
 
 Users can log into an existing account or sign up and create a new account. Alternatively, users can test the site with the Demo Login feature.
 
-(Insert Screenshots Here)
+![Splash Page](./images/splash.JPG)
 
 
 ## User Dashboard
 
 The logged in user's dashboard displays all the bills and expenses related to the user, as well as a side panel where the user can edit their profile picture, create a bill, add a friend, or log out.
 
-(Insert Screenshots Here)
+![Dashboard](./images/dashboard.JPG)
 
 
 ## Bills & Expenses Tab
 
 Clicking on a specific bill or expense will display a modal with the details for that bill or expense (people involved, how much each person still needs to pay for their individual expense, and comments made on the bill).
 
-(Insert Screenshots Here)
+![Bill Detail](./images/expense.JPG)
 
 The user has the option to edit/delete bills they own, and pay back their expenses.
 
-(Insert Screenshots Here)
+![Edit Bill](./images/editbill.JPG)
+
+![Settle Up](./images/settleup.JPG)
 
 
 ## Comments
 
 The user can add comments on the bill detail modal, and edit/delete comments that they own.
 
-(Insert Screenshots Here)
+![Comments](./images/comment.JPG)
 
 
 ## Friends Tab
@@ -89,21 +91,21 @@ Navigating to the friends tab will display a list of the user's friends and curr
 
 The user can delete friends as long as all expenses between the user and the friend has been settled (balance is zero).
 
-(Insert Screenshots Here)
+![Friends Tab](./images/friendstab.JPG)
 
 
 ## Transaction History Tab
 
 Navigating to the transaction history tab will display all the transactions the user has been involved in, with the most recent on top.
 
-(Insert Screenshots Here)
+![Transactions Tab](./images/transactionstab.JPG)
 
 
 ## Page Not Found
 
 Trying to access a path that does not exist will render a 404 Page component.
 
-(Insert Screenshots Here)
+![Page Not Found](./images/pagenotfound.JPG)
 
 # Database Schema
 ![Database Schema](./images/splittabilldbschema.JPG)
