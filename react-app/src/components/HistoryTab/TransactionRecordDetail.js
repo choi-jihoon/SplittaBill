@@ -44,7 +44,7 @@ const TransactionRecordDetail = ({ record }) => {
                             </h3>
                         </div>
                         <div className='record-date'>
-                            <p>{record.created_at.slice(0,16)}</p>
+                            <p>{record.created_at.slice(0, 16)}</p>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,19 @@ const TransactionRecordDetail = ({ record }) => {
                 :
 
                 <div className='transactions-tab-records-container'>
-
+                    <div className='tb-image'>
+                        <img src={imageBubble} alt={imageAlt} />
+                    </div>
+                    <div className='tb-record-text'>
+                        <h3 className='testing-ellipses' id='tb-text'>
+                            <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
+                            <span className={`${amountColor}`}> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.amount_paid)} </span>
+                            for <span className="bold">{record.transaction_description}</span>
+                        </h3>
+                    </div>
+                    <div className='tb-record-date'>
+                        <p>{record.created_at.slice(0, 16)}</p>
+                    </div>
                 </div>
             }
         </>

@@ -7,6 +7,8 @@
 	min-width: 760px;
 }
 
+
+
 .record-image-text {
 	margin: 0 auto;
 	padding: 40px;
@@ -25,6 +27,7 @@
 	margin: auto;
 	margin-right: 0px;
 }
+
 .transaction-record-detail-container img {
 	width: 50px;
 	height: 50px;
@@ -50,11 +53,71 @@
 	color: var(--dark-green);
 }
 
-h2#nothing-to-see {
-	padding: 50px 100px;
+
+
+
+.transactions-tab-records-container img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
-/* .transaction-records-container > .transaction-record-detail-container {
+.transactions-tab-records-container {
+	border-bottom: 1px solid gray;
+	width: 100%;
+	min-width: 760px;
+
 	display: grid;
 	grid-template-columns: 150px 50% auto;
+	padding: 30px;
+
+	cursor: default;
+}
+
+.tb-image {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0 28px;
+}
+
+.tb-record-text {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-weight: normal;
+}
+
+.tb-record-date {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tb-record-text > h3.testing-ellipses {
+	max-width: 400px;
+	font-weight: normal;
+}
+
+
+
+/* .tb-image {
+	margin: 0 auto;
+	padding: 40px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100px;
+	min-width: 760px;
+}
+
+.tb-record-text {
+	margin: 0 auto;
+	padding: 40px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100px;
+	min-width: 760px;
 } */
