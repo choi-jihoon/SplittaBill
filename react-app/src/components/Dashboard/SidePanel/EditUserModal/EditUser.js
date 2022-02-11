@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUserImage } from "../../../../store/session";
 import { getBills } from "../../../../store/bills";
 
+import "./EditUser.css";
+
 const EditUser = ({ showModal, user }) => {
 	const dispatch = useDispatch();
 	const [image, setImage] = useState(null);
@@ -34,7 +36,7 @@ const EditUser = ({ showModal, user }) => {
 	return (
 		<div className="edit-image-form">
 			<div className="modal-head" style={{ marginBottom: 20 }}>
-				Change Profile Image
+				Change Profile Picture
 			</div>
 			{!image && (
 				<img
@@ -68,7 +70,8 @@ const EditUser = ({ showModal, user }) => {
 					accept="image/*"
 					onChange={updateImage}
 				></input>
-				<button>Save</button>
+				<button
+				>Save</button>
 			</form>
 			{imageLoading && (
 				<p>

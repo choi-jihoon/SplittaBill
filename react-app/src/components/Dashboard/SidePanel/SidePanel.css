@@ -13,7 +13,8 @@
 
 	cursor: default;
 }
-.edit-image-form {
+
+/* .edit-image-form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -35,8 +36,8 @@
 	width: 200px;
 	height: 30px;
 	text-align: center;
-	color: #fff;
-	background-color: #000;
+	color: var(--main-container);
+	background-color: var(--dark-blue);
 	border-radius: 7px;
 	padding: 2px 4px;
 	margin: 10px;
@@ -51,8 +52,8 @@
 	width: 200px;
 	height: 30px;
 	margin: 10px;
-	background-color: #000;
-	color: #fff;
+	color: var(--main-container);
+	background-color: var(--dark-blue);
 	border: none;
 	border-radius: 7px;
 	font-size: 16px;
@@ -63,7 +64,7 @@
 	color: #000;
 	cursor: pointer;
 	border: 1px solid #000;
-}
+} */
 
 .side-panel-buttons {
 	align-self: center;
@@ -104,34 +105,43 @@
 	width: 200px;
 	height: 30px;
 	text-align: center;
-	color: #fff;
-	background-color: #000;
-	border-radius: 7px;
+	color: var(--main-container);
+	background-color: var(--dark-blue);
+	border-radius: 25px;
 	padding: 2px 4px;
-	margin: 10px;
+	margin-top: 20px;
+
+	transition: all 0.2s ease-in-out;
 }
 .edit-image-form > form > label:hover {
-	background-color: #fff;
+	/* background-color: #fff;
 	color: #000;
 	cursor: pointer;
-	border: 1px solid #000;
+	border: 1px solid #000; */
+	transform: scale(1.1);
+	cursor: pointer;
 }
 .edit-image-form > form > button {
 	width: 200px;
 	height: 30px;
 	margin: 10px;
-	background-color: #000;
-	color: #fff;
+	color: var(--dark-blue);
+	background-color: var(--saffron-yellow);
 	border: none;
-	border-radius: 7px;
+	border-radius: 25px;
 	font-size: 16px;
+	font-weight: bold;
+
+	transition: all 0.2s ease-in-out;
 }
 
 .edit-image-form > form > button:hover {
-	background-color: #fff;
+	/* background-color: #fff;
 	color: #000;
 	cursor: pointer;
-	border: 1px solid #000;
+	border: 1px solid #000; */
+	transform: scale(1.1);
+	cursor: pointer;
 }
 
 .pic-and-name-div {
