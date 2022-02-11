@@ -53,3 +53,8 @@
 h2#nothing-to-see {
 	padding: 50px 100px;
 }
+
+/* .transaction-records-container > .transaction-record-detail-container {
+	display: grid;
+	grid-template-columns: 150px 50% auto;
+} */

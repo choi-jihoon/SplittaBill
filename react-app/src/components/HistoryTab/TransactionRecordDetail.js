@@ -1,6 +1,8 @@
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const TransactionRecordDetail = ({ record }) => {
+    const location = useLocation();
 
     const sessionUser = useSelector(state => state.session.user)
     let payer;
@@ -28,22 +30,32 @@ const TransactionRecordDetail = ({ record }) => {
     }
 
     return (
-        <div className='transaction-record-detail-container'>
-            <div className="record-image-text">
-                <img src={imageBubble} alt={imageAlt} />
-                <div className='record-text'>
-                    <h3 className="testing-ellipses">
-                        <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
-                        <span className={`${amountColor}`}> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.amount_paid)} </span>
-                        for <span className="bold">{record.transaction_description}</span>
+        <>
+            {(location.pathname === "/friends") ?
+                <div className='transaction-record-detail-container'>
+                    <div className="record-image-text">
+                        <img src={imageBubble} alt={imageAlt} />
+                        <div className='record-text'>
+                            <h3 className="testing-ellipses">
+                                <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
+                                <span className={`${amountColor}`}> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.amount_paid)} </span>
+                                for <span className="bold">{record.transaction_description}</span>
 
-                    </h3>
+                            </h3>
+                        </div>
+                        <div className='record-date'>
+                            <p>{record.created_at.slice(0,16)}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className='record-date'>
-                    <p>{record.created_at.slice(0,16)}</p>
+
+                :
+
+                <div className='transactions-tab-records-container'>
+
                 </div>
-            </div>
-        </div>
+            }
+        </>
     )
 }
 
