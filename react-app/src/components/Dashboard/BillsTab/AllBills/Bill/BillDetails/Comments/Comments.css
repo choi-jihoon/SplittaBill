@@ -134,9 +134,6 @@ button#delete-comment {
 	transition: all 0.2s ease-in-out;
 }
 
-
-
-
 .form-container.edit-form-container {
 	display: flex;
 	flex-direction: column;

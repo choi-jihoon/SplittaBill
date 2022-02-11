@@ -9,7 +9,7 @@ function DemoLogin() {
         const email = 'demo@aa.io';
         const password = 'password';
         return dispatch(sessionActions.login(email, password)).catch(
-            async(res) => {
+            async (res) => {
                 await res.json();
             }
         )
