@@ -2,7 +2,6 @@
 	position: absolute;
 	z-index: 2;
 	right: 10%;
-
 }
 
 .settle-up-container:hover ~ .bill-container {
@@ -10,15 +9,14 @@
 }
 
 #settle-up {
-    color: var(--dark-green);
+	color: var(--dark-green);
 	background-color: transparent;
 	font-size: 30px;
-    border: none;
-    /* border: 1px solid var(--dark-green);
+	border: none;
+	/* border: 1px solid var(--dark-green);
     border-radius: 30px;
     padding: 0 15px; */
 	transition: all 0.2s ease-in-out;
-
 }
 
 #settle-up:hover {
@@ -32,108 +30,167 @@
 	padding-right: 5px;
 }
 
-
-
-
-
-
-
-
-
 .duck-gif-container {
-    background-image: url("../../../../../../../assets/duckmoney.gif");
-    width: 226px;
-    height: 226px;
-    background-size:contain;
-    border-radius: 15px;
-
-
+	background-image: url("../../../../../../../assets/duckmoney.gif");
+	width: 226px;
+	height: 226px;
+	background-size: contain;
+	border-radius: 15px;
 }
 
 .bde-settle-up-modal-btn > #settle-up {
-    font-size: 25px;
-    position: absolute;
-    right: -10%;
-    z-index: 2;
+	font-size: 25px;
+	position: absolute;
+	right: -10%;
+	z-index: 2;
 }
 
 .settle-up-form-container {
-    display: flex;
-    align-items: center;
-    padding: 40px;
+	display: flex;
+	align-items: center;
+	padding: 40px;
 
-    height: fit-content;
-    width: auto;
-
+	height: fit-content;
+	width: auto;
 }
 
+.payment-card {
+	width: 500px;
+}
 .settle-up-input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding-left: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding-left: 30px;
 
-    height: 220px;
-
+	height: 220px;
 }
 
 .su-btn-container > p {
-    overflow: hidden;
+	overflow: hidden;
 	white-space: nowrap;
 }
 
-
-
 label.dollar-sign.settle-up-dollar-sign {
-    font-size: 45px;
-    color: var(--jet-grey);
-    left: 50px;
+	font-size: 45px;
+	color: var(--jet-grey);
+	left: 50px;
 }
 
 input#settle-up-input {
-
 	border: 0.5px solid var(--jet-grey);
 	padding: 5px 5px 5px 55px;
-    height: 70px;
-    font-size: 40px;
-    width: 100%;
-    border-radius: 10px;
+	height: 70px;
+	font-size: 40px;
+	width: 100%;
+	border-radius: 10px;
 
-    color: var(--jet-grey);
-
+	color: var(--jet-grey);
 }
 
 .su-btn-container {
-    width: 100%;
+	width: 100%;
 }
 
 .settle-up-submit-btn,
 #settle-up-cancel {
-    background-color: var(--dark-green);
-    border: var(--dark-green);
-    color: var(--main-container);
-    border-radius: 30px;
-    padding: 10px 0;
-    font-size: 15px;
+	background-color: var(--dark-green);
+	border: var(--dark-green);
+	color: var(--main-container);
+	border-radius: 30px;
+	padding: 10px 0;
+	font-size: 15px;
 
-    width: 100%;
+	width: 100%;
 
-    transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 .settle-up-submit-btn {
-    margin-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+	margin-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .settle-up-submit-btn:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+	cursor: pointer;
+	transform: scale(1.1);
 }
 
 #settle-up-cancel {
-    width: 100%;
-    background-color: var(--dark-blue);
+	width: 100%;
+	background-color: var(--dark-blue);
+}
+.choice-btn {
+	width: 100%;
+}
+.payment-card {
+	/* padding: 0 40px; */
+	width: 100%;
+	/* transform: translateX(-100%); */
+}
+.payment-card-middle > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* transform: translateX(-100%); */
+	width: 500px;
+}
+
+.payment-modal-container {
+	display: flex;
+	/* justify-content: flex-start; */
+	align-items: center;
+	width: 500px;
+	overflow-x: hidden;
+	margin: auto;
+}
+.payment-modal-container.show-card {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 500px;
+	overflow-x: hidden;
+	margin: auto;
+	/* transition: all 2s ease-in-out;
+	animation: slide 2s linear;
+	animation-iteration-count: 1; */
+}
+/* @keyframes slide {
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 1;
+	}
+} */
+
+form#payment-form {
+	width: 500px;
+	padding: 0 40px;
+}
+
+form#payment-form > button {
+	width: 70%;
+	margin: 10px 15%;
+	background-color: var(--dark-green);
+	border: var(--dark-green);
+	color: var(--main-container);
+	border-radius: 30px;
+	padding: 10px 0;
+	font-size: 15px;
+	transition: all 0.2s ease-in-out;
+}
+form#payment-form > button:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.payment-card-last > #back {
+	margin-left: 60px;
+	margin-bottom: 10px;
 }

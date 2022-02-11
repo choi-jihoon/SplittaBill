@@ -3,86 +3,111 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-import { addTransactionRecord, getUserBalance } from "../../../../../../../store/bills";
+import {
+	addTransactionRecord,
+	getUserBalance,
+} from "../../../../../../../store/bills";
 import CheckoutForm from "./CheckoutForm";
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./SettleUp.css";
 
-toast.configure()
+toast.configure();
 
-const stripePromise = loadStripe("pk_test_51KRnp0AiyFrcDvqiSLBqLIFMUw5REiFihM6eUtBZzJdrLzFDuT9a980zMaZrRzyLGBOSwZXCNKIDFHTTy8hebagK00q96aJFvQ");
+const stripePromise = loadStripe(
+	"pk_test_51KRnp0AiyFrcDvqiSLBqLIFMUw5REiFihM6eUtBZzJdrLzFDuT9a980zMaZrRzyLGBOSwZXCNKIDFHTTy8hebagK00q96aJFvQ"
+);
 
 const SettleUpForm = ({ showModal, expense }) => {
 	const dispatch = useDispatch();
-	const sessionUser = useSelector(state => state.session.user)
+	const sessionUser = useSelector((state) => state.session.user);
 
 	const [errors, setErrors] = useState({});
 	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
-	const [showCheckout, setShowCheckout] = useState(false);
+	const [showCard, setShowCard] = useState(false);
+	const [showCash, setShowCash] = useState(false);
 	const [clientSecret, setClientSecret] = useState("");
 
 	const appearance = {
-		theme: 'stripe',
-	  };
-	  const options = {
+		theme: "stripe",
+	};
+	const options = {
 		clientSecret,
 		appearance,
-	  };
+	};
 
 	useEffect(() => {
 		// Create PaymentIntent as soon as the page loads
 		fetch("/api/stripe/create-payment-intent", {
-		  method: "POST",
-		  headers: { "Content-Type": "application/json" },
-		  body: JSON.stringify({ amount: amount_paid }),
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ amount: amount_paid }),
 		})
-		  .then((res) => res.json())
-		  .then((data) => setClientSecret(data.clientSecret));
-	  }, []);
-
+			.then((res) => res.json())
+			.then((data) => setClientSecret(data.clientSecret));
+	}, []);
 
 	const notify = () => {
-		toast.success(`You paid $${amount_paid}!`,
-			{
-				position: toast.POSITION.TOP_RIGHT,
-				autoClose: 2000
-			})
-	}
-
+		toast.success(`You paid $${amount_paid}!`, {
+			position: toast.POSITION.TOP_RIGHT,
+			autoClose: 2000,
+		});
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		if (Object.keys(errors).length === 0) {
-			const data = await dispatch(addTransactionRecord(expense.bill.owner_id, expense.id, amount_paid))
-			dispatch(getUserBalance(sessionUser.id))
-			notify()
+			const data = await dispatch(
+				addTransactionRecord(
+					expense.bill.owner_id,
+					expense.id,
+					amount_paid
+				)
+			);
+			dispatch(getUserBalance(sessionUser.id));
+			notify();
 
-			showModal(false)
+			showModal(false);
 
 			if (data) {
 				setErrors(data);
-				return
+				return;
 			}
 		}
-
-
 	};
 
 	useEffect(() => {
 		const errors = [];
-		if (amount_paid > Number(expense.amount_due)) errors["amount_paid"] = `You can't pay more than what's due!`
-		if (amount_paid <= 0) errors["amount_paid"] = "Please enter a positive value."
+		if (amount_paid > Number(expense.amount_due))
+			errors["amount_paid"] = `You can't pay more than what's due!`;
+		if (amount_paid <= 0)
+			errors["amount_paid"] = "Please enter a positive value.";
 		if (amount_paid.split(".").length > 1) {
-			if (amount_paid.split(".")[1].length > 2) errors["amount_paid"] = "Please round to the nearest cent."
+			if (amount_paid.split(".")[1].length > 2)
+				errors["amount_paid"] = "Please round to the nearest cent.";
 		}
 		setErrors(errors);
-
-	}, [amount_paid, expense.amount_due])
-
+	}, [amount_paid, expense.amount_due]);
+	useEffect(() => {
+		if (showCard) {
+			document
+				.querySelector(".payment-modal-container")
+				.classList.add("show-card");
+		} else {
+			document
+				.querySelector(".payment-modal-container")
+				.classList.remove("show-card");
+			setShowCard(false);
+		}
+		return () => {
+			document
+				.querySelector(".payment-modal-container")
+				.classList.remove("show-card");
+		};
+	}, [showCard]);
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);
 	};
@@ -92,72 +117,121 @@ const SettleUpForm = ({ showModal, expense }) => {
 		showModal(false);
 	};
 
-	const handleShowCheckout = (e) => {
+	const handleShowCard = (e) => {
 		e.preventDefault();
-		setShowCheckout(true);
-	}
+		setShowCard(true);
+	};
+	const handleShowCash = (e) => {
+		e.preventDefault();
+		setShowCash(true);
+	};
 
 	return (
-		<>
-
-			{ showCheckout ?
-				<div>
-					{clientSecret && (
-					<Elements options={options} stripe={stripePromise}>
-					  <CheckoutForm />
-					</Elements>
-				  )}
-				</div>
-			:
-			<form className='settle-up-form-container' onSubmit={handleSubmit}>
-				<button
-					className="close-modal"
-					onClick={() => showModal(false)}
+		<div className="payment-modal-container">
+			<div className="payment-card payment-card-first">
+				<h2 style={{ textAlign: "center" }}>
+					Pay {expense.bill.owner_name}
+				</h2>
+				<form
+					className="settle-up-form-container"
+					onSubmit={handleSubmit}
 				>
-					<i className="fas fa-minus"></i>
-				</button>
-				<div className='duck-gif-container'>
-				</div>
-				<div className='dollar-sign-and-input settle-up-input-container'>
-					<div className='payment-input-container'>
-						<label htmlFor="amount_paid" className='dollar-sign settle-up-dollar-sign'>$</label>
-						<input
-							name="amount_paid"
-							type="number"
-							step="0.01"
-							placeholder="0"
-							value={amount_paid}
-							onChange={updateAmountPaid}
-							id='settle-up-input'
-						/>
-						<div className='errors-container'>
-							{errors.amount_paid ? `${errors.amount_paid}` : ""}
+					<button
+						className="close-modal"
+						onClick={() => showModal(false)}
+					>
+						<i className="fas fa-minus"></i>
+					</button>
+					<div className="duck-gif-container"></div>
+					<div className="dollar-sign-and-input settle-up-input-container">
+						<div className="payment-input-container">
+							<label
+								htmlFor="amount_paid"
+								className="dollar-sign settle-up-dollar-sign"
+							>
+								$
+							</label>
+							<input
+								name="amount_paid"
+								type="number"
+								step="0.01"
+								placeholder="0"
+								value={amount_paid}
+								onChange={updateAmountPaid}
+								id="settle-up-input"
+							/>
+							<div className="errors-container">
+								{errors.amount_paid
+									? `${errors.amount_paid}`
+									: ""}
+							</div>
+						</div>
+						<div className="su-btn-container">
+							<button
+								className="settle-up-submit-btn"
+								type="submit"
+							>
+								<p className="testing-ellipses">{`Pay with cash`}</p>
+							</button>
+
+							{/* <button
+							className="settle-up-submit-btn"
+							onClick={handleShowCheckout}
+                            >
+							<p className="">{`Pay by Card`}</p>
+						</button> */}
+							<button
+								className="settle-up-submit-btn choice-btn"
+								onClick={handleShowCard}
+							>
+								Pay with card
+							</button>
+							<button
+								onClick={handleCancel}
+								className="form-cancel-btn"
+								id="settle-up-cancel"
+							>
+								Cancel
+							</button>
 						</div>
 					</div>
-					<div className='su-btn-container'>
-						<button
-							className='settle-up-submit-btn'
-							type="submit">
-							<p className='testing-ellipses'>{`Pay ${expense.bill.owner_name} for ${expense.bill.description}`}</p>
-						</button>
-
-						<button
-							className='settle-up-submit-btn'
-							onClick={handleShowCheckout}>
-							<p className=''>{`Pay by Card`}</p>
-						</button>
-
-						<button onClick={handleCancel}
-							className='form-cancel-btn'
-							id='settle-up-cancel'>Cancel</button>
-					</div>
+				</form>
+			</div>
+			{/* <div className="payment-card payment-card-middle">
+				<div>
+					<button
+						className="settle-up-submit-btn choice-btn"
+						onClick={handleShowCash}
+					>
+						Pay with cash
+					</button>
+					<button
+						className="settle-up-submit-btn choice-btn"
+						onClick={handleShowCard}
+					>
+						Pay with card
+					</button>
 				</div>
-			</form>
-
-			}
-
-
-		</>
+			</div> */}
+			<div className="payment-card payment-card-last">
+				<button
+					id="back"
+					onClick={(e) => {
+						e.preventDefault();
+						return setShowCard(false);
+					}}
+				>
+					<i className="fas fa-arrow-left"></i>
+				</button>
+				<div>
+					{clientSecret && (
+						<Elements options={options} stripe={stripePromise}>
+							<CheckoutForm />
+						</Elements>
+					)}
+				</div>
+			</div>
+		</div>
 	);
 };
 
