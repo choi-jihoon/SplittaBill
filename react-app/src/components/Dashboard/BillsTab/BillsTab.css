@@ -21,7 +21,8 @@
 }
 
 .bill-container-and-buttons:hover > .edit-delete-bill-buttons-container {
-	visibility: visible;
+	/* visibility: visible; */
+	opacity: 1;
 }
 
 .bill-container-and-buttons:hover {
@@ -87,7 +88,8 @@
 	z-index: 2;
 	padding: 20px;
 
-	visibility: hidden;
+	/* visibility: hidden; */
+	opacity: 0;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -135,7 +137,8 @@ button#delete-bill:hover {
 }
 
 .edit-form > .edit-delete-bill-buttons-container {
-	visibility: visible;
+	/* visibility: visible; */
+	opacity: 1;
 }
 
 #delete-bill-on-edit-form > #delete-bill > .delete-bill-icon {

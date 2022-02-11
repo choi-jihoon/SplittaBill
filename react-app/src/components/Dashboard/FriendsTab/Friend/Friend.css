@@ -21,12 +21,14 @@
 }
 
 #remove-friend {
-	visibility: hidden;
+	/* visibility: hidden; */
+	opacity: 0;
 	transition: all 0.2s ease-in-out;
 }
 
 .friend-container:hover #remove-friend {
-	visibility: visible;
+	/* visibility: visible; */
+	opacity: 1;
 }
 
 .friend-container span {
