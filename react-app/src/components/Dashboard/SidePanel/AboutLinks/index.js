@@ -7,7 +7,7 @@ const AboutLinks = () => {
 			<div className="about-profiles">
 				<div className="side-panel-about-profile">
 					<img
-						src="http://splitabill.s3.amazonaws.com/preserve/1d5fa99297fa407e94f293f5ad0e40ff.png"
+						src="https://splitabill.s3.amazonaws.com/preserve/1d5fa99297fa407e94f293f5ad0e40ff.png"
 						alt="cody-pic"
 					></img>
 					<div className="links">
@@ -32,7 +32,7 @@ const AboutLinks = () => {
 				</div>
 				<div className="side-panel-about-profile">
 					<img
-						src="http://splitabill.s3.amazonaws.com/preserve/5291b74b486d48b19223f3aab8097bd4.jpg"
+						src="https://splitabill.s3.amazonaws.com/preserve/5291b74b486d48b19223f3aab8097bd4.jpg"
 						alt="fiona-pic"
 					></img>
 					<div className="links">
@@ -57,7 +57,7 @@ const AboutLinks = () => {
 				</div>
 				<div className="side-panel-about-profile">
 					<img
-						src="http://splitabill.s3.amazonaws.com/preserve/f2f1be08ffc9479ca754ad89a3b6f85d.jpg"
+						src="https://splitabill.s3.amazonaws.com/preserve/f2f1be08ffc9479ca754ad89a3b6f85d.jpg"
 						alt="vivian-pic"
 					></img>
 					<div className="links">
