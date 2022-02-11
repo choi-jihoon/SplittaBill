@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
@@ -67,9 +67,22 @@ const SignUpForm = () => {
 		setRepeatPassword(e.target.value);
 	};
 
+	useEffect(() => {
+		return () => {
+			setErrors({});
+			setUsername("");
+			setEmail("");
+			setPassword("");
+			setRepeatPassword("");
+			setImage(null);
+			setImageLoading(false);
+		};
+	}, []);
+
 	if (user) {
 		return <Redirect to="/" />;
 	}
+
 
 	return (
 		<form onSubmit={onSignUp} className="signup-form">

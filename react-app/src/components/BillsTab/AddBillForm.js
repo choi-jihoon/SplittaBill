@@ -111,11 +111,6 @@ const AddBillForm = ({ showModal }) => {
 
 	return (
 		<form className="form-container bill-form" onSubmit={handleSubmit}>
-			{/* <div className='errors-container'>
-				{errors.map((error, ind) => (
-					<div className='error-msg' key={ind}>{error}</div>
-				))}
-			</div> */}
 			<h3 className="create-a-bill">Create a Bill</h3>
 			<button className="close-modal" onClick={() => showModal(false)}>
 				<i className="fas fa-minus"></i>
@@ -177,39 +172,41 @@ const AddBillForm = ({ showModal }) => {
 				<div className="form-label form-label-friends">
 					Split between:
 				</div>
-				{allFriends.map((friend) => {
-					return (
-						<div
-							className="friend-name-checkbox-container"
-							key={friend.id}
-						>
-							<div className="friends-checkboxes" key={friend.id}>
-								<input
-									type="checkbox"
-									id={`${friend.friend_name}Select`}
-									name="friend"
-									value={friend.friend_name}
-									onChange={updateFriends}
-								/>
-							</div>
-							<label
-								className="form-friend-name"
-								htmlFor={`${friend.friend_name}Select`}
+				<div className='form-friends-list-container'>
+					{allFriends.map((friend) => {
+						return (
+							<div
+								className="friend-name-checkbox-container"
+								key={friend.id}
 							>
-								<div className="friend-name">
-									{friend.friend_name}
-								</div>
-								<div className="comment-pic-div split-with-pic">
-									<img
-										src={friend.friend_image}
-										alt={friend.friend_name}
-										className="friend-pic"
+								<div className="friends-checkboxes" key={friend.id}>
+									<input
+										type="checkbox"
+										id={`${friend.friend_name}Select`}
+										name="friend"
+										value={friend.friend_name}
+										onChange={updateFriends}
 									/>
 								</div>
-							</label>
-						</div>
-					);
-				})}
+								<label
+									className="form-friend-name"
+									htmlFor={`${friend.friend_name}Select`}
+								>
+									<div className="friend-name">
+										{friend.friend_name}
+									</div>
+									<div className="comment-pic-div split-with-pic">
+										<img
+											src={friend.friend_image}
+											alt={friend.friend_name}
+											className="friend-pic"
+										/>
+									</div>
+								</label>
+							</div>
+						);
+					})}
+				</div>
 				<div className="bill-btn-container">
 					<button
 						className="bill-form-submit-btn"

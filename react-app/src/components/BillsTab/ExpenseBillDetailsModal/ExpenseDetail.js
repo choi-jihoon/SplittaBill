@@ -54,7 +54,7 @@ const ExpenseDetail = ({ expense }) => {
 				>
 					{expense.settled
 						? "All Settled Up!"
-						: `-$${expense.amount_due}`}
+						: `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(expense.amount_due)}`}
 				</div>
 			</div>
 			<div className="settle-up-container">

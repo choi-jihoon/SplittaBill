@@ -35,7 +35,7 @@ const Bill = ({ bill }) => {
 						</h2>
 					</div>
 					<div className='bill-total-amount brand-font positive-payment'>
-						${bill.total_amount}
+						{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(bill.total_amount)}
 					</div>
 				</div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "../../../context/Modal";
 import SettleUpForm from "./SettleUpForm";
 
@@ -6,6 +6,8 @@ import "./SettleUp.css";
 
 function SettleUpModal({ expense }) {
 	const [showModal, setShowModal] = useState(false);
+
+	useEffect(() => () => setShowModal(false), []);
 
 	return (
 		<>

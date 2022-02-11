@@ -34,7 +34,7 @@ const TransactionRecordDetail = ({ record }) => {
                 <div className='record-text'>
                     <h3 className="testing-ellipses">
                         <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
-                        <span className={`${amountColor} bold`}> ${record.amount_paid} </span>
+                        <span className={`${amountColor}`}> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.amount_paid)} </span>
                         for <span className="bold">{record.transaction_description}</span>
 
                     </h3>

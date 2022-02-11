@@ -1,35 +1,8 @@
-@import url("https://use.typekit.net/kyk0anv.css"); /* proxima */
-
-@import url("https://use.typekit.net/yoq5jqy.css");
-@import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Bubblegum+Sans&family=Francois+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&family=Redressed&family=Satisfy&display=swap");
+@import url("https://use.typekit.net/kyk0anv.css");
 
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lexend+Deca&family=Mukta&display=swap");
 
-/*
-font-family: 'Oleo Script', cursive;
-font-family: 'Redressed', cursive;
-font-family: 'Satisfy', cursive;
 
-font-family: 'Boogaloo', cursive;
-font-family: 'Bubblegum Sans', cursive;
-font-family: 'Francois One', sans-serif;
-
-font-family: "utopia-std",serif;
-font-family: "abril-text",serif;
-font-family: "abril-fatface",serif;
-font-family: "utopia-std-headline",serif;
-font-family: "utopia-std-subhead",serif;
-font-family: "mixta-pro",serif;
-font-family: "mixta-didone",serif;
-
-
-font-family: 'ABeeZee', sans-serif;
-font-family: 'Lexend Deca', sans-serif;
-font-family: 'Mukta', sans-serif
-
-
-*/
 
 :root {
 	--base-font: proxima-nova, sans-serif;
@@ -59,7 +32,6 @@ html {
 	text-decoration: none;
 	list-style-type: none;
 	font-family: proxima-nova, sans-serif;
-	/* font-family: 'Mukta', sans-serif; */
 }
 
 body,
@@ -88,6 +60,12 @@ a:active {
 	color: inherit;
 	text-decoration: none;
 }
+
+
+*::-webkit-scrollbar {
+	display: none;
+  }
+
 
 .whole-page-container {
 	position: absolute;
@@ -146,6 +124,16 @@ a:active {
 	width: 100%;
 	min-width: fit-content;
 	display: flex;
+
+	overflow: hidden;
+}
+
+.form-friends-list-container {
+	max-height: 200px;
+	overflow-y: scroll;
+
+	padding-right: 17px;
+	box-sizing: content-box;
 }
 
 .form-element {

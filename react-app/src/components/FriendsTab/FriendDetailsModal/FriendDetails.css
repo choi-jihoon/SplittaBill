@@ -3,12 +3,6 @@
     padding: 40px;
 }
 
-.friend-details-container .close-modal {
-   position: absolute;
-   top: 5%;
-   right: 4%;
-}
-
 .friend-details-header {
     display: flex;
     align-items: center;
@@ -18,13 +12,11 @@
     margin-right: 20px;
 }
 
-.friend-transactions-container {
-    margin-top: 20px;
-}
 
 .friend-details-container h4 {
     margin-top: 25px;
-    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid gray;
 }
 
 
@@ -36,9 +28,9 @@
 .friend-detail-record .transaction-record-detail-container {
     margin: 0;
     padding: 0;
-    border-bottom: none;
-    max-width: 500px;
-    min-width: 300px;
+    /* border-bottom: none; */
+    /* max-width: 500px;
+    min-width: 300px; */
 }
 
 .friend-detail-record .transaction-record-detail-container .record-image-text{
@@ -46,7 +38,7 @@
     margin: 0 0;
     padding: 0;
 
-	border-top: 1px solid gray;
+	/* border-top: 1px solid gray; */
     border-bottom: none;
 	height: 100px;
     font-size: 14px;

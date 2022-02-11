@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
 import AddFriendFormModal from "../FriendsTab/AddFriendForm/AddFriendFormModal";
@@ -19,10 +20,12 @@ const SidePanel = ({ balance }) => {
 
 	return (
 		<div className="side-panel">
-			<div className="logo side-panel-logo">
-				<Logo />
-				<Duck />
-			</div>
+			<Link to="/">
+				<div className="logo side-panel-logo">
+					<Logo />
+					<Duck />
+				</div>
+			</Link>
 			<div className="pic-and-name-div">
 				<div className="profile-pic-div">
 					<img
@@ -35,7 +38,7 @@ const SidePanel = ({ balance }) => {
 				</div>
 				<div className="username-balance-div" >
 					<h3>{sessionUser.username}</h3>
-					<p>Balance: {balance >= 0 ? `$${balance}` : `-$${Math.abs(balance)}`} </p>
+					<p>Balance: {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balance)}</p>
 				</div>
 			</div>
 			<div id="add-bill-button-container">

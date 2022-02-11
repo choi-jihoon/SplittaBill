@@ -36,9 +36,7 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
 					{Number(balance) !== 0 ? (
 						<p>
 							Current Balance:{" "}
-							{balance > 0
-								? `$${balance}`
-								: `-$${Math.abs(balance)}`}
+							{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balance)}
 						</p>
 					) : (
 						<p>All settled up!</p>
