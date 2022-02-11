@@ -85,6 +85,7 @@ input#settle-up-input {
 	font-size: 40px;
 	width: 100%;
 	border-radius: 10px;
+	margin-bottom: 10px;
 
 	color: var(--jet-grey);
 }
@@ -99,7 +100,7 @@ input#settle-up-input {
 	border: var(--dark-green);
 	color: var(--main-container);
 	border-radius: 30px;
-	padding: 10px 0;
+	padding: 7px 0;
 	font-size: 15px;
 
 	width: 100%;
@@ -111,6 +112,8 @@ input#settle-up-input {
 	margin-bottom: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
+	font-weight: bolder;
+	font-size: 18px;
 }
 
 .settle-up-submit-btn:hover {
@@ -121,54 +124,59 @@ input#settle-up-input {
 #settle-up-cancel {
 	width: 100%;
 	background-color: var(--dark-blue);
+	color: white;
+	/* color: var(--dark-green); */
+	font-weight: bolder;
+	font-size: 18px;
 }
 .choice-btn {
 	width: 100%;
+	margin: 5px, 0;
+}
+.choice-btn.card-choice {
+	background: linear-gradient(
+		45deg,
+		#1d3461,
+		#00608e,
+		#008da3,
+		#00b89a,
+		#82dd80,
+		#f9f871
+	);
+	font-weight: bolder;
 }
 .payment-card {
-	/* padding: 0 40px; */
 	width: 100%;
-	/* transform: translateX(-100%); */
+	margin-top: 40px;
+	margin-bottom: 20px;
 }
 .payment-card-middle > div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* transform: translateX(-100%); */
 	width: 500px;
 }
 
 .payment-modal-container {
 	display: flex;
-	/* display: inline-block; */
-	/* display: inline-flex; */
 	justify-content: flex-start;
 	align-items: center;
-	width: 500px;
+	width: 550px;
 	margin: auto;
 }
 
 .payment-modal-container.show-card {
-	/* display: flex; */
-	/* justify-content: flex-end; */
-	/* align-items: center; */
 	width: 500px;
-	/* overflow-x: hidden; */
 	margin: auto;
-
-	/* transition: all 2s ease-in-out; */
 	animation: slide-in 0.5s linear;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
 .payment-modal-container.hide-card {
-
 	width: 500px;
 	margin: auto;
-
-	/* transition: all 2s ease-in-out; */
 	animation: slide-out 0.5s linear;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
@@ -182,7 +190,6 @@ input#settle-up-input {
 		transform: translateX(0%);
 	}
 }
-
 
 @keyframes slide-in {
 	/* 0% {
@@ -203,9 +210,19 @@ form#payment-form {
 form#payment-form > button {
 	width: 70%;
 	margin: 10px 15%;
-	background-color: var(--dark-green);
+	background: linear-gradient(
+		45deg,
+		#1d3461,
+		#00608e,
+		#008da3,
+		#00b89a,
+		#82dd80,
+		#f9f871
+	);
 	border: var(--dark-green);
-	color: var(--main-container);
+	color: white;
+	font-weight: bolder;
+	letter-spacing: 1px;
 	border-radius: 30px;
 	padding: 10px 0;
 	font-size: 15px;
@@ -217,6 +234,31 @@ form#payment-form > button:hover {
 }
 
 .payment-card-last > #back {
-	margin-left: 60px;
-	margin-bottom: 10px;
+	position: relative;
+	left: 10px;
+	top: -30px;
+}
+button#back {
+	border: none;
+	background-color: transparent;
+	font-size: 22px;
+	padding: 1px 7px;
+	border-radius: 8px;
+}
+button#back:hover {
+	color: var(--saffron-yellow);
+}
+button#back.clicked {
+	animation: spin-arrow 0.1s linear;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+
+@keyframes spin-arrow {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
 }

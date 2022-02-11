@@ -6,9 +6,19 @@ import {
 	useElements,
 } from "@stripe/react-stripe-js";
 
-import { addTransactionRecord, getUserBalance } from "../../../../../../../../store/bills";
+import {
+	addTransactionRecord,
+	getUserBalance,
+} from "../../../../../../../../store/bills";
 
-export default function CheckoutForm({ recipientId, expenseId, amount, userId, notify, showModal }) {
+export default function CheckoutForm({
+	recipientId,
+	expenseId,
+	amount,
+	userId,
+	notify,
+	showModal,
+}) {
 	const stripe = useStripe();
 	const elements = useElements();
 	const dispatch = useDispatch();
@@ -66,23 +76,17 @@ export default function CheckoutForm({ recipientId, expenseId, amount, userId, n
 			// 	// Make sure to change this to your payment completion page
 			// 	return_url: "http://localhost:3000/friends",
 			// },
-			redirect: 'if_required'
+			redirect: "if_required",
 		});
 
-		await dispatch(
-			addTransactionRecord(
-				recipientId,
-				expenseId,
-				amount
-			)
-		);
+		await dispatch(addTransactionRecord(recipientId, expenseId, amount));
 
 		await dispatch(getUserBalance(userId));
 
 		notify();
 		showModal(false);
 		setIsLoading(false);
-		return
+		return;
 
 		// This point will only be reached if there is an immediate error when
 		// confirming the payment. Otherwise, your customer will be redirected to
@@ -107,7 +111,7 @@ export default function CheckoutForm({ recipientId, expenseId, amount, userId, n
 					{isLoading ? (
 						<div className="spinner" id="spinner"></div>
 					) : (
-						"Pay now"
+						"Submit Payment"
 					)}
 				</span>
 			</button>

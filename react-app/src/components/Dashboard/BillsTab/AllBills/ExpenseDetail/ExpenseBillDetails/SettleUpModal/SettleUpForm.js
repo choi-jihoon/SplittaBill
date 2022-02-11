@@ -96,45 +96,28 @@ const SettleUpForm = ({ showModal, expense }) => {
 		if (showCard) {
 			document
 				.querySelector(".payment-modal-container")
-				.classList.remove("hide-card")
+				.classList.remove("hide-card");
 			document
 				.querySelector(".payment-modal-container")
-				.classList.add("show-card")
+				.classList.add("show-card");
+			document.getElementById("back").classList.remove("clicked");
 		} else {
 			document
 				.querySelector(".payment-modal-container")
-				.classList.remove("show-card")
-			// document
-			// 	.querySelector(".payment-modal-container")
-			// 	.classList.add("hide-card");
+				.classList.remove("show-card");
 			setShowCard(false);
 		}
 	}, [showCard]);
 
 	const backToCash = (e) => {
 		e.preventDefault();
-		// document
-		// .querySelector(".payment-modal-container")
-		// .classList.remove("show-card")
+
 		document
-		.querySelector(".payment-modal-container")
-		.classList.add("hide-card");
-		setShowCard(false)
-	}
-
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		if (showStripe) {
-	// 			document.querySelector(".payment-modal-container").classList.add("show-stripe")
-
-	// 		} else {
-	// 			document
-	// 			.querySelector(".payment-modal-container")
-	// 			.classList.remove("show-stripe");
-	// 			setShowStripe(false);
-	// 		}
-	// 	}, 2000)
-	// }, [showStripe])
+			.querySelector(".payment-modal-container")
+			.classList.add("hide-card");
+		document.getElementById("back").classList.add("clicked");
+		setShowCard(false);
+	};
 
 	const updateAmountPaid = (e) => {
 		setAmountPaid(e.target.value);
@@ -149,125 +132,93 @@ const SettleUpForm = ({ showModal, expense }) => {
 		e.preventDefault();
 		setShowCard(true);
 	};
-	// const handleShowCash = (e) => {
-	// 	e.preventDefault();
-	// 	setShowCash(true);
-	// };
-
-	// const handleShowStripe = (e) => {
-	// 	e.preventDefault();
-	// 	setShowStripe(true);
-	// };
 
 	return (
-		<div className="payment-modal-container">
-			<div className="payment-card payment-card-first">
-				<h2 style={{ textAlign: "center" }}>
-					Pay {expense.bill.owner_name}
-				</h2>
-				<form
-					className="settle-up-form-container"
-					onSubmit={handleSubmit}
-				>
-					<button
-						className="close-modal"
-						onClick={() => showModal(false)}
+		<>
+			<h2 style={{ textAlign: "center", position: "absolute", top: 30 }}>
+				Pay {expense.bill.owner_name}
+			</h2>
+			<div className="payment-modal-container">
+				<div className="payment-card payment-card-first">
+					<form
+						className="settle-up-form-container"
+						onSubmit={handleSubmit}
 					>
-						<i className="fas fa-minus"></i>
-					</button>
-					<div className="duck-gif-container"></div>
-					<div className="dollar-sign-and-input settle-up-input-container">
-						<div className="payment-input-container">
-							<label
-								htmlFor="amount_paid"
-								className="dollar-sign settle-up-dollar-sign"
-							>
-								$
-							</label>
-							<input
-								name="amount_paid"
-								type="number"
-								step="0.01"
-								placeholder="0"
-								value={amount_paid}
-								onChange={updateAmountPaid}
-								id="settle-up-input"
-							/>
-							<div className="errors-container">
-								{errors.amount_paid
-									? `${errors.amount_paid}`
-									: ""}
+						<button
+							className="close-modal"
+							onClick={() => showModal(false)}
+						>
+							<i className="fas fa-minus"></i>
+						</button>
+						<div className="duck-gif-container"></div>
+						<div className="dollar-sign-and-input settle-up-input-container">
+							<div className="payment-input-container">
+								<label
+									htmlFor="amount_paid"
+									className="dollar-sign settle-up-dollar-sign"
+								>
+									$
+								</label>
+								<input
+									name="amount_paid"
+									type="number"
+									step="0.01"
+									placeholder="0"
+									value={amount_paid}
+									onChange={updateAmountPaid}
+									id="settle-up-input"
+								/>
+								<div className="errors-container">
+									{errors.amount_paid
+										? `${errors.amount_paid}`
+										: ""}
+								</div>
+							</div>
+							<div className="su-btn-container">
+								<button
+									className="settle-up-submit-btn choice-btn"
+									type="submit"
+								>
+									<p className="testing-ellipses">{`Cash Payment`}</p>
+								</button>
+								<button
+									className="settle-up-submit-btn choice-btn card-choice"
+									onClick={handleShowCard}
+								>
+									Pay with Card
+								</button>
+								<button
+									onClick={handleCancel}
+									className="form-cancel-btn"
+									id="settle-up-cancel"
+								>
+									Cancel
+								</button>
 							</div>
 						</div>
-						<div className="su-btn-container">
-							<button
-								className="settle-up-submit-btn"
-								type="submit"
-							>
-								<p className="testing-ellipses">{`Pay with cash`}</p>
-							</button>
-
-							{/* <button
-							className="settle-up-submit-btn"
-							onClick={handleShowCheckout}
-                            >
-							<p className="">{`Pay by Card`}</p>
-						</button> */}
-							<button
-								className="settle-up-submit-btn choice-btn"
-								onClick={handleShowCard}
-							>
-								Pay with card
-							</button>
-							<button
-								onClick={handleCancel}
-								className="form-cancel-btn"
-								id="settle-up-cancel"
-							>
-								Cancel
-							</button>
-						</div>
+					</form>
+				</div>
+				<div className="payment-card payment-card-last">
+					<button id="back" onClick={backToCash}>
+						<i className="fas fa-arrow-left"></i>
+					</button>
+					<div>
+						{clientSecret && (
+							<Elements options={options} stripe={stripePromise}>
+								<CheckoutForm
+									recipientId={expense.bill.owner_id}
+									expenseId={expense.id}
+									amount={amount_paid}
+									userId={sessionUser.id}
+									notify={notify}
+									showModal={showModal}
+								/>
+							</Elements>
+						)}
 					</div>
-				</form>
-			</div>
-			{/* <div className="payment-card payment-card-middle">
-				<div>
-					<button
-						className="settle-up-submit-btn choice-btn"
-						onClick={handleShowCash}
-					>
-						Pay with cash
-					</button>
-					<button
-						className="settle-up-submit-btn choice-btn"
-						onClick={handleShowCard}
-					>
-						Pay with card
-					</button>
-				</div>
-			</div> */}
-			<div className="payment-card payment-card-last">
-				<button
-					id="back"
-				// 	onClick={
-				// 		(e) => {
-				// 		e.preventDefault();
-				// 		return setShowCard(false);
-				// 	}
-				// }
-				onClick={backToCash}
-				>
-					<i className="fas fa-arrow-left"></i>
-				</button>
-				<div>
-					{clientSecret && (
-						<Elements options={options} stripe={stripePromise}>
-							<CheckoutForm recipientId={expense.bill.owner_id} expenseId={expense.id} amount={amount_paid} userId={sessionUser.id} notify={notify} showModal={showModal} />
-						</Elements>
-					)}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
