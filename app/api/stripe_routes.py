@@ -4,7 +4,7 @@ import json
 import os
 import stripe
 
-stripe.api_key = 'sk_test_51KRnp0AiyFrcDvqiTv0CZaJAsqv1eOQQdUr8POQp9BIQ7nGT6ZMfZTY5VUPUkU6PLvYF90Y2bGVoXcTkGlKvMKhA006GkNCSCv'
+stripe.api_key = os.environ.get("STRIPE_SECRET")
 
 stripe_routes = Blueprint('stripe', __name__)
 
