@@ -37,11 +37,7 @@ const EditUser = ({ showModal, user }) => {
 			</div>
 			{!image && (
 				<img
-					src={
-						sessionUser.image
-							? sessionUser.image
-							: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png"
-					}
+					src={sessionUser.image}
 					alt="test"
 					style={{
 						width: 100,

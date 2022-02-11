@@ -6,7 +6,6 @@ import "./Friend.css";
 
 const Friend = ({id, friendId, image, username, balance}) => {
 	const [showModal, setShowModal] = useState(false);
-	image = image ? image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
 
 	const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balance)
 

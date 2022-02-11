@@ -7,7 +7,7 @@ import BillDetails from "./BillDetailsModal/BillDetails";
 const Bill = ({ bill }) => {
 	const [showModal, setShowModal] = useState(false);
 
-	const image = bill.owner_image ? bill.owner_image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
+	const image = bill.owner_image;
 
 	return (
 		<>

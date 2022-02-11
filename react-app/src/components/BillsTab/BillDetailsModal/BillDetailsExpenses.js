@@ -9,7 +9,7 @@ const BillDetailsExpenses = ({ expense }) => {
 
     const sessionUser = useSelector(state => state.session.user);
 
-    const image = expense.payer_image ? expense.payer_image : "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
+    const image = expense.payer_image;
 
     const amount_paid = (expense.initial_charge - expense.amount_due);
 

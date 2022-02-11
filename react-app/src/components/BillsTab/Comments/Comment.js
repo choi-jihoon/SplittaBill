@@ -11,12 +11,7 @@ const Comment = ({ comment }) => {
 	// useSelector((state) => state.friends.byId);
 
 
-	let image;
-
-	if (comment.user_image) image = comment.user_image;
-	else image = "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
-
-	image = comment.user_image;
+	const image = comment.user_image;
 
 	useEffect(() => {
 		dispatch(getUsersFriends());

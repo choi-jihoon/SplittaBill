@@ -10,9 +10,7 @@ const ExpenseDetail = ({ expense }) => {
 
 	const sessionUser = useSelector((state) => state.session.user);
 
-	const image = expense.bill.owner_image
-		? expense.bill.owner_image
-		: "https://splitabill.s3.us-east-2.amazonaws.com/f395dfcdb332496bb5700cc328339e5d.png";
+	const image = expense.bill.owner_image;
 
 	return (
 		<div className="bill-container-and-buttons">
