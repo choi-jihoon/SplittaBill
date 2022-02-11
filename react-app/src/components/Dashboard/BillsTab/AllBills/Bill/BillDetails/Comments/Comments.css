@@ -186,12 +186,3 @@ button#delete-comment {
 	color: var(--dark-blue);
 	transition: all 0.2s ease-in-out;
 }
-
-/* .add-comment-button:disabled {
-	opacity: 50%;
-}
-
-.add-comment-button:disabled:hover {
-	cursor: not-allowed;
-	transform: none;
-} */

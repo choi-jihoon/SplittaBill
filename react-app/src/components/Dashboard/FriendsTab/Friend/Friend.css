@@ -21,12 +21,12 @@
 }
 
 #remove-friend {
-	opacity: 0;
+	visibility: hidden;
 	transition: all 0.2s ease-in-out;
 }
 
 .friend-container:hover #remove-friend {
-	opacity: 100%;
+	visibility: visible;
 }
 
 .friend-container span {
