@@ -221,7 +221,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 				<div>
 					{clientSecret && (
 						<Elements options={options} stripe={stripePromise}>
-							<CheckoutForm />
+							<CheckoutForm recipientId={expense.bill.owner_id} expenseId={expense.id} amount={amount_paid} userId={sessionUser.id} notify={notify} showModal={showModal} />
 						</Elements>
 					)}
 				</div>
