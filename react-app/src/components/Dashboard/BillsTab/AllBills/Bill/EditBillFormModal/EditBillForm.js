@@ -41,6 +41,7 @@ const EditBillForm = ({ showModal, bill }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const friendsString = friends.join(", ");
+		console.log(friendsString)
 		const data = await dispatch(
 			editBill(
 				bill.id,
@@ -103,7 +104,7 @@ const EditBillForm = ({ showModal, bill }) => {
 			currFriends.push(e.target.value);
 		else if (currFriends.includes(e.target.value))
 			currFriends.splice(currFriends.indexOf(e.target.value), 1);
-		setFriends((prev) => (prev = currFriends));
+		setFriends((prev) => (prev = currFriends.slice()));
 	};
 
 	return (

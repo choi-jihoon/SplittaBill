@@ -44,9 +44,9 @@ def seed_bills():
     expense32 = Expense(payer_id=2, bill_id=3, initial_charge=21)
 
     friend31 = Friend.query.get(4)
-    friend31.balance = 21
+    friend31.balance = -4
     friend13 = Friend.query.get(3)
-    friend13.balance = -21
+    friend13.balance = 4
 
     friend32 = Friend.query.get(12)
     friend32.balance = 21
