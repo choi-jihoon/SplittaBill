@@ -79,14 +79,19 @@ export default function CheckoutForm({
 			redirect: "if_required",
 		});
 
-		await dispatch(addTransactionRecord(recipientId, expenseId, amount));
+		if (!error) {
+			await dispatch(addTransactionRecord(recipientId, expenseId, amount));
 
-		await dispatch(getUserBalance(userId));
+			await dispatch(getUserBalance(userId));
 
-		notify();
-		showModal(false);
+			notify();
+			showModal(false);
+			setIsLoading(false);
+			return;
+		}
+
 		setIsLoading(false);
-		return;
+
 
 		// This point will only be reached if there is an immediate error when
 		// confirming the payment. Otherwise, your customer will be redirected to
