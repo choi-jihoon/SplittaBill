@@ -6,8 +6,6 @@ import { removeFriend } from "../../../../store/friends";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import './DeleteFriendForm.css'
-
 
 function DeleteFriendForm({ showModal, id }) {
     const dispatch = useDispatch();
@@ -19,6 +17,7 @@ function DeleteFriendForm({ showModal, id }) {
                 autoClose: 2000
             })
     }
+
     const handleSubmit = async (e) => {
 		e.preventDefault();
         e.stopPropagation();

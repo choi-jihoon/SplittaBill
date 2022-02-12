@@ -14,58 +14,6 @@
 	cursor: default;
 }
 
-/* .edit-image-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
-}
-.edit-image-form > form {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: auto;
-}
-
-.edit-image-form > form > input[type="file"] {
-	display: none;
-}
-.edit-image-form > form > label {
-	width: 200px;
-	height: 30px;
-	text-align: center;
-	color: var(--main-container);
-	background-color: var(--dark-blue);
-	border-radius: 7px;
-	padding: 2px 4px;
-	margin: 10px;
-}
-.edit-image-form > form > label:hover {
-	background-color: #fff;
-	color: #000;
-	cursor: pointer;
-	border: 1px solid #000;
-}
-.edit-image-form > form > button {
-	width: 200px;
-	height: 30px;
-	margin: 10px;
-	color: var(--main-container);
-	background-color: var(--dark-blue);
-	border: none;
-	border-radius: 7px;
-	font-size: 16px;
-}
-
-.edit-image-form > form > button:hover {
-	background-color: #fff;
-	color: #000;
-	cursor: pointer;
-	border: 1px solid #000;
-} */
-
 .side-panel-buttons {
 	align-self: center;
 	height: 500px;
@@ -74,6 +22,7 @@
 	justify-content: space-around;
 	align-items: center;
 }
+
 .side-panel {
 	display: flex;
 	flex-direction: column;
@@ -83,6 +32,7 @@
 	color: var(--side-panel-font-color);
 	background-color: var(--side-panel);
 }
+
 .edit-image-form {
 	display: flex;
 	flex-direction: column;
@@ -90,6 +40,7 @@
 	justify-content: center;
 	padding: 30px;
 }
+
 .edit-image-form > form {
 	display: flex;
 	flex-direction: column;
@@ -101,6 +52,7 @@
 .edit-image-form > form > input[type="file"] {
 	display: none;
 }
+
 .edit-image-form > form > label {
 	width: 200px;
 	height: 30px;
@@ -110,17 +62,14 @@
 	border-radius: 25px;
 	padding: 2px 4px;
 	margin-top: 20px;
-
 	transition: all 0.2s ease-in-out;
 }
+
 .edit-image-form > form > label:hover {
-	/* background-color: #fff;
-	color: #000;
-	cursor: pointer;
-	border: 1px solid #000; */
 	transform: scale(1.1);
 	cursor: pointer;
 }
+
 .edit-image-form > form > button {
 	width: 200px;
 	height: 30px;
@@ -131,15 +80,10 @@
 	border-radius: 25px;
 	font-size: 16px;
 	font-weight: bold;
-
 	transition: all 0.2s ease-in-out;
 }
 
 .edit-image-form > form > button:hover {
-	/* background-color: #fff;
-	color: #000;
-	cursor: pointer;
-	border: 1px solid #000; */
 	transform: scale(1.1);
 	cursor: pointer;
 }
@@ -160,6 +104,7 @@
 	justify-content: center;
 	align-items: center;
 }
+
 .profile-pic-div:hover .edit-user-pic-btn {
 	display: block;
 	cursor: pointer;
@@ -214,7 +159,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	/* margin: 10px 0; */
 	padding: 0 10px;
 }
 

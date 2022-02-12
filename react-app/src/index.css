@@ -6,11 +6,10 @@
 
 :root {
 	--base-font: proxima-nova, sans-serif;
-	/* --base-font: mixta-pro, serif; */
+	--brand-font: "Mukta", sans-serif;
 	--side-panel: #1d3461;
 	--side-panel-font-color: #ebebd3;
 	--main-container: #ebebd3;
-	/* --splittabill-yellow: #eac33556; */
 	--transparent-hover: #3c3c3b16;
 	--red-salsa: #fb3640;
 	--dark-green: #1c6200;
@@ -19,8 +18,6 @@
 	--saffron-yellow: #eac435;
 	--nav-yellow: 234, 196, 53;
 	--jet-grey: hsl(60, 1%, 23%);
-
-	--brand-font: "Mukta", sans-serif;
 }
 
 *,
@@ -61,7 +58,6 @@ a:active {
 	color: inherit;
 	text-decoration: none;
 }
-
 
 *::-webkit-scrollbar {
 	display: none;
@@ -186,8 +182,6 @@ div.form-friends-list-container {
 	align-items: center;
 	margin-bottom: 5px;
 	padding-left: 10px;
-
-
 }
 
 .friend-name-checkbox-container:hover {
@@ -216,7 +210,6 @@ div.form-friends-list-container {
 }
 
 .bill-btn-container {
-	/* width: 170px; */
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;

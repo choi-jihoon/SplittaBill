@@ -12,13 +12,11 @@
     margin-right: 20px;
 }
 
-
 .friend-details-container h4 {
     margin-top: 25px;
     padding-bottom: 25px;
     border-bottom: 1px solid gray;
 }
-
 
 .friend-detail-record .record-date {
 	margin: auto ;
@@ -28,17 +26,12 @@
 .friend-detail-record .transaction-record-detail-container {
     margin: 0;
     padding: 0;
-    /* border-bottom: none; */
-    /* max-width: 500px;
-    min-width: 300px; */
 }
 
 .friend-detail-record .transaction-record-detail-container .record-image-text{
     min-width: 650px;
     margin: 0 0;
     padding: 0;
-
-	/* border-top: 1px solid gray; */
     border-bottom: none;
 	height: 100px;
     font-size: 14px;

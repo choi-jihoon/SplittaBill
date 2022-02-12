@@ -1,6 +1,4 @@
 .error-page-container {
-	/* background: linear-gradient(var(--main-container), var(--dark-blue)); */
-	/* background: var(--main-container); */
 	background-color: var(--dark-blue);
 	background-image: url("../../assets/white-geo.svg");
 	background-size: 105px 100px;
@@ -29,6 +27,7 @@ h2.error-code {
 	text-align: left;
 	padding: 0 80px;
 }
+
 h2.error-message,
 h3.error-message {
 	color: var(--dark-blue);
@@ -46,6 +45,7 @@ a > h2.home-link {
 	border-radius: 40px;
 	transition: all 0.2s ease-in-out;
 }
+
 a > h2.home-link:hover {
 	transform: scale(1.1);
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);

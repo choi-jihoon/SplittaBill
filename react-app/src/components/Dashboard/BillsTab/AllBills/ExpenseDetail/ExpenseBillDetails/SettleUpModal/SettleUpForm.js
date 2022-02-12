@@ -27,7 +27,6 @@ const SettleUpForm = ({ showModal, expense }) => {
 	const [errors, setErrors] = useState({});
 	const [amount_paid, setAmountPaid] = useState(expense.amount_due);
 	const [showCard, setShowCard] = useState(false);
-	const [showCash, setShowCash] = useState(false);
 	const [clientSecret, setClientSecret] = useState("");
 
 	const appearance = {
@@ -47,7 +46,7 @@ const SettleUpForm = ({ showModal, expense }) => {
 		})
 			.then((res) => res.json())
 			.then((data) => setClientSecret(data.clientSecret));
-	}, []);
+	}, [amount_paid]);
 
 	const notify = () => {
 		toast.success(`You paid $${amount_paid}!`, {

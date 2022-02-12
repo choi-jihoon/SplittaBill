@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUserImage } from "../../../../store/session";
 import { getBills } from "../../../../store/bills";
 
-import "./EditUser.css";
 
 const EditUser = ({ showModal, user }) => {
 	const dispatch = useDispatch();

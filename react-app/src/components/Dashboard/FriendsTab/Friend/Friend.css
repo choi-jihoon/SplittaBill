@@ -1,7 +1,6 @@
 .friend-container {
 	width: 100%;
 	padding: 40px;
-	/* padding-left: 19%; */
 	margin: 0 auto;
 	position: relative;
 	display: flex;
@@ -21,13 +20,11 @@
 }
 
 #remove-friend {
-	/* visibility: hidden; */
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
 }
 
 .friend-container:hover #remove-friend {
-	/* visibility: visible; */
 	opacity: 1;
 }
 

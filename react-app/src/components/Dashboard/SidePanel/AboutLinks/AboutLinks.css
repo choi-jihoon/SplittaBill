@@ -5,7 +5,6 @@
     margin-top: 35%;
     padding: 0 5px;
     border-top: 1px solid gray;
-
     cursor: default;
 }
 
@@ -21,13 +20,11 @@
     object-fit: cover;
 }
 
-
 .side-panel-about-profile {
     display: flex;
     align-items: center;
     padding-bottom: 15px;
 }
-
 
 .side-panel-about-profile .links {
     display: flex;
@@ -49,5 +46,4 @@
 
 .side-panel-about-profile .links a i:hover {
     color: var(--saffron-yellow);
-    /* border-bottom: 1px solid var(--side-panel-font-color); */
 }
