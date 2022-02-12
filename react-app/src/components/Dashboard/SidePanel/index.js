@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { formatToUSD } from "../../../utils/formatToUSD";
 import LogoutButton from "../../auth/LogoutButton";
 import AddFriendFormModal from "../FriendsTab/AddFriendForm/AddFriendFormModal";
 import AddBillFormModal from "../BillsTab/AllBills/AddBillFormModal";
@@ -37,7 +38,7 @@ const SidePanel = ({ balance }) => {
 				</div>
 				<div className="username-balance-div" >
 					<h3>{sessionUser.username}</h3>
-					<p>Balance: {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balance)}</p>
+					<p>Balance: {formatToUSD(balance)}</p>
 				</div>
 			</div>
 			<div id="add-bill-button-container">

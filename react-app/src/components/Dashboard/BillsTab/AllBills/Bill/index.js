@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "../../../../../context/Modal";
+import { formatToUSD } from "../../../../../utils/formatToUSD";
 import EditBillFormModal from "./EditBillFormModal";
 import DeleteBillModal from "./DeleteBillModal";
 import BillDetails from "./BillDetails";
@@ -35,7 +36,7 @@ const Bill = ({ bill }) => {
 						</h2>
 					</div>
 					<div className='bill-total-amount brand-font positive-payment'>
-						{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(bill.total_amount)}
+						{formatToUSD(bill.total_amount)}
 					</div>
 				</div>
 

@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { formatToUSD } from "../../../../../utils/formatToUSD";
+
 const TransactionRecordDetail = ({ record }) => {
     const location = useLocation();
 
@@ -38,7 +40,7 @@ const TransactionRecordDetail = ({ record }) => {
                         <div className='record-text'>
                             <h3 className="testing-ellipses">
                                 <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
-                                <span className={`${amountColor}`}> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.amount_paid)} </span>
+                                <span className={`${amountColor}`}> {formatToUSD(record.amount_paid)} </span>
                                 for <span className="bold">{record.transaction_description}</span>
 
                             </h3>
@@ -58,7 +60,7 @@ const TransactionRecordDetail = ({ record }) => {
                     <div className='tb-record-text'>
                         <h3 className='testing-ellipses' id='tb-text'>
                             <span className={payer !== "You" ? "bold" : ""}>{payer}</span> paid <span className={recipient !== "you" ? "bold" : ""}>{recipient}</span>
-                            <span className={`${amountColor}`}> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.amount_paid)} </span>
+                            <span className={`${amountColor}`}> {formatToUSD(record.amount_paid)} </span>
                             for <span className="bold">{record.transaction_description}</span>
                         </h3>
                     </div>

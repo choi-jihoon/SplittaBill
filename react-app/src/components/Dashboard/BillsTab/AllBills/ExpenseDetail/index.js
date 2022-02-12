@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 import { Modal } from "../../../../../context/Modal";
+import { formatToUSD } from "../../../../../utils/formatToUSD";
 import ExpenseBillDetails from "./ExpenseBillDetails";
 import SettleUpModal from "./ExpenseBillDetails/SettleUpModal";
 
@@ -30,7 +31,6 @@ const ExpenseDetail = ({ expense }) => {
 						<span className="invoice-icon">
 							<i className="fas fa-receipt"></i>
 						</span>
-						{/* {expense.bill.description} Expense */}
 						<p className="testing-ellipses">
 							{expense.bill.description}
 						</p>
@@ -52,7 +52,7 @@ const ExpenseDetail = ({ expense }) => {
 				>
 					{expense.settled
 						? "All Settled Up!"
-						: `-${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(expense.amount_due)}`}
+						: `-${formatToUSD(expense.amount_due)}`}
 				</div>
 			</div>
 			<div className="settle-up-container">

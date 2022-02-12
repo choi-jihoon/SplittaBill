@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 
+
 import SettleUpModal from '../../SettleUpModal';
+import { formatToUSD } from '../../../../../../../../utils/formatToUSD.js';
 
 import "./BillDetailsExpenses.css";
 
@@ -32,7 +34,7 @@ const BillDetailsExpenses = ({ expense }) => {
                 </div>
                 <div className='bde-payment-settled-info'>
                     <div className={expense.settled ? 'bde-paid-text' : 'bde-paid-text bde-not-paid'}>
-                        paid {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount_paid)} out of {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(expense.initial_charge)}
+                        paid {formatToUSD(amount_paid)} out of {formatToUSD(expense.initial_charge)}
                     </div>
                     <div className='bde-settled-true-or-false'>
                         {expense.settled ? <i className="fas fa-check bde-settled-true"></i> : <i className="fas fa-times bde-settled-false"></i>}

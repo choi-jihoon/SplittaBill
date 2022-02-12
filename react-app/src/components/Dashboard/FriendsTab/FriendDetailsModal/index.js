@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import TransactionRecordDetail from "../../HistoryTab/TransactionRecords/TransactionRecordDetail";
+
 import { getTransactionsForFriend } from "../../../../store/bills";
+import { formatToUSD } from "../../../../utils/formatToUSD";
+import TransactionRecordDetail from "../../HistoryTab/TransactionRecords/TransactionRecordDetail";
+
 import "./FriendDetails.css";
 
 const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
@@ -36,7 +39,7 @@ const FriendDetails = ({ showModal, friendId, username, balance, image }) => {
 					{Number(balance) !== 0 ? (
 						<p>
 							Current Balance:{" "}
-							{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balance)}
+							{ formatToUSD(balance) }
 						</p>
 					) : (
 						<p>All settled up!</p>

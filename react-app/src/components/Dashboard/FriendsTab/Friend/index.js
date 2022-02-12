@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { formatToUSD } from "../../../../utils/formatToUSD";
 import { Modal } from "../../../../context/Modal";
 import FriendDetails from '../FriendDetailsModal/';
 import DeleteFriendModal from '../DeleteFriendModal';
@@ -9,7 +10,7 @@ import "./Friend.css";
 const Friend = ({id, friendId, image, username, balance}) => {
 	const [showModal, setShowModal] = useState(false);
 
-	const formattedBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balance)
+	const formattedBalance = formatToUSD(balance)
 
 	return (
 		<>

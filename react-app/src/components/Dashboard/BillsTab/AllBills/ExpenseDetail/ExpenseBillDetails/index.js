@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 
+import { formatToUSD } from "../../../../../../utils/formatToUSD";
 import ExpensesForBill from "./ExpensesForBill";
 import Comments from "../../Bill/BillDetails/Comments";
 
@@ -32,7 +33,7 @@ const ExpenseBillDetails = ({ expense, showModal }) => {
                         </h2>
                     </div>
                 </div>
-                <div className='bd-total-amount brand-font'>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(bill.total_amount)}</div>
+                <div className='bd-total-amount brand-font'>{formatToUSD(bill.total_amount)}</div>
             </div>
             <div className="bd-bill-deadline">
                 <i className="fas fa-calendar-alt"></i>
