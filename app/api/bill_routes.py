@@ -137,7 +137,6 @@ def editBill(billId):
     curr_user_id = current_user.get_id()
 
     if form.validate_on_submit():
-        print("*****************FRIENDS LIST", friends_list)
         data = {}
         bill = Bill.query.get(int(billId))
 
