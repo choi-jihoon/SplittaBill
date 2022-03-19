@@ -108,5 +108,23 @@ Trying to access a path that does not exist will render a 404 Page component.
 
 ![Page Not Found](./images/pagenotfound.JPG)
 
+# Editing a Bill Code Snippet
+When editing a bill if a friend was removed from the bill, the associated expense also needed to be removed from the database.  Here we have a complex SQLAlchemy query to filter for the expenses to remove and update the corresponding balances between friends.
+```
+if len(all_friend_ids) > 0:
+    expense_to_remove = Expense.query.filter(Expense.bill_id == bill.id, ~Expense.payer_id.in_(all_friend_ids)).all()
+    for expense in expense_to_remove:
+	if bill.owner_id != expense.payer_id:
+	    friend1 = Friend.query.filter(Friend.user_id == bill.owner_id, Friend.friend_id == expense.payer_id).first()
+	    friend2 = Friend.query.filter(Friend.user_id == expense.payer_id, Friend.friend_id == bill.owner_id).first()
+
+	    friend1.balance -= Decimal(expense.initial_charge)
+	    friend2.balance += Decimal(expense.initial_charge)
+	    db.session.delete(expense)
+	    db.session.commit()
+```
+
 # Database Schema
 ![Database Schema](./images/splittabilldbschema.JPG)
+
+
